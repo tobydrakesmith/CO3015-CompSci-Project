@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
+        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_register.xml",
+        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/layout/activity_register.xml"
+    }
+]

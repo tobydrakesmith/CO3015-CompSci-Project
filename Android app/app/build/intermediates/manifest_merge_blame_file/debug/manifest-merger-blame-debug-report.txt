@@ -1,0 +1,165 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.theatreticketsapp"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="28"
+8-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:5:5-67
+11-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:5:22-64
+12
+13    <!-- Include required permissions for Google Maps API to run. -->
+14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+14-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:23:5-79
+14-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:23:22-76
+15
+16    <uses-feature
+16-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:26:5-28:35
+17        android:glEsVersion="0x00020000"
+17-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:27:9-41
+18        android:required="true" />
+18-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:28:9-32
+19
+20    <application
+20-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:7:5-55:19
+21        android:allowBackup="true"
+21-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:8:9-35
+22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+22-->[androidx.core:core:1.1.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/e9dab9c67c1ee3668e0bbf86c6d8cbd8/core-1.1.0/AndroidManifest.xml:24:18-86
+23        android:debuggable="true"
+24        android:icon="@mipmap/ic_launcher"
+24-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:9:9-43
+25        android:label="@string/app_name"
+25-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:10:9-41
+26        android:roundIcon="@mipmap/ic_launcher_round"
+26-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:11:9-54
+27        android:supportsRtl="true"
+27-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:12:9-35
+28        android:theme="@style/AppTheme"
+28-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:13:9-40
+29        android:usesCleartextTraffic="true" >
+29-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:14:9-44
+30        <activity
+30-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:15:9-17:60
+31            android:name="com.example.theatreticketsapp.MyBasket"
+31-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:16:13-37
+32            android:label="@string/title_activity_basket" />
+32-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:17:13-58
+33        <activity
+33-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:18:9-20:59
+34            android:name="com.example.theatreticketsapp.Homepage"
+34-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:19:13-37
+35            android:theme="@style/AppTheme.NoActionBar" />
+35-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:20:13-56
+36        <activity
+36-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:22:9-23:58
+37            android:name="com.example.theatreticketsapp.ChooseTickets"
+37-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:22:19-48
+38            android:theme="@style/AppTheme.NoActionBar" />
+38-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:23:13-56
+39        <activity
+39-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:24:9-25:58
+40            android:name="com.example.theatreticketsapp.BookShow"
+40-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:24:19-43
+41            android:theme="@style/AppTheme.NoActionBar" />
+41-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:25:13-56
+42
+43        <meta-data
+43-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:27:9-29:60
+44            android:name="com.google.android.actions"
+44-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:28:13-54
+45            android:resource="@transition/slide_in_down" />
+45-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:29:13-57
+46
+47        <activity
+47-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:31:9-34:58
+48            android:name="com.example.theatreticketsapp.MyAccount"
+48-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:32:13-38
+49            android:label="My Account"
+49-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:33:13-39
+50            android:theme="@style/AppTheme.NoActionBar" />
+50-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:34:13-56
+51        <activity
+51-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:35:9-38:58
+52            android:name="com.example.theatreticketsapp.MyBookings"
+52-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:36:13-39
+53            android:label="My Bookings"
+53-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:37:13-40
+54            android:theme="@style/AppTheme.NoActionBar" />
+54-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:38:13-56
+55        <activity
+55-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:39:9-42:58
+56            android:name="com.example.theatreticketsapp.Explore"
+56-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:40:13-36
+57            android:label="Explore"
+57-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:41:13-36
+58            android:theme="@style/AppTheme.NoActionBar" />
+58-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:42:13-56
+59        <activity
+59-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:43:9-46:59
+60            android:name="com.example.theatreticketsapp.SelectedShow"
+60-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:44:13-41
+61            android:label="@string/title_activity_selected_show"
+61-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:45:13-65
+62            android:theme="@style/AppTheme.NoActionBar" />
+62-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:46:13-56
+63        <activity android:name="com.example.theatreticketsapp.Register" />
+63-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:47:9-46
+63-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:47:19-43
+64        <activity android:name="com.example.theatreticketsapp.MainActivity" >
+64-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:48:9-54:20
+64-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:48:19-47
+65            <intent-filter>
+65-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:49:13-53:29
+66                <action android:name="android.intent.action.MAIN" />
+66-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:50:17-69
+66-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:50:25-66
+67
+68                <category android:name="android.intent.category.LAUNCHER" />
+68-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:52:17-77
+68-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:52:27-74
+69            </intent-filter>
+70        </activity>
+71        <!-- Needs to be explicitly declared on P+ -->
+72        <uses-library
+72-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+73            android:name="org.apache.http.legacy"
+73-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
+74            android:required="false" />
+74-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+75
+76        <activity
+76-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+77            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+77-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+78            android:exported="false"
+78-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+79            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+79-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+80
+81        <meta-data
+81-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a566b10ca8af40beee0e2d400092bb2b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+82            android:name="com.google.android.gms.version"
+82-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a566b10ca8af40beee0e2d400092bb2b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+83            android:value="@integer/google_play_services_version" />
+83-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a566b10ca8af40beee0e2d400092bb2b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+84
+85        <provider
+85-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6fbf654d3db04d7d9e48eb73ccf59f45/lifecycle-process-2.0.0/AndroidManifest.xml:23:9-27:43
+86            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+86-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6fbf654d3db04d7d9e48eb73ccf59f45/lifecycle-process-2.0.0/AndroidManifest.xml:24:13-79
+87            android:authorities="com.example.theatreticketsapp.lifecycle-process"
+87-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6fbf654d3db04d7d9e48eb73ccf59f45/lifecycle-process-2.0.0/AndroidManifest.xml:25:13-69
+88            android:exported="false"
+88-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6fbf654d3db04d7d9e48eb73ccf59f45/lifecycle-process-2.0.0/AndroidManifest.xml:26:13-37
+89            android:multiprocess="true" />
+89-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6fbf654d3db04d7d9e48eb73ccf59f45/lifecycle-process-2.0.0/AndroidManifest.xml:27:13-40
+90    </application>
+91
+92</manifest>

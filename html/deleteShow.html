@@ -1,0 +1,38 @@
+<?php
+
+        include_once dirname(__FILE__) . '/constants.php';
+
+        $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME) or die ('Cannot connect to db');
+
+        $result = $con->query("SELECT showName FROM shows ");
+
+        echo "<html>";
+        echo "<body>";
+        echo "<select name='show_name'>";
+        while ($row = $result->fetch_assoc()) {
+                $showName = $row['showName'];
+                echo '<option value="'.$showName.'">'.$showName.'</option>';
+        }
+
+        echo "</select>";
+        echo "</body>";
+        echo "</html>";
+?>
+
+<!DOCTYPE html>
+<html>
+<head><title>Delete show</title></show>
+
+
+<body>
+
+<select name='shows'>
+<option value="hello">Hello</option>
+</select>
+
+</body>
+
+
+</html>
+
+
