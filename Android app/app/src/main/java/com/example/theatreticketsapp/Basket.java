@@ -6,25 +6,26 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("unchecked")
 public class Basket implements Parcelable{
 
     private final long COUNTDOWN_START = 60000;
     private final long COUNTDOWN_INTERVAL = 1000;
 
-    private ArrayList<Ticket> basket;
-    private long milliLeft;
+    private long timeOut;
 
 
+    private ArrayList<BasketBooking> bookings;
 
     Basket(){
-        basket = new ArrayList<>();
-        milliLeft = COUNTDOWN_START;
+        bookings = new ArrayList<>();
+        timeOut = System.currentTimeMillis() + COUNTDOWN_START;
     }
 
-    private CountDownTimer countDownTimer = new CountDownTimer(COUNTDOWN_START, COUNTDOWN_INTERVAL) {
+    private CountDownTimer countDownTimer = new CountDownTimer(System.currentTimeMillis() + COUNTDOWN_START, COUNTDOWN_INTERVAL) {
         @Override
         public void onTick(long millisUntilFinished) {
-            milliLeft = millisUntilFinished;
+
         }
         @Override
         public void onFinish() {
@@ -33,72 +34,96 @@ public class Basket implements Parcelable{
     };
 
     public int size(){
-        return basket.size();
+
+        int toRet = 0;
+
+        for (BasketBooking basketBooking : bookings) {
+            toRet += basketBooking.getNumberOfTickets();
+        }
+
+        return toRet;
     }
 
     public boolean isEmpty(){
-        return basket.size() == 0;
+        return bookings.isEmpty();
     }
 
     public int getTotalCost(){
         int totalCost=0;
 
-        for(int i=0; i<basket.size();i++)
-            totalCost += basket.get(i).getPrice();
+        for (BasketBooking basketBooking : bookings){
+            totalCost += basketBooking.getCost();
+        }
 
 
         return totalCost;
     }
 
-    public long getMilliLeft(){return milliLeft;}
+    public ArrayList<Ticket> getTickets(int bookingID){
 
-    public void setMilliLeft(long milliLeft){
-        this.milliLeft = milliLeft;
-    }
-
-    public void addTicket(Ticket t){
-
-        if(basket.isEmpty())
-            countDownTimer.start();
-
-        basket.add(t);
-    }
-
-    public void releaseTickets(String showName){
-
-        for (int i=0; i<basket.size(); i++){
-            if (basket.get(i).getShow().getShowName().equals(showName)){
-                basket.remove(i);
-                i--;
-            }
+        for (BasketBooking basketBooking: bookings) {
+            if (basketBooking.getBookingID() == bookingID) return basketBooking.getTickets();
         }
+
+        return null;
+    }
+
+
+    public long getTimeOut(){
+        return timeOut;
+    }
+
+
+    public void releaseTickets(BasketBooking booking){
+
+        bookings.remove(booking);
 
         if (this.isEmpty()) {
             countDownTimer.cancel();
-            milliLeft = 0;
+            timeOut = System.currentTimeMillis();
         }
     }
 
     public void releaseTickets(){
-        basket.clear();
-    }
-
-    public Ticket getTicket(int i){
-        return basket.get(i);
+        bookings.clear();
     }
 
 
+    public boolean sameShow(BasketBooking booking){
+        for (BasketBooking basketBooking : bookings) {
+
+            if (basketBooking.getShowName().equals(booking.getShowName()) &&
+                    (basketBooking.getDate()+basketBooking.getStartTime()).equals((booking.getDate()+booking.getStartTime()))){
+                return true;
+            }
+
+        }
+        return false;
+    }
 
 
+    public void addBooking(BasketBooking booking){
 
+
+        if(this.isEmpty()) {
+            countDownTimer.start();
+            timeOut = System.currentTimeMillis() + COUNTDOWN_START;
+        }
+
+        bookings.add(booking);
+    }
+
+
+    public ArrayList<BasketBooking> getBookings(){
+        return this.bookings;
+    }
 
      // related to parcelling
 
     protected Basket(Parcel in){
         //TODO: Fix warning
-        basket = in.readArrayList(Ticket.class.getClassLoader());
-        milliLeft = in.readLong();
-
+        bookings = in.readArrayList(Ticket.class.getClassLoader());
+        timeOut = in.readLong();
     }
 
     public static final Creator<Basket> CREATOR = new Creator<Basket>() {
@@ -122,8 +147,7 @@ public class Basket implements Parcelable{
     @Override
     public void writeToParcel(Parcel dest, int flags){
 
-        dest.writeList(basket);
-        dest.writeLong(milliLeft);
-
+        dest.writeList(bookings);
+        dest.writeLong(timeOut);
     }
 }

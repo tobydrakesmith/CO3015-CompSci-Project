@@ -9,7 +9,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MyBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyBookingsRecyclerViewAdapter.ViewHolder> {
 
@@ -26,15 +29,30 @@ public class MyBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyBookin
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View view = mInflater.inflate(R.layout.recyclerview_my_bookings_row, parent, false);
+
         return new ViewHolder(view, mOnBookingClickListener);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
+
         Booking booking = mBookings.get(position);
 
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(booking.getDate());
+
+            String strDate = new SimpleDateFormat("dd-MM-yyyy").format(date);
+
+            date = new SimpleDateFormat("dd-MM-yyyy hh:mm").parse(strDate+ " " + booking.getShowTime());
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         holder.showName.setText(booking.getShowName());
-        holder.date.setText(booking.getDate());
+        //holder.date.setText(new SimpleDateFormat("dd-MM-yyyy hh:mm").format(date));
+        holder.date.setText(date.toString());
         holder.numberOfTickets.setText("No. tickets: " + booking.getNumberOfTickets());
     }
 
@@ -62,17 +80,26 @@ public class MyBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyBookin
             viewTickets = view.findViewById(R.id.btnViewTickets);
 
             viewTickets.setOnClickListener(this);
-
         }
 
         @Override
         public void onClick(View view){
-            onBookingClickListener.onBookingClick(getAdapterPosition());
+            switch (view.getId()) {
+                case R.id.btnViewTickets:
+                    onBookingClickListener.onBookingClick(getAdapterPosition());
+                    break;
+               /* case R.id.btnNavigate:
+                    onBookingClickListener.onNavigationClick(getAdapterPosition());
+                    break;*/
+                default:
+                    break;
+            }
         }
 
     }
 
     public interface OnBookingClickListener{
         void onBookingClick(int position);
+        //void onNavigationClick(int position);
     }
 }

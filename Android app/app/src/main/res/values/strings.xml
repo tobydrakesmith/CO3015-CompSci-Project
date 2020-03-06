@@ -29,7 +29,14 @@
     <string name="title_activity_basket">Basket</string>
     <string name="number_of_tickets">Number of tickets: </string>
     <string name="my_basket_title">Your basket:</string>
-    <string name="view_your_tickets_lbl">View your tickets</string>
+    <string name="view_booking_lbl">View your tickets</string>
     <string name="upcoming_bookings">Your upcoming bookings:</string>
+    <string name="past_bookings">Your past bookings:</string>
+    <string name="leave_a_review">Leave a review</string>
+    <string name="title_activity_create_review">CreateReview</string>
+    <string name="write_review">Write a review (optional)</string>
+    <string name="title_activity_view_tickets">ViewTickets</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="button_navigate_venue">Navigate to venue</string>
 
 </resources>

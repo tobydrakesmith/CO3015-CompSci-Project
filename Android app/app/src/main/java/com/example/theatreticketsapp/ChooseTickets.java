@@ -25,8 +25,8 @@ public class ChooseTickets extends AppCompatActivity {
     int numberTix;
     Show mShow;
     String strDate;
-    long milliLeft;
     int userID;
+    boolean matinee;
 
 
     RadioButton pba, pbb, pbc, pbd;
@@ -43,30 +43,12 @@ public class ChooseTickets extends AppCompatActivity {
 
         numberTix = 0;
 
-        Intent i = getIntent();
-        mShow = i.getParcelableExtra("live_show");
-        strDate = i.getStringExtra("date");
-        basket = i.getParcelableExtra("basket");
-        userID = i.getIntExtra("userid", -1);
-
-
-        milliLeft = basket.getMilliLeft();
-
-        CountDownTimer countDownTimer = new CountDownTimer(milliLeft, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                basket.setMilliLeft(millisUntilFinished);
-            }
-            @Override
-            public void onFinish() {
-                basket.releaseTickets();
-            }
-        };
-
-        if (!basket.isEmpty()) {
-            System.out.println("Basket not empty - TIMER START");
-            countDownTimer.start();
-        }
+        Intent intent = getIntent();
+        mShow = intent.getParcelableExtra("live_show");
+        strDate = intent.getStringExtra("date");
+        basket = intent.getParcelableExtra("basket");
+        userID = intent.getIntExtra("userid", -1);
+        matinee = intent.getBooleanExtra("matinee", false);
 
 
         pba = findViewById(R.id.priceBandA);
@@ -107,7 +89,7 @@ public class ChooseTickets extends AppCompatActivity {
 
     @Override //TODO: Add animation
     public void onBackPressed() {
-        Intent intent = new Intent (this, BookShow.class);
+        Intent intent = new Intent (this, ChooseDate.class);
         intent.putExtra("basket", basket);
         intent.putExtra("live_show", mShow);
         intent.putExtra("userid", userID);
@@ -147,23 +129,40 @@ public class ChooseTickets extends AppCompatActivity {
 
     public void onClickAddToBasket(View view){
         if (numberTix == 0)
-            Toast.makeText(this, "You have not selected the number of tickets you would like", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,
+                    "You have not selected the number of tickets you would like",
+                    Toast.LENGTH_SHORT).show();
 
         else if (getSelectedPrice() == -1)
-            Toast.makeText(this, "Please select a price to continue", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please select a price to continue",
+                    Toast.LENGTH_SHORT).show();
 
         else
             addToBasket(getSelectedPrice());
     }
 
+    /*
+    TODO: finish checking if a booking (same date, start time, showname) already is in basket
+     instead of creating a new booking object and adding that
+    */
+
     private void addToBasket(int price){
+
+        BasketBooking basketBooking =
+                new BasketBooking(strDate, matinee ? mShow.getMatineeStart() : mShow.getEveningStart(), mShow);
+
+
         for (int i=0; i<numberTix; i++){
-            Ticket t = new Ticket(price, strDate, mShow);
-            basket.addTicket(t);
+            Ticket t = new Ticket(price, mShow);
+            basketBooking.addTicket(t);
         }
+        basket.addBooking(basketBooking);
+
+
         AlertDialog alertDialog = new AlertDialog.Builder(ChooseTickets.this).create();
         alertDialog.setTitle("Success");
         alertDialog.setMessage("Your tickets have been added to your basket, the tickets will release after 10 minutes.");
+        System.out.println("BASKET EMPTY? " + basket.isEmpty());
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Take me to my basket",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

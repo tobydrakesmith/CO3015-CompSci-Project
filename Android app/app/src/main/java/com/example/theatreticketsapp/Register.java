@@ -19,10 +19,14 @@ import com.android.volley.toolbox.Volley;
 import com.example.theatreticketsapp.databinding.ActivityRegisterBinding;
 
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,6 +47,7 @@ public class Register extends AppCompatActivity {
 
 
 
+
     }
 
 
@@ -50,7 +55,7 @@ public class Register extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                Intent intent = new Intent(Register.this, MainActivity.class);
+                Intent intent = new Intent(Register.this, Login.class);
                 startActivity(intent);
                 return true;
         }
@@ -116,7 +121,6 @@ public class Register extends AppCompatActivity {
         return valid;
     }
 
-    //TODO: Move the code across into this file, and provide feedback to user
 
 
     private void createAccount(){
@@ -127,20 +131,13 @@ public class Register extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getString("error").equals("false")){
-                        Toast.makeText(Register.this, "success", Toast.LENGTH_SHORT).show();
-                        try {
-                            GMailSender sender = new GMailSender("theatreticketsapp@gmail.com", "Stadium0fL1ght?");
-                            sender.sendMail("Account registration",
-                                    "This is Body",
-                                    "theatreticketsapp@gmail.com",
-                                    "toby_drakesmith95@hotmail.com");
-                        } catch (Exception e) {
-                            System.out.println(e.getMessage());
-                        }
-
+                        Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+                        sendMail();
+                        Intent intent = new Intent(Register.this, Login.class);
+                        startActivity(intent);
                     }
                     else{
-                        Toast.makeText(Register.this, "Whoops! An account is already registered with this email", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Register.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
                     }
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -164,12 +161,15 @@ public class Register extends AppCompatActivity {
                 String password = registerBinding.password.getText().toString().trim();
                 String firstName = registerBinding.firstname.getText().toString().trim();
                 String lastName = registerBinding.lastname.getText().toString().trim();
+                String encryptedPassword = getSHA256SecurePassword(password);
+
+
 
                 HashMap<String, String> params = new HashMap<>();
                 params.put("email", username);
                 params.put("firstName", firstName);
                 params.put("lastName", lastName);
-                params.put("password", password);
+                params.put("password", encryptedPassword);
 
                 return params;
             }
@@ -177,6 +177,48 @@ public class Register extends AppCompatActivity {
 
         Volley.newRequestQueue(this).add(stringRequest);
     }
+
+    public void sendMail(){
+
+
+        final String body = "Hello " + registerBinding.firstname.getText().toString() + " this is to " +
+                "confirm that your account has successfully been created";
+
+
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try {
+                    GMailSender sender = new GMailSender("tobydsmith2020@gmail.com",
+                            "Th3eatreT1ckets!");
+                    sender.sendMail("Account creation confirmation", body,
+                            "tobydsmith2020@gmail.com", registerBinding.username.getText().toString());
+                } catch (Exception e) {
+                    Log.e("SendMail", e.getMessage(), e);
+                }
+            }
+
+        }).start();
+    }
+
+    private static String getSHA256SecurePassword(String passwordToHash) {
+        String generatedPassword = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-1");
+            //md.update(salt);
+            byte[] bytes = md.digest(passwordToHash.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            generatedPassword = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return generatedPassword;
+    }
+
 
 
 

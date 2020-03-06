@@ -15,7 +15,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MyAccount extends AppCompatActivity {
 
     Basket basket;
-    long milliLeft;
     int userID;
 
     @Override
@@ -30,23 +29,6 @@ public class MyAccount extends AppCompatActivity {
         basket = intent.getParcelableExtra("basket");
         userID = intent.getIntExtra("userid", userID);
 
-        milliLeft = basket.getMilliLeft();
-
-        CountDownTimer countDownTimer = new CountDownTimer(milliLeft, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                basket.setMilliLeft(millisUntilFinished);
-            }
-            @Override
-            public void onFinish() {
-                basket.releaseTickets();
-            }
-        };
-
-        if (!basket.isEmpty()) {
-            System.out.println("Basket not empty - TIMER START");
-            countDownTimer.start();
-        }
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
@@ -125,9 +107,6 @@ public class MyAccount extends AppCompatActivity {
 
 
                     }
-
-
-
                     return true;
                 }
             };

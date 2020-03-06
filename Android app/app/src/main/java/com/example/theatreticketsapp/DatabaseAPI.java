@@ -5,10 +5,11 @@ public class DatabaseAPI {
     private static final String ROOT_URL =
            // "http://192.168.0.24/TheatreTicketsApp/v1/Api.php?apicall="; //home
             //"http://143.210.112.49/TheatreTicketsApp/v1/Api.php?apicall="; //uni
-            "http://192.168.0.28/Api.php?apicall="; //linux home
+            //"http://192.168.0.28/Api.php?apicall="; //linux home
             //"http://143.210.204.216/Api.php?apicall="; //linux uni
-           //"http://192.168.43.193/Api.php?apicall="; // phone hotspot
+           "http://192.168.43.193/Api.php?apicall="; // phone hotspot
             //"http://192.168.0.33/Api.php?apicall="; //home home
+            //"http://143.210.158.110/Api.php?apicall="; //usb tethering uni
 
 
 
@@ -37,8 +38,23 @@ public class DatabaseAPI {
     public static final String URL_GET_BOOKINGS =
             ROOT_URL + "getfuturebookings&userID=";
 
-    public static final String URL_GET_SHOW_NAME =
-            ROOT_URL + "getshowname&showInstanceID=";
+    public static final String URL_GET_PAST_BOOKINGS =
+            ROOT_URL + "getpastbookings&userID=";
+
+    public static final String URL_CREATE_REVIEW =
+            ROOT_URL + "createreview";
+
+    public static final String URL_GET_TICKETS =
+            ROOT_URL + "gettickets&bookingID=";
+
+    public static final String URL_UPDATE_PASSWORD =
+            ROOT_URL + "updatepassword&userID=";
+
+    public static final String URL_CHECK_REVIEW =
+            ROOT_URL + "checkreview&bookingID=";
+
+    public static final String URL_GET_VENUE_INFO =
+            ROOT_URL + "getvenueinfo&venueName=";
 
 
 

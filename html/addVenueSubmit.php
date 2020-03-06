@@ -12,9 +12,9 @@
 	$venuename = $con->real_escape_string($_REQUEST['venue_name']);
 	$venuedesc = $con->real_escape_string($_REQUEST['venue_description']);
 	$numseats = $con->real_escape_string($_REQUEST['venue_noseats']);
+	$postcode = $con->real_escape_string($_REQUEST['venue_postcode']);
 
-
-	$query = "INSERT INTO venue(venueName, numOfSeats, venueDesc) VALUES ('$venuename', '$numseats', '$venuedesc')";
+	$query = "INSERT INTO venue(venueName, numOfSeats, venueDesc, postcode) VALUES ('$venuename', '$numseats', '$venuedesc', '$postcode')";
 
 	if($con->query($query) === true){
 		echo "Records inserted";

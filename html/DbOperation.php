@@ -23,8 +23,12 @@
 		function createUser($email, $firstName, $lastName, $password){
 			$stmt = $this->con->prepare("INSERT INTO user (email, firstName, lastName, password) VALUES (?, ?, ?, ?)");
 			$stmt->bind_param("ssss", $email, $firstName, $lastName, $password);
+
 			if($stmt->execute())
 				return true;
+//			else
+//				return $this->con->error;
+
 			return false;
 		}
 
@@ -67,9 +71,7 @@
 		}
 
 		function getUser($email, $password){
-			if($stmt = $this->con->prepare("SELECT email,
-				password FROM user WHERE email = ? AND password = ? ")){
-
+			if($stmt = $this->con->prepare("SELECT email, password FROM user WHERE email = ? AND password = ? ")){
 				$stmt->bind_param("ss", $email, $password);
 				$stmt->execute();
 				$stmt->bind_result($email, $password);
@@ -166,13 +168,13 @@
 			return false;
 		}
 
-		function createBooking($instanceID, $userID, $numberOfTickets, $date, $showName){
-			$stmt = $this->con->prepare("INSERT INTO booking(showInstanceID, userID, numberOfTickets, bookingDate, showName) VALUES (?, ?, ?, ?, ?)");
-                       	$stmt->bind_param("iiiss", $instanceID, $userID, $numberOfTickets, $date, $showName);
+		function createBooking($instanceID, $userID, $numberOfTickets, $date, $showTime, $showName){
+			$stmt = $this->con->prepare("INSERT INTO booking(showInstanceID, userID, numberOfTickets, bookingDate, showTime, showName) VALUES (?, ?, ?, ?, ?, ?)");
+                       	$stmt->bind_param("iiisss", $instanceID, $userID, $numberOfTickets, $date, $showTime, $showName);
 			if($stmt->execute())
 				return mysqli_insert_id($this->con);
 			else
-				return false;
+				return $this->con->error;
 
 		}
 
@@ -184,17 +186,19 @@
 		}
 
 		function getFutureBookings($userID){
-			$stmt = $this->con->prepare("SELECT showInstanceID, numberOfTickets, bookingDate, showName FROM booking WHERE userID= ? AND bookingDate >= CURDATE() ");
+			$stmt = $this->con->prepare("SELECT bookingID, showInstanceID, numberOfTickets, bookingDate, showTime, showName FROM booking WHERE userID= ? AND bookingDate >= CURDATE() ");
 			$stmt->bind_param("i", $userID);
 			$stmt->execute();
-			$stmt->bind_result($showInstanceID, $numberOfTickets, $bookingDate, $showName);
+			$stmt->bind_result($bookingID, $showInstanceID, $numberOfTickets, $bookingDate, $showTime, $showName);
 
 			$bookings = array();
 			while($stmt->fetch()){
 				$booking = array();
+				$booking['bookingID'] = $bookingID;
 				$booking['showInstanceID'] = $showInstanceID;
 				$booking['numberOfTickets'] = $numberOfTickets;
 				$booking['bookingDate'] = $bookingDate;
+				$booking['showTime'] = $showTime;
 				$booking['showName'] = $showName;
 
 				array_push($bookings, $booking);
@@ -202,6 +206,89 @@
 
 			return $bookings;
 		}
+
+		function getPastBookings($userID){
+	  		$stmt = $this->con->prepare("SELECT bookingID, showInstanceID, numberOfTickets, bookingDate, showTime, showName FROM booking WHERE userID= ? AND bookingDate < CURDATE() ");
+	                $stmt->bind_param("i", $userID);
+        	        $stmt->execute();
+                        $stmt->bind_result($bookingID ,$showInstanceID, $numberOfTickets, $bookingDate, $showTime, $showName);
+
+                        $bookings = array();
+                        while($stmt->fetch()){
+                                $booking = array();
+				$booking['bookingID'] = $bookingID;
+                                $booking['showInstanceID'] = $showInstanceID;
+                                $booking['numberOfTickets'] = $numberOfTickets;
+                                $booking['bookingDate'] = $bookingDate;
+				$booking['showTime'] = $showTime;
+                                $booking['showName'] = $showName;
+
+                                array_push($bookings, $booking);
+                        }
+
+                        return $bookings;
+		}
+
+		function createReview($bookingID, $userID, $showName, $showInstanceID, $rating, $review){
+			$stmt = $this->con->prepare("INSERT INTO review(bookingID, userID, showName, showInstanceID, rating, review) VALUES(?, ?, ?, ?, ?, ?)");
+			$stmt->bind_param("iisiis", $bookingID, $userID, $showName, $showInstanceID, $rating, $review);
+			if($stmt->execute()){
+				$stmt = $this->con->prepare("UPDATE booking SET reviewLeft = 1 WHERE bookingID = ?");
+				$stmt->bind_param("i", $bookingID);
+				$stmt->execute();
+				return true;
+			}else
+				return $this->con->error;
+		}
+
+		function getTickets($bookingID){
+			$stmt = $this->con->prepare("SELECT ticketID, price FROM ticket WHERE bookingID = ?");
+			$stmt->bind_param("i", $bookingID);
+			$stmt->execute();
+			$stmt->bind_result($ticketID, $price);
+
+			$tickets = array();
+			while($stmt->fetch()){
+				$ticket = array();
+				$ticket['ticketID'] = $ticketID;
+				$ticket['price'] = $price;
+				array_push($tickets, $ticket);
+			}
+
+			return $tickets;
+		}
+
+		function updatePassword($password, $userID){
+			$stmt = $this->con->prepare("UPDATE user SET password = ? WHERE userID = ?");
+			$stmt->bind_param("si", $password, $userID);
+			if ($stmt->execute()) return true;
+			else return false;
+		}
+
+		function checkReview($bookingID){
+			$stmt = $this->con->prepare("SELECT reviewLeft FROM booking WHERE bookingID = ?");
+			$stmt->bind_param("i", $bookingID);
+			$stmt->execute();
+			$stmt->bind_result($reviewLeft);
+			$stmt->fetch();
+
+			if($reviewLeft==0) return false;
+			else return true;
+		}
+
+		function getVenueInfo($venueName){
+			$stmt = $this->con->prepare("SELECT venueDesc, postcode FROM venue WHERE venueName = ?");
+			$stmt->bind_param("s", $venueName);
+			$stmt->execute();
+			$stmt->bind_result($venueDescription, $postcode);
+			$stmt->fetch();
+			$venue = array();
+			$venue['venueDescription'] = $venueDescription;
+			$venue['postcode'] = $postcode;
+
+			return $venue;
+		}
+
 
 	}
 

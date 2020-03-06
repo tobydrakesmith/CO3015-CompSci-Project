@@ -27,7 +27,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class  Homepage extends AppCompatActivity implements  MyRecyclerViewAdapter.OnShowClickListener{
 
@@ -38,7 +37,6 @@ public class  Homepage extends AppCompatActivity implements  MyRecyclerViewAdapt
     MyRecyclerViewAdapter adapter;
     RecyclerView recyclerView;
     ProgressBar progressBar;
-    long milliLeft;
     int userID;
 
     @Override
@@ -50,23 +48,7 @@ public class  Homepage extends AppCompatActivity implements  MyRecyclerViewAdapt
         Intent intent = getIntent();
         basket = intent.getParcelableExtra("basket");
         userID = intent.getIntExtra("userid", -1);
-        milliLeft = basket.getMilliLeft();
 
-        CountDownTimer countDownTimer = new CountDownTimer(milliLeft, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                basket.setMilliLeft(millisUntilFinished);
-            }
-            @Override
-            public void onFinish() {
-                basket.releaseTickets();
-            }
-        };
-
-        if (!basket.isEmpty()) {
-            System.out.println("Basket not empty - TIMER START");
-            countDownTimer.start();
-        }
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -114,7 +96,7 @@ public class  Homepage extends AppCompatActivity implements  MyRecyclerViewAdapt
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent (this, MainActivity.class);
+        Intent intent = new Intent (this, Login.class);
         startActivity(intent);
         overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
     }
@@ -206,7 +188,7 @@ public class  Homepage extends AppCompatActivity implements  MyRecyclerViewAdapt
     @Override
     public void onShowClick(int position) {
         Show liveShow = mShows.get(position);
-        Intent intent = new Intent(this, SelectedShow.class);
+        Intent intent = new Intent(this, ShowInformation.class);
         intent.putExtra("live_show", liveShow);
         intent.putExtra("basket", basket);
         intent.putExtra("userid", userID);

@@ -15,7 +15,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class Explore extends AppCompatActivity {
 
     Basket basket;
-    long milliLeft;
     int userID;
 
     @Override
@@ -27,22 +26,6 @@ public class Explore extends AppCompatActivity {
         basket = intent.getParcelableExtra("basket");
         userID = intent.getIntExtra("userid", -1);
 
-        milliLeft = basket.getMilliLeft();
-
-        CountDownTimer countDownTimer = new CountDownTimer(milliLeft, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                basket.setMilliLeft(millisUntilFinished);
-            }
-            @Override
-            public void onFinish() {
-                basket.releaseTickets();
-            }
-        };
-
-        if (!basket.isEmpty()) {
-            countDownTimer.start();
-        }
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

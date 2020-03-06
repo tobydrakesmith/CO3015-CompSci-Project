@@ -167,19 +167,18 @@
 			break;
 
 			case 'createbooking':
-				areTheseParametersAvailable(array('instanceID', 'userID', 'numberOfTickets', 'date', 'showName'));
+				areTheseParametersAvailable(array('instanceID', 'userID', 'numberOfTickets', 'date', 'showTime', 'showName'));
 				$db = new DbOperation();
 
-				$result = $db->createBooking($_POST['instanceID'],$_POST['userID'],$_POST['numberOfTickets'],$_POST['date'], $_POST['showName']);
+				$result = $db->createBooking($_POST['instanceID'],$_POST['userID'],$_POST['numberOfTickets'],$_POST['date'], $_POST['showTime'], $_POST['showName']);
 
 				if($result){
 					$response['error'] = false;
 					$response['message'] = 'Booking added';
-					//$response['bookingid'] = $db->createBooking($_POST['instanceID'],$_POST['userID'],$_POST['numberOfTickets'],$_POST['date']);
 					$response['bookingid'] = $result;
 				}else{
 					$response['error'] = true;
-					$response['message'] = 'Some error occurred please try again';
+					$response['message'] = $result;
 				}
 
 			break;
@@ -202,32 +201,96 @@
 			case 'getfuturebookings':
 				if(isset($_GET['userID'])){
 					$db = new DbOperation();
-					if ($response = $db->getFutureBookings($_GET['userID'])){
+					if ($response = $db->getFutureBookings($_GET['userID']))
 						$response = $db->getFutureBookings($_GET['userID']);
-						//$response['message'] = "Success";
-						//$response['error'] = "false";
-					}else
+					else
 						$response['message'] = "Empty";
 				}else{
 					$response['error'] = true;
-					$response['message'] = "Some error";
+					$response['message'] = "UserID missing";
 				}
 			break;
 
 
-			case 'getshowname':
-				if(isset($_GET['showInstanceID'])){
+			case 'getpastbookings':
+				if(isset($_GET['userID'])){
 					$db = new DbOperation();
-					//if ($response = $db->getShowName($_GET['showInstanceID'])){
-						$response['error'] = false;
-						$response['showName'] = $db->getShowName($_GET['showInstanceID']);
-					//}else
-					//	$response['message'] = "Invalid showInstanceID";
+					if($response = $db->getPastBookings($_GET['userID']))
+						$response = $db->getPastBookings($_GET['userID']);
+					else
+						$response['message'] = "Empty";
+				}else{
+					$response['error'] = true;
+					$response['message'] = "UserID missing";
+				}
+			break;
 
+			case 'createreview':
+				areTheseParametersAvailable(array('bookingID', 'userID', 'showName', 'showInstanceID', 'rating', 'review'));
+				$db = new DbOperation();
+				$result = $db->createReview($_POST['bookingID'], $_POST['userID'], $_POST['showName'], $_POST['showInstanceID'], $_POST['rating'], $_POST['review']);
+				if ($result) {
+					$response['error'] = false;
+					$response['message'] = "Review added successfully";
+				}else{
+					$response['error'] = true;
+					$response['message'] = $db->createReview($_POST['bookingID'], $_POST['userID'], $_POST['showName'], $_POST['showInstanceID'], $_POST['rating'], $_POST['review']);
+				}
+			break;
+
+			case 'gettickets':
+				if(isset($_GET['bookingID'])){
+					$db = new DbOperation();
+					$response = $db->getTickets($_GET['bookingID']);
+				}else{
+					$response['error'] = true;
+					$response['message'] = "BookingID missing";
+				}
+			break;
+
+			case 'updatepassword':
+				if(isset($_GET['password'], $_GET['userID'])){
+					$db = new DbOperation();
+					if ($db->updatePassword($_GET['password'], $_GET['userID'])){
+						$response['error'] = false;
+						$response['message'] = "Password successfully updated";
+					}else{
+						$response['error'] = true;
+						$response['message'] = "Missing parameters";
+					}
+				}
+			break;
+
+			case 'checkreview':
+
+				if(isset($_GET['bookingID'])){
+					$db = new DbOperation();
+					if ($db->checkReview($_GET['bookingID']))
+						$response['reviewLeft'] = true;
+					else
+						$response['reviewLeft'] = false;
 				}
 
+			break;
+
+			case 'getvenueinfo':
+
+				if(isset($_GET['venueName'])){
+					$db = new DbOperation();
+					$response = $db->getVenueInfo($_GET['venueName']);
+				}
 
 			break;
+
+//			case 'getvenueinfofrominstance':
+//
+//				if(isset($_GET['showInstanceID'])){
+//					$db = new DbOperation();
+//					$response = $db->getVenueName($_GET['showInstanceID']);
+
+//				}
+
+//			break;
 
 		}
 	}else{

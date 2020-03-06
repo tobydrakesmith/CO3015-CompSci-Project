@@ -4,14 +4,19 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Ticket implements Parcelable {
-    private String date;
+
     private int price;
     private Show show;
+    private int ticketid;
 
-    Ticket(int price, String date, Show show){
-        this.date = date;
+    Ticket(int price, Show show){
         this.price = price;
         this.show = show;
+    }
+
+    Ticket(int ticketid, int price){
+        this.ticketid = ticketid;
+        this.price = price;
     }
 
 
@@ -19,15 +24,17 @@ public class Ticket implements Parcelable {
         return price;
     }
 
-    public String getDate(){return date;}
+
 
     public Show getShow(){ return show; }
 
 
+    public int getTicketid(){
+        return this.ticketid;
+    }
 
     protected Ticket(Parcel in){
 
-        date = in.readString();
         price = in.readInt();
         show = in.readParcelable(Show.class.getClassLoader());
 
@@ -54,7 +61,6 @@ public class Ticket implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags){
 
-        dest.writeString(date);
         dest.writeInt(price);
         dest.writeParcelable(show, flags);
     }

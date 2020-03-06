@@ -107,6 +107,9 @@ attr behavior_hideable
 attr behavior_overlapTop
 attr behavior_peekHeight
 attr behavior_skipCollapsed
+attr borderAlpha
+attr borderColor
+attr borderLength
 attr borderWidth
 attr borderlessButtonStyle
 attr bottomAppBarStyle
@@ -282,6 +285,7 @@ attr fastScrollHorizontalThumbDrawable
 attr fastScrollHorizontalTrackDrawable
 attr fastScrollVerticalThumbDrawable
 attr fastScrollVerticalTrackDrawable
+attr finderOffset
 attr firstBaselineToTopHeight
 attr floatingActionButtonStyle
 attr font
@@ -343,6 +347,8 @@ attr itemTextAppearanceInactive
 attr itemTextColor
 attr keylines
 attr labelVisibilityMode
+attr laserColor
+attr laserEnabled
 attr lastBaselineToBottomHeight
 attr latLngBoundsNorthEastLatitude
 attr latLngBoundsNorthEastLongitude
@@ -433,6 +439,7 @@ attr liteMode
 attr logo
 attr logoDescription
 attr mapType
+attr maskColor
 attr materialButtonStyle
 attr materialCardViewStyle
 attr maxActionInlineWidth
@@ -480,6 +487,7 @@ attr ratingBarStyleIndicator
 attr ratingBarStyleSmall
 attr reverseLayout
 attr rippleColor
+attr roundedCorner
 attr scopeUris
 attr scrimAnimationDuration
 attr scrimBackground
@@ -490,6 +498,7 @@ attr searchViewStyle
 attr seekBarStyle
 attr selectableItemBackground
 attr selectableItemBackgroundBorderless
+attr shouldScaleToFill
 attr showAsAction
 attr showDividers
 attr showMotionSpec
@@ -505,6 +514,7 @@ attr spinBars
 attr spinnerDropDownItemStyle
 attr spinnerStyle
 attr splitTrack
+attr squaredFinder
 attr srcCompat
 attr stackFromEnd
 attr startDestination
@@ -762,6 +772,7 @@ color mtrl_textinput_filled_box_default_background_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color notification_material_background_media_default_color
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -784,6 +795,9 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color tooltip_background_dark
 color tooltip_background_light
+color viewfinder_border
+color viewfinder_laser
+color viewfinder_mask
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -997,6 +1011,10 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen subtitle_corner_radius
+dimen subtitle_outline_width
+dimen subtitle_shadow_offset
+dimen subtitle_shadow_radius
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -1139,11 +1157,13 @@ drawable ic_home_black_24dp
 drawable ic_increase_number_of_tickets
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_left
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_my_account
 drawable ic_notifications_black_24dp
+drawable ic_right
 drawable ic_search_black_24dp
 drawable ic_theaters_black_24dp
 drawable mtrl_snackbar_background
@@ -1202,6 +1222,7 @@ id accessibility_custom_action_6
 id accessibility_custom_action_7
 id accessibility_custom_action_8
 id accessibility_custom_action_9
+id action0
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1241,8 +1262,11 @@ id btnCancel
 id btnDecrease
 id btnIncrease
 id btnViewTickets
+id buttonLeft
 id buttonPanel
+id buttonRight
 id calendarView
+id cancel_action
 id center
 id center_horizontal
 id center_vertical
@@ -1265,6 +1289,7 @@ id customPanel
 id dark
 id dataBinding
 id date
+id dateLbl
 id decor_content_parent
 id default_activity_button
 id design_bottom_sheet
@@ -1279,6 +1304,7 @@ id disableHome
 id edit_query
 id end
 id endDate
+id end_padder
 id enterAlways
 id enterAlwaysCollapsed
 id eveningBook
@@ -1294,6 +1320,7 @@ id filled
 id firstname
 id fixed
 id forever
+id futureBookingsLbl
 id futureBookingsView
 id ghost_view
 id gone
@@ -1324,9 +1351,11 @@ id listMode
 id list_item
 id liveShowsView
 id loginBtn
+id map
 id masked
 id matineeBook
 id matineeTime
+id media_actions
 id message
 id middle
 id mini
@@ -1336,6 +1365,7 @@ id multiply
 id myBasketTitle
 id nav_controller_view_tag
 id nav_view
+id navigateButton
 id navigation_explore
 id navigation_header_container
 id navigation_home
@@ -1361,6 +1391,8 @@ id parentPanel
 id parent_matrix
 id password
 id passwordEditText
+id pastBookingLbl
+id pastBookingsView
 id percent
 id pin
 id priceBandA
@@ -1370,8 +1402,11 @@ id priceBandD
 id progressBar
 id progress_circular
 id progress_horizontal
+id qrCodeImageView
 id radio
+id ratingBar
 id registerBtn
+id reviewText
 id right
 id right_icon
 id right_side
@@ -1403,8 +1438,8 @@ id show
 id showCustom
 id showDescription
 id showHome
-id showImage
 id showName
+id showNameLbl
 id showTitle
 id smallLabel
 id snackbar_action
@@ -1420,8 +1455,10 @@ id src_in
 id src_over
 id standard
 id start
+id status_bar_latest_event_content
 id stretch
 id submenuarrow
+id submitReviewBtn
 id submit_area
 id tabMode
 id tag_accessibility_actions
@@ -1439,14 +1476,15 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textView2
 id textView4
 id textView5
-id textView6
 id textWatcher
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
 id textinput_helper_text
+id ticketNumberLbl
 id time
 id timeLeftLbl
 id title
@@ -1462,10 +1500,6 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
-id txtDiameter
-id txtDistance
-id txtGravity
-id txtName
 id unchecked
 id uniform
 id unlabeled
@@ -1474,6 +1508,7 @@ id useLogo
 id username
 id usernameEditText
 id venue
+id venueDescription
 id venueName
 id view_offset_helper
 id visible
@@ -1498,6 +1533,8 @@ integer mtrl_chip_anim_duration
 integer mtrl_tab_indicator_anim_duration_ms
 integer show_password_duration
 integer status_bar_notification_info_maxnum
+integer viewfinder_border_length
+integer viewfinder_border_width
 interpolator btn_checkbox_checked_mtrl_animation_interpolator_0
 interpolator btn_checkbox_checked_mtrl_animation_interpolator_1
 interpolator btn_checkbox_unchecked_mtrl_animation_interpolator_0
@@ -1540,15 +1577,21 @@ layout abc_tooltip
 layout activity_basket
 layout activity_book_show
 layout activity_choose_tickets
+layout activity_create_review
 layout activity_explore
 layout activity_homepage
 layout activity_main
+layout activity_maps
 layout activity_my_account
 layout activity_my_bookings
 layout activity_register
 layout activity_selected_show
+layout activity_view_tickets
+layout activity_view_venue
 layout content_basket
+layout content_create_review
 layout content_selected_show
+layout content_view_tickets
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1568,12 +1611,22 @@ layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
 layout notification_action_tombstone
+layout notification_media_action
+layout notification_media_cancel_action
+layout notification_template_big_media
+layout notification_template_big_media_custom
+layout notification_template_big_media_narrow
+layout notification_template_big_media_narrow_custom
 layout notification_template_custom_big
 layout notification_template_icon_group
+layout notification_template_lines_media
+layout notification_template_media
+layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout recyclerview_basket_row
 layout recyclerview_my_bookings_row
+layout recyclerview_my_past_bookings_row
 layout recyclerview_row
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
@@ -1621,6 +1674,7 @@ string btn_guest
 string btn_login
 string btn_register
 string btn_return
+string button_navigate_venue
 string character_counter_content_description
 string character_counter_pattern
 string common_google_play_services_enable_button
@@ -1643,15 +1697,18 @@ string common_signin_button_text
 string common_signin_button_text_long
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string google_maps_key
 string hide_bottom_view_on_scroll_behavior
 string lbl_no_account
 string lbl_numberTix
+string leave_a_review
 string mtrl_chip_close_icon_content_description
 string my_basket_title
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
 string number_of_tickets
 string password_toggle_content_description
+string past_bookings
 string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
@@ -1666,16 +1723,20 @@ string select_price_lbl
 string status_bar_notification_info_overflow
 string successful_creation
 string title_activity_basket
+string title_activity_create_review
 string title_activity_homepage
+string title_activity_maps
 string title_activity_selected_show
 string title_activity_test
+string title_activity_view_tickets
 string title_dashboard
 string title_home
 string title_notifications
 string title_settings
 string tix_counter
 string upcoming_bookings
-string view_your_tickets_lbl
+string view_booking_lbl
+string write_review
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
@@ -1959,9 +2020,14 @@ style TextAppearance_AppCompat_Widget_Switch
 style TextAppearance_AppCompat_Widget_TextView_SpinnerItem
 style TextAppearance_Compat_Notification
 style TextAppearance_Compat_Notification_Info
+style TextAppearance_Compat_Notification_Info_Media
 style TextAppearance_Compat_Notification_Line2
+style TextAppearance_Compat_Notification_Line2_Media
+style TextAppearance_Compat_Notification_Media
 style TextAppearance_Compat_Notification_Time
+style TextAppearance_Compat_Notification_Time_Media
 style TextAppearance_Compat_Notification_Title
+style TextAppearance_Compat_Notification_Title_Media
 style TextAppearance_Design_CollapsingToolbar_Expanded
 style TextAppearance_Design_Counter
 style TextAppearance_Design_Counter_Overflow
@@ -2198,6 +2264,7 @@ styleable AppCompatSeekBar android_thumb tickMark tickMarkTint tickMarkTintMode
 styleable AppCompatTextHelper android_textAppearance android_drawableTop android_drawableBottom android_drawableLeft android_drawableRight android_drawableStart android_drawableEnd
 styleable AppCompatTextView android_textAppearance autoSizeMaxTextSize autoSizeMinTextSize autoSizePresetSizes autoSizeStepGranularity autoSizeTextType drawableBottomCompat drawableEndCompat drawableLeftCompat drawableRightCompat drawableStartCompat drawableTint drawableTintMode drawableTopCompat firstBaselineToTopHeight fontFamily fontVariationSettings lastBaselineToBottomHeight lineHeight textAllCaps textLocale
 styleable AppCompatTheme android_windowIsFloating android_windowAnimationStyle actionBarDivider actionBarItemBackground actionBarPopupTheme actionBarSize actionBarSplitStyle actionBarStyle actionBarTabBarStyle actionBarTabStyle actionBarTabTextStyle actionBarTheme actionBarWidgetTheme actionButtonStyle actionDropDownStyle actionMenuTextAppearance actionMenuTextColor actionModeBackground actionModeCloseButtonStyle actionModeCloseDrawable actionModeCopyDrawable actionModeCutDrawable actionModeFindDrawable actionModePasteDrawable actionModePopupWindowStyle actionModeSelectAllDrawable actionModeShareDrawable actionModeSplitBackground actionModeStyle actionModeWebSearchDrawable actionOverflowButtonStyle actionOverflowMenuStyle activityChooserViewStyle alertDialogButtonGroupStyle alertDialogCenterButtons alertDialogStyle alertDialogTheme autoCompleteTextViewStyle borderlessButtonStyle buttonBarButtonStyle buttonBarNegativeButtonStyle buttonBarNeutralButtonStyle buttonBarPositiveButtonStyle buttonBarStyle buttonStyle buttonStyleSmall checkboxStyle checkedTextViewStyle colorAccent colorBackgroundFloating colorButtonNormal colorControlActivated colorControlHighlight colorControlNormal colorError colorPrimary colorPrimaryDark colorSwitchThumbNormal controlBackground dialogCornerRadius dialogPreferredPadding dialogTheme dividerHorizontal dividerVertical dropDownListViewStyle dropdownListPreferredItemHeight editTextBackground editTextColor editTextStyle homeAsUpIndicator imageButtonStyle listChoiceBackgroundIndicator listChoiceIndicatorMultipleAnimated listChoiceIndicatorSingleAnimated listDividerAlertDialog listMenuViewStyle listPopupWindowStyle listPreferredItemHeight listPreferredItemHeightLarge listPreferredItemHeightSmall listPreferredItemPaddingEnd listPreferredItemPaddingLeft listPreferredItemPaddingRight listPreferredItemPaddingStart panelBackground panelMenuListTheme panelMenuListWidth popupMenuStyle popupWindowStyle radioButtonStyle ratingBarStyle ratingBarStyleIndicator ratingBarStyleSmall searchViewStyle seekBarStyle selectableItemBackground selectableItemBackgroundBorderless spinnerDropDownItemStyle spinnerStyle switchStyle textAppearanceLargePopupMenu textAppearanceListItem textAppearanceListItemSecondary textAppearanceListItemSmall textAppearancePopupMenuHeader textAppearanceSearchResultSubtitle textAppearanceSearchResultTitle textAppearanceSmallPopupMenu textColorAlertDialogListItem textColorSearchUrl toolbarNavigationButtonStyle toolbarStyle tooltipForegroundColor tooltipFrameBackground viewInflaterClass windowActionBar windowActionBarOverlay windowActionModeOverlay windowFixedHeightMajor windowFixedHeightMinor windowFixedWidthMajor windowFixedWidthMinor windowMinWidthMajor windowMinWidthMinor windowNoTitle
+styleable BarcodeScannerView borderAlpha borderColor borderLength borderWidth cornerRadius finderOffset laserColor laserEnabled maskColor roundedCorner shouldScaleToFill squaredFinder
 styleable BottomAppBar backgroundTint fabAlignmentMode fabCradleMargin fabCradleRoundedCornerRadius fabCradleVerticalOffset hideOnScroll
 styleable BottomNavigationView elevation itemBackground itemHorizontalTranslationEnabled itemIconSize itemIconTint itemTextAppearanceActive itemTextAppearanceInactive itemTextColor labelVisibilityMode menu
 styleable BottomSheetBehavior_Layout behavior_fitToContents behavior_hideable behavior_peekHeight behavior_skipCollapsed
@@ -2277,4 +2344,3 @@ transition slide_in_up
 transition slide_out_left
 transition slide_out_right
 transition slide_out_up
-xml item_row
