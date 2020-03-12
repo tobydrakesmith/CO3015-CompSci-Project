@@ -19,6 +19,10 @@ public class BasketBooking implements Parcelable {
         this.show = show;
     }
 
+    public BasketBooking() {
+        tickets = new ArrayList<>();
+    }
+
     public void addTicket(Ticket ticket){
         tickets.add(ticket);
     }
@@ -67,7 +71,6 @@ public class BasketBooking implements Parcelable {
     public Ticket getTicket(int pos){
         return tickets.get(pos);
     }
-
 
     public ArrayList<Ticket> getTickets(){
         return tickets;

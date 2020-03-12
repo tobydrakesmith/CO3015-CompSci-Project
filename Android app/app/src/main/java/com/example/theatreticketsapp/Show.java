@@ -9,6 +9,7 @@ public class Show implements Parcelable {
     private int monMat, monEve, tueMat, tueEve, wedMat, wedEve, thuMat, thuEve, friMat, friEve, satMat, satEve, sunMat, sunEve;
     private int pricePbA, pricePbB, pricePbC, pricePbD, numTicketsPbA, numTicketsPbB, numTicketsPbC, numTicketsPbD;
     private int id;
+    private int rating;
 
 
 
@@ -43,6 +44,8 @@ public class Show implements Parcelable {
         this.numTicketsPbB = numTicketsPbB;
         this.numTicketsPbC = numTicketsPbC;
         this.numTicketsPbD = numTicketsPbD;
+
+        rating=0;
     }
 
 
@@ -195,6 +198,29 @@ public class Show implements Parcelable {
         this.numTicketsPbD = numTicketsPbD;
     }
 
+    public void setRating(int avgRating){
+        this.rating = avgRating;
+    }
+
+    public int getRating(){
+        return this.rating;
+    }
+
+    public void reduceNumberTixPBA(){
+        numTicketsPbA--;
+    }
+
+    public void reduceNumberTixPBB(){
+        numTicketsPbB--;
+    }
+
+    public void reduceNumberTixPBC(){
+        numTicketsPbC--;
+    }
+
+    public void reduceNumberTixPBD(){
+        numTicketsPbD--;
+    }
 
 
 
@@ -230,6 +256,13 @@ public class Show implements Parcelable {
         pricePbB = in.readInt();
         pricePbC = in.readInt();
         pricePbD = in.readInt();
+
+        numTicketsPbA = in.readInt();
+        numTicketsPbB = in.readInt();
+        numTicketsPbC = in.readInt();
+        numTicketsPbD = in.readInt();
+
+        rating = in.readInt();
     }
 
     public static final Creator<Show> CREATOR = new Creator<Show>() {
@@ -281,6 +314,13 @@ public class Show implements Parcelable {
         dest.writeInt(pricePbB);
         dest.writeInt(pricePbC);
         dest.writeInt(pricePbD);
+
+        dest.writeInt(numTicketsPbA);
+        dest.writeInt(numTicketsPbB);
+        dest.writeInt(numTicketsPbC);
+        dest.writeInt(numTicketsPbD);
+
+        dest.writeInt(rating);
 
 
     }

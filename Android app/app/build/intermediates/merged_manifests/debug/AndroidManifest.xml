@@ -33,6 +33,7 @@
         android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
+        <activity android:name="com.example.theatreticketsapp.ViewReviews" />
         <activity android:name="com.example.theatreticketsapp.ViewVenue" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

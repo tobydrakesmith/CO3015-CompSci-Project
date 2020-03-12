@@ -1262,6 +1262,7 @@ id btnCancel
 id btnDecrease
 id btnIncrease
 id btnViewTickets
+id button
 id buttonLeft
 id buttonPanel
 id buttonRight
@@ -1404,6 +1405,7 @@ id progress_circular
 id progress_horizontal
 id qrCodeImageView
 id radio
+id radioGroup
 id ratingBar
 id registerBtn
 id reviewText
@@ -1440,6 +1442,7 @@ id showDescription
 id showHome
 id showName
 id showNameLbl
+id showRating
 id showTitle
 id smallLabel
 id snackbar_action
@@ -1490,6 +1493,10 @@ id timeLeftLbl
 id title
 id titleDividerNoCustom
 id title_template
+id tixLeftPBA
+id tixLeftPBB
+id tixLeftPBC
+id tixLeftPBD
 id toolbar
 id top
 id topPanel
@@ -1586,6 +1593,7 @@ layout activity_my_account
 layout activity_my_bookings
 layout activity_register
 layout activity_selected_show
+layout activity_view_reviews
 layout activity_view_tickets
 layout activity_view_venue
 layout content_basket
@@ -1675,6 +1683,7 @@ string btn_login
 string btn_register
 string btn_return
 string button_navigate_venue
+string button_view_reviews
 string character_counter_content_description
 string character_counter_pattern
 string common_google_play_services_enable_button

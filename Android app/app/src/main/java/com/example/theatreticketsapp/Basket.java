@@ -89,28 +89,39 @@ public class Basket implements Parcelable{
     }
 
 
-    public boolean sameShow(BasketBooking booking){
+    public BasketBooking sameShow(BasketBooking booking){
         for (BasketBooking basketBooking : bookings) {
 
             if (basketBooking.getShowName().equals(booking.getShowName()) &&
                     (basketBooking.getDate()+basketBooking.getStartTime()).equals((booking.getDate()+booking.getStartTime()))){
-                return true;
+                return basketBooking;
             }
 
         }
-        return false;
+        return new BasketBooking();
     }
 
 
     public void addBooking(BasketBooking booking){
-
 
         if(this.isEmpty()) {
             countDownTimer.start();
             timeOut = System.currentTimeMillis() + COUNTDOWN_START;
         }
 
-        bookings.add(booking);
+        BasketBooking check = sameShow(booking);
+        if (check.getNumberOfTickets() == 0 ){
+            bookings.add(booking);
+        }
+        else{
+            for(int i=0; i<booking.getNumberOfTickets(); i++){
+                check.addTicket(booking.getTicket(i));
+            }
+        }
+
+
+
+
     }
 
 

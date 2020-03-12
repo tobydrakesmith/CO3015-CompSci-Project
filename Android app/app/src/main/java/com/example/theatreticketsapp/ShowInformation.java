@@ -20,6 +20,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -29,7 +30,7 @@ public class ShowInformation extends AppCompatActivity {
     Venue venue;
     Basket basket;
     ProgressBar progressBar;
-    TextView showDescription;
+    TextView showDescription, showName, venueName, showDesc, endDate, rating;
     int userID;
 
 
@@ -48,9 +49,15 @@ public class ShowInformation extends AppCompatActivity {
         basket = i.getParcelableExtra("basket");
         userID = i.getIntExtra("userid", -1);
 
-
+        showName = findViewById(R.id.showName);
+        venueName = findViewById(R.id.venueName);
+        showDesc = findViewById(R.id.showDescription);
+        endDate = findViewById(R.id.endDate);
+        rating = findViewById(R.id.showRating);
 
         loadShow();
+        loadRating();
+
 
 
 
@@ -107,6 +114,12 @@ public class ShowInformation extends AppCompatActivity {
         Volley.newRequestQueue(this).add(stringRequest);
     }
 
+    public void viewReviews(View view){
+        Intent intent = new Intent(this, ViewReviews.class);
+        intent.putExtra("live_show", mShow);
+        startActivity(intent);
+    }
+
     private void loadShow(){
         StringRequest request = new StringRequest(Request.Method.GET, DatabaseAPI.URL_GET_SHOW_INFO+mShow.getShowName(), new Response.Listener<String>() {
             @Override
@@ -118,19 +131,11 @@ public class ShowInformation extends AppCompatActivity {
 
                     progressBar.setVisibility(View.INVISIBLE);
 
-                    TextView showName = findViewById(R.id.showName);
-                    TextView venueName = findViewById(R.id.venueName);
-                    TextView showDesc = findViewById(R.id.showDescription);
-                   // TextView startDate = findViewById(R.id.startDate);
-                    TextView endDate = findViewById(R.id.endDate);
-
                     showName.setText(mShow.getShowName());
                     showName.setVisibility(View.VISIBLE);
                     venueName.setText(mShow.getVenueName());
                     venueName.setVisibility(View.VISIBLE);
                     showDesc.setVisibility(View.VISIBLE);
-                    //showDesc.setText("Show description: " + mShow.getShowDescription());
-                   // startDate.setText("Start date: " + mShow.getStartDate());
                     endDate.setText("Booking until: " + mShow.getEndDate());
                     endDate.setVisibility(View.VISIBLE);
 
@@ -151,6 +156,41 @@ public class ShowInformation extends AppCompatActivity {
 
         Volley.newRequestQueue(this).add(request);
 
+    }
+
+
+    private void loadRating(){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, DatabaseAPI.URL_GET_REVIEWS + mShow.getShowName(), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    JSONArray reviews = new JSONArray(response);
+                    int total=0;
+                    for(int i=0; i<reviews.length(); i++){
+                        JSONObject review = reviews.getJSONObject(i);
+                        total += review.getInt("rating");
+                    }
+                    try {
+                        mShow.setRating(total / reviews.length());
+                        rating.setText(Integer.toString(mShow.getRating()));
+                    }catch(ArithmeticException e){
+                        rating.setText("Not enough reviews for this to be displayed yet!");
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        Volley.newRequestQueue(this).add(stringRequest);
     }
 
 }

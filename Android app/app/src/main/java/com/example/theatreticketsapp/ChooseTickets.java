@@ -7,7 +7,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,19 +14,27 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class ChooseTickets extends AppCompatActivity {
 
-    Basket basket;
+    private Basket basket;
 
-    TextView numberTixLbl;
-    int numberTix;
-    Show mShow;
-    String strDate;
-    int userID;
-    boolean matinee;
-
+    private TextView numberTixLbl, tixLeftPBA, tixLeftPBB, tixLeftPBC, tixLeftPBD;
+    private int numberTix;
+    private Show mShow;
+    private String strDate;
+    private int userID;
+    private boolean matinee;
 
     RadioButton pba, pbb, pbc, pbd;
 
@@ -50,6 +57,10 @@ public class ChooseTickets extends AppCompatActivity {
         userID = intent.getIntExtra("userid", -1);
         matinee = intent.getBooleanExtra("matinee", false);
 
+        mShow.setNumTicketsPbA(3);
+
+        getSales();
+
 
         pba = findViewById(R.id.priceBandA);
         pbb = findViewById(R.id.priceBandB);
@@ -61,6 +72,11 @@ public class ChooseTickets extends AppCompatActivity {
         pbc.setText("£" + mShow.getPricePbC());
         pbd.setText("£" + mShow.getPricePbD());
 
+        tixLeftPBA = findViewById(R.id.tixLeftPBA);
+        tixLeftPBB = findViewById(R.id.tixLeftPBB);
+        tixLeftPBC = findViewById(R.id.tixLeftPBC);
+        tixLeftPBD = findViewById(R.id.tixLeftPBD);
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -69,9 +85,9 @@ public class ChooseTickets extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.activity_basket:
                 Intent intent = new Intent(this, MyBasket.class);
                 intent.putExtra("basket", basket);
@@ -89,7 +105,7 @@ public class ChooseTickets extends AppCompatActivity {
 
     @Override //TODO: Add animation
     public void onBackPressed() {
-        Intent intent = new Intent (this, ChooseDate.class);
+        Intent intent = new Intent(this, ChooseDate.class);
         intent.putExtra("basket", basket);
         intent.putExtra("live_show", mShow);
         intent.putExtra("userid", userID);
@@ -97,22 +113,64 @@ public class ChooseTickets extends AppCompatActivity {
     }
 
 
+    public void onClickIncrease(View view) {
+
+        if (pba.isChecked()) {
+            if (numberTix<9 && numberTix < mShow.getNumTicketsPbA() ) {
+                numberTix++;
+                updateLabel();
+                changeNumberTickets();
+            }
+        }
+        else if (pbb.isChecked()){
+            if (numberTix<9 && numberTix < mShow.getNumTicketsPbB() ) {
+                numberTix++;
+                updateLabel();
+                changeNumberTickets();
+            }
+
+        }
+        else if (pbc.isChecked()){
+            if (numberTix<9 && numberTix < mShow.getNumTicketsPbC() ) {
+                numberTix++;
+                updateLabel();
+                changeNumberTickets();
+            }
+        }
+        else if (pbd.isChecked()) {
+            if (numberTix<9 && numberTix < mShow.getNumTicketsPbD() ) {
+                numberTix++;
+                updateLabel();
+                changeNumberTickets();
+            }
+
+        }
+        else{
+            numberTix++;
+            updateLabel();
+            changeNumberTickets();
+        }
 
 
-    public void onClickIncrease(View view){
-        numberTix ++;
-        updateLabel();
     }
 
 
-    public void onClickDecrease(View view){
-        if(numberTix>0) {
+    public void onClickDecrease(View view) {
+        if (numberTix > 0) {
             numberTix--;
             updateLabel();
+            changeNumberTickets();
         }
     }
 
-    private int getSelectedPrice(){
+    public void changeNumberTickets(){
+        pba.setClickable(numberTix <= mShow.getNumTicketsPbA());
+        pbb.setClickable(numberTix <= mShow.getNumTicketsPbB());
+        pbc.setClickable(numberTix <= mShow.getNumTicketsPbC());
+        pbd.setClickable(numberTix <= mShow.getNumTicketsPbD());
+    }
+
+    private int getSelectedPrice() {
 
         if (pba.isChecked()) return mShow.getPricePbA();
         if (pbb.isChecked()) return mShow.getPricePbB();
@@ -122,12 +180,31 @@ public class ChooseTickets extends AppCompatActivity {
         return -1;
     }
 
-    private void updateLabel(){
+    private String getPriceBand() {
+
+        if (pba.isChecked()) return "A";
+        if (pbb.isChecked()) return "B";
+        if (pbc.isChecked()) return "C";
+        if (pbd.isChecked()) return "D";
+
+        return null;
+
+    }
+
+    private void updateLabel() {
         numberTixLbl = findViewById(R.id.numberOfTix);
         numberTixLbl.setText(Integer.toString(numberTix));
     }
 
-    public void onClickAddToBasket(View view){
+    private void updateAvail(){
+        tixLeftPBA.setText("Tickets left: " + (mShow.getNumTicketsPbA()));
+        tixLeftPBB.setText("Tickets left: " + (mShow.getNumTicketsPbB()));
+        tixLeftPBC.setText("Tickets left: " + (mShow.getNumTicketsPbC()));
+        tixLeftPBD.setText("Tickets left: " + (mShow.getNumTicketsPbD()));
+    }
+
+    public void onClickAddToBasket(View view) {
+
         if (numberTix == 0)
             Toast.makeText(this,
                     "You have not selected the number of tickets you would like",
@@ -136,24 +213,19 @@ public class ChooseTickets extends AppCompatActivity {
         else if (getSelectedPrice() == -1)
             Toast.makeText(this, "Please select a price to continue",
                     Toast.LENGTH_SHORT).show();
-
         else
             addToBasket(getSelectedPrice());
     }
 
-    /*
-    TODO: finish checking if a booking (same date, start time, showname) already is in basket
-     instead of creating a new booking object and adding that
-    */
-
-    private void addToBasket(int price){
+    private void addToBasket(int price) {
 
         BasketBooking basketBooking =
                 new BasketBooking(strDate, matinee ? mShow.getMatineeStart() : mShow.getEveningStart(), mShow);
 
+        String priceBand = getPriceBand();
 
-        for (int i=0; i<numberTix; i++){
-            Ticket t = new Ticket(price, mShow);
+        for (int i = 0; i < numberTix; i++) {
+            Ticket t = new Ticket(price, mShow, priceBand);
             basketBooking.addTicket(t);
         }
         basket.addBooking(basketBooking);
@@ -196,4 +268,52 @@ public class ChooseTickets extends AppCompatActivity {
                 });
         alertDialog.show();
     }
+
+    private void getSales() {
+        String date = "&date=" + strDate;
+        String showTime = "&time=" + (matinee ? mShow.getMatineeStart() : mShow.getEveningStart());
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_GET_SALES + mShow.getId() + date + showTime, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    for(int i=0; i<jsonArray.length(); i++){
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        String priceBand = jsonObject.getString("priceBand");
+                        System.out.println(priceBand);
+                        switch (priceBand){
+                            case "A":
+                                mShow.reduceNumberTixPBA();
+                            break;
+                            case "B":
+                                mShow.reduceNumberTixPBB();
+                                break;
+                            case "C":
+                                mShow.reduceNumberTixPBC();
+                                break;
+                            case "d":
+                                mShow.reduceNumberTixPBD();
+                                break;
+                        }
+                    }
+                    updateAvail();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    updateAvail();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                updateAvail();
+
+            }
+        });
+        Volley.newRequestQueue(this).add(stringRequest);
+    }
+
 }

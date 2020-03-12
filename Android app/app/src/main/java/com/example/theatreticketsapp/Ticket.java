@@ -7,15 +7,17 @@ public class Ticket implements Parcelable {
 
     private int price;
     private Show show;
-    private int ticketid;
+    private int ticketID;
+    private String priceBand;
 
-    Ticket(int price, Show show){
+    Ticket(int price, Show show, String priceBand){
         this.price = price;
         this.show = show;
+        this.priceBand = priceBand;
     }
 
-    Ticket(int ticketid, int price){
-        this.ticketid = ticketid;
+    Ticket(int ticketID, int price){
+        this.ticketID = ticketID;
         this.price = price;
     }
 
@@ -29,14 +31,19 @@ public class Ticket implements Parcelable {
     public Show getShow(){ return show; }
 
 
-    public int getTicketid(){
-        return this.ticketid;
+    public int getTicketID(){
+        return this.ticketID;
+    }
+
+    public String getPriceBand(){
+        return this.priceBand;
     }
 
     protected Ticket(Parcel in){
 
         price = in.readInt();
         show = in.readParcelable(Show.class.getClassLoader());
+        priceBand = in.readString();
 
     }
 
@@ -63,6 +70,7 @@ public class Ticket implements Parcelable {
 
         dest.writeInt(price);
         dest.writeParcelable(show, flags);
+        dest.writeString(priceBand);
     }
 
 }

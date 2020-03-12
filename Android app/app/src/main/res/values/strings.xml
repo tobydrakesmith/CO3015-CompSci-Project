@@ -38,5 +38,6 @@
     <string name="title_activity_view_tickets">ViewTickets</string>
     <string name="title_activity_maps">Map</string>
     <string name="button_navigate_venue">Navigate to venue</string>
+    <string name="button_view_reviews">View reviews</string>
 
 </resources>

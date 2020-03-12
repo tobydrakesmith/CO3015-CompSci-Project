@@ -26,9 +26,6 @@
 
 			if($stmt->execute())
 				return true;
-//			else
-//				return $this->con->error;
-
 			return false;
 		}
 
@@ -159,11 +156,11 @@
 				$stmt->execute();
 				$stmt->bind_result($showdesc);
 
-				if($stmt->fetch()){
-					$show = array();
-					$show['showDesc'] = $showdesc;
-					return $show;
-				}
+				$stmt->fetch();
+				$show = array();
+				$show['showDesc'] = $showdesc;
+				return $show;
+
 			}
 			return false;
 		}
@@ -178,9 +175,9 @@
 
 		}
 
-		function createTicket($bookingID, $price){
-			$stmt = $this->con->prepare("INSERT INTO ticket(bookingID, price) VALUES (?, ?)");
-			$stmt->bind_param("ii", $bookingID, $price);
+		function createTicket($bookingID, $price, $priceBand){
+			$stmt = $this->con->prepare("INSERT INTO ticket(bookingID, price, priceBand) VALUES (?, ?, ?)");
+			$stmt->bind_param("iis", $bookingID, $price, $priceBand);
 			if($stmt->execute()) return true;
 			else return false;
 		}
@@ -287,6 +284,74 @@
 			$venue['postcode'] = $postcode;
 
 			return $venue;
+		}
+
+		function getReviews($showName){
+			$stmt = $this->con->prepare("SELECT rating, review FROM review WHERE showName = ?");
+			$stmt->bind_param("s", $showName);
+			$stmt->execute();
+			$stmt->bind_result($rating, $reviewText);
+			$reviews = array();
+			while($stmt->fetch()){
+				$review = array();
+				$review['rating'] = $rating;
+				$review['review'] = $reviewText;
+
+				array_push($reviews, $review);
+			}
+
+			return $reviews;
+		}
+
+		function getSales($showInstanceID, $date, $time){
+			$stmt = $this->con->prepare("SELECT bookingID FROM booking WHERE showInstanceID = ? AND bookingDate = ? AND showTime = ?");
+			$stmt->bind_param("iss", $showInstanceID, $date, $time);
+			$stmt->execute();
+			$stmt->bind_result($bookingID);
+			$bookingIDs = array();
+			while($stmt->fetch()){
+				$booking = array();
+				$booking = $bookingID;
+				array_push($bookingIDs, $booking);
+			}
+
+			return $bookingIDs;
+		}
+
+		function checkPriceBand($showInstanceID, $date, $time){
+			$bookings = array();
+			$bookings = $this->getSales($showInstanceID, $date, $time);
+			$ids = join(',', $bookings);
+			$stmt = $this->con->prepare("SELECT priceBand FROM ticket WHERE bookingID IN ($ids)");
+			$stmt->execute();
+			$stmt->bind_result($priceBand);
+			$priceBands = array();
+			while($stmt->fetch()){
+				$result = array();
+				$result['priceBand'] = $priceBand;
+				array_push($priceBands, $result);
+			}
+			return $priceBands;
+		}
+
+		function getReviewsDetailed($showName){
+			$stmt = $this->con->prepare("SELECT userID, bookingID, rating, review, date FROM review WHERE showName = ?");
+			$stmt->bind_param("s", $showName);
+			$stmt->execute();
+			$stmt->bind_result($userID, $bookingID, $rating, $reviewText, $date);
+			$reviews = array();
+			while($stmt->fetch()){
+				$review = array();
+				$review['userID'] = $userID;
+				$review['bookingID'] = $bookingID;
+				$review['rating'] = $rating;
+				$review['reviewText'] = $reviewText;
+				$review['date'] = $date;
+				array_push($reviews, $review);
+			}
+
+			return $reviews;
+
 		}
 
 

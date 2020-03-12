@@ -4,7 +4,6 @@
     import android.view.LayoutInflater;
     import android.view.View;
     import android.view.ViewGroup;
-    import android.widget.Button;
     import android.widget.ImageView;
     import android.widget.TextView;
 
@@ -61,9 +60,9 @@
             ViewHolder(View itemView, OnShowClickListener onShowClickListener) {
                 super(itemView);
                 this.onShowClickListener = onShowClickListener;
-                showNameTextView = itemView.findViewById(R.id.show);
+                showNameTextView = itemView.findViewById(R.id.userName);
                 venueNameTextView = itemView.findViewById(R.id.venue);
-                imageView = itemView.findViewById(R.id.imageView2);
+                imageView = itemView.findViewById(R.id.imageView);
                 itemView.setOnClickListener(this);
             }
 

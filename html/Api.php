@@ -184,10 +184,10 @@
 			break;
 
 			case 'createticket':
-				areTheseParametersAvailable(array('bookingID', 'price'));
+				areTheseParametersAvailable(array('bookingID', 'price', 'priceBand'));
 				$db = new DbOperation();
 
-				$result = $db->createTicket($_POST['bookingID'], $_POST['price']);
+				$result = $db->createTicket($_POST['bookingID'], $_POST['price'], $_POST['priceBand']);
 
 				if($result){
 					$response['error'] = false;
@@ -282,15 +282,37 @@
 
 			break;
 
-//			case 'getvenueinfofrominstance':
-//
-//				if(isset($_GET['showInstanceID'])){
-//					$db = new DbOperation();
-//					$response = $db->getVenueName($_GET['showInstanceID']);
+			case 'getreviews':
 
-//				}
+				if(isset($_GET['showName'])){
+					$db = new DbOperation();
+					$response = $db->getReviews($_GET['showName']);
+				}
+				else{
+					$response['error'] = true;
+					$response['message'] = "Missing parameters";
+				}
 
-//			break;
+			break;
+
+			case 'getsales':
+				if(isset($_GET['showInstanceID'], $_GET['date'], $_GET['time'])){
+					$db = new DbOperation();
+					$response = $db->checkPriceBand($_GET['showInstanceID'], $_GET['date'], $_GET['time']);
+				}else{
+					$response['error'] = true;
+					$response['message'] = "Missing parameters";
+				}
+
+			break;
+
+			case 'getreviewsdetailed':
+				if(isset($_GET['showName'])){
+					$db = new DbOperation();
+					$response = $db->getReviewsDetailed($_GET['showName']);
+				}
+
+			break;
 
 		}
 	}else{

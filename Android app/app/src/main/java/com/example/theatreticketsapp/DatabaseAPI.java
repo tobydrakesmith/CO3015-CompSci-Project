@@ -9,7 +9,6 @@ public class DatabaseAPI {
             //"http://143.210.204.216/Api.php?apicall="; //linux uni
            "http://192.168.43.193/Api.php?apicall="; // phone hotspot
             //"http://192.168.0.33/Api.php?apicall="; //home home
-            //"http://143.210.158.110/Api.php?apicall="; //usb tethering uni
 
 
 
@@ -56,6 +55,14 @@ public class DatabaseAPI {
     public static final String URL_GET_VENUE_INFO =
             ROOT_URL + "getvenueinfo&venueName=";
 
+    public static final String URL_GET_REVIEWS =
+            ROOT_URL + "getreviews&showName=";
+
+    public static final String URL_GET_SALES =
+            ROOT_URL + "getsales&showInstanceID=";
+
+    public static final String URL_GET_REVIEWS_DETAILED =
+            ROOT_URL + "getreviewsdetailed&showName=";
 
 
 }

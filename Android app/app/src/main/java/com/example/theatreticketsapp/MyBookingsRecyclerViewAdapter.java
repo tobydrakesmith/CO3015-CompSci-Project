@@ -20,7 +20,10 @@ public class MyBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyBookin
     private LayoutInflater mInflater;
     private MyBookingsRecyclerViewAdapter.OnBookingClickListener mOnBookingClickListener;
 
-    MyBookingsRecyclerViewAdapter(Context context,MyBookingsRecyclerViewAdapter.OnBookingClickListener onClickListener, ArrayList<Booking> bookings){
+    MyBookingsRecyclerViewAdapter(Context context,
+                                  MyBookingsRecyclerViewAdapter.OnBookingClickListener onClickListener,
+                                  ArrayList<Booking> bookings){
+
         this.mInflater = LayoutInflater.from(context);
         this.mOnBookingClickListener = onClickListener;
         this.mBookings = bookings;

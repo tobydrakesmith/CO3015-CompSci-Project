@@ -34,12 +34,18 @@ public class CreateReview extends AppCompatActivity {
     Booking booking;
     int userID;
 
+    RatingBar ratingBar;
+    EditText review;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_review);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ratingBar = findViewById(R.id.ratingBar);
+        review = findViewById(R.id.reviewText);
 
         Intent intent = getIntent();
         booking = intent.getParcelableExtra("booking");
@@ -94,15 +100,14 @@ public class CreateReview extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams(){
 
-                RatingBar ratingBar = findViewById(R.id.ratingBar);
-                EditText review = findViewById(R.id.reviewText);
+
 
                 HashMap<String, String> params = new HashMap<>();
                 params.put("bookingID", Integer.toString(booking.getBookingID()));
                 params.put("userID", Integer.toString(userID));
                 params.put("showName", booking.getShowName());
                 params.put("showInstanceID", Integer.toString(booking.getShowInstanceID()));
-                params.put("rating", Integer.toString(ratingBar.getNumStars()));
+                params.put("rating", Float.toString(ratingBar.getRating()));
                 params.put("review", review.getText().toString());
 
                 return params;

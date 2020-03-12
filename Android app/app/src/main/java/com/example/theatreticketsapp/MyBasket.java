@@ -203,6 +203,7 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
         basket.releaseTickets(booking);
 
         for (int i=0; i<tickets.size(); i++){
+            final int x = i;
             StringRequest stringRequest = new StringRequest(Request.Method.POST, DatabaseAPI.URL_CREATE_TICKET, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -220,7 +221,8 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
               protected Map<String, String> getParams(){
                   Map<String, String> params = new HashMap<>();
                   params.put("bookingID", Integer.toString(bookingID));
-                  params.put("price", Integer.toString(tickets.get(0).getPrice()));
+                  params.put("price", Integer.toString(tickets.get(x).getPrice()));
+                  params.put("priceBand", tickets.get(x).getPriceBand());
 
                   return params;
               }

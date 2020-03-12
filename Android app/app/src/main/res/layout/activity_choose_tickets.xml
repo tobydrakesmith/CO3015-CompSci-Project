@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ChooseTickets">
 
+    <TextView
+        android:id="@+id/tixLeftPBC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/tixLeftPBD"
+        app:layout_constraintEnd_toEndOf="@+id/tixLeftPBB"
+        app:layout_constraintTop_toBottomOf="@+id/tixLeftPBB" />
+
     <Button
         android:id="@+id/btnIncrease"
         android:layout_width="45dp"
@@ -44,6 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -132,5 +143,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/homepage_top_nav" />
+
+    <TextView
+        android:id="@+id/tixLeftPBA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/selectThePrice"
+        app:layout_constraintTop_toTopOf="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/tixLeftPBB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="@+id/tixLeftPBA"
+        app:layout_constraintTop_toBottomOf="@+id/tixLeftPBA" />
+
+    <TextView
+        android:id="@+id/tixLeftPBD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="@+id/tixLeftPBC" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
