@@ -129,6 +129,23 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
     @Override
     public void onTicketClick(int position){
 
+
+
+        StringRequest stringRequest =  new StringRequest(Request.Method.DELETE,
+                DatabaseAPI.URL_DELETE_BASKET_BOOKING+basket.getBookings().get(position).getTempID(), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                System.out.println(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        Volley.newRequestQueue(this).add(stringRequest);
+
         basket.releaseTickets(basket.getBookings().get(position));
         numberTix.setText("Number of tickets in basket: " + basket.size());
         totalCost.setText("Total cost £" + (basket.getTotalCost()));
@@ -184,6 +201,7 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
                         params.put("date", booking.getDate());
                         params.put("showTime", booking.getStartTime());
                         params.put("showName", booking.getShowName());
+                        params.put("tempID", Integer.toString(booking.getTempID()));
                         return params;
                     }
                 };

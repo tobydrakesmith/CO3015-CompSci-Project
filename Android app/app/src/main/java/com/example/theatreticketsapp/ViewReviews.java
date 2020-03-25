@@ -1,6 +1,8 @@
 package com.example.theatreticketsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,10 +19,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ViewReviews extends AppCompatActivity  {
+public class ViewReviews extends AppCompatActivity implements ReviewsRecyclerViewAdapter.OnReviewClickListener {
 
     Show mShow;
     ArrayList<Review> mReviews;
+    RecyclerView recyclerViewReviews;
+    ReviewsRecyclerViewAdapter reviewsRecyclerViewAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +36,28 @@ public class ViewReviews extends AppCompatActivity  {
         mShow = intent.getParcelableExtra("live_show");
         mReviews = new ArrayList<>();
 
+
+
+
+        recyclerViewReviews = findViewById(R.id.reviewView);
+        recyclerViewReviews.setLayoutManager(new LinearLayoutManager(this));
+
+
         loadReviews();
+
+        System.out.println(mReviews.size());
     }
 
 
-    private void loadReviews(){
+    private void loadReviews() {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_GET_REVIEWS_DETAILED+mShow.getShowName(), new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_GET_REVIEWS_DETAILED + mShow.getShowName(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONArray reviews = new JSONArray(response);
 
-                    for (int i=0; i<reviews.length(); i++){
+                    for (int i = 0; i < reviews.length(); i++) {
                         JSONObject review = reviews.getJSONObject(i);
                         int rating = review.getInt("rating");
                         String reviewText = review.getString("reviewText");
@@ -55,6 +69,8 @@ public class ViewReviews extends AppCompatActivity  {
                                 bookingID, mShow.getId()));
                     }
 
+                    reviewsRecyclerViewAdapter = new ReviewsRecyclerViewAdapter(ViewReviews.this, ViewReviews.this, mReviews);
+                    recyclerViewReviews.setAdapter(reviewsRecyclerViewAdapter);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -71,4 +87,5 @@ public class ViewReviews extends AppCompatActivity  {
         Volley.newRequestQueue(this).add(stringRequest);
 
     }
+
 }

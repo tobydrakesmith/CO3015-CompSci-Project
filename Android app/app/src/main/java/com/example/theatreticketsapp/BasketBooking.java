@@ -11,12 +11,14 @@ public class BasketBooking implements Parcelable {
     private String date, startTime;
     private Show show;
     private int bookingID;
+    private int tempID;
 
-    public BasketBooking(String date, String startTime, Show show){
+    public BasketBooking(String date, String startTime, Show show, int tempID){
         tickets = new ArrayList<>();
         this.date = date;
         this.startTime = startTime;
         this.show = show;
+        this.tempID = tempID;
     }
 
     public BasketBooking() {
@@ -37,6 +39,10 @@ public class BasketBooking implements Parcelable {
 
     public String getShowName(){
         return this.show.getShowName();
+    }
+
+    public int getTempID(){
+        return this.tempID;
     }
 
     public int getNumberOfTickets(){
@@ -64,9 +70,6 @@ public class BasketBooking implements Parcelable {
         return toRet;
     }
 
-    public void removeTicket(int pos){
-        tickets.remove(pos);
-    }
 
     public Ticket getTicket(int pos){
         return tickets.get(pos);
@@ -89,6 +92,7 @@ public class BasketBooking implements Parcelable {
         date = in.readString();
         startTime = in.readString();
         show = in.readParcelable(Show.class.getClassLoader());
+        tempID = in.readInt();
 
 
     }
@@ -118,6 +122,7 @@ public class BasketBooking implements Parcelable {
         dest.writeString(date);
         dest.writeString(startTime);
         dest.writeParcelable(show, flags);
+        dest.writeInt(tempID);
 
     }
 }

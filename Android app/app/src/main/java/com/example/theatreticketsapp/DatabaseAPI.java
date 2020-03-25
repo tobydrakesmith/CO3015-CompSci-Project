@@ -7,8 +7,8 @@ public class DatabaseAPI {
             //"http://143.210.112.49/TheatreTicketsApp/v1/Api.php?apicall="; //uni
             //"http://192.168.0.28/Api.php?apicall="; //linux home
             //"http://143.210.204.216/Api.php?apicall="; //linux uni
-           "http://192.168.43.193/Api.php?apicall="; // phone hotspot
-            //"http://192.168.0.33/Api.php?apicall="; //home home
+           //"http://192.168.43.193/Api.php?apicall="; // phone hotspot
+            "http://192.168.0.33/Api.php?apicall="; //home home
 
 
 
@@ -43,26 +43,33 @@ public class DatabaseAPI {
     public static final String URL_CREATE_REVIEW =
             ROOT_URL + "createreview";
 
-    public static final String URL_GET_TICKETS =
+    static final String URL_GET_TICKETS =
             ROOT_URL + "gettickets&bookingID=";
 
     public static final String URL_UPDATE_PASSWORD =
             ROOT_URL + "updatepassword&userID=";
 
-    public static final String URL_CHECK_REVIEW =
+    static final String URL_CHECK_REVIEW =
             ROOT_URL + "checkreview&bookingID=";
 
-    public static final String URL_GET_VENUE_INFO =
+    static final String URL_GET_VENUE_INFO =
             ROOT_URL + "getvenueinfo&venueName=";
 
-    public static final String URL_GET_REVIEWS =
+    static final String URL_GET_REVIEWS =
             ROOT_URL + "getreviews&showName=";
 
-    public static final String URL_GET_SALES =
+    static final String URL_GET_SALES =
             ROOT_URL + "getsales&showInstanceID=";
 
-    public static final String URL_GET_REVIEWS_DETAILED =
+    static final String URL_GET_REVIEWS_DETAILED =
             ROOT_URL + "getreviewsdetailed&showName=";
+
+    static final String URL_CREATE_BASKET_BOOKING =
+            ROOT_URL + "addbasketbooking&showInstanceID=";
+
+    static final String URL_DELETE_BASKET_BOOKING =
+            ROOT_URL + "deletebasketbooking&tempID=";
+
 
 
 }

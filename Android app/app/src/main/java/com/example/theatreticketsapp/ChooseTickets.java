@@ -57,8 +57,6 @@ public class ChooseTickets extends AppCompatActivity {
         userID = intent.getIntExtra("userid", -1);
         matinee = intent.getBooleanExtra("matinee", false);
 
-        mShow.setNumTicketsPbA(3);
-
         getSales();
 
 
@@ -187,7 +185,7 @@ public class ChooseTickets extends AppCompatActivity {
         if (pbc.isChecked()) return "C";
         if (pbd.isChecked()) return "D";
 
-        return null;
+        return "";
 
     }
 
@@ -213,60 +211,122 @@ public class ChooseTickets extends AppCompatActivity {
         else if (getSelectedPrice() == -1)
             Toast.makeText(this, "Please select a price to continue",
                     Toast.LENGTH_SHORT).show();
-        else
-            addToBasket(getSelectedPrice());
+        else {
+
+            getSales();
+
+            String pb = getPriceBand();
+
+            switch (pb){
+                case "A":
+
+                    if ((mShow.getNumTicketsPbA() - numberTix) >= 0) addToBasket(getSelectedPrice());
+
+                    break;
+
+                case "B":
+                    if ((mShow.getNumTicketsPbB() - numberTix) >=0) addToBasket(getSelectedPrice());
+                    break;
+
+                case "C":
+                    if ((mShow.getNumTicketsPbC() - numberTix) >=0) addToBasket(getSelectedPrice());
+                    break;
+
+                case "D":
+                    if ((mShow.getNumTicketsPbD() - numberTix) >=0) addToBasket(getSelectedPrice());
+                    break;
+
+
+
+            }
+
+        }
     }
 
-    private void addToBasket(int price) {
-
-        BasketBooking basketBooking =
-                new BasketBooking(strDate, matinee ? mShow.getMatineeStart() : mShow.getEveningStart(), mShow);
-
-        String priceBand = getPriceBand();
-
-        for (int i = 0; i < numberTix; i++) {
-            Ticket t = new Ticket(price, mShow, priceBand);
-            basketBooking.addTicket(t);
-        }
-        basket.addBooking(basketBooking);
 
 
-        AlertDialog alertDialog = new AlertDialog.Builder(ChooseTickets.this).create();
-        alertDialog.setTitle("Success");
-        alertDialog.setMessage("Your tickets have been added to your basket, the tickets will release after 10 minutes.");
-        System.out.println("BASKET EMPTY? " + basket.isEmpty());
-        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Take me to my basket",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(ChooseTickets.this, MyBasket.class);
-                        intent.putExtra("basket", basket);
-                        intent.putExtra("live_show", mShow);
-                        intent.putExtra("userid", userID);
-                        intent.putExtra("date", strDate);
-                        startActivity(intent);
+    private void addToBasket(final int price) {
+
+        String date = "&date=" + strDate;
+        String time = "&time=" + (matinee ? mShow.getMatineeStart() : mShow.getEveningStart());
+        String pb = "&priceBand=" + getPriceBand();
+        String uid = "&userID=" + userID;
+        String numTix = "&numberOfTickets=" + numberTix;
+
+
+        System.out.println(DatabaseAPI.URL_CREATE_BASKET_BOOKING+mShow.getId()+date+time+pb+uid+numTix);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, DatabaseAPI.URL_CREATE_BASKET_BOOKING+mShow.getId()+date+time+pb+uid+numTix, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    final int tempID = jsonObject.getInt("id");
+                    BasketBooking basketBooking =
+                            new BasketBooking(strDate, matinee ? mShow.getMatineeStart() : mShow.getEveningStart(),
+                                    mShow, tempID);
+
+                    String priceBand = getPriceBand();
+
+                    for (int i = 0; i < numberTix; i++) {
+                        Ticket t = new Ticket(price, mShow, priceBand);
+                        basketBooking.addTicket(t);
                     }
-                });
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Back to home",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(ChooseTickets.this, Homepage.class);
-                        intent.putExtra("basket", basket);
-                        intent.putExtra("live_show", mShow);
-                        intent.putExtra("userid", userID);
-                        intent.putExtra("date", strDate);
-                        startActivity(intent);
+                    basket.addBooking(basketBooking);
 
-                    }
-                });
-        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-        alertDialog.show();
+
+                    AlertDialog alertDialog = new AlertDialog.Builder(ChooseTickets.this).create();
+                    alertDialog.setTitle("Success");
+                    alertDialog.setMessage("Your tickets have been added to your basket, the tickets will release after 10 minutes.");
+                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Take me to my basket",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(ChooseTickets.this, MyBasket.class);
+                                    intent.putExtra("basket", basket);
+                                    intent.putExtra("live_show", mShow);
+                                    intent.putExtra("userid", userID);
+                                    intent.putExtra("date", strDate);
+                                    startActivity(intent);
+                                }
+                            });
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Back to home",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(ChooseTickets.this, Homepage.class);
+                                    intent.putExtra("basket", basket);
+                                    intent.putExtra("live_show", mShow);
+                                    intent.putExtra("userid", userID);
+                                    intent.putExtra("date", strDate);
+                                    startActivity(intent);
+
+                                }
+                            });
+                    alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        Volley.newRequestQueue(this).add(stringRequest);
+
+
     }
 
     private void getSales() {
@@ -282,7 +342,6 @@ public class ChooseTickets extends AppCompatActivity {
                     for(int i=0; i<jsonArray.length(); i++){
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         String priceBand = jsonObject.getString("priceBand");
-                        System.out.println(priceBand);
                         switch (priceBand){
                             case "A":
                                 mShow.reduceNumberTixPBA();
@@ -293,7 +352,7 @@ public class ChooseTickets extends AppCompatActivity {
                             case "C":
                                 mShow.reduceNumberTixPBC();
                                 break;
-                            case "d":
+                            case "D":
                                 mShow.reduceNumberTixPBD();
                                 break;
                         }

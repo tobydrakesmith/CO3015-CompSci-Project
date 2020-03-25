@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,9 +35,9 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
     @Override
     public void onBindViewHolder(ReviewsRecyclerViewAdapter.ViewHolder holder, int position){
 
-        Review review = mReviews.get(0);
+        Review review = mReviews.get(position);
 
-        holder.rating.setText(Integer.toString(review.getRating()));
+        holder.rating.setText(Integer.toString(review.getRating())+ "/5");
         holder.date.setText(review.getDate());
         holder.reviewText.setText(review.getRatingTxt());
 
@@ -59,6 +58,12 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
 
         ViewHolder(View view, ReviewsRecyclerViewAdapter.OnReviewClickListener onReviewClickListener){
             super(view);
+
+            rating = view.findViewById(R.id.rating);
+            reviewText = view.findViewById(R.id.reviewText);
+            date = view.findViewById(R.id.date);
+
+
 
         }
 

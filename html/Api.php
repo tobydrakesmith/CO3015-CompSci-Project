@@ -167,10 +167,10 @@
 			break;
 
 			case 'createbooking':
-				areTheseParametersAvailable(array('instanceID', 'userID', 'numberOfTickets', 'date', 'showTime', 'showName'));
+				areTheseParametersAvailable(array('instanceID', 'userID', 'numberOfTickets', 'date', 'showTime', 'showName', 'tempID'));
 				$db = new DbOperation();
 
-				$result = $db->createBooking($_POST['instanceID'],$_POST['userID'],$_POST['numberOfTickets'],$_POST['date'], $_POST['showTime'], $_POST['showName']);
+				$result = $db->createBooking($_POST['instanceID'],$_POST['userID'],$_POST['numberOfTickets'],$_POST['date'], $_POST['showTime'], $_POST['showName'], $_POST['tempID']);
 
 				if($result){
 					$response['error'] = false;
@@ -306,11 +306,40 @@
 
 			break;
 
+
 			case 'getreviewsdetailed':
 				if(isset($_GET['showName'])){
 					$db = new DbOperation();
 					$response = $db->getReviewsDetailed($_GET['showName']);
 				}
+
+			break;
+
+			case 'addbasketbooking':
+				if(isset($_GET['showInstanceID'], $_GET['priceBand'], $_GET['date'], $_GET['time'], $_GET['userID'], $_GET['numberOfTickets'])){
+					$db = new DbOperation();
+					$response['id'] = $db->addBasketSales($_GET['showInstanceID'], $_GET['priceBand'], $_GET['date'], $_GET['time'], $_GET['userID'], $_GET['numberOfTickets']);
+				}
+			break;
+
+			case 'test':
+			 	if(isset($_GET['showInstanceID'], $_GET['date'], $_GET['time'])){
+                                        $db = new DbOperation();
+                                        $response = $db->getOpenSales($_GET['showInstanceID'], $_GET['date'], $_GET['time']);
+                                }else{
+                                        $response['error'] = true;
+                                        $response['message'] = "Missing parameters";
+                                }
+
+			break;
+
+			case 'deletebasketbooking':
+				if(isset($_GET['tempID'])){
+					$db = new DbOperation();
+					if ($db->deleteTemp($_GET['tempID'])) $response['error'] = false;
+					else $response['error'] = true;
+				}
+
 
 			break;
 

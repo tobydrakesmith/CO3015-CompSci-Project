@@ -1335,7 +1335,7 @@ id icon_group
 id icon_only
 id ifRoom
 id image
-id imageView2
+id imageView
 id info
 id invisible
 id italic
@@ -1406,9 +1406,11 @@ id progress_horizontal
 id qrCodeImageView
 id radio
 id radioGroup
+id rating
 id ratingBar
 id registerBtn
 id reviewText
+id reviewView
 id right
 id right_icon
 id right_side
@@ -1436,7 +1438,6 @@ id selectThePrice
 id select_dialog_listview
 id selected
 id shortcut
-id show
 id showCustom
 id showDescription
 id showHome
@@ -1512,6 +1513,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id userName
 id username
 id usernameEditText
 id venue
@@ -1635,6 +1637,7 @@ layout notification_template_part_time
 layout recyclerview_basket_row
 layout recyclerview_my_bookings_row
 layout recyclerview_my_past_bookings_row
+layout recyclerview_reviews
 layout recyclerview_row
 layout select_dialog_item_material
 layout select_dialog_multichoice_material

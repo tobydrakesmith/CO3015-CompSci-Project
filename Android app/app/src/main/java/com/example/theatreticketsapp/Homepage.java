@@ -59,9 +59,6 @@ public class  Homepage extends AppCompatActivity implements  MyRecyclerViewAdapt
         navView.setOnNavigationItemSelectedListener(navListener);
         navView.setSelectedItemId(R.id.navigation_home);
 
-        adapter = new MyRecyclerViewAdapter(Homepage.this,  mShows, Homepage.this);
-
-
         recyclerView = findViewById((R.id.liveShowsView));
         recyclerView.setLayoutManager(new LinearLayoutManager((this)));
         recyclerView.setAdapter(adapter);

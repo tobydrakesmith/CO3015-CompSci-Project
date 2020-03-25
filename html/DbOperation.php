@@ -165,7 +165,8 @@
 			return false;
 		}
 
-		function createBooking($instanceID, $userID, $numberOfTickets, $date, $showTime, $showName){
+		function createBooking($instanceID, $userID, $numberOfTickets, $date, $showTime, $showName, $tempID){
+			$this->deleteTemp($tempID);
 			$stmt = $this->con->prepare("INSERT INTO booking(showInstanceID, userID, numberOfTickets, bookingDate, showTime, showName) VALUES (?, ?, ?, ?, ?, ?)");
                        	$stmt->bind_param("iiisss", $instanceID, $userID, $numberOfTickets, $date, $showTime, $showName);
 			if($stmt->execute())
@@ -318,18 +319,50 @@
 			return $bookingIDs;
 		}
 
-		function checkPriceBand($showInstanceID, $date, $time){
-			$bookings = array();
-			$bookings = $this->getSales($showInstanceID, $date, $time);
-			$ids = join(',', $bookings);
-			$stmt = $this->con->prepare("SELECT priceBand FROM ticket WHERE bookingID IN ($ids)");
+		function getOpenSales($showInstanceID, $date, $time){
+			$stmt = $this->con->prepare("SELECT priceBand, numberOfTickets FROM basketSales WHERE showInstanceID = ? AND showDate = ? AND showTime = ?");
+			$stmt->bind_param("iss", $showInstanceID, $date, $time);
 			$stmt->execute();
-			$stmt->bind_result($priceBand);
+			$stmt->bind_result($priceBand, $numberTix);
 			$priceBands = array();
 			while($stmt->fetch()){
-				$result = array();
-				$result['priceBand'] = $priceBand;
-				array_push($priceBands, $result);
+				$pb = array();
+				$pb['priceBand'] = $priceBand;
+				array_push($priceBands, $pb);
+			}
+			return $priceBands;
+		}
+
+		function checkPriceBand($showInstanceID, $date, $time){
+
+			$priceBands = array();
+                        //$priceBands = $this->getOpenSales($showInstanceID, $date, $time);
+
+			$stmt = $this->con->prepare("SELECT priceBand, numberOfTickets FROM basketSales WHERE showInstanceID = ? AND showDate = ? AND showTime = ?");
+                        $stmt->bind_param("iss", $showInstanceID, $date, $time);
+                        $stmt->execute();
+                        $stmt->bind_result($priceBand, $numberTix);
+
+			while($stmt->fetch()){
+				$pb = array();
+				for ($i = 0; $i<$numberTix; $i++){
+					$pb['priceBand'] = $priceBand;
+					array_push($priceBands, $pb);
+				}
+			}
+			$bookings = array();
+			if ($bookings = $this->getSales($showInstanceID, $date, $time)){
+	 			$ids = join(',', $bookings);
+
+				$stmt = $this->con->prepare("SELECT priceBand FROM ticket WHERE bookingID IN ($ids)");
+				$stmt->execute();
+				$stmt->bind_result($priceBand);
+
+				while($stmt->fetch()){
+					$result = array();
+					$result['priceBand'] = $priceBand;
+					array_push($priceBands, $result);
+				}
 			}
 			return $priceBands;
 		}
@@ -354,8 +387,28 @@
 
 		}
 
+		function addBasketSales($showInstanceID, $priceBand, $date, $time, $userID, $numTix){
+			$stmt = $this->con->prepare("INSERT INTO basketSales(showInstanceID, priceBand, showDate, showTime, userID, numberOfTickets) VALUES(?, ?, ?, ?, ?, ?)");
+			$stmt->bind_param("isssii", $showInstanceID, $priceBand, $date, $time, $userID, $numTix);
+			if ($stmt->execute())
+				return mysqli_insert_id($this->con);
+			else
+				return false;
+
+		}
+
+		function deleteTemp($tempID){
+			$stmt = $this->con->prepare("DELETE FROM basketSales WHERE idBasketSales = ?");
+			$stmt->bind_param("i", $tempID);
+			if ($stmt->execute())
+				return true;
+			else
+				return false;
+		}
+
 
 	}
 
 ?>
+
 
