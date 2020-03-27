@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container_buttons_connect"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/button_primary"
+        style="@style/SDKButton.ActionItem.Primary.Blue"
+        android:text="@string/sdk_label_button_connect_to_reader" />
+
+    <Button
+        android:id="@+id/button_secondary"
+        style="@style/SDKButton.ActionItem.Tertiary"
+        android:layout_marginTop="@dimen/medium"
+        android:text="@string/sdk_label_button_find_another_reader" />
+
+</LinearLayout>

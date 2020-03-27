@@ -343,6 +343,26 @@
 
 			break;
 
+			case 'checkscanned':
+
+				if(isset($_GET['ticketID'])){
+					$db = new DbOperation();
+					if ($db->checkScan($_GET['ticketID'])){
+						$response['error'] = true;
+						$response['message'] = "Ticket has already been scanned";
+					}
+					else{
+						if ($db->scan($_GET['ticketID'])){
+							$response['error'] = false;
+							$response['message'] = "Not scanned - Ticket has been scanned now";
+						}else{
+							$response['error'] = true;
+						}
+					}
+				}
+
+			break;
+
 		}
 	}else{
 		//if it is not api call

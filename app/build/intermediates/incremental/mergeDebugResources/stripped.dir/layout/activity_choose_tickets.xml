@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseTickets">
+
+    <TextView
+        android:id="@+id/tixLeftPBC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/tixLeftPBD"
+        app:layout_constraintEnd_toEndOf="@+id/tixLeftPBB"
+        app:layout_constraintTop_toBottomOf="@+id/tixLeftPBB" />
+
+    <Button
+        android:id="@+id/btnIncrease"
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/transparent"
+        android:foreground="@drawable/ic_increase_number_of_tickets"
+        android:onClick="onClickIncrease"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnDecrease"
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:foreground="@drawable/ic_decrease_number_of_tickets"
+        android:onClick="onClickDecrease"
+        app:layout_constraintStart_toStartOf="@+id/btnIncrease"
+        app:layout_constraintTop_toBottomOf="@+id/btnIncrease" />
+
+    <TextView
+        android:id="@+id/numberOfTix"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="112dp"
+        android:clickable="false"
+        android:text="@string/tix_counter"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnIncrease"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="@+id/selectThePrice"
+        app:layout_constraintTop_toBottomOf="@+id/selectThePrice">
+
+
+        <RadioButton
+            android:id="@+id/priceBandA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.483"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:id="@+id/priceBandB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/priceBandA"
+            app:layout_constraintTop_toBottomOf="@+id/priceBandA" />
+
+        <RadioButton
+            android:id="@+id/priceBandC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/priceBandB"
+            app:layout_constraintTop_toBottomOf="@+id/priceBandB" />
+
+        <RadioButton
+            android:id="@+id/priceBandD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/priceBandC"
+            app:layout_constraintTop_toBottomOf="@+id/priceBandC" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/selectThePrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:text="@string/select_price_lbl"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/numberOfTix" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/lbl_numberTix"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:text="@string/lbl_numberTix" />
+
+    <Button
+        android:id="@+id/addToBasketBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="28dp"
+        android:onClick="onClickAddToBasket"
+        android:text="@string/btn_add_to_basket"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/homepage_top_nav" />
+
+    <TextView
+        android:id="@+id/tixLeftPBA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/selectThePrice"
+        app:layout_constraintTop_toTopOf="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/tixLeftPBB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="@+id/tixLeftPBA"
+        app:layout_constraintTop_toBottomOf="@+id/tixLeftPBA" />
+
+    <TextView
+        android:id="@+id/tixLeftPBD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="@+id/tixLeftPBC" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

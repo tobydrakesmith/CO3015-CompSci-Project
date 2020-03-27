@@ -336,7 +336,6 @@
 		function checkPriceBand($showInstanceID, $date, $time){
 
 			$priceBands = array();
-                        //$priceBands = $this->getOpenSales($showInstanceID, $date, $time);
 
 			$stmt = $this->con->prepare("SELECT priceBand, numberOfTickets FROM basketSales WHERE showInstanceID = ? AND showDate = ? AND showTime = ?");
                         $stmt->bind_param("iss", $showInstanceID, $date, $time);
@@ -404,6 +403,23 @@
 				return true;
 			else
 				return false;
+		}
+
+		function checkScan($ticketID){
+			$stmt = $this->con->prepare("SELECT scanned FROM ticket WHERE ticketID = ?");
+			$stmt->bind_param("i", $ticketID);
+			$stmt->execute();
+			$stmt->bind_result($scanned);
+			$stmt->fetch();
+			if ($scanned === 1) return true;
+			else return false;
+		}
+
+		function scan($ticketID){
+			$stmt = $this->con->prepare("UPDATE ticket SET scanned = 1 WHERE ticketID = ?");
+			$stmt->bind_param("i", $ticketID);
+			if ($stmt->execute()) return true;
+			else return false;
 		}
 
 
