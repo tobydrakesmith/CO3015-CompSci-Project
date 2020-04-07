@@ -322,16 +322,16 @@
 				}
 			break;
 
-			case 'test':
-			 	if(isset($_GET['showInstanceID'], $_GET['date'], $_GET['time'])){
-                                        $db = new DbOperation();
-                                        $response = $db->getOpenSales($_GET['showInstanceID'], $_GET['date'], $_GET['time']);
-                                }else{
-                                        $response['error'] = true;
-                                        $response['message'] = "Missing parameters";
-                                }
+//			case 'test':
+//			 	if(isset($_GET['showInstanceID'], $_GET['date'], $_GET['time'])){
+//                                        $db = new DbOperation();
+//                                        $response = $db->getOpenSales($_GET['showInstanceID'], $_GET['date'], $_GET['time']);
+//                                }else{
+//                                        $response['error'] = true;
+//                                        $response['message'] = "Missing parameters";
+//                                }
 
-			break;
+//			break;
 
 			case 'deletebasketbooking':
 				if(isset($_GET['tempID'])){
@@ -359,6 +359,16 @@
 							$response['error'] = true;
 						}
 					}
+				}
+
+			break;
+
+			case 'venueinfobooking':
+
+				if(isset($_GET['showInstanceID'])){
+					$db = new DbOperation();
+					$response = $db->getVenueInfoForBooking($_GET['showInstanceID']);
+
 				}
 
 			break;

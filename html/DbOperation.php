@@ -240,16 +240,17 @@
 		}
 
 		function getTickets($bookingID){
-			$stmt = $this->con->prepare("SELECT ticketID, price FROM ticket WHERE bookingID = ?");
+			$stmt = $this->con->prepare("SELECT ticketID, price, priceBand FROM ticket WHERE bookingID = ?");
 			$stmt->bind_param("i", $bookingID);
 			$stmt->execute();
-			$stmt->bind_result($ticketID, $price);
+			$stmt->bind_result($ticketID, $price, $priceBand);
 
 			$tickets = array();
 			while($stmt->fetch()){
 				$ticket = array();
 				$ticket['ticketID'] = $ticketID;
 				$ticket['price'] = $price;
+				$ticket['priceBand'] = $priceBand;
 				array_push($tickets, $ticket);
 			}
 
@@ -283,6 +284,7 @@
 			$venue = array();
 			$venue['venueDescription'] = $venueDescription;
 			$venue['postcode'] = $postcode;
+			$venue['name'] = $venueName;
 
 			return $venue;
 		}
@@ -421,6 +423,20 @@
 			if ($stmt->execute()) return true;
 			else return false;
 		}
+
+		function getVenueInfoForBooking($showInstanceID){
+
+			$stmt = $this->con->prepare("SELECT venueName FROM showInstance WHERE showInstanceID = ?");
+			$stmt->bind_param("i", $showInstanceID);
+			$stmt->execute();
+			$stmt->bind_result($venueName);
+			while($stmt->fetch()){}
+
+
+			return $this->getVenueInfo($venueName);
+		}
+
+
 
 
 	}

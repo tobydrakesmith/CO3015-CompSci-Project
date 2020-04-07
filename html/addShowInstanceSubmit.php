@@ -23,96 +23,95 @@
 	$startdate = str_replace('/','-',$_REQUEST['start_date']);
 	$enddate = str_replace('/','-',$_REQUEST['end_date']);
 
-	$query = $con->prepare("SELECT * FROM showInstance WHERE venueName = ? AND endDate > ?");
+	$query = $this->con->prepare("SELECT * FROM showInstance WHERE venueName = ? AND endDate > ?");
 	$query->bind_param("ss", $venuename, $startdate);
-	$query->execute();
-	$query->bind_result($meh, $mehh);
-	if (!$query->fetch()){
-		if($_REQUEST['mondaymat'] === on)
-			$mondaymat = 1;
-		else
-			$mondaymat = 0;
 
 
-	        if($_REQUEST['mondayeve'] === on)
-	                $mondayeve = 1;
-	        else
-	                $mondayeve = 0;
 
-	        if($_REQUEST['tuesdaymat'] === on)
-	                $tuesdaymat = 1;
-	       	else
-	                $tuesdaymat = 0;
+	if($_REQUEST['mondaymat'] === on){
+		$mondaymat = 1;
+	}else{
+		$mondaymat = 0;
+	}
 
-	        if($_REQUEST['tuesdayeve'] === on)
-	                $tuesdayeve = 1;
-	        else
-	                $tuesdayeve = 0;
+        if($_REQUEST['mondayeve'] === on){
+                $mondayeve = 1;
+        }else{
+                $mondayeve = 0;
+        }
+        if($_REQUEST['tuesdaymat'] === on){
+                $tuesdaymat = 1;
+        }else{
+                $tuesdaymat = 0;
+        }
+        if($_REQUEST['tuesdayeve'] === on){
+                $tuesdayeve = 1;
+        }else{
+                $tuesdayeve = 0;
+        }
+        if($_REQUEST['wednesdaymat'] === on){
+                $wednesdaymat = 1;
+        }else{
+                $wednesdaymat = 0;
+        }
+        if($_REQUEST['wednesdayeve'] === on){
+                $wednesdayeve = 1;
+        }else{
+                $wednesdayeve = 0;
+        }
+        if($_REQUEST['thursdaymat'] === on){
+                $thursdaymat = 1;
+        }else{
+                $thursdaymat = 0;
+        }
+        if($_REQUEST['thursdayeve'] === on){
+                $thursdayeve = 1;
+        }else{
+                $thursdayeve = 0;
+        }
+        if($_REQUEST['fridaymat'] === on){
+                $fridaymat = 1;
+        }else{
+                $fridaymat = 0;
+        }
+        if($_REQUEST['fridayeve'] === on){
+                $fridayeve = 1;
+        }else{
+                $fridayeve = 0;
+        }
+        if($_REQUEST['saturdaymat'] === on){
+                $saturdaymat = 1;
+        }else{
+                $saturdaymat = 0;
+        }
+        if($_REQUEST['saturdayeve'] === on){
+                $saturdayeve = 1;
+        }else{
+                $saturdayeve = 0;
+        }
+        if($_REQUEST['sundaymat'] === on){
+                $sundaymat = 1;
+        }else{
+                $sundaymat = 0;
+        }
+        if($_REQUEST['sundayeve'] === on){
+                $sundayeve = 1;
+        }else{
+                $sundayeve = 0;
+        }
 
-	        if($_REQUEST['wednesdaymat'] === on)
-	                $wednesdaymat = 1;
-	        else
-	                $wednesdaymat = 0;
+	$matineestart = $_REQUEST['mat_start'];
+	$eveningstart = $_REQUEST['eve_start'];
 
-	        if($_REQUEST['wednesdayeve'] === on)
-	                $wednesdayeve = 1;
-	        else
-	                $wednesdayeve = 0;
+	$query = "INSERT INTO showInstance(showName, venueName, startDate, endDate, bandAPrices, bandBPrices, bandCPrices, bandDPrices, bandANumTickets, bandBNumTickets, bandCNumTickets, bandDNumTickets, mondayMat, mondayEve, tuesdayMat, tuesdayEve, wednesdayMat, wednesdayEve, thursdayMat, thursdayEve, fridayMat, fridayEve, saturdayMat, saturdayEve, sundayMat, sundayEve, matineeTime, eveningTime) VALUES('$showname', '$venuename', '$startdate', '$enddate', '$bandaprices', '$bandbprices', '$bandcprices', '$banddprices', '$bandanumseats', '$bandbnumseats', '$bandcnumseats', '$banddnumseats', '$mondaymat', '$mondayeve', '$tuesdaymat', '$tuesdayeve', '$wednesdaymat', '$wednesdayeve', '$thursdaymat', '$thursdayeve', '$fridaymat', '$fridayeve', '$saturdaymat', '$saturdayeve', '$sundaymat', '$sundayeve', '$matineestart', '$eveningstart')";
 
-	        if($_REQUEST['thursdaymat'] === on)
-	                $thursdaymat = 1;
-	        else
-	                $thursdaymat = 0;
+	if($con->query($query) === true){
+		echo "Success";
+	} else{
+		echo "Error:  " .$con->error;
+		//echo $mat_start;
+	}
 
-	        if($_REQUEST['thursdayeve'] === on)
-	                $thursdayeve = 1;
-	        else
-	                $thursdayeve = 0;
-
-	        if($_REQUEST['fridaymat'] === on)
-	                $fridaymat = 1;
-	        else
-	                $fridaymat = 0;
-
-	       	if($_REQUEST['fridayeve'] === on)
-	                $fridayeve = 1;
-	        else
-	                $fridayeve = 0;
-
-	        if($_REQUEST['saturdaymat'] === on)
-	                $saturdaymat = 1;
-	        else
-	                $saturdaymat = 0;
-
-	        if($_REQUEST['saturdayeve'] === on)
-	                $saturdayeve = 1;
-	        else
-	                $saturdayeve = 0;
-
-	        if($_REQUEST['sundaymat'] === on)
-	                $sundaymat = 1;
-	        else
-	                $sundaymat = 0;
-
-	        if($_REQUEST['sundayeve'] === on)
-	                $sundayeve = 1;
-	        else
-	                $sundayeve = 0;
-
-
-		$matineestart = $_REQUEST['mat_start'];
-		$eveningstart = $_REQUEST['eve_start'];
-
-		$query = "INSERT INTO showInstance(showName, venueName, startDate, endDate, bandAPrices, bandBPrices, bandCPrices, bandDPrices, bandANumTickets, bandBNumTickets, bandCNumTickets, bandDNumTickets, mondayMat, mondayEve, tuesdayMat, tuesdayEve, wednesdayMat, wednesdayEve, thursdayMat, thursdayEve, fridayMat, fridayEve, saturdayMat, saturdayEve, sundayMat, sundayEve, matineeTime, eveningTime) VALUES('$showname', '$venuename', '$startdate', '$enddate', '$bandaprices', '$bandbprices', '$bandcprices', '$banddprices', '$bandanumseats', '$bandbnumseats', '$bandcnumseats', '$banddnumseats', '$mondaymat', '$mondayeve', '$tuesdaymat', '$tuesdayeve', '$wednesdaymat', '$wednesdayeve', '$thursdaymat', '$thursdayeve', '$fridaymat', '$fridayeve', '$saturdaymat', '$saturdayeve', '$sundaymat', '$sundayeve', '$matineestart', '$eveningstart')";
-
-		if($con->query($query) === true){
-			echo "Success";
-		} else{
-			echo "Error:  " .$con->error;
-			//echo $mat_start;
-		}
-	} else
-		echo "Show already at this venue for these dates";
 
 $con->close();
 ?>

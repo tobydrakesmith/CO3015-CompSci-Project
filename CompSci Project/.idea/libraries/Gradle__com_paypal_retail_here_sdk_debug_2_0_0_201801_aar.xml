@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.paypal.retail:here-sdk-debug:2.0.0.201801@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/jars/libs/roamreaderunifiedapi-1.7.1.180-release.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/jars/libs/manticore-1.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

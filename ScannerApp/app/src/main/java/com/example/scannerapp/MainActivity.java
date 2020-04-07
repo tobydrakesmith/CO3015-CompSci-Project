@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -24,8 +23,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
     private static final int ZXING_CAMERA_PERMISSION = 1;
     private ZXingScannerView mScannerView;
-    private String requestURL = "http://192.168.0.33/Api.php?apicall=checkscanned&ticketID=";
-
 
 
     @Override
@@ -62,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         try {
             JSONObject ticket = new JSONObject(rawResult.getText());
             scanTicket(ticket);
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -85,8 +81,9 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
     private void scanTicket(final JSONObject ticket) throws JSONException {
 
-        System.out.println(requestURL+ticket.getString("ticketID"));
-        StringRequest stringRequest = new StringRequest(Request.Method.DEPRECATED_GET_OR_POST, requestURL+ticket.getString("ticketID"), new Response.Listener<String>() {
+        String requestURL = "http://192.168.0.33/Api.php?apicall=checkscanned&ticketID=";
+        System.out.println(requestURL +ticket.getString("ticketID"));
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, requestURL +ticket.getString("ticketID"), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 System.out.println(response);
