@@ -18,6 +18,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
         sViewsWithIds.put(R.id.registerBtn, 4);
         sViewsWithIds.put(R.id.progressBar, 5);
         sViewsWithIds.put(R.id.textView5, 6);
+        sViewsWithIds.put(R.id.passwordLbl, 7);
     }
     // views
     @NonNull
@@ -28,12 +29,13 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityMainBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 7, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 8, sIncludes, sViewsWithIds));
     }
     private ActivityMainBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (android.widget.Button) bindings[3]
             , (android.widget.EditText) bindings[2]
+            , (android.widget.TextView) bindings[7]
             , (android.widget.ProgressBar) bindings[5]
             , (android.widget.Button) bindings[4]
             , (android.widget.TextView) bindings[6]

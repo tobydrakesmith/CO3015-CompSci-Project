@@ -1,10 +1,10 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-90:12
-INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-90:12
-INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-90:12
-INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-90:12
-MERGED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:2:1-46:12
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-91:12
+INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-91:12
+INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-91:12
+INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-91:12
+MERGED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:2:1-46:12
 MERGED from [androidx.databinding:databinding-adapters:3.5.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/82f04cebf9a2df0b2f17bece67331019/databinding-adapters-3.5.3/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-runtime:3.5.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/8f606a04201dd42647fb053f1291e98d/databinding-runtime-3.5.3/AndroidManifest.xml:17:1-24:12
 MERGED from [com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:2:1-28:12
@@ -21,8 +21,8 @@ MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/tjd17/.gradle/
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/056634285937b2535ff256884ac7cf86/viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a53596bdd308807993a20732db231575/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cardview:cardview:1.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/4fe44ae24daa7cfa2dd483a5d3b65a2f/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-location:8.1.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/b1984c08ad9582b768a15a9926ab0e18/jetified-play-services-location-8.1.0/AndroidManifest.xml:16:1-20:12
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:17:1-38:12
+MERGED from [com.google.android.gms:play-services-location:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cd2555db0203a9129fdeb1355c14dcc8/play-services-location-17.0.0/AndroidManifest.xml:2:1-9:12
 MERGED from [me.dm7.barcodescanner:zxing:1.9.8] /home/tjd17/.gradle/caches/transforms-2/files-2.1/626d3d18d86ece3c0d98e6e377b061df/zxing-1.9.8/AndroidManifest.xml:2:1-13:12
 MERGED from [com.eclipsesource.j2v8:j2v8:4.6.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/436370414fd6ccdb63760fb7d4cb8d14/j2v8-4.6.0/AndroidManifest.xml:2:1-12:12
 MERGED from [com.facebook.stetho:stetho-okhttp:1.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/aedff3e91cc87994bc063ecbb1015854/stetho-okhttp-1.5.0/AndroidManifest.xml:2:1-13:12
@@ -34,6 +34,7 @@ MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/tjd17/.gradle/cache
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6a9d1885cb0ca0d94af2e5b22dfc9d65/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.transition:transition:1.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/e95d1611d40c652e0f77a7c95d74a3f6/transition-1.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2905ca591d95bf0e403f68a05d4ee4e5/play-services-places-placereport-17.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2b8a3547a6423f6fb15f19a78415dd89/play-services-tasks-17.0.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a566b10ca8af40beee0e2d400092bb2b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.fragment:fragment:1.2.1] /home/tjd17/.gradle/caches/transforms-2/files-2.1/b15fee8d6eb36fb24e69342971f2659a/fragment-1.2.1/AndroidManifest.xml:17:1-24:12
@@ -65,27 +66,27 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] /home/tjd17/.gradle/cache
 MERGED from [androidx.documentfile:documentfile:1.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f582580d3eb247a74d915a27810a4674/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/c75155371656c04dff3a027cdeb13e8a/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/53b4a4cf87c0ff501a8c414cec884555/print-1.0.0/AndroidManifest.xml:17:1-22:12
-INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-90:12
-INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-90:12
-INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-90:12
+INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-91:12
+INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-91:12
+INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-91:12
 	package
 		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:3:5-44
 		INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
 		INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-90:12
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-91:12
 		INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-90:12
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-91:12
 		INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.ACCESS_FINE_LOCATION
 ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:9:5-79
-MERGED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:15:5-79
-MERGED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:15:5-79
+MERGED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:15:5-79
+MERGED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:15:5-79
 	android:name
 		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:9:22-76
 uses-permission#android.permission.INTERNET
@@ -97,9 +98,9 @@ MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.grad
 	android:name
 		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:10:22-64
 application
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:12:5-88:19
-MERGED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:17:5-44:19
-MERGED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:17:5-44:19
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:12:5-89:19
+MERGED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:17:5-44:19
+MERGED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:17:5-44:19
 MERGED from [com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:12:5-26:19
 MERGED from [com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:12:5-26:19
 MERGED from [com.google.android.material:material:1.1.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5d52d9573d8a8f70a8462cc8f8a42ce9/material-1.1.0/AndroidManifest.xml:22:5-20
@@ -110,10 +111,10 @@ MERGED from [com.android.volley:volley:1.1.0] /home/tjd17/.gradle/caches/transfo
 MERGED from [com.android.volley:volley:1.1.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f1cb3fec07fc99bcb7ed117f9ae4bdf3/volley-1.1.0/AndroidManifest.xml:9:5-20
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/790f80b0a374f6f7b6b7fe370fefbffc/lifecycle-extensions-2.2.0/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/790f80b0a374f6f7b6b7fe370fefbffc/lifecycle-extensions-2.2.0/AndroidManifest.xml:24:5-25:19
-MERGED from [com.google.android.gms:play-services-location:8.1.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/b1984c08ad9582b768a15a9926ab0e18/jetified-play-services-location-8.1.0/AndroidManifest.xml:19:5-20
-MERGED from [com.google.android.gms:play-services-location:8.1.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/b1984c08ad9582b768a15a9926ab0e18/jetified-play-services-location-8.1.0/AndroidManifest.xml:19:5-20
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:30:5-36:19
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-location:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cd2555db0203a9129fdeb1355c14dcc8/play-services-location-17.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cd2555db0203a9129fdeb1355c14dcc8/play-services-location-17.0.0/AndroidManifest.xml:7:5-20
 MERGED from [me.dm7.barcodescanner:zxing:1.9.8] /home/tjd17/.gradle/caches/transforms-2/files-2.1/626d3d18d86ece3c0d98e6e377b061df/zxing-1.9.8/AndroidManifest.xml:11:5-20
 MERGED from [me.dm7.barcodescanner:zxing:1.9.8] /home/tjd17/.gradle/caches/transforms-2/files-2.1/626d3d18d86ece3c0d98e6e377b061df/zxing-1.9.8/AndroidManifest.xml:11:5-20
 MERGED from [com.eclipsesource.j2v8:j2v8:4.6.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/436370414fd6ccdb63760fb7d4cb8d14/j2v8-4.6.0/AndroidManifest.xml:10:5-20
@@ -126,6 +127,8 @@ MERGED from [me.dm7.barcodescanner:core:1.9.8] /home/tjd17/.gradle/caches/transf
 MERGED from [me.dm7.barcodescanner:core:1.9.8] /home/tjd17/.gradle/caches/transforms-2/files-2.1/7848e2bf1db69973a2b92911967d2a70/jetified-core-1.9.8/AndroidManifest.xml:11:5-20
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2905ca591d95bf0e403f68a05d4ee4e5/play-services-places-placereport-17.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2905ca591d95bf0e403f68a05d4ee4e5/play-services-places-placereport-17.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2b8a3547a6423f6fb15f19a78415dd89/play-services-tasks-17.0.0/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2b8a3547a6423f6fb15f19a78415dd89/play-services-tasks-17.0.0/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a566b10ca8af40beee0e2d400092bb2b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
@@ -154,136 +157,140 @@ MERGED from [io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/
 		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:18:9-40
 	android:usesCleartextTraffic
 		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:19:9-44
+activity#com.example.theatreticketsapp.ChangePassword
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:20:9-61
+	android:name
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:20:19-49
 activity#com.example.theatreticketsapp.ViewBooking
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:20:9-58
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:21:9-49
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:20:19-46
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:21:19-46
 activity#com.example.theatreticketsapp.Checkout
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:21:9-46
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:22:9-46
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:21:19-43
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:22:19-43
 activity#com.example.theatreticketsapp.ViewReviews
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:22:9-49
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:23:9-49
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:22:19-46
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:23:19-46
 activity#com.example.theatreticketsapp.ViewVenue
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:23:9-47
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:24:9-47
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:23:19-44
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:24:19-44
 meta-data#com.google.android.geo.API_KEY
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:32:9-34:55
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:33:9-35:55
 	android:value
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:34:13-52
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:35:13-52
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:33:13-58
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:34:13-58
 activity#com.example.theatreticketsapp.MapsActivity
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:36:9-38:59
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:37:9-39:59
 	android:label
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:38:13-56
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:39:13-56
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:37:13-41
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:38:13-41
 activity#com.example.theatreticketsapp.ViewTickets
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:39:9-42:59
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:40:9-43:59
 	android:label
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:41:13-64
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:42:13-64
 	android:theme
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:42:13-56
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:43:13-56
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:40:13-40
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:41:13-40
 activity#com.example.theatreticketsapp.CreateReview
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:43:9-46:59
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:44:9-47:59
 	android:label
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:45:13-65
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:46:13-65
 	android:theme
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:46:13-56
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:47:13-56
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:44:13-41
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:45:13-41
 activity#com.example.theatreticketsapp.MyBasket
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:47:9-49:61
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:48:9-50:61
 	android:label
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:49:13-58
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:50:13-58
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:48:13-37
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:49:13-37
 activity#com.example.theatreticketsapp.Homepage
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:50:9-52:59
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:51:9-53:59
 	android:theme
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:52:13-56
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:53:13-56
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:51:13-37
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:52:13-37
 activity#com.example.theatreticketsapp.ChooseTickets
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:53:9-55:59
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:54:9-56:59
 	android:theme
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:55:13-56
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:56:13-56
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:54:13-42
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:55:13-42
 activity#com.example.theatreticketsapp.ChooseDate
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:56:9-58:59
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:57:9-59:59
 	android:theme
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:58:13-56
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:59:13-56
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:57:13-39
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:58:13-39
 meta-data#com.google.android.actions
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:60:9-62:60
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:61:9-63:60
 	android:resource
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:62:13-57
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:63:13-57
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:61:13-54
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:62:13-54
 activity#com.example.theatreticketsapp.MyAccount
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:64:9-67:59
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:65:9-68:59
 	android:label
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:66:13-39
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:67:13-39
 	android:theme
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:67:13-56
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:68:13-56
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:65:13-38
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:66:13-38
 activity#com.example.theatreticketsapp.MyBookings
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:68:9-71:59
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:69:9-72:59
 	android:label
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:70:13-40
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:71:13-40
 	android:theme
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:71:13-56
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:72:13-56
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:69:13-39
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:70:13-39
 activity#com.example.theatreticketsapp.Explore
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:72:9-75:59
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:73:9-76:59
 	android:label
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:75:13-36
+	android:theme
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:76:13-56
+	android:name
 		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:74:13-36
-	android:theme
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:75:13-56
-	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:73:13-36
 activity#com.example.theatreticketsapp.ShowInformation
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:76:9-79:59
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:77:9-80:59
 	android:label
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:78:13-65
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:79:13-65
 	android:theme
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:79:13-56
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:80:13-56
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:77:13-44
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:78:13-44
 activity#com.example.theatreticketsapp.Register
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:80:9-46
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:81:9-46
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:80:19-43
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:81:19-43
 activity#com.example.theatreticketsapp.Login
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:81:9-87:20
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:82:9-88:20
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:81:19-40
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:82:19-40
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:82:13-86:29
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:83:13-87:29
 action#android.intent.action.MAIN
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:83:17-69
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:84:17-69
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:83:25-66
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:84:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:85:17-77
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:86:17-77
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:85:27-74
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:86:27-74
 uses-sdk
 INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
 INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
-MERGED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:7:5-9:41
-MERGED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:7:5-9:41
+MERGED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:7:5-9:41
+MERGED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.databinding:databinding-adapters:3.5.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/82f04cebf9a2df0b2f17bece67331019/databinding-adapters-3.5.3/AndroidManifest.xml:22:5-44
 MERGED from [androidx.databinding:databinding-adapters:3.5.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/82f04cebf9a2df0b2f17bece67331019/databinding-adapters-3.5.3/AndroidManifest.xml:22:5-44
 MERGED from [androidx.databinding:databinding-runtime:3.5.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/8f606a04201dd42647fb053f1291e98d/databinding-runtime-3.5.3/AndroidManifest.xml:22:5-44
@@ -316,10 +323,10 @@ MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/tjd17/.gradle/cache
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a53596bdd308807993a20732db231575/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cardview:cardview:1.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/4fe44ae24daa7cfa2dd483a5d3b65a2f/cardview-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/4fe44ae24daa7cfa2dd483a5d3b65a2f/cardview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-location:8.1.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/b1984c08ad9582b768a15a9926ab0e18/jetified-play-services-location-8.1.0/AndroidManifest.xml:18:5-42
-MERGED from [com.google.android.gms:play-services-location:8.1.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/b1984c08ad9582b768a15a9926ab0e18/jetified-play-services-location-8.1.0/AndroidManifest.xml:18:5-42
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-location:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cd2555db0203a9129fdeb1355c14dcc8/play-services-location-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cd2555db0203a9129fdeb1355c14dcc8/play-services-location-17.0.0/AndroidManifest.xml:5:5-44
 MERGED from [me.dm7.barcodescanner:zxing:1.9.8] /home/tjd17/.gradle/caches/transforms-2/files-2.1/626d3d18d86ece3c0d98e6e377b061df/zxing-1.9.8/AndroidManifest.xml:7:5-9:41
 MERGED from [me.dm7.barcodescanner:zxing:1.9.8] /home/tjd17/.gradle/caches/transforms-2/files-2.1/626d3d18d86ece3c0d98e6e377b061df/zxing-1.9.8/AndroidManifest.xml:7:5-9:41
 MERGED from [com.eclipsesource.j2v8:j2v8:4.6.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/436370414fd6ccdb63760fb7d4cb8d14/j2v8-4.6.0/AndroidManifest.xml:6:5-8:41
@@ -342,6 +349,8 @@ MERGED from [androidx.transition:transition:1.2.0] /home/tjd17/.gradle/caches/tr
 MERGED from [androidx.transition:transition:1.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/e95d1611d40c652e0f77a7c95d74a3f6/transition-1.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2905ca591d95bf0e403f68a05d4ee4e5/play-services-places-placereport-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2905ca591d95bf0e403f68a05d4ee4e5/play-services-places-placereport-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2b8a3547a6423f6fb15f19a78415dd89/play-services-tasks-17.0.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2b8a3547a6423f6fb15f19a78415dd89/play-services-tasks-17.0.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a566b10ca8af40beee0e2d400092bb2b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
@@ -415,73 +424,73 @@ INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main
 		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
 		INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.BLUETOOTH
-ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:11:5-68
+ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:11:5-68
 	android:name
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:11:22-65
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:11:22-65
 uses-permission#android.permission.BLUETOOTH_ADMIN
-ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:12:5-74
+ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:12:5-74
 	android:name
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:12:22-71
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:12:22-71
 uses-permission#android.permission.RECORD_AUDIO
-ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:13:5-71
+ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:13:5-71
 	android:name
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:13:22-68
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:13:22-68
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:14:5-81
+ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:14:5-81
 	android:name
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:14:22-78
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:14:22-78
 activity#com.paypal.paypalretailsdk.ui.receipt.ReceiptOptionsActivity
-ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:18:9-22:53
+ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:18:9-22:53
 	android:label
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:21:13-67
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:21:13-67
 	android:configChanges
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:20:13-87
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:20:13-87
 	android:theme
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:22:13-50
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:22:13-50
 	android:name
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:19:13-88
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:19:13-88
 activity#com.paypal.paypalretailsdk.ui.receipt.ReceiptSendToActivity
-ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:23:9-27:53
+ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:23:9-27:53
 	android:label
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:26:13-67
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:26:13-67
 	android:configChanges
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:25:13-87
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:25:13-87
 	android:theme
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:27:13-50
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:27:13-50
 	android:name
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:24:13-87
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:24:13-87
 activity#com.paypal.paypalretailsdk.ui.signature.SignatureActivity
-ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:28:9-33:53
+ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:28:9-33:53
 	android:label
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:32:13-45
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:32:13-45
 	android:exported
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:31:13-36
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:31:13-36
 	android:configChanges
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:30:13-87
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:30:13-87
 	android:theme
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:33:13-50
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:33:13-50
 	android:name
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:29:13-85
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:29:13-85
 activity#com.paypal.paypalretailsdk.ui.dialogs.SDKDialogActivity
-ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:34:9-37:67
+ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:34:9-37:67
 	android:configChanges
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:36:13-87
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:36:13-87
 	android:theme
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:37:13-64
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:37:13-64
 	android:name
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:35:13-83
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:35:13-83
 activity#com.paypal.paypalretailsdk.ui.DeviceConnectionActivity
-ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:38:9-43:67
+ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:38:9-43:67
 	android:label
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:41:13-61
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:41:13-61
 	android:launchMode
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:42:13-43
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:42:13-43
 	android:configChanges
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:40:13-87
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:40:13-87
 	android:theme
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:43:13-64
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:43:13-64
 	android:name
-		ADDED from [com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:39:13-82
+		ADDED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:39:13-82
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:9:5-79
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:23:5-79

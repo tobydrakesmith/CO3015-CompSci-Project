@@ -1,6 +1,7 @@
     package com.example.theatreticketsapp;
 
     import android.content.Context;
+    import android.location.Location;
     import android.view.LayoutInflater;
     import android.view.View;
     import android.view.ViewGroup;
@@ -14,21 +15,22 @@
     import java.util.ArrayList;
     import java.util.List;
 
-    public class ShowRecyclerViewAdapter extends RecyclerView.Adapter<ShowRecyclerViewAdapter.ViewHolder>
-    implements Filterable {
+    public class ShowRecyclerViewAdapter extends RecyclerView.Adapter<ShowRecyclerViewAdapter.ViewHolder> implements Filterable {
 
         private List<Show> mShows, showListFull;
         private LayoutInflater mInflater;
         private OnShowClickListener mOnShowListener;
+        private Location userLocation;
 
 
 
         // data is passed into the constructor
-        ShowRecyclerViewAdapter(Context context, ArrayList<Show> shows, OnShowClickListener onShowClickListener) {
+        ShowRecyclerViewAdapter(Context context, ArrayList<Show> shows, OnShowClickListener onShowClickListener, Location userLocation) {
             this.mInflater = LayoutInflater.from(context);
             this.mShows = shows;
             this.mOnShowListener = onShowClickListener;
             this.showListFull = new ArrayList<>(shows);
+            this.userLocation = userLocation;
         }
 
         // inflates the row layout from xml when needed
@@ -40,11 +42,16 @@
 
          // binds the data to the TextView in each row
         @Override
-        public void onBindViewHolder (ViewHolder holder,int position){
+        public void onBindViewHolder (ViewHolder holder, int position) {
             Show show = mShows.get(position);
             holder.showNameTextView.setText(show.getShowName());
             holder.venueNameTextView.setText(show.getVenueName());
             holder.imageView.setImageResource(R.drawable.ic_theaters_black_24dp);
+            try {
+                holder.distance.setText(show.getUserDistanceFromVenue(userLocation) + " km");
+            } catch (NullPointerException e){
+                holder.distance.setText("");
+            }
         }
 
 
@@ -58,6 +65,7 @@
         public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             TextView showNameTextView;
             TextView venueNameTextView;
+            TextView distance;
             ImageView imageView;
             OnShowClickListener onShowClickListener;
 
@@ -67,6 +75,7 @@
                 showNameTextView = itemView.findViewById(R.id.userName);
                 venueNameTextView = itemView.findViewById(R.id.venue);
                 imageView = itemView.findViewById(R.id.imageView);
+                distance = itemView.findViewById(R.id.distance);
                 itemView.setOnClickListener(this);
             }
 
@@ -78,7 +87,6 @@
         }
 
         public interface OnShowClickListener{
-
             void onShowClick(int position);
         }
 

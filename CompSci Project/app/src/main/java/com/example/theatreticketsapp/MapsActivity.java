@@ -3,14 +3,10 @@ package com.example.theatreticketsapp;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
-import android.graphics.Point;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 
-import com.android.volley.Request;
-import com.android.volley.toolbox.StringRequest;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -20,7 +16,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
-import java.io.PipedInputStream;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -60,7 +55,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         Geocoder geocoder = new Geocoder(this);
         try {
-            List<Address> address = geocoder.getFromLocationName(venue.getLocation(), 1);
+            List<Address> address = geocoder.getFromLocationName(venue.getStrLocation(), 1);
             latitude = address.get(0).getLatitude();
             longitude = address.get(0).getLongitude();
         } catch (IOException e) {

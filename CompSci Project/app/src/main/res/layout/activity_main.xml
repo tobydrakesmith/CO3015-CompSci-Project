@@ -24,7 +24,7 @@
             android:id="@+id/usernameEditText"
             android:layout_width="310dp"
             android:layout_height="45dp"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="150dp"
             android:background="@android:drawable/editbox_background"
             android:ems="10"
             android:hint="@string/prompt_email"
@@ -38,25 +38,24 @@
 
         <EditText
             android:id="@+id/passwordEditText"
-            android:layout_width="310dp"
+            android:layout_width="0dp"
             android:layout_height="45dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:background="@android:drawable/editbox_background"
             android:ems="10"
             android:hint="@string/prompt_password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
             android:text="@{lgnPassword}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.524"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/usernameEditText"
+            app:layout_constraintStart_toStartOf="@+id/usernameEditText"
             app:layout_constraintTop_toBottomOf="@+id/usernameEditText" />
 
         <Button
             android:id="@+id/loginBtn"
             android:layout_width="127.5dp"
             android:layout_height="30dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="80dp"
             android:background="#673AB7"
             android:onClick="checkDetails"
             android:text="@string/btn_login"
@@ -104,6 +103,18 @@
             android:textColor="#673AB7"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/passwordLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:onClick="resetPassword"
+            android:text="@string/reset_password"
+            app:layout_constraintStart_toStartOf="@+id/passwordEditText"
+            app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

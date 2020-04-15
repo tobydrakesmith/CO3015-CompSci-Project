@@ -45,6 +45,7 @@
         android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
+        <activity android:name="com.example.theatreticketsapp.ChangePassword" />
         <activity android:name="com.example.theatreticketsapp.ViewBooking" />
         <activity android:name="com.example.theatreticketsapp.Checkout" />
         <activity android:name="com.example.theatreticketsapp.ViewReviews" />

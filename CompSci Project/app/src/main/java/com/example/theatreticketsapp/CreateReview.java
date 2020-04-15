@@ -85,6 +85,8 @@ public class CreateReview extends AppCompatActivity {
                     }
                     else {
                         Toast.makeText(CreateReview.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                        System.out.println("Review text: '" + (review.getText().toString()) + "'");
+                        System.out.println(review.getText().toString().length() == 0);
                     }
                 } catch (JSONException e){
                     e.printStackTrace();
@@ -110,7 +112,7 @@ public class CreateReview extends AppCompatActivity {
                 params.put("showName", booking.getShowName());
                 params.put("showInstanceID", Integer.toString(booking.getShowInstanceID()));
                 params.put("rating", Float.toString(ratingBar.getRating()));
-                params.put("review", review.getText().toString());
+                params.put("review", (review.getText().toString().length() == 0) ? "Empty" : review.getText().toString());
 
                 return params;
             }

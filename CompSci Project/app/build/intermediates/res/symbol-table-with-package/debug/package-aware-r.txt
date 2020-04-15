@@ -1658,8 +1658,6 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
-drawable powered_by_google_dark
-drawable powered_by_google_light
 drawable retail_sdk_button_white_blue
 drawable retail_sdk_spinner_select_text_color
 drawable sdk_alert_dialog_button_blue_default
@@ -1783,8 +1781,12 @@ id btnDecrease
 id btnIncrease
 id btnViewBooking
 id button
+id button3
+id button4
+id buttonConfirm
 id buttonLeft
 id buttonPanel
+id buttonPassword
 id buttonRight
 id button_primary
 id button_secondary
@@ -1824,6 +1826,7 @@ id coordinatorLayout
 id coordinatorLayout2
 id country_code_spinner
 id country_selector
+id currentPassword
 id custom
 id customPanel
 id cut
@@ -1847,6 +1850,7 @@ id dialog_title
 id dimensions
 id direct
 id disableHome
+id distance
 id dropdown_menu
 id edit_query
 id emailBtn
@@ -1980,6 +1984,8 @@ id navigation_myaccount
 id navigation_mybookings
 id negativeBtn
 id never
+id newPassword1
+id newPassword2
 id noScroll
 id none
 id normal
@@ -2001,6 +2007,7 @@ id parentPanel
 id parent_matrix
 id password
 id passwordEditText
+id passwordLbl
 id password_toggle
 id pastBookingLbl
 id pastBookingsView
@@ -2009,6 +2016,7 @@ id peekHeight
 id percent
 id pin
 id positiveBtn
+id price
 id priceBandA
 id priceBandB
 id priceBandC
@@ -2127,6 +2135,7 @@ id textView
 id textView2
 id textView4
 id textView5
+id textView6
 id textWatcher
 id text_input_end_icon
 id text_input_start_icon
@@ -2239,6 +2248,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_basket
 layout activity_book_show
+layout activity_change_password
 layout activity_checkout
 layout activity_choose_tickets
 layout activity_create_review
@@ -2423,6 +2433,7 @@ string btn_return
 string button_navigate_venue
 string button_view_reviews
 string calendar_sync
+string change_password
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
@@ -2546,6 +2557,7 @@ string ct_vietnam
 string ct_yemen
 string ct_zambia
 string ct_zimbabwe
+string date
 string default_total_title
 string email_confirmation
 string email_receipt_privacy_message
@@ -2560,6 +2572,8 @@ string icon_content_description
 string lbl_no_account
 string lbl_numberTix
 string leave_a_review
+string location
+string manage_account
 string mtrl_badge_numberless_content_description
 string mtrl_chip_close_icon_content_description
 string mtrl_exceed_max_badge_number_suffix
@@ -2595,6 +2609,8 @@ string mtrl_picker_toggle_to_day_selection
 string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
 string my_basket_title
+string my_friends
+string my_reviews
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
 string next_button
@@ -2606,13 +2622,18 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string preference_file_key
+string price
 string prompt_confirm_password
+string prompt_current_password
 string prompt_email
 string prompt_firstname
 string prompt_lastname
+string prompt_new_password
 string prompt_password
+string rating
 string reader_connected
 string receipt_icon_description
+string reset_password
 string sdk_OK
 string sdk_actvy_receipt_email_hint
 string sdk_actvy_receipt_msg_ask_customer

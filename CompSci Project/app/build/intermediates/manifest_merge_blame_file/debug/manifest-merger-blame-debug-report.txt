@@ -21,17 +21,17 @@
 16-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:10:5-67
 16-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:10:22-64
 17    <uses-permission android:name="android.permission.BLUETOOTH" />
-17-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:11:5-68
-17-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:11:22-65
+17-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:11:5-68
+17-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:11:22-65
 18    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-18-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:12:5-74
-18-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:12:22-71
+18-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:12:5-74
+18-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:12:22-71
 19    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-19-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:13:5-71
-19-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:13:22-68
+19-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:13:5-71
+19-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:13:22-68
 20    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-20-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:14:5-81
-20-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:14:22-78
+20-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:14:5-81
+20-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:14:22-78
 21    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 21-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:9:5-79
 21-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:9:22-76
@@ -64,7 +64,7 @@
 35-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/e4cfae8a02c233ee19dd3dbc93491f65/jetified-android-sdk-5.5.0/AndroidManifest.xml:17:9-33
 36
 37    <application
-37-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:12:5-88:19
+37-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:12:5-89:19
 38        android:allowBackup="true"
 38-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:13:9-35
 39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -83,265 +83,268 @@
 46-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:18:9-40
 47        android:usesCleartextTraffic="true" >
 47-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:19:9-44
-48        <activity android:name="com.example.theatreticketsapp.ViewBooking" />
-48-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:20:9-58
-48-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:20:19-46
-49        <activity android:name="com.example.theatreticketsapp.Checkout" />
-49-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:21:9-46
-49-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:21:19-43
-50        <activity android:name="com.example.theatreticketsapp.ViewReviews" />
-50-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:22:9-49
-50-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:22:19-46
-51        <activity android:name="com.example.theatreticketsapp.ViewVenue" />
-51-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:23:9-47
-51-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:23:19-44
-52        <!--
-53             The API key for Google Maps-based APIs is defined as a string resource.
-54             (See the file "res/values/google_maps_api.xml").
-55             Note that the API key is linked to the encryption key used to sign the APK.
-56             You need a different API key for each encryption key, including the release key that is used to
-57             sign the APK for publishing.
-58             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-59        -->
-60        <meta-data
-60-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:32:9-34:55
-61            android:name="com.google.android.geo.API_KEY"
-61-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:33:13-58
-62            android:value="@string/google_maps_key" />
-62-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:34:13-52
-63
-64        <activity
-64-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:36:9-38:59
-65            android:name="com.example.theatreticketsapp.MapsActivity"
-65-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:37:13-41
-66            android:label="@string/title_activity_maps" />
-66-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:38:13-56
-67        <activity
-67-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:39:9-42:59
-68            android:name="com.example.theatreticketsapp.ViewTickets"
-68-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:40:13-40
-69            android:label="@string/title_activity_view_tickets"
-69-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:41:13-64
-70            android:theme="@style/AppTheme.NoActionBar" />
-70-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:42:13-56
-71        <activity
-71-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:43:9-46:59
-72            android:name="com.example.theatreticketsapp.CreateReview"
-72-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:44:13-41
-73            android:label="@string/title_activity_create_review"
-73-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:45:13-65
-74            android:theme="@style/AppTheme.NoActionBar" />
-74-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:46:13-56
-75        <activity
-75-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:47:9-49:61
-76            android:name="com.example.theatreticketsapp.MyBasket"
-76-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:48:13-37
-77            android:label="@string/title_activity_basket" />
-77-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:49:13-58
-78        <activity
-78-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:50:9-52:59
-79            android:name="com.example.theatreticketsapp.Homepage"
-79-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:51:13-37
-80            android:theme="@style/AppTheme.NoActionBar" />
-80-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:52:13-56
-81        <activity
-81-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:53:9-55:59
-82            android:name="com.example.theatreticketsapp.ChooseTickets"
-82-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:54:13-42
-83            android:theme="@style/AppTheme.NoActionBar" />
-83-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:55:13-56
-84        <activity
-84-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:56:9-58:59
-85            android:name="com.example.theatreticketsapp.ChooseDate"
-85-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:57:13-39
-86            android:theme="@style/AppTheme.NoActionBar" />
-86-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:58:13-56
-87
-88        <meta-data
-88-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:60:9-62:60
-89            android:name="com.google.android.actions"
-89-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:61:13-54
-90            android:resource="@transition/slide_in_down" />
-90-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:62:13-57
-91
-92        <activity
-92-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:64:9-67:59
-93            android:name="com.example.theatreticketsapp.MyAccount"
-93-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:65:13-38
-94            android:label="My Account"
-94-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:66:13-39
-95            android:theme="@style/AppTheme.NoActionBar" />
-95-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:67:13-56
-96        <activity
-96-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:68:9-71:59
-97            android:name="com.example.theatreticketsapp.MyBookings"
-97-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:69:13-39
-98            android:label="My Bookings"
-98-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:70:13-40
-99            android:theme="@style/AppTheme.NoActionBar" />
-99-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:71:13-56
-100        <activity
-100-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:72:9-75:59
-101            android:name="com.example.theatreticketsapp.Explore"
-101-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:73:13-36
-102            android:label="Explore"
+48        <activity android:name="com.example.theatreticketsapp.ChangePassword" />
+48-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:20:9-61
+48-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:20:19-49
+49        <activity android:name="com.example.theatreticketsapp.ViewBooking" />
+49-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:21:9-49
+49-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:21:19-46
+50        <activity android:name="com.example.theatreticketsapp.Checkout" />
+50-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:22:9-46
+50-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:22:19-43
+51        <activity android:name="com.example.theatreticketsapp.ViewReviews" />
+51-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:23:9-49
+51-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:23:19-46
+52        <activity android:name="com.example.theatreticketsapp.ViewVenue" />
+52-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:24:9-47
+52-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:24:19-44
+53        <!--
+54             The API key for Google Maps-based APIs is defined as a string resource.
+55             (See the file "res/values/google_maps_api.xml").
+56             Note that the API key is linked to the encryption key used to sign the APK.
+57             You need a different API key for each encryption key, including the release key that is used to
+58             sign the APK for publishing.
+59             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+60        -->
+61        <meta-data
+61-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:33:9-35:55
+62            android:name="com.google.android.geo.API_KEY"
+62-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:34:13-58
+63            android:value="@string/google_maps_key" />
+63-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:35:13-52
+64
+65        <activity
+65-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:37:9-39:59
+66            android:name="com.example.theatreticketsapp.MapsActivity"
+66-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:38:13-41
+67            android:label="@string/title_activity_maps" />
+67-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:39:13-56
+68        <activity
+68-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:40:9-43:59
+69            android:name="com.example.theatreticketsapp.ViewTickets"
+69-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:41:13-40
+70            android:label="@string/title_activity_view_tickets"
+70-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:42:13-64
+71            android:theme="@style/AppTheme.NoActionBar" />
+71-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:43:13-56
+72        <activity
+72-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:44:9-47:59
+73            android:name="com.example.theatreticketsapp.CreateReview"
+73-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:45:13-41
+74            android:label="@string/title_activity_create_review"
+74-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:46:13-65
+75            android:theme="@style/AppTheme.NoActionBar" />
+75-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:47:13-56
+76        <activity
+76-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:48:9-50:61
+77            android:name="com.example.theatreticketsapp.MyBasket"
+77-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:49:13-37
+78            android:label="@string/title_activity_basket" />
+78-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:50:13-58
+79        <activity
+79-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:51:9-53:59
+80            android:name="com.example.theatreticketsapp.Homepage"
+80-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:52:13-37
+81            android:theme="@style/AppTheme.NoActionBar" />
+81-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:53:13-56
+82        <activity
+82-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:54:9-56:59
+83            android:name="com.example.theatreticketsapp.ChooseTickets"
+83-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:55:13-42
+84            android:theme="@style/AppTheme.NoActionBar" />
+84-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:56:13-56
+85        <activity
+85-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:57:9-59:59
+86            android:name="com.example.theatreticketsapp.ChooseDate"
+86-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:58:13-39
+87            android:theme="@style/AppTheme.NoActionBar" />
+87-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:59:13-56
+88
+89        <meta-data
+89-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:61:9-63:60
+90            android:name="com.google.android.actions"
+90-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:62:13-54
+91            android:resource="@transition/slide_in_down" />
+91-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:63:13-57
+92
+93        <activity
+93-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:65:9-68:59
+94            android:name="com.example.theatreticketsapp.MyAccount"
+94-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:66:13-38
+95            android:label="My Account"
+95-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:67:13-39
+96            android:theme="@style/AppTheme.NoActionBar" />
+96-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:68:13-56
+97        <activity
+97-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:69:9-72:59
+98            android:name="com.example.theatreticketsapp.MyBookings"
+98-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:70:13-39
+99            android:label="My Bookings"
+99-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:71:13-40
+100            android:theme="@style/AppTheme.NoActionBar" />
+100-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:72:13-56
+101        <activity
+101-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:73:9-76:59
+102            android:name="com.example.theatreticketsapp.Explore"
 102-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:74:13-36
-103            android:theme="@style/AppTheme.NoActionBar" />
-103-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:75:13-56
-104        <activity
-104-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:76:9-79:59
-105            android:name="com.example.theatreticketsapp.ShowInformation"
-105-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:77:13-44
-106            android:label="@string/title_activity_selected_show"
-106-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:78:13-65
-107            android:theme="@style/AppTheme.NoActionBar" />
-107-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:79:13-56
-108        <activity android:name="com.example.theatreticketsapp.Register" />
-108-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:80:9-46
-108-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:80:19-43
-109        <activity android:name="com.example.theatreticketsapp.Login" >
-109-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:81:9-87:20
-109-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:81:19-40
-110            <intent-filter>
-110-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:82:13-86:29
-111                <action android:name="android.intent.action.MAIN" />
-111-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:83:17-69
-111-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:83:25-66
-112
-113                <category android:name="android.intent.category.LAUNCHER" />
-113-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:85:17-77
-113-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:85:27-74
-114            </intent-filter>
-115        </activity>
-116        <activity
-116-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:18:9-22:53
-117            android:name="com.paypal.paypalretailsdk.ui.receipt.ReceiptOptionsActivity"
-117-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:19:13-88
-118            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
-118-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:20:13-87
-119            android:label="@string/title_activity_receipt_options"
-119-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:21:13-67
-120            android:theme="@style/Theme.SDK.Base" />
-120-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:22:13-50
-121        <activity
-121-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:23:9-27:53
-122            android:name="com.paypal.paypalretailsdk.ui.receipt.ReceiptSendToActivity"
-122-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:24:13-87
-123            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
-123-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:25:13-87
-124            android:label="@string/title_activity_receipt_options"
-124-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:26:13-67
-125            android:theme="@style/Theme.SDK.Base" />
-125-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:27:13-50
-126        <activity
-126-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:28:9-33:53
-127            android:name="com.paypal.paypalretailsdk.ui.signature.SignatureActivity"
-127-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:29:13-85
-128            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
-128-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:30:13-87
-129            android:exported="true"
-129-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:31:13-36
-130            android:label="@string/app_name"
-130-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:32:13-45
-131            android:theme="@style/Theme.SDK.Base" />
-131-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:33:13-50
-132        <activity
-132-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:34:9-37:67
-133            android:name="com.paypal.paypalretailsdk.ui.dialogs.SDKDialogActivity"
-133-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:35:13-83
-134            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
-134-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:36:13-87
-135            android:theme="@style/Theme.SDK.Dialog.Transparent" />
-135-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:37:13-64
-136        <activity
-136-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:38:9-43:67
-137            android:name="com.paypal.paypalretailsdk.ui.DeviceConnectionActivity"
-137-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:39:13-82
-138            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
-138-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:40:13-87
-139            android:label="@string/DeviceConnectionActivity"
-139-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:41:13-61
-140            android:launchMode="singleTop"
-140-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:42:13-43
-141            android:theme="@style/Theme.SDK.Dialog.Transparent" />
-141-->[com.paypal.retail:here-sdk-debug:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/488759fb7e15ffa57c3fe339e0a5ffb8/jetified-here-sdk-debug-2.0.0.201801/AndroidManifest.xml:43:13-64
-142        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
-142-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:13:9-84
-142-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:13:19-81
-143        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
-143-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:14:9-90
-143-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:14:19-87
-144        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
-144-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:15:9-91
-144-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:15:19-88
-145        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
-145-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:16:9-82
-145-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:16:19-79
-146        <activity android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity" />
-146-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:17:9-96
-146-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:17:19-93
-147        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity" />
-147-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:18:9-97
-147-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:18:19-94
-148        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity" />
-148-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:19:9-94
-148-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:19:19-91
-149        <activity android:name="com.paypal.android.sdk.payments.PayPalProfileSharingActivity" />
-149-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:20:9-97
-149-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:20:19-94
-150        <activity android:name="com.paypal.android.sdk.payments.ProfileSharingConsentActivity" />
-150-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:21:9-98
-150-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:21:19-95
-151
-152        <service
-152-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:23:9-25:40
-153            android:name="com.paypal.android.sdk.payments.PayPalService"
-153-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:24:13-73
-154            android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
-154-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:25:13-37
-155        <uses-library
-155-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
-156            android:name="org.apache.http.legacy"
-156-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
-157            android:required="false" />
-157-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
-158
-159        <activity
-159-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
-160            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-160-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
-161            android:exported="false"
-161-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
-162            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-162-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
-163
-164        <meta-data
-164-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a566b10ca8af40beee0e2d400092bb2b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
-165            android:name="com.google.android.gms.version"
-165-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a566b10ca8af40beee0e2d400092bb2b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
-166            android:value="@integer/google_play_services_version" />
-166-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a566b10ca8af40beee0e2d400092bb2b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
-167
-168        <provider
-168-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/58629c19fa6c616abd60edc0d2bb07b8/lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
-169            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-169-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/58629c19fa6c616abd60edc0d2bb07b8/lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
-170            android:authorities="com.example.theatreticketsapp.lifecycle-process"
-170-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/58629c19fa6c616abd60edc0d2bb07b8/lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
-171            android:exported="false"
-171-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/58629c19fa6c616abd60edc0d2bb07b8/lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
-172            android:multiprocess="true" />
-172-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/58629c19fa6c616abd60edc0d2bb07b8/lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
-173
-174        <activity
-174-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/e4cfae8a02c233ee19dd3dbc93491f65/jetified-android-sdk-5.5.0/AndroidManifest.xml:20:9-22:66
-175            android:name="io.card.payment.CardIOActivity"
-175-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/e4cfae8a02c233ee19dd3dbc93491f65/jetified-android-sdk-5.5.0/AndroidManifest.xml:21:13-58
-176            android:configChanges="keyboardHidden|orientation" />
-176-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/e4cfae8a02c233ee19dd3dbc93491f65/jetified-android-sdk-5.5.0/AndroidManifest.xml:22:13-63
-177        <activity android:name="io.card.payment.DataEntryActivity" />
-177-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/e4cfae8a02c233ee19dd3dbc93491f65/jetified-android-sdk-5.5.0/AndroidManifest.xml:23:9-70
-177-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/e4cfae8a02c233ee19dd3dbc93491f65/jetified-android-sdk-5.5.0/AndroidManifest.xml:23:19-67
-178    </application>
-179
-180</manifest>
+103            android:label="Explore"
+103-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:75:13-36
+104            android:theme="@style/AppTheme.NoActionBar" />
+104-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:76:13-56
+105        <activity
+105-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:77:9-80:59
+106            android:name="com.example.theatreticketsapp.ShowInformation"
+106-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:78:13-44
+107            android:label="@string/title_activity_selected_show"
+107-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:79:13-65
+108            android:theme="@style/AppTheme.NoActionBar" />
+108-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:80:13-56
+109        <activity android:name="com.example.theatreticketsapp.Register" />
+109-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:81:9-46
+109-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:81:19-43
+110        <activity android:name="com.example.theatreticketsapp.Login" >
+110-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:82:9-88:20
+110-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:82:19-40
+111            <intent-filter>
+111-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:83:13-87:29
+112                <action android:name="android.intent.action.MAIN" />
+112-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:84:17-69
+112-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:84:25-66
+113
+114                <category android:name="android.intent.category.LAUNCHER" />
+114-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:86:17-77
+114-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:86:27-74
+115            </intent-filter>
+116        </activity>
+117        <activity
+117-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:18:9-22:53
+118            android:name="com.paypal.paypalretailsdk.ui.receipt.ReceiptOptionsActivity"
+118-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:19:13-88
+119            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
+119-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:20:13-87
+120            android:label="@string/title_activity_receipt_options"
+120-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:21:13-67
+121            android:theme="@style/Theme.SDK.Base" />
+121-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:22:13-50
+122        <activity
+122-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:23:9-27:53
+123            android:name="com.paypal.paypalretailsdk.ui.receipt.ReceiptSendToActivity"
+123-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:24:13-87
+124            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
+124-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:25:13-87
+125            android:label="@string/title_activity_receipt_options"
+125-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:26:13-67
+126            android:theme="@style/Theme.SDK.Base" />
+126-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:27:13-50
+127        <activity
+127-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:28:9-33:53
+128            android:name="com.paypal.paypalretailsdk.ui.signature.SignatureActivity"
+128-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:29:13-85
+129            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
+129-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:30:13-87
+130            android:exported="true"
+130-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:31:13-36
+131            android:label="@string/app_name"
+131-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:32:13-45
+132            android:theme="@style/Theme.SDK.Base" />
+132-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:33:13-50
+133        <activity
+133-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:34:9-37:67
+134            android:name="com.paypal.paypalretailsdk.ui.dialogs.SDKDialogActivity"
+134-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:35:13-83
+135            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
+135-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:36:13-87
+136            android:theme="@style/Theme.SDK.Dialog.Transparent" />
+136-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:37:13-64
+137        <activity
+137-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:38:9-43:67
+138            android:name="com.paypal.paypalretailsdk.ui.DeviceConnectionActivity"
+138-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:39:13-82
+139            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
+139-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:40:13-87
+140            android:label="@string/DeviceConnectionActivity"
+140-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:41:13-61
+141            android:launchMode="singleTop"
+141-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:42:13-43
+142            android:theme="@style/Theme.SDK.Dialog.Transparent" />
+142-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/5c449b8c0df9f0bea88b0bc8f5533637/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:43:13-64
+143        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
+143-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:13:9-84
+143-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:13:19-81
+144        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
+144-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:14:9-90
+144-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:14:19-87
+145        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
+145-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:15:9-91
+145-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:15:19-88
+146        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
+146-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:16:9-82
+146-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:16:19-79
+147        <activity android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity" />
+147-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:17:9-96
+147-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:17:19-93
+148        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity" />
+148-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:18:9-97
+148-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:18:19-94
+149        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity" />
+149-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:19:9-94
+149-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:19:19-91
+150        <activity android:name="com.paypal.android.sdk.payments.PayPalProfileSharingActivity" />
+150-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:20:9-97
+150-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:20:19-94
+151        <activity android:name="com.paypal.android.sdk.payments.ProfileSharingConsentActivity" />
+151-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:21:9-98
+151-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:21:19-95
+152
+153        <service
+153-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:23:9-25:40
+154            android:name="com.paypal.android.sdk.payments.PayPalService"
+154-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:24:13-73
+155            android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
+155-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/cb80604c99705cc192f961aeb1616578/paypal-android-sdk-2.15.3/AndroidManifest.xml:25:13-37
+156        <uses-library
+156-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+157            android:name="org.apache.http.legacy"
+157-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
+158            android:required="false" />
+158-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a3d702a77cbfacefb23de82416a0cb1f/play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+159
+160        <activity
+160-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+161            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+161-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+162            android:exported="false"
+162-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+163            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+163-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/77c2fc448e2bd0738fd67dce062b1efd/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+164
+165        <meta-data
+165-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a566b10ca8af40beee0e2d400092bb2b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+166            android:name="com.google.android.gms.version"
+166-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a566b10ca8af40beee0e2d400092bb2b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+167            android:value="@integer/google_play_services_version" />
+167-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/a566b10ca8af40beee0e2d400092bb2b/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+168
+169        <provider
+169-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/58629c19fa6c616abd60edc0d2bb07b8/lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+170            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+170-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/58629c19fa6c616abd60edc0d2bb07b8/lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+171            android:authorities="com.example.theatreticketsapp.lifecycle-process"
+171-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/58629c19fa6c616abd60edc0d2bb07b8/lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+172            android:exported="false"
+172-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/58629c19fa6c616abd60edc0d2bb07b8/lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+173            android:multiprocess="true" />
+173-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/58629c19fa6c616abd60edc0d2bb07b8/lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+174
+175        <activity
+175-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/e4cfae8a02c233ee19dd3dbc93491f65/jetified-android-sdk-5.5.0/AndroidManifest.xml:20:9-22:66
+176            android:name="io.card.payment.CardIOActivity"
+176-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/e4cfae8a02c233ee19dd3dbc93491f65/jetified-android-sdk-5.5.0/AndroidManifest.xml:21:13-58
+177            android:configChanges="keyboardHidden|orientation" />
+177-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/e4cfae8a02c233ee19dd3dbc93491f65/jetified-android-sdk-5.5.0/AndroidManifest.xml:22:13-63
+178        <activity android:name="io.card.payment.DataEntryActivity" />
+178-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/e4cfae8a02c233ee19dd3dbc93491f65/jetified-android-sdk-5.5.0/AndroidManifest.xml:23:9-70
+178-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/e4cfae8a02c233ee19dd3dbc93491f65/jetified-android-sdk-5.5.0/AndroidManifest.xml:23:19-67
+179    </application>
+180
+181</manifest>

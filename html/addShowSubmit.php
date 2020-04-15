@@ -13,9 +13,9 @@
 
 	$showname = $con->real_escape_string($_REQUEST['show_name']);
 	$showdesc = $con->real_escape_string($_REQUEST['show_description']);
+	$runningtime = $con->real_escape_string($_REQUEST['running_time']);
 
-
-	$query = "INSERT INTO shows(showName, showDescription) VALUES ('$showname', '$showdesc')";
+	$query = "INSERT INTO shows(showName, showDescription, runningTime) VALUES ('$showname', '$showdesc', $runningtime)";
 
 	if($con->query($query) === true){
 		echo "Records inserted";

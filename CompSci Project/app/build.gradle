@@ -46,7 +46,11 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
-    implementation 'me.dm7.barcodescanner:zxing:1.9.8'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
+    implementation 'me.dm7.barcodescanner:zxing:1.9.8' // API for generating QR code
+
+    //the following jars are related to sending emails to user
     implementation files('libs/activation.jar')
     implementation files('libs/additionnal.jar')
     implementation files('libs/mail.jar')
@@ -55,8 +59,8 @@ dependencies {
         mavenCentral()
     }
 
-    // api('com.paypal.retail:here-sdk-release:2.0.0.201801@aar'){transitive=true}
-    api('com.paypal.retail:here-sdk-debug:2.0.0.201801@aar') { transitive = true }
+    api('com.paypal.retail:here-sdk-release:2.0.0.201801@aar') { transitive = true }
+    //api('com.paypal.retail:here-sdk-debug:2.1.03.19315002@aar') { transitive = true } // this broke the paypal api
     implementation 'org.jetbrains:annotations-java5:15.0'
 
 }

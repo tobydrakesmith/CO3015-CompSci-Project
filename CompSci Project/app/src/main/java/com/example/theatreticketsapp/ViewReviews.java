@@ -44,10 +44,7 @@ public class ViewReviews extends AppCompatActivity implements ReviewsRecyclerVie
         recyclerViewReviews = findViewById(R.id.reviewView);
         recyclerViewReviews.setLayoutManager(new LinearLayoutManager(this));
 
-
         loadReviews();
-
-        System.out.println(mReviews.size());
     }
 
 

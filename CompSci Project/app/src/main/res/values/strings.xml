@@ -43,6 +43,17 @@
     <string name="view_your_booking">View booking</string>
     <string name="calendar_sync">Sync booking</string>
     <string name="email_confirmation">Email a booking confirmation</string>
+    <string name="reset_password">Forgotten your password? Click here</string>
+    <string name="manage_account">Manage your account</string>
+    <string name="change_password">Change your password</string>
+    <string name="my_friends">My friends</string>
+    <string name="my_reviews">My reviews</string>
+    <string name="prompt_current_password">Enter current password</string>
+    <string name="prompt_new_password">Enter new password</string>
+    <string name="price">Price</string>
+    <string name="date">Date</string>
+    <string name="rating">Rating</string>
+    <string name="location">Location</string>
 
 
 </resources>

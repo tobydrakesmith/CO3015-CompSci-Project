@@ -1,8 +1,10 @@
 package com.example.theatreticketsapp;
 
+import android.location.Location;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.text.DecimalFormat;
 import java.util.Comparator;
 
 public class Show implements Parcelable {
@@ -12,11 +14,17 @@ public class Show implements Parcelable {
     private int pricePbA, pricePbB, pricePbC, pricePbD, numTicketsPbA, numTicketsPbB, numTicketsPbC, numTicketsPbD;
     private int id;
     private int rating;
+    private int runningTime;
+    private Venue venue;
+    private float userDistanceFromVenue;
+    private static DecimalFormat df = new DecimalFormat("0.00");
 
 
 
-    public Show(int id, String showName, String venueName, String startDate, String endDate, String matineeStart, String eveningStart, int monMat, int monEve, int tueMat, int tueEve, int wedMat, int wedEve, int thuMat,
-                int thuEve, int friMat, int friEve, int satMat, int satEve, int sunMat, int sunEve, int pricePbA, int pricePbB, int pricePbC, int pricePbD, int numTicketsPbA, int numTicketsPbB, int numTicketsPbC, int numTicketsPbD) {
+    public Show(int id, String showName, String venueName, String startDate, String endDate, String matineeStart, String eveningStart,
+                int monMat, int monEve, int tueMat, int tueEve, int wedMat, int wedEve, int thuMat,
+                int thuEve, int friMat, int friEve, int satMat, int satEve, int sunMat, int sunEve,
+                int pricePbA, int pricePbB, int pricePbC, int pricePbD, int numTicketsPbA, int numTicketsPbB, int numTicketsPbC, int numTicketsPbD, Venue venue) {
         this.id = id;
         this.showName = showName;
         this.venueName = venueName;
@@ -48,6 +56,9 @@ public class Show implements Parcelable {
         this.numTicketsPbD = numTicketsPbD;
 
         rating=0;
+        userDistanceFromVenue=0;
+        this.venue = venue;
+        runningTime = 0;
     }
 
 
@@ -69,11 +80,14 @@ public class Show implements Parcelable {
 
 
 
-
     //GETTERS AND SETTERS:
 
     public void setShowName(String s){
         this.venueName = s;
+    }
+
+    public void setVenue(Venue venue){
+        this.venue = venue;
     }
 
     public int getId(){
@@ -99,6 +113,13 @@ public class Show implements Parcelable {
 
     public String getStartDate() {
         return startDate;
+    }
+
+    public int getRunningTime(){
+        return this.runningTime;
+    }
+    public void setRunningTime(int runningTime){
+        this.runningTime = runningTime;
     }
 
     public String getEndDate() {
@@ -215,6 +236,15 @@ public class Show implements Parcelable {
         return this.rating;
     }
 
+    public String getUserDistanceFromVenue(Location userLocation){
+        if (userDistanceFromVenue == 0){
+            userDistanceFromVenue = (venue.getLocation().distanceTo(userLocation)) / 1000;
+        }
+
+        return df.format(userDistanceFromVenue);
+    }
+
+
 
 
     //RELATED TO PARCELLING
@@ -256,6 +286,9 @@ public class Show implements Parcelable {
         numTicketsPbD = in.readInt();
 
         rating = in.readInt();
+        runningTime = in.readInt();
+
+        venue = in.readParcelable(Venue.class.getClassLoader());
     }
 
     public static final Creator<Show> CREATOR = new Creator<Show>() {
@@ -314,6 +347,9 @@ public class Show implements Parcelable {
         dest.writeInt(numTicketsPbD);
 
         dest.writeInt(rating);
+        dest.writeInt(runningTime);
+
+        dest.writeParcelable(venue, flags);
 
 
     }

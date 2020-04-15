@@ -25,6 +25,9 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   public final EditText passwordEditText;
 
   @NonNull
+  public final TextView passwordLbl;
+
+  @NonNull
   public final ProgressBar progressBar;
 
   @NonNull
@@ -43,11 +46,12 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   protected String mLgnPassword;
 
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button loginBtn, EditText passwordEditText, ProgressBar progressBar, Button registerBtn,
-      TextView textView5, EditText usernameEditText) {
+      Button loginBtn, EditText passwordEditText, TextView passwordLbl, ProgressBar progressBar,
+      Button registerBtn, TextView textView5, EditText usernameEditText) {
     super(_bindingComponent, _root, _localFieldCount);
     this.loginBtn = loginBtn;
     this.passwordEditText = passwordEditText;
+    this.passwordLbl = passwordLbl;
     this.progressBar = progressBar;
     this.registerBtn = registerBtn;
     this.textView5 = textView5;

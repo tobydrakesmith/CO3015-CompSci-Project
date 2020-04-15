@@ -54,6 +54,7 @@ public class ShowInformation extends AppCompatActivity {
         basket = i.getParcelableExtra("basket");
         userID = i.getIntExtra("userid", -1);
 
+
         showName = findViewById(R.id.showName);
         venueName = findViewById(R.id.venueName);
         showDesc = findViewById(R.id.showDescription);

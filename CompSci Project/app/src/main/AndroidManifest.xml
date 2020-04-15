@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ViewBooking"></activity>
+        <activity android:name=".ChangePassword"></activity>
+        <activity android:name=".ViewBooking" />
         <activity android:name=".Checkout" />
         <activity android:name=".ViewReviews" />
         <activity android:name=".ViewVenue" />

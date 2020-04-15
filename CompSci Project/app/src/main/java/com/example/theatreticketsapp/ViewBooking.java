@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,7 +23,6 @@ import org.json.JSONObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 public class ViewBooking extends AppCompatActivity {
@@ -67,14 +65,7 @@ public class ViewBooking extends AppCompatActivity {
         calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent insertCalendarIntent = new Intent(Intent.ACTION_INSERT)
-                        .setData(CalendarContract.Events.CONTENT_URI);
-                insertCalendarIntent.putExtra(CalendarContract.Events.TITLE, booking.getShowName());
-                insertCalendarIntent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, false);
-                insertCalendarIntent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, date.getTime());
-                insertCalendarIntent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, date.getTime() + 1000*600); //TODO: ADD SHOW LENGTH
-                insertCalendarIntent.putExtra(CalendarContract.Events.EVENT_LOCATION, venue.getLocation());
-                startActivity(insertCalendarIntent);
+                syncCalendar();
             }
         });
         
@@ -183,5 +174,42 @@ public class ViewBooking extends AppCompatActivity {
         });
 
         requestQueue.add(stringRequest);
+    }
+
+    private void syncCalendar(){
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_GET_RUNNING_TIME+booking.getShowName(), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    int runningTime = jsonObject.getInt("runningTime");
+                    openCalendar(runningTime);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        requestQueue.add(stringRequest);
+
+    }
+
+    private void openCalendar(int runningTime){
+        Intent insertCalendarIntent = new Intent(Intent.ACTION_INSERT)
+                .setData(CalendarContract.Events.CONTENT_URI);
+        insertCalendarIntent.putExtra(CalendarContract.Events.TITLE, booking.getShowName());
+        insertCalendarIntent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, false);
+        insertCalendarIntent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, date.getTime());
+        insertCalendarIntent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, date.getTime() + runningTime*60000);
+        insertCalendarIntent.putExtra(CalendarContract.Events.EVENT_LOCATION, venue.getStrLocation());
+        startActivity(insertCalendarIntent);
     }
 }

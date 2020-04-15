@@ -97,10 +97,12 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyBasket.this, Checkout.class);
-                intent.putExtra("basket", basket);
-                intent.putExtra("userid", userID);
-                startActivity(intent);
+                if (!basket.isEmpty()) {
+                    Intent intent = new Intent(MyBasket.this, Checkout.class);
+                    intent.putExtra("basket", basket);
+                    intent.putExtra("userid", userID);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -118,13 +120,11 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Intent intent = new Intent(this, Homepage.class);
-                intent.putExtra("basket", basket);
-                intent.putExtra("userid", userID);
-                startActivity(intent);
-                break;
+        if (item.getItemId() == android.R.id.home) {
+            Intent intent = new Intent(this, Homepage.class);
+            intent.putExtra("basket", basket);
+            intent.putExtra("userid", userID);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

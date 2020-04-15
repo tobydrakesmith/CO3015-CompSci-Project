@@ -104,28 +104,31 @@
 			break;
 
 
+			case 'checkpassword':
 
-
-			//the UPDATE operation
-			case 'updateuser':
-				areTheseParametersAvailable(array('userID','email','firstName','lastName','password'));
-				$db = new DbOperation();
-				$result = $db->updateUser(
-					$_POST['userID'],
-					$_POST['email'],
-					$_POST['firstName'],
-					$_POST['lastName'],
-					$_POST['password']
-				);
-
-				if($result){
-					$response['error'] = false;
-					$response['message'] = 'User updated successfully';
-					$response['users'] = $db->getUsers();
-				}else{
-					$response['error'] = true;
-					$response['message'] = 'Some error occurred please try again';
+				if(isset($_GET['userID'], $_GET['password'])){
+					$db = new DbOperation();
+					if($db->checkPassword($_GET['userID'], $_GET['password']))
+						$response['error'] = false;
+					else
+						$response['error'] = true;
 				}
+
+
+			break;
+
+			case 'updatepasswordloggedon':
+
+
+				if(isset($_GET['userID'], $_GET['password'])){
+					$db = new DbOperation();
+					if($db->updatePasswordLoggedOn($_GET['userID'], $_GET['password']))
+						$response['error'] = false;
+					else
+						$response['error'] = true;
+
+				}
+
 			break;
 
 			//the delete operation
@@ -249,14 +252,14 @@
 			break;
 
 			case 'updatepassword':
-				if(isset($_GET['password'], $_GET['userID'])){
+				if(isset($_GET['password'], $_GET['email'])){
 					$db = new DbOperation();
-					if ($db->updatePassword($_GET['password'], $_GET['userID'])){
+					if ($db->updatePassword($_GET['password'], $_GET['email'])){
 						$response['error'] = false;
 						$response['message'] = "Password successfully updated";
 					}else{
 						$response['error'] = true;
-						$response['message'] = "Missing parameters";
+						$response['message'] = "Email not found";
 					}
 				}
 			break;
@@ -322,16 +325,6 @@
 				}
 			break;
 
-//			case 'test':
-//			 	if(isset($_GET['showInstanceID'], $_GET['date'], $_GET['time'])){
-//                                        $db = new DbOperation();
-//                                        $response = $db->getOpenSales($_GET['showInstanceID'], $_GET['date'], $_GET['time']);
-//                                }else{
-//                                        $response['error'] = true;
-//                                        $response['message'] = "Missing parameters";
-//                                }
-
-//			break;
 
 			case 'deletebasketbooking':
 				if(isset($_GET['tempID'])){
@@ -371,6 +364,13 @@
 
 				}
 
+			break;
+
+			case 'getrunningtime':
+				if(isset($_GET['showName'])){
+					$db = new DbOperation();
+					$response = $db->getShowRunningTime($_GET['showName']);
+				}
 			break;
 
 		}

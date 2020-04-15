@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -18,6 +20,7 @@ public class MyAccount extends AppCompatActivity {
 
     Basket basket;
     int userID;
+    Button changePassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,16 @@ public class MyAccount extends AppCompatActivity {
         Intent intent = getIntent();
         basket = intent.getParcelableExtra("basket");
         userID = intent.getIntExtra("userid", userID);
+
+        changePassword = findViewById(R.id.buttonPassword);
+        changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), ChangePassword.class);
+                i.putExtra("userid", userID);
+                startActivity(i);
+            }
+        });
 
 
         BottomNavigationView navView = findViewById(R.id.nav_view);

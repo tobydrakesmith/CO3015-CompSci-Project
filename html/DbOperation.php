@@ -78,6 +78,15 @@
 			return false;
 		}
 
+		function checkPassword($userID, $password){
+			$stmt = $this->con->prepare("SELECT password FROM user WHERE userID = ?");
+			$stmt->bind_param("i", $userID);
+			$stmt->execute();
+			$stmt->bind_result($dbPass);
+			$stmt->Fetch();
+			return $dbPass == $password;
+		}
+
 		/*
 		* The update operation
 		* When this method is called the record with the given id is updated with the new given values
@@ -141,7 +150,7 @@
                                 $liveshow['sunEve'] = $sunEve;
 				$liveshow['matTime'] = $matTime;
 				$liveshow['eveTime'] = $eveTime;
-                                array_push($liveshows, $liveshow);
+				array_push($liveshows, $liveshow);
                         }
 
                         return $liveshows;
@@ -149,18 +158,28 @@
 
 		}
 
+		function getVenuePostcode($venueName){
+			$stmt = $this->con->prepare("SELECT postcode FROM venue WHERE venueName = ?");
+			$stmt->bind_param("s", $venueName);
+			$stmt->execute();
+			$stmt->bind_result($postcode);
+			$stmt->fetch();
+			return $postcode;
+		}
+
 		function getShowInfo($showName){
 
-			if($stmt = $this->con->prepare("SELECT showDescription FROM shows WHERE showName = ? ")){
+			if($stmt = $this->con->prepare("SELECT showDescription, runningTime FROM shows WHERE showName = ? ")){
 				$stmt->bind_param("s", $showName);
 				$stmt->execute();
-				$stmt->bind_result($showdesc);
+				$stmt->bind_result($showdesc, $runningtime);
 
-				$stmt->fetch();
+				while($stmt->fetch()){}
 				$show = array();
 				$show['showDesc'] = $showdesc;
+				$show['runningTime'] = $runningtime;
+				$show['rating'] = $this->getReviews($showName);
 				return $show;
-
 			}
 			return false;
 		}
@@ -257,11 +276,22 @@
 			return $tickets;
 		}
 
-		function updatePassword($password, $userID){
+		function updatePassword($password, $email){
+			$stmt = $this->con->prepare("SELECT * FROM user WHERE email = ?");
+			$stmt->bind_param("s", $email);
+			$stmt->execute();
+			while($stmt->fetch()){}
+			if($stmt->num_rows == 0) return false;
+			$stmt = $this->con->prepare("UPDATE user SET password = ? WHERE email = ?");
+			$stmt->bind_param("ss", $password, $email);
+			if ($stmt->execute()) return true;
+			return false;
+		}
+
+		function updatePasswordLoggedOn($userID, $password){
 			$stmt = $this->con->prepare("UPDATE user SET password = ? WHERE userID = ?");
 			$stmt->bind_param("si", $password, $userID);
-			if ($stmt->execute()) return true;
-			else return false;
+			return $stmt->execute();
 		}
 
 		function checkReview($bookingID){
@@ -290,20 +320,16 @@
 		}
 
 		function getReviews($showName){
-			$stmt = $this->con->prepare("SELECT rating, review FROM review WHERE showName = ?");
+			$stmt = $this->con->prepare("SELECT rating FROM review WHERE showName = ?");
 			$stmt->bind_param("s", $showName);
 			$stmt->execute();
-			$stmt->bind_result($rating, $reviewText);
-			$reviews = array();
-			while($stmt->fetch()){
-				$review = array();
-				$review['rating'] = $rating;
-				$review['review'] = $reviewText;
+			$stmt->bind_result($rating);
+			$sum = 0;
+			while($stmt->fetch())
+				$sum += $rating;
 
-				array_push($reviews, $review);
-			}
-
-			return $reviews;
+			if ($sum == 0) return false;
+			else return $sum / $stmt->num_rows;
 		}
 
 		function getSales($showInstanceID, $date, $time){
@@ -431,13 +457,19 @@
 			$stmt->execute();
 			$stmt->bind_result($venueName);
 			while($stmt->fetch()){}
-
-
 			return $this->getVenueInfo($venueName);
 		}
 
-
-
+		function getShowRunningTime($showName){
+			$stmt = $this->con->prepare("SELECT runningTime FROM shows WHERE showName = ?");
+			$stmt->bind_param("s", $showName);
+			$stmt->execute();
+			$stmt->bind_result($runningTime);
+			$stmt->Fetch();
+			$runtime = array();
+			$runtime['runningTime'] = $runningTime;
+			return $runtime;
+		}
 
 	}
 

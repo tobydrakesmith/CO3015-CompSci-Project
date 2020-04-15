@@ -3,16 +3,16 @@
 
     <item
         android:id="@+id/location"
-        android:title="Location"/>
+        android:title="@string/location"/>
     <item
         android:id="@+id/rating"
-        android:title="Rating"/>
+        android:title="@string/rating"/>
     <item
         android:id="@+id/date"
-        android:title="Date"/>
+        android:title="@string/date"/>
     <item
-        android:id="@+id/location"
-        android:title="Location"/>
+        android:id="@+id/price"
+        android:title="@string/price"/>
 
 
 </menu>

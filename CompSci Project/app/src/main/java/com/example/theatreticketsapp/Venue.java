@@ -1,21 +1,28 @@
 package com.example.theatreticketsapp;
 
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Venue implements Parcelable {
 
-    private String name, postcode, location, description;
+    private String name, postcode, strLocation, description;
+    private Location location;
+
+    public Venue(){
+        location = null;
+    }
 
     public Venue(String name, String postcode, String description){
         this.name = name;
         this.postcode = postcode;
-        this.location = name + ", " + postcode;
+        this.strLocation = name + ", " + postcode;
         this.description = description;
     }
 
-    public String getLocation(){
-        return this.location;
+    public String getStrLocation(){
+        return this.strLocation;
     }
 
     public String getVenueName(){
@@ -24,13 +31,21 @@ public class Venue implements Parcelable {
 
     public String getDescription(){return this.description;}
 
+    public void setLocation(Location location){
+        this.location = location;
+    }
+
+    public Location getLocation(){
+        return this.location;
+    }
 
 
     protected Venue(Parcel in) {
         name = in.readString();
         postcode = in.readString();
-        location = in.readString();
+        strLocation = in.readString();
         description = in.readString();
+        location = in.readParcelable(Location.class.getClassLoader());
     }
 
     public static final Creator<Venue> CREATOR = new Creator<Venue>() {
@@ -54,7 +69,8 @@ public class Venue implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
         dest.writeString(postcode);
-        dest.writeString(location);
+        dest.writeString(strLocation);
         dest.writeString(description);
+        dest.writeParcelable(location, flags);
     }
 }
