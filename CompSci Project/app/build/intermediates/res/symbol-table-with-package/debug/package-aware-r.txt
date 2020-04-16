@@ -1874,6 +1874,7 @@ id fill_horizontal
 id fill_vertical
 id filled
 id filter
+id filterDistance
 id filter_chip
 id firstname
 id fitToContents
@@ -2040,7 +2041,9 @@ id registerBtn
 id retail_dialog_message
 id retail_left_image_button
 id retail_right_image_button
+id reviewDate
 id reviewText
+id reviewTitle
 id reviewView
 id right
 id right_down_image_button
@@ -2074,6 +2077,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id seekBarLocation
 id selectThePrice
 id select_dialog_listview
 id selected
@@ -2286,8 +2290,10 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout dialog_card_reader_scanner
+layout dialog_filter_location
 layout dialog_image_buttons
 layout dialog_image_dynamic_buttons
+layout dialog_review
 layout layout_buttons_primary_n_tertiary
 layout layout_connect_error
 layout layout_dialog_connect_reader
@@ -2634,6 +2640,7 @@ string rating
 string reader_connected
 string receipt_icon_description
 string reset_password
+string reviews_title
 string sdk_OK
 string sdk_actvy_receipt_email_hint
 string sdk_actvy_receipt_msg_ask_customer

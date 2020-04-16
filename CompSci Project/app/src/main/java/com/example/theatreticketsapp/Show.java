@@ -13,7 +13,7 @@ public class Show implements Parcelable {
     private int monMat, monEve, tueMat, tueEve, wedMat, wedEve, thuMat, thuEve, friMat, friEve, satMat, satEve, sunMat, sunEve;
     private int pricePbA, pricePbB, pricePbC, pricePbD, numTicketsPbA, numTicketsPbB, numTicketsPbC, numTicketsPbD;
     private int id;
-    private int rating;
+    private double rating;
     private int runningTime;
     private Venue venue;
     private float userDistanceFromVenue;
@@ -72,7 +72,7 @@ public class Show implements Parcelable {
     public static Comparator<Show> compareRating = new Comparator<Show>() {
         @Override
         public int compare(Show s1, Show s2) {
-            return (Integer.compare(s2.getRating(), s1.getRating()));
+            return (Double.compare(s2.getRating(), s1.getRating()));
         }
     };
 
@@ -81,6 +81,7 @@ public class Show implements Parcelable {
 
 
     //GETTERS AND SETTERS:
+
 
     public void setShowName(String s){
         this.venueName = s;
@@ -228,11 +229,11 @@ public class Show implements Parcelable {
         return numTicketsPbD;
     }
 
-    public void setRating(int avgRating){
+    public void setRating(double avgRating){
         this.rating = avgRating;
     }
 
-    public int getRating(){
+    public double getRating(){
         return this.rating;
     }
 
@@ -285,7 +286,7 @@ public class Show implements Parcelable {
         numTicketsPbC = in.readInt();
         numTicketsPbD = in.readInt();
 
-        rating = in.readInt();
+        rating = in.readDouble();
         runningTime = in.readInt();
 
         venue = in.readParcelable(Venue.class.getClassLoader());
@@ -346,7 +347,7 @@ public class Show implements Parcelable {
         dest.writeInt(numTicketsPbC);
         dest.writeInt(numTicketsPbD);
 
-        dest.writeInt(rating);
+        dest.writeDouble(rating);
         dest.writeInt(runningTime);
 
         dest.writeParcelable(venue, flags);

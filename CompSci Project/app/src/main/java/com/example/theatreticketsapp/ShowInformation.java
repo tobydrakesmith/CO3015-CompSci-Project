@@ -131,6 +131,7 @@ public class ShowInformation extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
+                System.out.println(response);
                 try {
                     JSONObject show = new JSONObject(response);
                     mShow.setShowDescription(show.getString("showDesc"));
@@ -148,7 +149,7 @@ public class ShowInformation extends AppCompatActivity {
 
 
                 } catch (JSONException e) {
-                    Toast.makeText(ShowInformation.this, e.getMessage(), Toast.LENGTH_LONG);
+                    Toast.makeText(ShowInformation.this, e.getMessage(), Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
 
@@ -156,7 +157,7 @@ public class ShowInformation extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(ShowInformation.this, "Error", Toast.LENGTH_LONG);
+                Toast.makeText(ShowInformation.this, "Error", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -172,14 +173,14 @@ public class ShowInformation extends AppCompatActivity {
 
                 try {
                     JSONArray reviews = new JSONArray(response);
-                    int total=0;
+                    double total=0.0;
                     for(int i=0; i<reviews.length(); i++){
                         JSONObject review = reviews.getJSONObject(i);
                         total += review.getInt("rating");
                     }
                     try {
                         mShow.setRating(total / reviews.length());
-                        rating.setText(Integer.toString(mShow.getRating()));
+                        rating.setText(Double.toString(mShow.getRating()));
                     }catch(ArithmeticException e){
                         rating.setText("Not enough reviews for this to be displayed yet!");
                     }

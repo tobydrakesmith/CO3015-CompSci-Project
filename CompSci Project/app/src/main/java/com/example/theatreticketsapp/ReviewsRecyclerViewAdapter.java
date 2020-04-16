@@ -4,10 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
@@ -24,8 +27,9 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
         this.mReviews = reviews;
     }
 
+    @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType){
         View view = mInflater.inflate(R.layout.recyclerview_reviews, parent, false);
         return new ViewHolder(view, mOnReviewClickListener);
 
@@ -37,9 +41,10 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
 
         Review review = mReviews.get(position);
 
-        holder.rating.setText(Integer.toString(review.getRating())+ "/5");
+        holder.ratingBar.setRating(review.getRating());
         holder.date.setText(review.getDate());
         holder.reviewText.setText(review.getRatingTxt());
+        holder.userName.setText("Username" + review.getUserid());
 
 
     }
@@ -50,18 +55,24 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView rating, reviewText, date, userName;
+        RatingBar ratingBar;
+        TextView reviewText, date, userName;
 
         ReviewsRecyclerViewAdapter.OnReviewClickListener onReviewClickListener;
 
         ViewHolder(View view, ReviewsRecyclerViewAdapter.OnReviewClickListener onReviewClickListener){
             super(view);
 
-            rating = view.findViewById(R.id.rating);
+            this.onReviewClickListener = onReviewClickListener;
+
+            ratingBar = view.findViewById(R.id.ratingBar);
             reviewText = view.findViewById(R.id.reviewText);
             date = view.findViewById(R.id.date);
+            userName = view.findViewById(R.id.userName);
+
+            view.setOnClickListener(this);
 
 
 
@@ -69,12 +80,12 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
 
         @Override
         public void onClick(View view){
-
+            onReviewClickListener.onReviewClick(getAdapterPosition());
         }
 
     }
 
     public interface OnReviewClickListener{
-
+        void onReviewClick(int position);
     }
 }

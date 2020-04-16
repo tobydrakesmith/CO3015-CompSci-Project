@@ -10,11 +10,11 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
@@ -50,7 +50,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class  Homepage extends AppCompatActivity implements  ShowRecyclerViewAdapter.OnShowClickListener{
+public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdapter.OnShowClickListener{
 
     private Basket basket;
     private ArrayList<Show> mShows, fullList;
@@ -66,7 +66,7 @@ public class  Homepage extends AppCompatActivity implements  ShowRecyclerViewAda
     private Location userLoc;
     private Geocoder geocoder;
 
-    private int distanceFilter;
+    private int distanceFilter = 100;
 
     //TODO: TIDY CODE
 
@@ -80,7 +80,6 @@ public class  Homepage extends AppCompatActivity implements  ShowRecyclerViewAda
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED) {
             //permission denied
-
         }
 
         //TODO wait for user response to permission
@@ -111,6 +110,8 @@ public class  Homepage extends AppCompatActivity implements  ShowRecyclerViewAda
         fullList = new ArrayList<>();
         mVenues = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(this);
+
+        seekBar = findViewById(R.id.seekBarLocation);
 
         geocoder = new Geocoder(Homepage.this);
 
@@ -146,24 +147,21 @@ public class  Homepage extends AppCompatActivity implements  ShowRecyclerViewAda
                         switch (title){
                             case "Location":
 
-                                LinearLayout layout = new LinearLayout(Homepage.this);
-                                layout.setOrientation(LinearLayout.VERTICAL);
+                                View view = View.inflate(Homepage.this, R.layout.dialog_filter_location, null);
 
-                                AlertDialog.Builder dialog = new AlertDialog.Builder(Homepage.this);
-                                dialog.setTitle("Filter by location");
-
-                                seekBarLbl = new TextView(Homepage.this);
-
-                                seekBar = new SeekBar(Homepage.this);
-                                layout.addView(seekBar);
+                                seekBarLbl = view.findViewById(R.id.filterDistance);
+                                seekBar = view.findViewById(R.id.seekBarLocation);
 
                                 seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                                     @Override
                                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                                        seekBarLbl.setText(String.format("%skm", Integer.toString(seekBar.getProgress())));
-                                        distanceFilter = seekBar.getProgress();
+                                        distanceFilter = progress;
+                                        if (distanceFilter<seekBar.getMax())
+                                            seekBarLbl.setText(String.format("%skm", Integer.toString(distanceFilter)));
+                                        else
+                                            seekBarLbl.setText(String.format("%skm+", Integer.toString(distanceFilter)));
                                     }
-
+                                    //two override methods I do not need:
                                     @Override
                                     public void onStartTrackingTouch(SeekBar seekBar) {
                                     }
@@ -173,12 +171,11 @@ public class  Homepage extends AppCompatActivity implements  ShowRecyclerViewAda
                                     }
                                 });
 
-                                seekBar.setProgress(seekBar.getMax()/2);
+                                seekBar.setProgress(distanceFilter);
 
-
-                                layout.addView(seekBarLbl);
-
-                                dialog.setView(layout);
+                                AlertDialog.Builder dialog = new AlertDialog.Builder(Homepage.this);
+                                dialog.setTitle("Filter by location");
+                                dialog.setView(view);
 
                                 dialog.setPositiveButton("Apply", new DialogInterface.OnClickListener() {
                                     @Override
@@ -187,6 +184,7 @@ public class  Homepage extends AppCompatActivity implements  ShowRecyclerViewAda
                                     }
                                 });
                                 dialog.show();
+
 
 
                                 break;
@@ -228,15 +226,13 @@ public class  Homepage extends AppCompatActivity implements  ShowRecyclerViewAda
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
 
-        switch (item.getItemId()){
-            case R.id.activity_basket:
-                Intent intent = new Intent(this, MyBasket.class);
-                intent.putExtra("basket", basket);
-                intent.putExtra("userid", userID);
-                startActivity(intent);
+        if (item.getItemId() == R.id.activity_basket) {
+            Intent intent = new Intent(this, MyBasket.class);
+            intent.putExtra("basket", basket);
+            intent.putExtra("userid", userID);
+            startActivity(intent);
 
-                return true;
-
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -253,21 +249,22 @@ public class  Homepage extends AppCompatActivity implements  ShowRecyclerViewAda
     }
 
     private void filterLocation(int distance){
-        ArrayList<Show> filterList = new ArrayList<>();
-        for (Show show : fullList){
-            if (Float.parseFloat(show.getUserDistanceFromVenue(userLoc)) < distance){
-                filterList.add(show);
-            }
+
+        if(distanceFilter == seekBar.getMax()){
+            mShows.clear();
+            mShows.addAll(fullList);
         }
+        else {
+            ArrayList<Show> filterList = new ArrayList<>();
+
+            for (Show show : fullList)
+                if (Float.parseFloat(show.getUserDistanceFromVenue(userLoc)) < distance)
+                    filterList.add(show);
 
 
-        mShows.clear();
-        mShows.addAll(filterList);
-
-
-/*        adapter = new ShowRecyclerViewAdapter(Homepage.this, mShows,
-                Homepage.this, userLoc);
-        recyclerView.setAdapter(adapter);*/
+            mShows.clear();
+            mShows.addAll(filterList);
+        }
         adapter.notifyDataSetChanged();
 
     }

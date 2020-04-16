@@ -54,6 +54,7 @@
     <string name="date">Date</string>
     <string name="rating">Rating</string>
     <string name="location">Location</string>
+    <string name="reviews_title">Reviews for:</string>
 
 
 </resources>

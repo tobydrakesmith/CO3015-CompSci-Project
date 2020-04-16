@@ -1,11 +1,18 @@
 package com.example.theatreticketsapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.RatingBar;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,6 +34,8 @@ public class ViewReviews extends AppCompatActivity implements ReviewsRecyclerVie
     RecyclerView recyclerViewReviews;
     ReviewsRecyclerViewAdapter reviewsRecyclerViewAdapter;
     RequestQueue requestQueue;
+    TextView reviewTitle, showName;
+    RatingBar ratingBar;
 
 
     @Override
@@ -40,9 +49,17 @@ public class ViewReviews extends AppCompatActivity implements ReviewsRecyclerVie
 
         requestQueue = Volley.newRequestQueue(this);
 
-
         recyclerViewReviews = findViewById(R.id.reviewView);
         recyclerViewReviews.setLayoutManager(new LinearLayoutManager(this));
+
+        reviewTitle = findViewById(R.id.reviewTitle);
+        reviewTitle.setText(R.string.reviews_title);
+
+        showName = findViewById(R.id.showNameLbl);
+        showName.setText(mShow.getShowName());
+
+        ratingBar = findViewById(R.id.ratingBar);
+        ratingBar.setRating((float) mShow.getRating());
 
         loadReviews();
     }
@@ -85,6 +102,35 @@ public class ViewReviews extends AppCompatActivity implements ReviewsRecyclerVie
 
         requestQueue.add(stringRequest);
 
+    }
+
+    @Override
+    public void onReviewClick(int position){
+
+        Review review = mReviews.get(position);
+        
+        View view = View.inflate(ViewReviews.this, R.layout.dialog_review,null);
+
+        RatingBar rating = view.findViewById(R.id.ratingBar);
+        TextView username = view.findViewById(R.id.username);
+        TextView reviewText = view.findViewById(R.id.reviewText);
+        TextView date = view.findViewById(R.id.reviewDate);
+
+        rating.setRating(review.getRating());
+        username.setText("Username"+review.getUserid());
+        reviewText.setText(review.getRatingTxt());
+        date.setText(review.getDate());
+
+        AlertDialog.Builder dialog = new AlertDialog.Builder(ViewReviews.this);
+        dialog.setTitle("View review");
+        dialog.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        dialog.setView(view);
+        dialog.show();
     }
 
 }
