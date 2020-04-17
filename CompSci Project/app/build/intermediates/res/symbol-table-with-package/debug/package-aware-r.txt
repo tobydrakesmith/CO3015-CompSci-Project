@@ -1597,7 +1597,10 @@ drawable ic_dashboard_black_24dp
 drawable ic_decrease_number_of_tickets
 drawable ic_edit_black_24dp
 drawable ic_email
+drawable ic_filter
 drawable ic_filter_list_
+drawable ic_filter_list_black_24dp
+drawable ic_home
 drawable ic_home_black_24dp
 drawable ic_increase_number_of_tickets
 drawable ic_keyboard_arrow_left_black_24dp
@@ -1621,10 +1624,12 @@ drawable ic_right
 drawable ic_roam_g4x
 drawable ic_roam_g4x_sm
 drawable ic_search_black_24dp
+drawable ic_sort_black_24dp
 drawable ic_spinner
 drawable ic_swipe_failed
 drawable ic_text
 drawable ic_theaters_black_24dp
+drawable ic_tick
 drawable ic_tickets
 drawable ic_tickets2
 drawable ic_x_declined
@@ -1834,6 +1839,8 @@ id dark
 id dataBinding
 id date
 id dateLbl
+id date_asc
+id date_desc
 id date_picker_actions
 id decor_content_parent
 id default_activity_button
@@ -1878,8 +1885,11 @@ id filterDistance
 id filter_chip
 id firstname
 id fitToContents
+id five
 id fixed
+id floatingActionButton
 id forever
+id four
 id fragment_container
 id fragment_container_view_tag
 id futureBookingsLbl
@@ -1910,6 +1920,7 @@ id id_text_receipt_button_retail
 id ifRoom
 id image
 id imageView
+id imageView2
 id image_card_reader
 id image_dialog_option
 id image_reader
@@ -1993,12 +2004,14 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id numberOfReviews
 id numberOfTickets
 id numberOfTix
 id off
 id on
 id onAttachStateChangeListener
 id onDateChanged
+id one
 id optionList
 id outline
 id packed
@@ -2032,6 +2045,11 @@ id radio
 id radioGroup
 id rating
 id ratingBar
+id ratingBarFiveStars
+id ratingBarFourStars
+id ratingBarOneStar
+id ratingBarThreeStars
+id ratingBarTwoStars
 id receipt_ab_back
 id receipt_ab_right_button
 id receipt_type_icon
@@ -2042,6 +2060,8 @@ id retail_dialog_message
 id retail_left_image_button
 id retail_right_image_button
 id reviewDate
+id reviewFilter
+id reviewSort
 id reviewText
 id reviewTitle
 id reviewView
@@ -2137,6 +2157,7 @@ id textSpacerNoTitle
 id textStart
 id textView
 id textView2
+id textView3
 id textView4
 id textView5
 id textView6
@@ -2146,6 +2167,7 @@ id text_input_start_icon
 id textinput_counter
 id textinput_error
 id textinput_helper_text
+id three
 id ticketDetails
 id ticketNumberLbl
 id time
@@ -2167,6 +2189,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id two
 id unchecked
 id uniform
 id unlabeled
@@ -2289,11 +2312,13 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_booking_complete
 layout dialog_card_reader_scanner
 layout dialog_filter_location
 layout dialog_image_buttons
 layout dialog_image_dynamic_buttons
 layout dialog_review
+layout dialog_review_filter
 layout layout_buttons_primary_n_tertiary
 layout layout_connect_error
 layout layout_dialog_connect_reader
@@ -2386,9 +2411,11 @@ layout text_view_with_theme_line_height
 layout text_view_without_line_height
 layout toast_swipe_failed
 menu bottom_nav_menu
+menu checkout_top_nav
 menu filter_menu
 menu homepage_top_nav
 menu menu_scrolling
+menu sort_menu_reviews
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
@@ -2428,6 +2455,7 @@ string app_name
 string appbar_scrolling_view_behavior
 string back_button
 string bluetooth_disabled
+string booking_confirmed
 string bottom_sheet_behavior
 string btn_add_to_basket
 string btn_book
@@ -2640,6 +2668,9 @@ string rating
 string reader_connected
 string receipt_icon_description
 string reset_password
+string review_sort_date_asc
+string review_sort_date_desc
+string review_sort_rating
 string reviews_title
 string sdk_OK
 string sdk_actvy_receipt_email_hint

@@ -33,7 +33,7 @@ import java.util.ArrayList;
 public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerViewAdapter.OnBookingClickListener, MyPastBookingsRecyclerViewAdapter.OnReviewClickListener {
 
     Basket basket;
-    int userID;
+    User user;
     ArrayList<Booking> mFutureBookings = new ArrayList<>();
     ArrayList<Booking> mPastBookings = new ArrayList<>();
 
@@ -50,7 +50,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
 
         Intent intent = getIntent();
         basket = intent.getParcelableExtra("basket");
-        userID = intent.getIntExtra("userid", -1);
+        user = intent.getParcelableExtra("user");
 
         progressBar = findViewById(R.id.progressBar);
         requestQueue = Volley.newRequestQueue(this);
@@ -81,7 +81,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
             case R.id.activity_basket:
                 Intent intent = new Intent(this, MyBasket.class);
                 intent.putExtra("basket", basket);
-                intent.putExtra("userid", userID);
+                intent.putExtra("user", user);
                 startActivity(intent);
 
                 return true;
@@ -95,7 +95,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
     public void onBackPressed() {
         Intent intent = new Intent (this, Homepage.class);
         intent.putExtra("basket", basket);
-        intent.putExtra("userid", userID);
+        intent.putExtra("user", user);
         startActivity(intent);
         overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
     }
@@ -110,7 +110,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
 
                             Intent intent = new Intent(MyBookings.this, Explore.class);
                             intent.putExtra("basket", basket);
-                            intent.putExtra("userid", userID);
+                            intent.putExtra("user", user);
                             startActivity(intent);
                             overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
                             break;
@@ -119,7 +119,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
 
                             Intent intent1 = new Intent(MyBookings.this, MyAccount.class);
                             intent1.putExtra("basket", basket);
-                            intent1.putExtra("userid", userID);
+                            intent1.putExtra("user", user);
                             startActivity(intent1);
                             overridePendingTransition(R.transition.slide_in_right, R.transition.slide_out_left);
                             break;
@@ -128,7 +128,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
 
                             Intent intent2 = new Intent(MyBookings.this, Homepage.class);
                             intent2.putExtra("basket", basket);
-                            intent2.putExtra("userid", userID);
+                            intent2.putExtra("user", user);
                             startActivity(intent2);
                             overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
                             break;
@@ -141,7 +141,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
     private void loadFutureBookings(){
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_GET_BOOKINGS + userID, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_GET_BOOKINGS + user.getId(), new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -185,7 +185,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
     }
 
     private void loadPastBookings(){
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_GET_PAST_BOOKINGS + userID, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_GET_PAST_BOOKINGS + user.getId(), new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -239,7 +239,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
         String showName = jsonObject.getString("showName");
 
 
-        return new Booking(bookingID, showInstanceID, numberOfTickets, userID, date, showName, showTime);
+        return new Booking(bookingID, showInstanceID, numberOfTickets, user.getId(), date, showName, showTime);
     }
 
 
@@ -272,7 +272,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
                     }else{
                         Intent intent = new Intent(MyBookings.this, CreateReview.class);
                         intent.putExtra("booking", mPastBookings.get(position));
-                        intent.putExtra("userid", userID);
+                        intent.putExtra("user", user);
                         startActivity(intent);
 
                     }

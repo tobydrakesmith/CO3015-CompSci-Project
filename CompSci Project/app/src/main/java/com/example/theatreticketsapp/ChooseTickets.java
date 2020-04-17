@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,21 +27,26 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
+//TODO: I think that this code can be re-written better
+
 public class ChooseTickets extends AppCompatActivity {
 
     private Basket basket;
 
-    private TextView numberTixLbl, tixLeftPBA, tixLeftPBB, tixLeftPBC, tixLeftPBD;
+    private TextView tixLeftPBA, tixLeftPBB, tixLeftPBC, tixLeftPBD;
     private int numberTix;
     private Show mShow;
     private String strDate;
-    private int userID;
+    private User user;
     private boolean matinee;
     private int pbaLeft, pbbLeft, pbcLeft, pbdLeft;
 
     RequestQueue requestQueue;
 
+    RadioGroup radioGroup;
     RadioButton pba, pbb, pbc, pbd;
+
+    //TODO: see if using a radio group can reduce code
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,18 +66,17 @@ public class ChooseTickets extends AppCompatActivity {
         mShow = intent.getParcelableExtra("live_show");
         strDate = intent.getStringExtra("date");
         basket = intent.getParcelableExtra("basket");
-        userID = intent.getIntExtra("userid", -1);
+        user = intent.getParcelableExtra("user");
         matinee = intent.getBooleanExtra("matinee", false);
 
         getSales();
 
+        radioGroup = findViewById(R.id.radioGroup);
 
         pba = findViewById(R.id.priceBandA);
         pbb = findViewById(R.id.priceBandB);
         pbc = findViewById(R.id.priceBandC);
         pbd = findViewById(R.id.priceBandD);
-
-
 
 
         pba.setText("£" + mShow.getPricePbA());
@@ -94,17 +99,15 @@ public class ChooseTickets extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
-            case R.id.activity_basket:
-                Intent intent = new Intent(this, MyBasket.class);
-                intent.putExtra("basket", basket);
-                intent.putExtra("live_show", mShow);
-                intent.putExtra("date", strDate);
-                intent.putExtra("userid", userID);
-                startActivity(intent);
+        if (item.getItemId() == R.id.activity_basket) {
+            Intent intent = new Intent(this, MyBasket.class);
+            intent.putExtra("basket", basket);
+            intent.putExtra("live_show", mShow);
+            intent.putExtra("date", strDate);
+            intent.putExtra("user", user);
+            startActivity(intent);
 
-                return true;
-
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -115,12 +118,13 @@ public class ChooseTickets extends AppCompatActivity {
         Intent intent = new Intent(this, ChooseDate.class);
         intent.putExtra("basket", basket);
         intent.putExtra("live_show", mShow);
-        intent.putExtra("userid", userID);
+        intent.putExtra("user", user);
         startActivity(intent);
     }
 
 
     public void onClickIncrease(View view) {
+
 
         if (pba.isChecked()) {
             if (numberTix<9 && numberTix < pbaLeft ) {
@@ -199,7 +203,7 @@ public class ChooseTickets extends AppCompatActivity {
     }
 
     private void updateLabel() {
-        numberTixLbl = findViewById(R.id.numberOfTix);
+        TextView numberTixLbl = findViewById(R.id.numberOfTix);
         numberTixLbl.setText(Integer.toString(numberTix));
     }
 
@@ -232,7 +236,7 @@ public class ChooseTickets extends AppCompatActivity {
         String date = "&date=" + strDate;
         String time = "&time=" + (matinee ? mShow.getMatineeStart() : mShow.getEveningStart());
         String pb = "&priceBand=" + getPriceBand();
-        String uid = "&userID=" + userID;
+        String uid = "&userID=" + user.getId();
         String numTix = "&numberOfTickets=" + numberTix;
 
 
@@ -264,7 +268,7 @@ public class ChooseTickets extends AppCompatActivity {
                                     Intent intent = new Intent(ChooseTickets.this, MyBasket.class);
                                     intent.putExtra("basket", basket);
                                     intent.putExtra("live_show", mShow);
-                                    intent.putExtra("userid", userID);
+                                    intent.putExtra("user", user);
                                     intent.putExtra("date", strDate);
                                     startActivity(intent);
                                 }
@@ -276,7 +280,7 @@ public class ChooseTickets extends AppCompatActivity {
                                     Intent intent = new Intent(ChooseTickets.this, Homepage.class);
                                     intent.putExtra("basket", basket);
                                     intent.putExtra("live_show", mShow);
-                                    intent.putExtra("userid", userID);
+                                    intent.putExtra("user", user);
                                     intent.putExtra("date", strDate);
                                     startActivity(intent);
 

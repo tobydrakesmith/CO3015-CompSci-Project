@@ -137,13 +137,13 @@ public class ViewBooking extends AppCompatActivity {
     }
 
     private void setTicketLabel(){
-        String toDisplay = "Your tickets: \n";
+        StringBuilder toDisplay = new StringBuilder("Your tickets: \n");
         int totalCost=0;
         for (Ticket ticket : mTickets){
-            toDisplay += "Price Band: " + ticket.getPriceBand() + ", Price: £" + ticket.getPrice() + "\n";
+            toDisplay.append("Price Band: ").append(ticket.getPriceBand()).append(", Price: £").append(ticket.getPrice()).append("\n");
             totalCost += ticket.getPrice();
         }
-        ticketDetails.setText(toDisplay);
+        ticketDetails.setText(toDisplay.toString());
         bookingCost.setText("Total cost £" + (totalCost));
     }
 

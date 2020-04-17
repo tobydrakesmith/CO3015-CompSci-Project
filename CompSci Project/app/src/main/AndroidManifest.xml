@@ -17,9 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ChangePassword"></activity>
+        <activity android:name=".ChangePassword"/>
         <activity android:name=".ViewBooking" />
-        <activity android:name=".Checkout" />
+
         <activity android:name=".ViewReviews" />
         <activity android:name=".ViewVenue" />
         <!--
@@ -38,6 +38,9 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity
+            android:name=".Checkout"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ViewTickets"
             android:label="@string/title_activity_view_tickets"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -47,7 +50,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MyBasket"
-            android:label="@string/title_activity_basket" />
+            android:label="@string/title_activity_basket"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".Homepage"
             android:theme="@style/AppTheme.NoActionBar" />

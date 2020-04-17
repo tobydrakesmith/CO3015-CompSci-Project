@@ -60,11 +60,11 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
     private ProgressBar progressBar;
     private SeekBar seekBar;
     private TextView seekBarLbl;
-    private int userID;
     private RequestQueue requestQueue;
     private Button filterBtn;
     private Location userLoc;
     private Geocoder geocoder;
+    User user;
 
     private int distanceFilter = 100;
 
@@ -104,7 +104,7 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
 
         Intent intent = getIntent();
         basket = intent.getParcelableExtra("basket");
-        userID = intent.getIntExtra("userid", -1);
+        user = intent.getParcelableExtra("user");
 
         mShows = new ArrayList<>();
         fullList = new ArrayList<>();
@@ -229,7 +229,7 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
         if (item.getItemId() == R.id.activity_basket) {
             Intent intent = new Intent(this, MyBasket.class);
             intent.putExtra("basket", basket);
-            intent.putExtra("userid", userID);
+            intent.putExtra("user", user);
             startActivity(intent);
 
             return true;
@@ -280,7 +280,7 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
 
                             Intent intent = new Intent(Homepage.this, Explore.class);
                             intent.putExtra("basket", basket);
-                            intent.putExtra("userid", userID);
+                            intent.putExtra("user", user);
                             startActivity(intent);
                             overridePendingTransition(R.transition.slide_in_right, R.transition.slide_out_left);
 
@@ -290,7 +290,7 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
 
                             Intent intent1 = new Intent (Homepage.this, MyBookings.class);
                             intent1.putExtra("basket", basket);
-                            intent1.putExtra("userid", userID);
+                            intent1.putExtra("user", user);
                             startActivity(intent1);
 
                             overridePendingTransition(R.transition.slide_in_right, R.transition.slide_out_left);
@@ -301,7 +301,7 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
 
                             Intent intent2 = new Intent(Homepage.this, MyAccount.class);
                             intent2.putExtra("basket", basket);
-                            intent2.putExtra("userid", userID);
+                            intent2.putExtra("user", user);
                             startActivity(intent2);
                             overridePendingTransition(R.transition.slide_in_right, R.transition.slide_out_left);
 
@@ -402,11 +402,11 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
 
     @Override
     public void onShowClick(int position) {
-        Show liveShow = mShows.get(position);
+        Show show = mShows.get(position);
         Intent intent = new Intent(this, ShowInformation.class);
-        intent.putExtra("live_show", liveShow);
+        intent.putExtra("live_show", show);
         intent.putExtra("basket", basket);
-        intent.putExtra("userid", userID);
+        intent.putExtra("user", user);
         startActivity(intent);
 
     }

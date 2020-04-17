@@ -179,12 +179,11 @@ public class Register extends AppCompatActivity {
     private void sendMail(){
 
 
-        final String body = "Hello " + registerBinding.firstname.getText().toString() + " this is to " +
-                "confirm that your account has successfully been created";
+        final String body = "Hello " + registerBinding.firstname.getText().toString() + ",\n\nThis email is to " +
+                "confirm that your account has successfully been created. You can now log into the Theatre tickets app with the details you provided";
 
 
         new Thread(new Runnable() {
-
             @Override
             public void run() {
                 try {
@@ -194,6 +193,7 @@ public class Register extends AppCompatActivity {
                             EmailConfig.email, registerBinding.username.getText().toString());
                 } catch (Exception e) {
                     Log.e("SendMail", e.getMessage(), e);
+                    e.printStackTrace();
                 }
             }
 

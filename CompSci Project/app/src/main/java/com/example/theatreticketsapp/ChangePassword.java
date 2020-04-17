@@ -30,7 +30,7 @@ public class ChangePassword extends AppCompatActivity {
     TextView currentPassword, newPassword1, newPassword2;
     Button btnConfirm;
     RequestQueue requestQueue;
-    int userID;
+    User user;
     boolean valid;
 
 
@@ -40,7 +40,7 @@ public class ChangePassword extends AppCompatActivity {
         setContentView(R.layout.activity_change_password);
 
         Intent intent = getIntent();
-        userID = intent.getIntExtra("userid", -1);
+        user = intent.getParcelableExtra("user");
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -54,7 +54,6 @@ public class ChangePassword extends AppCompatActivity {
             public void onClick(View v) {
                 if (validate()){
                     correctPassword();
-                    updatePassword();
                 }else {
                     //passwords do not match
                 }
@@ -76,13 +75,15 @@ public class ChangePassword extends AppCompatActivity {
 
         String password = "&password=" + getSHA256SecurePassword(currentPassword.getText().toString());
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_CHECK_PASSWORD + userID + password,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_CHECK_PASSWORD + user.getId() + password,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
+
                             valid = jsonObject.getString("error").equals("false");
+
                             if (!valid)
                                 Toast.makeText(ChangePassword.this,
                                         "Provided current password is incorrect", Toast.LENGTH_SHORT).show();
@@ -111,7 +112,7 @@ public class ChangePassword extends AppCompatActivity {
         String hashPassword = "&password=" + getSHA256SecurePassword(newPassword1.getText().toString());
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
-                DatabaseAPI.URL_RESET_PASSWORD_LOGGED_ON+userID+hashPassword,
+                DatabaseAPI.URL_RESET_PASSWORD_LOGGED_ON+user.getId()+hashPassword,
                 new JSONObject(), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

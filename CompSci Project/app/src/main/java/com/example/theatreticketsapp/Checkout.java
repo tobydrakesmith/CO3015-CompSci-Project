@@ -1,16 +1,21 @@
 package com.example.theatreticketsapp;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,13 +42,13 @@ import java.util.Map;
 
 public class Checkout extends AppCompatActivity {
 
-    //TODO: ADD cost for each booking and total cost to display & generally improve the UI and what is displayed/sent in email
 
     Basket basket;
-    int userID;
+    User user;
     TextView bookingDetails;
     RequestQueue requestQueue;
     String subject, content;
+
 
     private static PayPalConfiguration payPalConfiguration = new PayPalConfiguration()
             .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
@@ -56,29 +61,45 @@ public class Checkout extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, Homepage.class);
+        intent.putExtra("basket", basket);
+        intent.putExtra("user", user);
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            Intent intent = new Intent(this, Homepage.class);
+            intent.putExtra("basket", basket);
+            intent.putExtra("user", user);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        Drawable drawable = ContextCompat.getDrawable(this, R.drawable.ic_home);
+        toolbar.setNavigationIcon(drawable);
+        setSupportActionBar(toolbar);
+
 
         Intent intent = getIntent();
         basket = intent.getParcelableExtra("basket");
-        userID = intent.getIntExtra("userid", -1);
+        user = intent.getParcelableExtra("user");
 
-
-        ImageView sendMail = findViewById(R.id.emailBtn);
-        sendMail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendMail();
-            }
-        });
-
-        if (basket.numberOfBookings() > 1){
+        if (basket.numberOfBookings() > 1)
             subject = "Your booking to see " + basket.numberOfBookings() + " shows";
-        }else{
+        else
             subject = "Your booking to see " + basket.getBookings().get(0).getShowName();
-        }
+
 
 
 
@@ -116,7 +137,7 @@ public class Checkout extends AppCompatActivity {
                     GMailSender sender = new GMailSender(EmailConfig.email,
                             EmailConfig.password);
                     sender.sendMail(subject, content,
-                            EmailConfig.email, "toby_drakesmith95@hotmail.com");
+                            EmailConfig.email, user.getEmail());
                 } catch (Exception e) {
                     Log.e("SendMail", e.getMessage(), e);
                 }
@@ -132,8 +153,6 @@ public class Checkout extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("On result");
-        System.out.println("Basket size: " + basket.size());
         if (requestCode == 7171){
             if (resultCode == RESULT_OK){
                 PaymentConfirmation confirmation = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
@@ -141,9 +160,10 @@ public class Checkout extends AppCompatActivity {
                     try {
                         JSONObject paymentDetails = confirmation.toJSONObject().getJSONObject("response");
 
-                        if (paymentDetails.getString("state").equals("approved"))
+                        if (paymentDetails.getString("state").equals("approved")) {
                             displayBooking();
-                        else
+                            sendMail();
+                        }else
                             Toast.makeText(this, "Not approved", Toast.LENGTH_SHORT).show();
 
                     } catch (JSONException e) {
@@ -152,32 +172,46 @@ public class Checkout extends AppCompatActivity {
 
                 }
             }
-            else if (requestCode == PaymentActivity.RESULT_EXTRAS_INVALID)
-                System.out.println("ERROR");
         }
     }
 
     private void displayBooking(){
 
-        String toDisplay = "";
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Payment successful");
+
+        View view = View.inflate(this, R.layout.dialog_booking_complete, null);
+        dialog.setView(view);
+        dialog.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+
+
+        StringBuilder toDisplay = new StringBuilder();
         ArrayList<BasketBooking> bookings;
         bookings = basket.getBookings();
-        BasketBooking booking = bookings.get(0);
+        BasketBooking booking;
 
-        Date date = formatDate(booking);
+        Date date;
 
-        toDisplay = booking.getShowName() + " " + date.toString() +
-                " x" + booking.getNumberOfTickets();
-
-        for (int i = 1; i < basket.numberOfBookings(); i++) {
+        for (int i = 0; i < basket.numberOfBookings(); i++) {
             booking = bookings.get(i);
             date = formatDate(booking);
-            toDisplay += "\n\n" + booking.getShowName() + " " + date.toString() +
-                    " x" + booking.getNumberOfTickets();
+            toDisplay.append(booking.getShowName()).append("\n").append(date.toString()).append(" x")
+                    .append(booking.getNumberOfTickets()).append("\n£").append(booking.getCost()).append("\n\n");
         }
 
-        bookingDetails.setText(toDisplay);
-        content = toDisplay;
+        toDisplay.append("Total cost: £").append(basket.getTotalCost());
+
+        bookingDetails.setText(toDisplay.toString());
+
+        content = "Dear " + user.getFirstName() + ",\n \n" +
+                "Thank you for your booking. Please see the details below:\n \n" +
+                toDisplay.toString() + "\n \nYou can access your tickets in the My Bookings section of the app.\nMany thanks";
 
         basketToDb();
 
@@ -237,7 +271,7 @@ public class Checkout extends AppCompatActivity {
                     protected Map<String, String> getParams() {
                         Map<String, String> params = new HashMap<>();
                         params.put("instanceID", Integer.toString(booking.getShow().getId()));
-                        params.put("userID", Integer.toString(userID));
+                        params.put("userID", Integer.toString(user.getId()));
                         params.put("numberOfTickets", Integer.toString(booking.getNumberOfTickets()));
                         params.put("date", booking.getDate());
                         params.put("showTime", booking.getStartTime());
@@ -273,7 +307,6 @@ public class Checkout extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     error.printStackTrace();
-
                 }
             }){
                 @Override

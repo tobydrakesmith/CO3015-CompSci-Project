@@ -1,13 +1,12 @@
-
 <?php
 
 	include_once dirname(__FILE__) . '/constants.php';
 
 	$con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-	if($con === false){
+	if($con === false)
 		die("ERROR: could not connect. " . $this->connect_error);
-	}
+
 
 	$showname = $_REQUEST['show_name'];
 	$venuename = $_REQUEST['venue_name'];
@@ -22,9 +21,6 @@
 
 	$startdate = str_replace('/','-',$_REQUEST['start_date']);
 	$enddate = str_replace('/','-',$_REQUEST['end_date']);
-
-	$query = $this->con->prepare("SELECT * FROM showInstance WHERE venueName = ? AND endDate > ?");
-	$query->bind_param("ss", $venuename, $startdate);
 
 
 
@@ -105,12 +101,10 @@
 
 	$query = "INSERT INTO showInstance(showName, venueName, startDate, endDate, bandAPrices, bandBPrices, bandCPrices, bandDPrices, bandANumTickets, bandBNumTickets, bandCNumTickets, bandDNumTickets, mondayMat, mondayEve, tuesdayMat, tuesdayEve, wednesdayMat, wednesdayEve, thursdayMat, thursdayEve, fridayMat, fridayEve, saturdayMat, saturdayEve, sundayMat, sundayEve, matineeTime, eveningTime) VALUES('$showname', '$venuename', '$startdate', '$enddate', '$bandaprices', '$bandbprices', '$bandcprices', '$banddprices', '$bandanumseats', '$bandbnumseats', '$bandcnumseats', '$banddnumseats', '$mondaymat', '$mondayeve', '$tuesdaymat', '$tuesdayeve', '$wednesdaymat', '$wednesdayeve', '$thursdaymat', '$thursdayeve', '$fridaymat', '$fridayeve', '$saturdaymat', '$saturdayeve', '$sundaymat', '$sundayeve', '$matineestart', '$eveningstart')";
 
-	if($con->query($query) === true){
+	if($con->query($query))
 		echo "Success";
-	} else{
+	 else
 		echo "Error:  " .$con->error;
-		//echo $mat_start;
-	}
 
 
 $con->close();

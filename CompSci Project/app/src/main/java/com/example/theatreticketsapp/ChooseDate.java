@@ -28,7 +28,7 @@ public class ChooseDate extends AppCompatActivity {
     CalendarView calendarView;
     Calendar calendar;
 
-    int userID;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class ChooseDate extends AppCompatActivity {
         Intent i = getIntent();
         mShow = i.getParcelableExtra("live_show");
         basket = i.getParcelableExtra("basket");
-        userID = i.getIntExtra("userid", -1);
+        user = i.getParcelableExtra("user");
 
         calendar = Calendar.getInstance();
 
@@ -83,7 +83,7 @@ public class ChooseDate extends AppCompatActivity {
         Intent intent = new Intent (this, ShowInformation.class);
         intent.putExtra("basket", basket);
         intent.putExtra("live_show", mShow);
-        intent.putExtra("userid", userID);
+        intent.putExtra("user", user);
         startActivity(intent);
     }
 
@@ -161,7 +161,7 @@ public class ChooseDate extends AppCompatActivity {
         intent.putExtra("live_show", mShow);
         intent.putExtra("date", parcelDate);
         intent.putExtra("basket", basket);
-        intent.putExtra("userid", userID);
+        intent.putExtra("user", user);
         intent.putExtra("matinee", true);
         startActivity(intent);
     }
@@ -179,7 +179,7 @@ public class ChooseDate extends AppCompatActivity {
         intent.putExtra("live_show", mShow);
         intent.putExtra("date", parcelDate);
         intent.putExtra("basket", basket);
-        intent.putExtra("userid", userID);
+        intent.putExtra("user", user);
         intent.putExtra("matinee", false);
         startActivity(intent);
 

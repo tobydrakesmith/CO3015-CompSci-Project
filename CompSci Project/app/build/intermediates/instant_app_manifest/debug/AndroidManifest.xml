@@ -48,7 +48,9 @@
         android:usesCleartextTraffic="true" >
         <activity android:name="com.example.theatreticketsapp.ChangePassword" />
         <activity android:name="com.example.theatreticketsapp.ViewBooking" />
-        <activity android:name="com.example.theatreticketsapp.Checkout" />
+        <activity
+            android:name="com.example.theatreticketsapp.Checkout"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.example.theatreticketsapp.ViewReviews" />
         <activity android:name="com.example.theatreticketsapp.ViewVenue" />
         <!--
@@ -76,7 +78,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.example.theatreticketsapp.MyBasket"
-            android:label="@string/title_activity_basket" />
+            android:label="@string/title_activity_basket"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.example.theatreticketsapp.Homepage"
             android:theme="@style/AppTheme.NoActionBar" />

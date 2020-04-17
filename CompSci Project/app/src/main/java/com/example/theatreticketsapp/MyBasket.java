@@ -1,9 +1,9 @@
 package com.example.theatreticketsapp;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -13,22 +13,18 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.CountDownTimer;
-import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import androidx.appcompat.widget.Toolbar;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewAdapter.OnTicketClickListener{
 
@@ -37,7 +33,7 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
     TextView numberTix, timeLeft, totalCost;
 
     private CountDownTimer countDownTimer;
-    int userID;
+    User user;
 
     MyBasketRecyclerViewAdapter adapter;
     RecyclerView recyclerView;
@@ -51,14 +47,19 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
         setContentView(R.layout.activity_basket);
         requestQueue = Volley.newRequestQueue(this);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+
+        Drawable drawable = ContextCompat.getDrawable(this, R.drawable.ic_home);
+        toolbar.setNavigationIcon(drawable);
+        setSupportActionBar(toolbar);
 
 
         Intent i = getIntent();
         basket = i.getParcelableExtra("basket");
         show = i.getParcelableExtra("live_show");
-        userID = i.getIntExtra("userid", -1);
+        user = i.getParcelableExtra("user");
+
+
 
 
         adapter = new MyBasketRecyclerViewAdapter(MyBasket.this,MyBasket.this, basket.getBookings());
@@ -100,7 +101,7 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
                 if (!basket.isEmpty()) {
                     Intent intent = new Intent(MyBasket.this, Checkout.class);
                     intent.putExtra("basket", basket);
-                    intent.putExtra("userid", userID);
+                    intent.putExtra("user", user);
                     startActivity(intent);
                 }
             }
@@ -113,7 +114,7 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
     public void onBackPressed(){
         Intent intent = new Intent(this, Homepage.class);
         intent.putExtra("basket", basket);
-        intent.putExtra("userid", userID);
+        intent.putExtra("user", user);
         startActivity(intent);
     }
 
@@ -123,7 +124,7 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
         if (item.getItemId() == android.R.id.home) {
             Intent intent = new Intent(this, Homepage.class);
             intent.putExtra("basket", basket);
-            intent.putExtra("userid", userID);
+            intent.putExtra("user", user);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
@@ -162,14 +163,6 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
             countDownTimer.cancel();
         }
     }
-
-
-
-
-
-
-
-
 
 }
 

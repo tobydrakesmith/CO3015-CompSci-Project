@@ -54,7 +54,12 @@
     <string name="date">Date</string>
     <string name="rating">Rating</string>
     <string name="location">Location</string>
-    <string name="reviews_title">Reviews for:</string>
+    <string name="reviews_title">Reviews for</string>
+    <string name="review_sort_date_asc">Sort by date (oldest first)</string>
+    <string name="review_sort_date_desc">Sort by date (newest first)</string>
+    <string name="review_sort_rating">Sort by rating</string>
+    <string name="booking_confirmed">Your booking was successful. An email has been sent to confirm the booking;
+        you can also view the booking under the "My Bookings" section of the app</string>
 
 
 </resources>

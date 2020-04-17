@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class Explore extends AppCompatActivity {
 
     Basket basket;
-    int userID;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class Explore extends AppCompatActivity {
 
         Intent intent = getIntent();
         basket = intent.getParcelableExtra("basket");
-        userID = intent.getIntExtra("userid", -1);
+        user = intent.getParcelableExtra("user");
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -48,7 +48,7 @@ public class Explore extends AppCompatActivity {
             case R.id.activity_basket:
                 Intent intent = new Intent(this, MyBasket.class);
                 intent.putExtra("basket", basket);
-                intent.putExtra("userid", userID);
+                intent.putExtra("user", user);
                 startActivity(intent);
 
                 return true;
@@ -64,7 +64,7 @@ public class Explore extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent (this, Homepage.class);
         intent.putExtra("basket", basket);
-        intent.putExtra("userid", userID);
+        intent.putExtra("user", user);
         startActivity(intent);
         overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
     }
@@ -81,7 +81,7 @@ public class Explore extends AppCompatActivity {
 
                             Intent intent = new Intent(Explore.this, MyAccount.class);
                             intent.putExtra("basket", basket);
-                            intent.putExtra("userid", userID);
+                            intent.putExtra("user", user);
                             startActivity(intent);
                             overridePendingTransition(R.transition.slide_in_right, R.transition.slide_out_left);
                             break;
@@ -90,7 +90,7 @@ public class Explore extends AppCompatActivity {
 
                             Intent intent1 = new Intent (Explore.this, MyBookings.class);
                             intent1.putExtra("basket", basket);
-                            intent1.putExtra("userid", userID);
+                            intent1.putExtra("user", user);
                             startActivity(intent1);
                             overridePendingTransition(R.transition.slide_in_right, R.transition.slide_out_left);
                             break;
@@ -99,7 +99,7 @@ public class Explore extends AppCompatActivity {
 
                             Intent intent2 = new Intent(Explore.this, Homepage.class);
                             intent2.putExtra("basket", basket);
-                            intent2.putExtra("userid", userID);
+                            intent2.putExtra("user", user);
                             startActivity(intent2);
                             overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
                             break;

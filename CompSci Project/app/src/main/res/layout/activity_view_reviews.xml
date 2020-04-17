@@ -13,16 +13,20 @@
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/showNameLbl" />
+        app:layout_constraintTop_toBottomOf="@+id/numberOfReviews"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/reviewTitle"
-        android:layout_width="140dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,17 +35,41 @@
         style="@style/Widget.AppCompat.RatingBar.Indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:progressTint="#9C27B0"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reviewTitle" />
 
     <TextView
-        android:id="@+id/showNameLbl"
+        android:id="@+id/numberOfReviews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/reviewTitle"
-        app:layout_constraintTop_toBottomOf="@+id/reviewTitle" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+    <ImageButton
+        android:id="@+id/reviewSort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:background="@color/sdk_transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/reviewFilter"
+        app:srcCompat="@drawable/ic_sort_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/reviewFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:background="@color/sdk_transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/numberOfReviews"
+        app:layout_constraintEnd_toStartOf="@+id/reviewSort"
+        app:srcCompat="@drawable/ic_filter" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

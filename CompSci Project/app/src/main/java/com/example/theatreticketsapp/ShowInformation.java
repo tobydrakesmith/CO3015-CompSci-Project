@@ -32,7 +32,8 @@ public class ShowInformation extends AppCompatActivity {
     Basket basket;
     ProgressBar progressBar;
     TextView showDescription, showName, venueName, showDesc, endDate, rating;
-    int userID;
+    User user;
+
 
     RequestQueue requestQueue;
 
@@ -52,7 +53,7 @@ public class ShowInformation extends AppCompatActivity {
         Intent i = getIntent();
         mShow = i.getParcelableExtra("live_show");
         basket = i.getParcelableExtra("basket");
-        userID = i.getIntExtra("userid", -1);
+        user = i.getParcelableExtra("user");
 
 
         showName = findViewById(R.id.showName);
@@ -74,7 +75,7 @@ public class ShowInformation extends AppCompatActivity {
                 Intent intent = new Intent(ShowInformation.this, ChooseDate.class);
                 intent.putExtra("live_show", mShow);
                 intent.putExtra("basket", basket);
-                intent.putExtra("userid", userID);
+                intent.putExtra("user", user);
                 startActivity(intent);
                 overridePendingTransition(R.transition.slide_in_down, R.transition.slide_out_up);
 
@@ -89,7 +90,7 @@ public class ShowInformation extends AppCompatActivity {
         Intent intent = new Intent (this, Homepage.class);
         intent.putExtra("basket", basket);
         intent.putExtra("live_show", mShow);
-        intent.putExtra("userid", userID);
+        intent.putExtra("user", user);
         startActivity(intent);
     }
 

@@ -92,7 +92,7 @@
 					if($db->getUser($_GET['email'],$_GET['password'])){
 						$response['error'] = false;
 						$response['message']= 'Request successfully completed';
-						$response['userid'] = $db->getUserID($_GET['email']);
+						$response['user'] = $db->getUserDetails($_GET['email']);
 					}else{
 						$response['error'] = true;
 						$response['message'] = 'No user found with these details';

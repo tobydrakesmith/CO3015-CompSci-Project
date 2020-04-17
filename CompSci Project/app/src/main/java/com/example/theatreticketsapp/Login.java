@@ -33,7 +33,6 @@ import java.util.Random;
 public class Login extends AppCompatActivity {
 
     private Basket basket = new Basket();
-    private int userID = -1;
     private String randomPassword;
     
     public static ActivityMainBinding mainBinding;
@@ -57,17 +56,14 @@ public class Login extends AppCompatActivity {
     }
 
     public void resetPassword(View view){
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Reset password");
 
-        // Set up the input
         final EditText input = new EditText(this);
-        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         input.setHint("Enter your email");
         builder.setView(input);
-
-        // Set up the buttons
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -113,7 +109,7 @@ public class Login extends AppCompatActivity {
                                         try {
                                             GMailSender sender = new GMailSender(EmailConfig.email,
                                                     EmailConfig.password);
-                                            sender.sendMail("Account creation confirmation", body,
+                                            sender.sendMail("Password reset", body,
                                                     EmailConfig.email, email);
                                         } catch (Exception e) {
                                             Log.e("SendMail", e.getMessage(), e);
@@ -149,17 +145,14 @@ public class Login extends AppCompatActivity {
 
 
     public void guestLogin(View view){
-        displayHome();
+        displayHome(new User());
     }
 
 
-    private void displayHome() {
+    private void displayHome(User user) {
         Intent displayHome = new Intent(this, Homepage.class);
         displayHome.putExtra("basket", basket);
-
-        if (userID != -1) //determines if user is a guest or not
-            displayHome.putExtra("userid", userID);
-
+        displayHome.putExtra("user", user);
         startActivity(displayHome);
     }
 
@@ -186,7 +179,7 @@ public class Login extends AppCompatActivity {
 
 
     private void login() {
-        String email = mainBinding.usernameEditText.getText().toString().toLowerCase().trim();
+        final String email = mainBinding.usernameEditText.getText().toString().toLowerCase().trim();
         String password = mainBinding.passwordEditText.getText().toString().trim();
         if (validate(email, password)) {
             mainBinding.progressBar.setVisibility(View.VISIBLE);
@@ -198,15 +191,17 @@ public class Login extends AppCompatActivity {
                             mainBinding.progressBar.setVisibility(View.INVISIBLE);
                             try {
                                 if (response.getString("error").equals("false")) {
-                                    userID = response.getInt("userid");
-                                    displayHome();
-                                    Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
+                                    JSONObject jsonUser = response.getJSONObject("user");
+                                    int id = jsonUser.getInt("userID");
+                                    String firstName = jsonUser.getString("firstName");
+                                    String lastName = jsonUser.getString("lastName");
+                                    User user = new User(id, email, firstName, lastName);
+                                    displayHome(user);
 
-                                } else {
+                                } else
                                     Toast.makeText(getApplicationContext(),
                                             "Username or password not recognised", Toast.LENGTH_SHORT).show();
 
-                                }
                             } catch (JSONException e) {
                                 e.printStackTrace();
 

@@ -34,15 +34,20 @@
 		* When this method is called it is returning all the existing record of the database
 		*/
 
-		function getUserID($email){
-			$stmt = $this->con->prepare("SELECT userID FROM user WHERE email = ? ");
+		function getUserDetails($email){
+			$stmt = $this->con->prepare("SELECT userID, firstName, lastName FROM user WHERE email = ? ");
 			$stmt->bind_param("s", $email);
 			$stmt->execute();
-			$stmt->bind_result($userID);
-			if($stmt->fetch())
-				return $userID;
-			else
-				return false;
+			$stmt->bind_result($userID, $firstName, $lastName);
+			$stmt->fetch();
+
+			$user = array();
+			$user['userID'] = $userID;
+			$user['firstName'] = $firstName;
+			$user['lastName'] = $lastName;
+
+			return $user;
+
 		}
 
 
@@ -68,13 +73,12 @@
 		}
 
 		function getUser($email, $password){
-			if($stmt = $this->con->prepare("SELECT email, password FROM user WHERE email = ? AND password = ? ")){
-				$stmt->bind_param("ss", $email, $password);
-				$stmt->execute();
-				$stmt->bind_result($email, $password);
-				if($stmt->fetch())
-					return true;
-			}
+			$stmt = $this->con->prepare("SELECT email, password FROM user WHERE email = ? AND password = ? ");
+			$stmt->bind_param("ss", $email, $password);
+			$stmt->execute();
+			$stmt->bind_result($email, $password);
+			if($stmt->fetch())
+				return true;
 			return false;
 		}
 
@@ -325,11 +329,14 @@
 			$stmt->execute();
 			$stmt->bind_result($rating);
 			$sum = 0;
-			while($stmt->fetch())
-				$sum += $rating;
-
-			if ($sum == 0) return false;
-			else return $sum / $stmt->num_rows;
+			$reviews = array();
+			while($stmt->fetch()){
+				$review = array();
+				$review['rating'] = $rating;
+				array_push($reviews, $review);
+			}
+			if ($stmt->num_rows==0) return false;
+			return $reviews;
 		}
 
 		function getSales($showInstanceID, $date, $time){

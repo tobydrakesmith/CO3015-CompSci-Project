@@ -32,7 +32,7 @@ import java.util.Map;
 public class CreateReview extends AppCompatActivity {
 
     Booking booking;
-    int userID;
+    User user;
 
     RatingBar ratingBar;
     EditText review;
@@ -51,7 +51,7 @@ public class CreateReview extends AppCompatActivity {
 
         Intent intent = getIntent();
         booking = intent.getParcelableExtra("booking");
-        userID = intent.getIntExtra("userid",0);
+        user = intent.getParcelableExtra("user");
     }
 
     public void onClick(View view){
@@ -108,7 +108,7 @@ public class CreateReview extends AppCompatActivity {
 
                 HashMap<String, String> params = new HashMap<>();
                 params.put("bookingID", Integer.toString(booking.getBookingID()));
-                params.put("userID", Integer.toString(userID));
+                params.put("userID", Integer.toString(user.getId()));
                 params.put("showName", booking.getShowName());
                 params.put("showInstanceID", Integer.toString(booking.getShowInstanceID()));
                 params.put("rating", Float.toString(ratingBar.getRating()));

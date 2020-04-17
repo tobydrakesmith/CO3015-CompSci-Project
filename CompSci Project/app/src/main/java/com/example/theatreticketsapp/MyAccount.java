@@ -19,7 +19,7 @@ public class MyAccount extends AppCompatActivity {
     //TODO: Implement features (reset password, view reviews etc.)
 
     Basket basket;
-    int userID;
+    User user;
     Button changePassword;
 
     @Override
@@ -32,14 +32,14 @@ public class MyAccount extends AppCompatActivity {
 
         Intent intent = getIntent();
         basket = intent.getParcelableExtra("basket");
-        userID = intent.getIntExtra("userid", userID);
+        user = intent.getParcelableExtra("user");
 
         changePassword = findViewById(R.id.buttonPassword);
         changePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), ChangePassword.class);
-                i.putExtra("userid", userID);
+                i.putExtra("user", user);
                 startActivity(i);
             }
         });
@@ -65,7 +65,7 @@ public class MyAccount extends AppCompatActivity {
             case R.id.activity_basket:
                 Intent intent = new Intent(this, MyBasket.class);
                 intent.putExtra("basket", basket);
-                intent.putExtra("userid", userID);
+                intent.putExtra("user", user);
                 startActivity(intent);
                 return true;
 
@@ -80,7 +80,7 @@ public class MyAccount extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent (this, Homepage.class);
         intent.putExtra("basket", basket);
-        intent.putExtra("userid", userID);
+        intent.putExtra("user", user);
         startActivity(intent);
         overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
     }
@@ -97,7 +97,7 @@ public class MyAccount extends AppCompatActivity {
 
                             Intent intent = new Intent(MyAccount.this, Explore.class);
                             intent.putExtra("basket", basket);
-                            intent.putExtra("userid", userID);
+                            intent.putExtra("user", user);
                             startActivity(intent);
                             overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
                             break;
@@ -106,7 +106,7 @@ public class MyAccount extends AppCompatActivity {
 
                             Intent intent1 = new Intent (MyAccount.this, MyBookings.class);
                             intent1.putExtra("basket", basket);
-                            intent1.putExtra("userid", userID);
+                            intent1.putExtra("user", user);
                             startActivity(intent1);
                             overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
                             break;
@@ -115,7 +115,7 @@ public class MyAccount extends AppCompatActivity {
 
                             Intent intent2 = new Intent(MyAccount.this, Homepage.class);
                             intent2.putExtra("basket", basket);
-                            intent2.putExtra("userid", userID);
+                            intent2.putExtra("user", user);
                             startActivity(intent2);
                             overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
                             break;

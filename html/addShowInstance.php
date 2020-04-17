@@ -1,8 +1,9 @@
 <?php
 
+
 	function populateVenueList(){
-		include_once dirname(__FILE__) . '/constants.php';
-		$con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+	        include_once dirname(__FILE__) . '/constants.php';
+	        $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME) or die ('Cannot connect to db');
 
 		$result = $con->query("SELECT venueName FROM venue ");
 
@@ -15,9 +16,9 @@
 
 	function populateShowList(){
 
-		include_once dirname(__FILE__) . '/constants.php';
+	        include_once dirname(__FILE__) . '/constants.php';
 
-		$con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME) or die ('Cannot connect to db');
+	        $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME) or die ('Cannot connect to db');
 
 		$result = $con->query("SELECT showName FROM shows");
 
@@ -26,6 +27,7 @@
 			echo '<option value="'.$showName.'">'.$showName.'</option>';
 		}
 	}
+
 
 ?>
 <head>
