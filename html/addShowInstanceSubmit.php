@@ -22,79 +22,96 @@
 	$startdate = str_replace('/','-',$_REQUEST['start_date']);
 	$enddate = str_replace('/','-',$_REQUEST['end_date']);
 
-
-
-	if($_REQUEST['mondaymat'] === on){
-		$mondaymat = 1;
-	}else{
-		$mondaymat = 0;
+	/*
+	$stmt = $con->prepare("SELECT * FROM showInstance WHERE venueName = ? AND endDate > ?");
+	$stmt->bind_param("ss", $venuename, $startdate);
+	$stmt->execute();
+	while($stmt->fetch()){}
+	//if ($stmt->num_rows > 0) die("show already at venue");
+	if($stmt->num_rows > 0){
+		$message = "wrong answer";
+		echo
+		"<script type='text/javascript'>
+			if(confirm('$message')){
+				var ok = true;
+			}else{
+				var ok = false;
+			}
+		</script>";
 	}
 
-        if($_REQUEST['mondayeve'] === on){
+	$ok = $_GET['ok'];
+	*/
+	if($_REQUEST['mondaymat'] === on)
+		$mondaymat = 1;
+	else
+		$mondaymat = 0;
+
+        if($_REQUEST['mondayeve'] === on)
                 $mondayeve = 1;
-        }else{
+        else
                 $mondayeve = 0;
-        }
-        if($_REQUEST['tuesdaymat'] === on){
+
+        if($_REQUEST['tuesdaymat'] === on)
                 $tuesdaymat = 1;
-        }else{
+        else
                 $tuesdaymat = 0;
-        }
-        if($_REQUEST['tuesdayeve'] === on){
+
+        if($_REQUEST['tuesdayeve'] === on)
                 $tuesdayeve = 1;
-        }else{
+        else
                 $tuesdayeve = 0;
-        }
-        if($_REQUEST['wednesdaymat'] === on){
+
+        if($_REQUEST['wednesdaymat'] === on)
                 $wednesdaymat = 1;
-        }else{
+        else
                 $wednesdaymat = 0;
-        }
-        if($_REQUEST['wednesdayeve'] === on){
+
+        if($_REQUEST['wednesdayeve'] === on)
                 $wednesdayeve = 1;
-        }else{
+        else
                 $wednesdayeve = 0;
-        }
-        if($_REQUEST['thursdaymat'] === on){
+
+        if($_REQUEST['thursdaymat'] === on)
                 $thursdaymat = 1;
-        }else{
+        else
                 $thursdaymat = 0;
-        }
-        if($_REQUEST['thursdayeve'] === on){
+
+        if($_REQUEST['thursdayeve'] === on)
                 $thursdayeve = 1;
-        }else{
+        else
                 $thursdayeve = 0;
-        }
-        if($_REQUEST['fridaymat'] === on){
+
+        if($_REQUEST['fridaymat'] === on)
                 $fridaymat = 1;
-        }else{
+        else
                 $fridaymat = 0;
-        }
-        if($_REQUEST['fridayeve'] === on){
+
+        if($_REQUEST['fridayeve'] === on)
                 $fridayeve = 1;
-        }else{
+        else
                 $fridayeve = 0;
-        }
-        if($_REQUEST['saturdaymat'] === on){
+
+        if($_REQUEST['saturdaymat'] === on)
                 $saturdaymat = 1;
-        }else{
+        else
                 $saturdaymat = 0;
-        }
-        if($_REQUEST['saturdayeve'] === on){
+
+        if($_REQUEST['saturdayeve'] === on)
                 $saturdayeve = 1;
-        }else{
+        else
                 $saturdayeve = 0;
-        }
-        if($_REQUEST['sundaymat'] === on){
+
+        if($_REQUEST['sundaymat'] === on)
                 $sundaymat = 1;
-        }else{
+        else
                 $sundaymat = 0;
-        }
-        if($_REQUEST['sundayeve'] === on){
+
+        if($_REQUEST['sundayeve'] === on)
                 $sundayeve = 1;
-        }else{
+        else
                 $sundayeve = 0;
-        }
+
 
 	$matineestart = $_REQUEST['mat_start'];
 	$eveningstart = $_REQUEST['eve_start'];
@@ -103,7 +120,7 @@
 
 	if($con->query($query))
 		echo "Success";
-	 else
+	else
 		echo "Error:  " .$con->error;
 
 

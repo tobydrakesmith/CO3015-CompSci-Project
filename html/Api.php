@@ -229,7 +229,7 @@
 			break;
 
 			case 'createreview':
-				areTheseParametersAvailable(array('bookingID', 'userID', 'showName', 'showInstanceID', 'rating', 'review'));
+				areTheseParametersAvailable(array('bookingID', 'userID', 'showName', 'showInstanceID', 'rating'));
 				$db = new DbOperation();
 				$result = $db->createReview($_POST['bookingID'], $_POST['userID'], $_POST['showName'], $_POST['showInstanceID'], $_POST['rating'], $_POST['review']);
 				if ($result) {

@@ -28,14 +28,61 @@
 		}
 	}
 
-
 ?>
 <head>
 <title>Add show instance</title>
+<script>
+function showVenueInfo(venue) {
+	dateChange();
+	xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200){
+			document.getElementById("venue_capacity").innerHTML = this.responseText;
+		}
+	};
+
+	xmlhttp.open("GET", "getVenueInfo.php?q="+venue, true);
+	xmlhttp.send();
+
+}
+
+function dateChange() {
+	var venueName = document.forms["form"]["venue_name"].value;
+	var startDate = document.forms["form"]["start_date"].value;
+	var endDate = document.forms["form"]["end_date"].value;
+
+	if (startDate && endDate){
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200){
+				document.getElementById("start_date_check").innerHTML = this.responseText;
+			}
+		};
+
+		xmlhttp.open("GET", "getStartDateCheck.php?startDate="+startDate+"&endDate="+endDate+"&venueName="+venueName, true);
+		xmlhttp.send();
+	}
+}
+
+function numberTicketsChange(){
+
+	var count = 0;
+
+	var a = parseInt(document.forms["form"]["banda_numseats"].value);
+	var b = parseInt(document.forms["form"]["bandb_numseats"].value);
+	var c = parseInt(document.forms["form"]["bandc_numseats"].value);
+	var d = parseInt(document.forms["form"]["bandd_numseats"].value);
+
+	count = a + b + c + d;
+
+	alert(count);
+
+}
+</script>
 </head>
 
 <body>
-<form action="addShowInstanceSubmit.php" class="alt" method="POST">
+<form name="form" action="addShowInstanceSubmit.php" class="alt" method="POST">
 
 	<p>
 		<label for="show_name">Show name:</label>
@@ -48,7 +95,7 @@
 
 	<p>
                 <label for="venue_name">Venue name:</label>
-                <select name="venue_name">
+                <select name="venue_name" onchange="showVenueInfo(this.value)">
 		<?php
 			populateVenueList();
 		?>
@@ -57,22 +104,22 @@
 
 	<p>
                 <label for="start_date">Start date:</label>
-                <input type="date" name="start_date" id="start_date">
+                <input type="date" onchange="dateChange()" name="start_date" id="start_date">
         </p>
-
+	<div id="start_date_check"><b>Start date check</b></div>
 
 	<p>
                 <label for="end_date">End date:</label>
-                <input type="date" name="end_date" id="end_date">
+                <input type="date" onchange="dateChange()" name="end_date" id="end_date">
         </p>
+
 
 	<p>
                 <label for="banda_prices">Price of seats PBA:</label>
                 <input type="text" name="banda_prices" id="banda_prices">
 
 		<label for="banda_numSeats">Number of seats PBA:</label>
-                <input type="text" name="banda_numseats" id="banda_numseats">
-
+		<input type="text" value="0" onchange="numberTicketsChange()" name="banda_numseats" id="banda_numseats">
 	</p>
 
 	<p>
@@ -80,7 +127,7 @@
                 <input type="text" name="bandb_prices" id="bandb_prices">
 
 		<label for="bandb_numSeats">Number of seats PBB:</label>
-                <input type="text" name="bandb_numseats" id="bandb_numseats">
+                <input type="text" value="0" onchange="numberTicketsChange()" name="bandb_numseats" id="bandb_numseats">
 
 	</p>
 
@@ -91,7 +138,7 @@
                 <input type="text" name="bandc_prices" id="bandc_prices">
 
 		<label for="bandc_numSeats">Number of seats PBC:</label>
-                <input type="text" name="bandc_numseats" id="bandc_numseats">
+                <input type="text" value="0" onchange="numberTicketsChange()" name="bandc_numseats" id="bandc_numseats">
 	</p>
 
 	<p>
@@ -99,9 +146,12 @@
                 <input type="text" name="bandd_prices" id="bandd_prices">
 
 		<label for="bandd_numSeats">Number of seats PBD:</label>
-		<input type="text" name="bandd_numseats" id="bandd_numseats">
+		<input type="text" value="0" onchange="numberTicketsChange()" name="bandd_numseats" id="bandd_numseats">
         </p>
 
+
+        <div id="venue_capacity"><b>Venue capacity here</b></div>
+	<div id="number_tickets"><b>Number tickets here</b></div>
 
 
 	Monday
@@ -121,7 +171,7 @@
 	<input type="checkbox" name="thursdaymat">Matinee
 	<input type="checkbox" name="fridaymat">Matinee
 	<input type="checkbox" name="saturdaymat">Matinee
-	<input type="checkbox" name="sundaymat" id="sundaymat">Matinee
+	<input type="checkbox" name="sundaymat">Matinee
 	<br>
 
 	<input type="checkbox" name="mondayeve">Evening
@@ -142,8 +192,10 @@
 	<input type="time" id="eve_start" name="eve_start" min="18:00" max="22:00" required>
 
 
+
 	<br>
-	<input type="submit">
+	<input type="submit" value="Submit">
+
 
 
 </form>

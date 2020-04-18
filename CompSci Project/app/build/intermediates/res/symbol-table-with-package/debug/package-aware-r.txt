@@ -1887,7 +1887,6 @@ id firstname
 id fitToContents
 id five
 id fixed
-id floatingActionButton
 id forever
 id four
 id fragment_container

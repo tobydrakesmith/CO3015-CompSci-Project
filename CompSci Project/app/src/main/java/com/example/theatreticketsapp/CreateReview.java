@@ -112,7 +112,7 @@ public class CreateReview extends AppCompatActivity {
                 params.put("showName", booking.getShowName());
                 params.put("showInstanceID", Integer.toString(booking.getShowInstanceID()));
                 params.put("rating", Float.toString(ratingBar.getRating()));
-                params.put("review", (review.getText().toString().length() == 0) ? "Empty" : review.getText().toString());
+                params.put("review", review.getText().toString());
 
                 return params;
             }

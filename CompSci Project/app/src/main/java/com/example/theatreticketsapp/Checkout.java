@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalPayment;
 import com.paypal.android.sdk.payments.PayPalService;
@@ -43,11 +45,11 @@ import java.util.Map;
 public class Checkout extends AppCompatActivity {
 
 
-    Basket basket;
-    User user;
-    TextView bookingDetails;
-    RequestQueue requestQueue;
-    String subject, content;
+    private Basket basket;
+    private User user;
+    private TextView bookingDetails;
+    private RequestQueue requestQueue;
+    private String subject, content;
 
 
     private static PayPalConfiguration payPalConfiguration = new PayPalConfiguration()
@@ -100,10 +102,6 @@ public class Checkout extends AppCompatActivity {
         else
             subject = "Your booking to see " + basket.getBookings().get(0).getShowName();
 
-
-
-
-
         requestQueue = Volley.newRequestQueue(this);
 
         bookingDetails = findViewById(R.id.bookingSummary);
@@ -112,7 +110,19 @@ public class Checkout extends AppCompatActivity {
         payPalService.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
         startService(payPalService);
 
+        FloatingActionButton fab = findViewById(R.id.fabCalendar);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calendarSync();
+            }
+        });
+
         processPayment();
+    }
+
+    private void calendarSync() {
+        //TODO
     }
 
     private void processPayment(){

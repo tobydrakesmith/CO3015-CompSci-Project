@@ -27,13 +27,13 @@ import java.util.Date;
 
 public class ViewBooking extends AppCompatActivity {
 
-    Booking booking;
-    TextView showName, showDateTime, venueName, ticketDetails, bookingCost;
-    Venue venue;
-    RequestQueue requestQueue;
-    Date date;
-    ArrayList<Ticket> mTickets;
-    String jsonTickets;
+    private Booking booking;
+    private TextView venueName, ticketDetails, bookingCost;
+    private Venue venue;
+    private RequestQueue requestQueue;
+    private Date date;
+    private ArrayList<Ticket> mTickets;
+    private String jsonTickets;
 
 
     @Override
@@ -90,8 +90,8 @@ public class ViewBooking extends AppCompatActivity {
             }
         });
 
-        showName = findViewById(R.id.showName);
-        showDateTime = findViewById(R.id.showTime);
+        TextView showName = findViewById(R.id.showName);
+        TextView showDateTime = findViewById(R.id.showTime);
         venueName = findViewById(R.id.venueName);
         ticketDetails = findViewById(R.id.ticketDetails);
         bookingCost = findViewById(R.id.bookingCost);
