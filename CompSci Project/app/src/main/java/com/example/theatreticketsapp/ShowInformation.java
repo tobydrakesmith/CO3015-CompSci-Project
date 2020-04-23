@@ -31,7 +31,7 @@ public class ShowInformation extends AppCompatActivity {
     Venue venue;
     Basket basket;
     ProgressBar progressBar;
-    TextView showDescription, showName, venueName, showDesc, endDate, rating;
+    TextView showDescription, showName, venueName, endDate, rating;
     User user;
 
 
@@ -58,7 +58,6 @@ public class ShowInformation extends AppCompatActivity {
 
         showName = findViewById(R.id.showName);
         venueName = findViewById(R.id.venueName);
-        showDesc = findViewById(R.id.showDescription);
         endDate = findViewById(R.id.endDate);
         rating = findViewById(R.id.showRating);
 
@@ -136,6 +135,8 @@ public class ShowInformation extends AppCompatActivity {
                 try {
                     JSONObject show = new JSONObject(response);
                     mShow.setShowDescription(show.getString("showDesc"));
+                    mShow.setRunningTime(show.getInt("runningTime"));
+                    System.out.println("RUNNING TIME: " + show.getInt("runningTime"));
 
                     progressBar.setVisibility(View.INVISIBLE);
 
@@ -143,7 +144,7 @@ public class ShowInformation extends AppCompatActivity {
                     showName.setVisibility(View.VISIBLE);
                     venueName.setText(mShow.getVenueName());
                     venueName.setVisibility(View.VISIBLE);
-                    showDesc.setVisibility(View.VISIBLE);
+                    showDescription.setVisibility(View.VISIBLE);
                     endDate.setText("Booking until: " + mShow.getEndDate());
                     endDate.setVisibility(View.VISIBLE);
 
@@ -183,7 +184,7 @@ public class ShowInformation extends AppCompatActivity {
                         mShow.setRating(total / reviews.length());
                         rating.setText(Double.toString(mShow.getRating()));
                     }catch(ArithmeticException e){
-                        rating.setText("Not enough reviews for this to be displayed yet!");
+                        rating.setText(R.string.string_not_enough_reviews);
                     }
 
                 } catch (JSONException e) {

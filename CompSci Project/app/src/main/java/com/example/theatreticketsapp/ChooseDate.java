@@ -10,12 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class ChooseDate extends AppCompatActivity {
 
@@ -29,6 +31,9 @@ public class ChooseDate extends AppCompatActivity {
     Calendar calendar;
 
     User user;
+
+
+    //TODO: if user is looking at today's date they should not be able to select a performance that has passed
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +61,8 @@ public class ChooseDate extends AppCompatActivity {
         calendarView.setMinDate(new Date().getTime());
 
         try {
-            Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(mShow.getEndDate());
+            Date endDate = new SimpleDateFormat("yyyy-MM-dd", Locale.UK).parse(mShow.getEndDate());
+            assert endDate != null;
             calendarView.setMaxDate(endDate.getTime());
         } catch (ParseException e) {
             e.printStackTrace();
@@ -64,6 +70,10 @@ public class ChooseDate extends AppCompatActivity {
 
         int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
         getDayOfWeek(dayOfWeek);
+        getShowTimes(calendar.getTime(), new Date());
+
+
+
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -72,10 +82,34 @@ public class ChooseDate extends AppCompatActivity {
                 calendar.set(year, month, dayOfMonth);
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 getDayOfWeek(dayOfWeek);
-
-
+                getShowTimes(calendar.getTime(), new Date());
             }
         });
+    }
+
+    private void getShowTimes(Date date, Date date2) {
+        if (date.compareTo(date2) <= 0){
+            try {
+                String strDate = new SimpleDateFormat("dd-MM-yyyy", Locale.UK).format(date);
+
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss", Locale.UK);
+
+                date = sdf.parse(strDate + " " + mShow.getMatineeStart());
+                assert date != null;
+                matineeBtn.setEnabled(date.after(new Date()));
+
+
+                date = sdf.parse(strDate + " " + mShow.getEveningStart());
+                assert date != null;
+                eveningBtn.setEnabled(date.after(new Date()));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+        }else {
+            eveningBtn.setEnabled(true);
+            matineeBtn.setEnabled(true);
+        }
     }
 
     @Override //TODO: Add animation
@@ -145,6 +179,9 @@ public class ChooseDate extends AppCompatActivity {
                 break;
 
         }
+
+
+    
 
 
     }

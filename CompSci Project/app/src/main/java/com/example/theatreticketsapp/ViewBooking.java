@@ -24,6 +24,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class ViewBooking extends AppCompatActivity {
 
@@ -51,11 +52,11 @@ public class ViewBooking extends AppCompatActivity {
 
         date = null;
         try {
-            date = new SimpleDateFormat("yyyy-MM-dd").parse(booking.getDate());
+            date = new SimpleDateFormat("yyyy-MM-dd", Locale.US).parse(booking.getDate());
 
-            String strDate = new SimpleDateFormat("dd-MM-yyyy").format(date);
+            String strDate = new SimpleDateFormat("dd-MM-yyyy", Locale.UK).format(date);
 
-            date = new SimpleDateFormat("dd-MM-yyyy hh:mm").parse(strDate+ " " + booking.getShowTime());
+            date = new SimpleDateFormat("dd-MM-yyyy hh:mm", Locale.UK).parse(strDate+ " " + booking.getShowTime());
 
         } catch (ParseException e) {
             e.printStackTrace();

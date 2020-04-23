@@ -9,7 +9,13 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class MyPastBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyPastBookingsRecyclerViewAdapter.ViewHolder> {
 
@@ -23,18 +29,34 @@ public class MyPastBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyPa
         this.mBookings = bookings;
     }
 
+    @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType){
         View view = mInflater.inflate(R.layout.recyclerview_my_past_bookings_row, parent, false);
         return new ViewHolder(view, mOnReviewClickListener);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position){
+    public void onBindViewHolder(@NotNull ViewHolder holder, int position){
         Booking booking = mBookings.get(position);
 
+
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(booking.getDate());
+
+            assert date != null;
+            String strDate = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).format(date);
+
+            date = new SimpleDateFormat("dd-MM-yyyy hh:mm", Locale.ENGLISH).parse(strDate+ " " + booking.getShowTime());
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         holder.showName.setText(booking.getShowName());
-        holder.date.setText(booking.getDate());
+        assert date != null;
+        holder.date.setText(date.toString());
         holder.numberOfTickets.setText("No. tickets: " + booking.getNumberOfTickets());
     }
 
@@ -44,7 +66,7 @@ public class MyPastBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyPa
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView showName, date, numberOfTickets;
         Button leaveAReview;

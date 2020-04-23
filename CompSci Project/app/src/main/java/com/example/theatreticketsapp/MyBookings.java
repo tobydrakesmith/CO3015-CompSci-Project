@@ -7,9 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.icu.text.UnicodeSetSpanner;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,10 +33,11 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
 
     Basket basket;
     User user;
+
     ArrayList<Booking> mFutureBookings = new ArrayList<>();
     ArrayList<Booking> mPastBookings = new ArrayList<>();
 
-    RecyclerView upcomingBookingsRecyclerView, pastBookingsRecyclerView;
+    RecyclerView bookingsRecyclerView;
     MyBookingsRecyclerViewAdapter myBookingsRecyclerViewAdapter;
     MyPastBookingsRecyclerViewAdapter myPastBookingsRecyclerViewAdapter;
     ProgressBar progressBar;
@@ -66,6 +66,28 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
         navView.setOnNavigationItemSelectedListener(navListener);
 
         navView.setSelectedItemId(R.id.navigation_mybookings);
+
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+                if (tab.getText().toString().equals("Your upcoming bookings"))
+                    bookingsRecyclerView.setAdapter(myBookingsRecyclerViewAdapter);
+                else
+                    bookingsRecyclerView.setAdapter(myPastBookingsRecyclerViewAdapter);
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -77,19 +99,18 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
 
-        switch (item.getItemId()){
-            case R.id.activity_basket:
-                Intent intent = new Intent(this, MyBasket.class);
-                intent.putExtra("basket", basket);
-                intent.putExtra("user", user);
-                startActivity(intent);
+        if (item.getItemId() == R.id.activity_basket) {
+            Intent intent = new Intent(this, MyBasket.class);
+            intent.putExtra("basket", basket);
+            intent.putExtra("user", user);
+            startActivity(intent);
 
-                return true;
-
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     public void onBackPressed() {
@@ -156,9 +177,9 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
                     }
                     myBookingsRecyclerViewAdapter = new MyBookingsRecyclerViewAdapter(MyBookings.this, MyBookings.this, mFutureBookings);
 
-                    upcomingBookingsRecyclerView = findViewById(R.id.futureBookingsView);
-                    upcomingBookingsRecyclerView.setLayoutManager(new LinearLayoutManager(MyBookings.this));
-                    upcomingBookingsRecyclerView.setAdapter(myBookingsRecyclerViewAdapter);
+                    bookingsRecyclerView = findViewById(R.id.futureBookingsView);
+                    bookingsRecyclerView.setLayoutManager(new LinearLayoutManager(MyBookings.this));
+                    bookingsRecyclerView.setAdapter(myBookingsRecyclerViewAdapter);
 
 
 
@@ -200,11 +221,6 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
                     }
 
                     myPastBookingsRecyclerViewAdapter = new MyPastBookingsRecyclerViewAdapter(MyBookings.this, MyBookings.this, mPastBookings);
-
-                    pastBookingsRecyclerView = findViewById(R.id.pastBookingsView);
-                    pastBookingsRecyclerView.setLayoutManager(new LinearLayoutManager(MyBookings.this));
-
-                    pastBookingsRecyclerView.setAdapter(myPastBookingsRecyclerViewAdapter);
 
                 }catch (JSONException e){
                     try {

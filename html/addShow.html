@@ -3,6 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Add new show</title>
+<script>
+function showNameChange(name){
+	xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function(){
+		if (this.readyState == 4 && this.status == 200){
+			document.getElementById("show_name_exists").innerHTML = this.responseText;
+		}
+	};
+
+	xmlhttp.open("GET", "getShowName.php?showName="+name, true);
+	xmlhttp.send();
+}
+</script>
 </head>
 
 <body>
@@ -10,9 +23,9 @@
 
 	<p>
 		<label for="show_name">Show Name:</label>
-		<input type="text" name="show_name" id="show_name">
+		<input type="text" name="show_name" onchange="showNameChange(this.value)" id="show_name">
 	</p>
-	
+	<div id="show_name_exists">Show name exists</div>
 	<p>
 		<label for="show_description">Show description:</label>
 	</p>
@@ -29,6 +42,7 @@
 	<br>
 </form>
 	<a href="homepage.html"><button>Home</button></a>
+	
 
 </body>
 </html>

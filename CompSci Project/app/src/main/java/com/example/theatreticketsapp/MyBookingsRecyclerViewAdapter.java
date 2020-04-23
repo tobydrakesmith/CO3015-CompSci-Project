@@ -13,6 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class MyBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyBookingsRecyclerViewAdapter.ViewHolder> {
 
@@ -43,17 +44,19 @@ public class MyBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyBookin
 
         Date date = null;
         try {
-            date = new SimpleDateFormat("yyyy-MM-dd").parse(booking.getDate());
+            date = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(booking.getDate());
 
-            String strDate = new SimpleDateFormat("dd-MM-yyyy").format(date);
+            assert date != null;
+            String strDate = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).format(date);
 
-            date = new SimpleDateFormat("dd-MM-yyyy hh:mm").parse(strDate+ " " + booking.getShowTime());
+            date = new SimpleDateFormat("dd-MM-yyyy hh:mm", Locale.ENGLISH).parse(strDate+ " " + booking.getShowTime());
 
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
         holder.showName.setText(booking.getShowName());
+        assert date != null;
         holder.date.setText(date.toString());
         holder.numberOfTickets.setText("No. tickets: " + booking.getNumberOfTickets());
     }
@@ -64,7 +67,7 @@ public class MyBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyBookin
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView showName, date, numberOfTickets;
         Button viewTickets;
@@ -86,13 +89,8 @@ public class MyBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyBookin
 
         @Override
         public void onClick(View view){
-            switch (view.getId()) {
-                case R.id.btnViewBooking:
-                    onBookingClickListener.onBookingClick(getAdapterPosition());
-                    break;
-                default:
-                    break;
-            }
+            if (view.getId() == R.id.btnViewBooking)
+                onBookingClickListener.onBookingClick(getAdapterPosition());
         }
 
     }

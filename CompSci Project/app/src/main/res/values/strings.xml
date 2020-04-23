@@ -30,8 +30,8 @@
     <string name="number_of_tickets">Number of tickets: </string>
     <string name="my_basket_title">Your basket:</string>
     <string name="view_booking_lbl">View your tickets</string>
-    <string name="upcoming_bookings">Your upcoming bookings:</string>
-    <string name="past_bookings">Your past bookings:</string>
+    <string name="upcoming_bookings">Your upcoming bookings</string>
+    <string name="past_bookings">Your past bookings</string>
     <string name="leave_a_review">Leave a review</string>
     <string name="title_activity_create_review">CreateReview</string>
     <string name="write_review">Write a review (optional)</string>
@@ -60,6 +60,7 @@
     <string name="review_sort_rating">Sort by rating</string>
     <string name="booking_confirmed">Your booking was successful. An email has been sent to confirm the booking;
         you can also view the booking under the "My Bookings" section of the app</string>
+    <string name="string_not_enough_reviews">Not enough reviews for this to be displayed yet!</string>
 
 
 </resources>

@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -42,15 +44,17 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Checkout extends AppCompatActivity {
+public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewAdapter.OnCalendarClick{
 
 
     private Basket basket;
     private User user;
-    private TextView bookingDetails;
     private RequestQueue requestQueue;
     private String subject, content;
-
+    private RecyclerView recyclerView;
+    private ArrayList<BasketBooking> bookings = new ArrayList<>();
+    private CheckoutRecyclerViewAdapter checkoutRecyclerViewAdapter;
+    private TextView totalCost;
 
     private static PayPalConfiguration payPalConfiguration = new PayPalConfiguration()
             .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
@@ -92,10 +96,16 @@ public class Checkout extends AppCompatActivity {
         toolbar.setNavigationIcon(drawable);
         setSupportActionBar(toolbar);
 
+        totalCost = findViewById(R.id.totalBookingCost);
+
 
         Intent intent = getIntent();
         basket = intent.getParcelableExtra("basket");
         user = intent.getParcelableExtra("user");
+        
+        bookings.addAll(basket.getBookings());
+
+        checkoutRecyclerViewAdapter = new CheckoutRecyclerViewAdapter(this, this, bookings);
 
         if (basket.numberOfBookings() > 1)
             subject = "Your booking to see " + basket.numberOfBookings() + " shows";
@@ -104,25 +114,36 @@ public class Checkout extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(this);
 
-        bookingDetails = findViewById(R.id.bookingSummary);
 
         Intent payPalService = new Intent(this, PayPalService.class);
         payPalService.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
         startService(payPalService);
 
-        FloatingActionButton fab = findViewById(R.id.fabCalendar);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calendarSync();
-            }
-        });
+        recyclerView = findViewById(R.id.checkoutRecylerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(checkoutRecyclerViewAdapter);
+
+        totalCost.setText("Total cost: £"+basket.getTotalCost());
+
 
         processPayment();
     }
+    
+    @Override
+    public void onCalendarClick(int position){
+        calendarSync(bookings.get(position));
+    }
 
-    private void calendarSync() {
-        //TODO
+    private void calendarSync(BasketBooking booking) {
+
+        Intent insertCalendarIntent = new Intent(Intent.ACTION_INSERT)
+                .setData(CalendarContract.Events.CONTENT_URI);
+        insertCalendarIntent.putExtra(CalendarContract.Events.TITLE, booking.getShowName());
+        insertCalendarIntent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, false);
+        insertCalendarIntent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, booking.getActualDate().getTime());
+        insertCalendarIntent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, (booking.getActualDate().getTime()) + ((booking.getShow().getRunningTime())*60000));
+        insertCalendarIntent.putExtra(CalendarContract.Events.EVENT_LOCATION, booking.getShow().getVenue().getStrLocation());
+        startActivity(insertCalendarIntent);
     }
 
     private void processPayment(){
@@ -211,13 +232,12 @@ public class Checkout extends AppCompatActivity {
         for (int i = 0; i < basket.numberOfBookings(); i++) {
             booking = bookings.get(i);
             date = formatDate(booking);
-            toDisplay.append(booking.getShowName()).append("\n").append(date.toString()).append(" x")
+            toDisplay.append(booking.getShowName()).append("\n").append(booking.getShow().getVenue().getVenueName())
+                    .append("\n").append(date.toString()).append(" x")
                     .append(booking.getNumberOfTickets()).append("\n£").append(booking.getCost()).append("\n\n");
         }
 
         toDisplay.append("Total cost: £").append(basket.getTotalCost());
-
-        bookingDetails.setText(toDisplay.toString());
 
         content = "Dear " + user.getFirstName() + ",\n \n" +
                 "Thank you for your booking. Please see the details below:\n \n" +
@@ -239,6 +259,7 @@ public class Checkout extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        booking.setActualDate(date);
         return date;
     }
 

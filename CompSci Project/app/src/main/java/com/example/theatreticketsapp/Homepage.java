@@ -318,7 +318,7 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
         for (Venue venue : mVenues)
             if (venue.getVenueName().equals(venueName)) return venue;
 
-        Venue venue = new Venue(venueName, description, postcode);
+        Venue venue = new Venue(venueName,postcode, description);
         mVenues.add(venue);
         List<Address> address =
                 geocoder.getFromLocationName(venue.getStrLocation(), 1);
@@ -451,10 +451,8 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
         int numberTixPBC = show.getInt("bandCNumberOfTickets");
         int numberTixPBD = show.getInt("bandDNumberOfTickets");
 
-        Show newShow = new Show(id, showName, venueName, startDate, endDate, matineeStart, eveningStart, monMat, monEve, tueMat, tueEve, wedMat, wedEve, thuMat, thuEve, friMat, friEve,
+        return new Show(id, showName, venueName, startDate, endDate, matineeStart, eveningStart, monMat, monEve, tueMat, tueEve, wedMat, wedEve, thuMat, thuEve, friMat, friEve,
                 satMat, satEve, sunMat, sunEve, priceBandAPrices, priceBandBPrices, priceBandCPrices, priceBandDPrices, numberTixPBA, numberTixPBB, numberTixPBC, numberTixPBD, venue);
-
-        return newShow;
 
     }
 

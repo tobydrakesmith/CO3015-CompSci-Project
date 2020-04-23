@@ -245,6 +245,10 @@ public class Show implements Parcelable {
         return df.format(userDistanceFromVenue);
     }
 
+    public Venue getVenue(){
+        return this.venue;
+    }
+
 
 
 

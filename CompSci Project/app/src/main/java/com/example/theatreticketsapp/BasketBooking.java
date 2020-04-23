@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class BasketBooking implements Parcelable {
 
@@ -12,6 +13,7 @@ public class BasketBooking implements Parcelable {
     private Show show;
     private int bookingID;
     private int tempID;
+    private Date d;
 
     public BasketBooking(String date, String startTime, Show show, int tempID){
         tickets = new ArrayList<>();
@@ -79,6 +81,13 @@ public class BasketBooking implements Parcelable {
         return tickets;
     }
 
+    public void setActualDate(Date date){
+        this.d = date;
+    }
+
+    public Date getActualDate(){
+        return this.d;
+    }
 
 
     //parcelling

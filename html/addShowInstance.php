@@ -32,21 +32,26 @@
 <head>
 <title>Add show instance</title>
 <script>
+
+var venueCapacity;
+
 function showVenueInfo(venue) {
 	dateChange();
+	numberTicketsChange();
 	xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200){
-			document.getElementById("venue_capacity").innerHTML = this.responseText;
+			document.getElementById("venue_capacity").innerHTML = "<b> Venue capacity:</b> "  + this.responseText;
+			venueCapacity = this.responseText;
+			numberTicketsChange();
 		}
 	};
 
 	xmlhttp.open("GET", "getVenueInfo.php?q="+venue, true);
 	xmlhttp.send();
-
 }
 
-function dateChange() {
+function dateChange(name) {
 	var venueName = document.forms["form"]["venue_name"].value;
 	var startDate = document.forms["form"]["start_date"].value;
 	var endDate = document.forms["form"]["end_date"].value;
@@ -62,6 +67,13 @@ function dateChange() {
 		xmlhttp.open("GET", "getStartDateCheck.php?startDate="+startDate+"&endDate="+endDate+"&venueName="+venueName, true);
 		xmlhttp.send();
 	}
+
+	if (name == "start_date"){
+		document.forms["form"]["end_date"].setAttribute("min", startDate);
+	}else{
+		document.forms["form"]["start_date"].setAttribute("max", endDate);
+	}
+
 }
 
 function numberTicketsChange(){
@@ -75,8 +87,27 @@ function numberTicketsChange(){
 
 	count = a + b + c + d;
 
-	alert(count);
+	document.getElementById("number_tickets").innerHTML = "<b>Current count: </b>" + count;
 
+	if (count > venueCapacity){
+		document.getElementById("number_tickets").innerHTML = '<p style="color:red"><b> ERROR: You have selected more tickets than the capacity of the venue. Current count: </b>' + count +'</p>';
+	}
+}
+
+function showNameChange(showName){
+
+	var showName = document.forms["form"]["show_name"].value;
+
+
+	xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200){
+			document.getElementById("running_time").innerHTML = '<b>Running time: </b>' + this.responseText;
+		}
+	};
+
+	xmlhttp.open("GET", "getRunningTime.php?showName="+showName, true);
+	xmlhttp.send();
 }
 </script>
 </head>
@@ -86,7 +117,8 @@ function numberTicketsChange(){
 
 	<p>
 		<label for="show_name">Show name:</label>
-		<select name="show_name">
+		<select name="show_name" onchange="showNameChange(this.value)">
+		<option value="">Select a show</option>
 		<?php
 			populateShowList();
 		?>
@@ -96,6 +128,7 @@ function numberTicketsChange(){
 	<p>
                 <label for="venue_name">Venue name:</label>
                 <select name="venue_name" onchange="showVenueInfo(this.value)">
+		<option value="">Select a venue</option>
 		<?php
 			populateVenueList();
 		?>
@@ -104,13 +137,13 @@ function numberTicketsChange(){
 
 	<p>
                 <label for="start_date">Start date:</label>
-                <input type="date" onchange="dateChange()" name="start_date" id="start_date">
+                <input type="date" onchange="dateChange(this.name)" name="start_date" id="start_date">
         </p>
-	<div id="start_date_check"><b>Start date check</b></div>
+	<div id="start_date_check"></div>
 
 	<p>
                 <label for="end_date">End date:</label>
-                <input type="date" onchange="dateChange()" name="end_date" id="end_date">
+                <input type="date" onchange="dateChange(this.name)" name="end_date" id="end_date">
         </p>
 
 
@@ -119,7 +152,7 @@ function numberTicketsChange(){
                 <input type="text" name="banda_prices" id="banda_prices">
 
 		<label for="banda_numSeats">Number of seats PBA:</label>
-		<input type="text" value="0" onchange="numberTicketsChange()" name="banda_numseats" id="banda_numseats">
+		<input type="number" value = 0 onchange="numberTicketsChange()" name="banda_numseats" id="banda_numseats">
 	</p>
 
 	<p>
@@ -127,7 +160,7 @@ function numberTicketsChange(){
                 <input type="text" name="bandb_prices" id="bandb_prices">
 
 		<label for="bandb_numSeats">Number of seats PBB:</label>
-                <input type="text" value="0" onchange="numberTicketsChange()" name="bandb_numseats" id="bandb_numseats">
+                <input type="number" value=0 onchange="numberTicketsChange()" name="bandb_numseats" id="bandb_numseats">
 
 	</p>
 
@@ -138,7 +171,7 @@ function numberTicketsChange(){
                 <input type="text" name="bandc_prices" id="bandc_prices">
 
 		<label for="bandc_numSeats">Number of seats PBC:</label>
-                <input type="text" value="0" onchange="numberTicketsChange()" name="bandc_numseats" id="bandc_numseats">
+                <input type="number" value=0 onchange="numberTicketsChange()" name="bandc_numseats" id="bandc_numseats">
 	</p>
 
 	<p>
@@ -146,12 +179,12 @@ function numberTicketsChange(){
                 <input type="text" name="bandd_prices" id="bandd_prices">
 
 		<label for="bandd_numSeats">Number of seats PBD:</label>
-		<input type="text" value="0" onchange="numberTicketsChange()" name="bandd_numseats" id="bandd_numseats">
+		<input type="number" value=0 onchange="numberTicketsChange()" name="bandd_numseats" id="bandd_numseats">
         </p>
 
 
-        <div id="venue_capacity"><b>Venue capacity here</b></div>
-	<div id="number_tickets"><b>Number tickets here</b></div>
+        <div id="venue_capacity"></div>
+	<div id="number_tickets"></div>
 
 
 	Monday
@@ -191,7 +224,7 @@ function numberTicketsChange(){
 	<label for="eve_start">Evening start time:</label>
 	<input type="time" id="eve_start" name="eve_start" min="18:00" max="22:00" required>
 
-
+	<div id="running_time"></div>
 
 	<br>
 	<input type="submit" value="Submit">

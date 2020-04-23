@@ -15,6 +15,6 @@ public final class R {
         public static final int dataBinding = 0x7f09008f;
         public static final int onAttachStateChangeListener = 0x7f09013b;
         public static final int onDateChanged = 0x7f09013c;
-        public static final int textWatcher = 0x7f0901d3;
+        public static final int textWatcher = 0x7f0901d2;
     }
 }

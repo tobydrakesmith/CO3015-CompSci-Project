@@ -17,8 +17,7 @@
 	$stmt->bind_param("sssssss", $venueName, $startDate, $startDate, $endDate, $endDate, $startDate, $endDate);
 	$stmt->execute();
 	while($stmt->fetch()){}
-	if ($stmt->num_rows > 0) echo "Warning: this date clashes with an existing show at this venue";
-	else echo $date . " " . $venueName;
+	if ($stmt->num_rows > 0) echo '<p style="color:red">Warning: these dates clash with an existing show at this venue</p>';
 
 
 ?>

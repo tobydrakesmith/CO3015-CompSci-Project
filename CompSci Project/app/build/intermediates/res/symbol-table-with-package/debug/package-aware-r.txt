@@ -1779,13 +1779,12 @@ id basketView
 id beginning
 id blocking
 id bookingCost
-id bookingSummary
+id bookingDate
 id bottom
 id btnCancel
 id btnDecrease
 id btnIncrease
 id btnViewBooking
-id button
 id button3
 id button4
 id buttonConfirm
@@ -1809,6 +1808,7 @@ id center_vertical
 id chains
 id checkbox
 id checked
+id checkoutRecylerView
 id chip
 id chip_group
 id chronometer
@@ -1891,7 +1891,6 @@ id forever
 id four
 id fragment_container
 id fragment_container_view_tag
-id futureBookingsLbl
 id futureBookingsView
 id ghost_view
 id ghost_view_holder
@@ -2006,6 +2005,7 @@ id notification_main_column_container
 id numberOfReviews
 id numberOfTickets
 id numberOfTix
+id numberTickets
 id off
 id on
 id onAttachStateChangeListener
@@ -2022,8 +2022,6 @@ id password
 id passwordEditText
 id passwordLbl
 id password_toggle
-id pastBookingLbl
-id pastBookingsView
 id payment_complete_msg_retail
 id peekHeight
 id percent
@@ -2136,6 +2134,7 @@ id submenuarrow
 id submitReviewBtn
 id submit_area
 id swipe_failed_image
+id tabLayout
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -2181,6 +2180,7 @@ id tixLeftPBD
 id toolbar
 id top
 id topPanel
+id totalBookingCost
 id totalCostLbl
 id touch_outside
 id transition_current_scene
@@ -2200,6 +2200,7 @@ id usernameEditText
 id venue
 id venueDescription
 id venueName
+id viewReviewsBtn
 id view_offset_helper
 id visible
 id visible_removing_fragment_view_tag
@@ -2370,6 +2371,7 @@ layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout recyclerview_basket_row
+layout recyclerview_checkout_row
 layout recyclerview_my_bookings_row
 layout recyclerview_my_past_bookings_row
 layout recyclerview_reviews
@@ -2414,6 +2416,7 @@ menu checkout_top_nav
 menu filter_menu
 menu homepage_top_nav
 menu menu_scrolling
+menu my_account_pop_up_menu
 menu sort_menu_reviews
 mipmap ic_launcher
 mipmap ic_launcher_foreground
@@ -2736,6 +2739,7 @@ string send_receipt_privacy_message
 string sms_international_code_msg
 string sms_receipt_privacy_message
 string status_bar_notification_info_overflow
+string string_not_enough_reviews
 string successful_creation
 string title_activity_basket
 string title_activity_create_review

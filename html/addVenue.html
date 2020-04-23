@@ -1,19 +1,34 @@
 <!DOCTYPE html> 
 <html lang="en">
-<head> <title>Add venue</title></head>
+<head> <title>Add venue</title>
+<script>
+function venueNameChange(name){
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                if (this.readyState == 4 && this.status == 200){
+                        document.getElementById("venue_name_exists").innerHTML = this.responseText;
+                }
+        };
+
+        xmlhttp.open("GET", "getVenueName.php?venueName="+name, true);
+        xmlhttp.send();
+}
+</script>
+</head>
 
 <body>
 <form action="addVenueSubmit.php" class="alt" method="POST">
 
 	<p>
 		<label for="venue_name">Venue name:</label>
-		<input type="text" name="venue_name" id="venue_name">
+		<input type="text" name="venue_name" onchange="venueNameChange(this.value)" id="venue_name">
 	</p>
-
+	<div id="venue_name_exists"></div>
 	<p>
 	<label for="venue_description">Venue description:</label>
-       </p>
-	 <textarea name="venue_description"rows="4" cols="50"></textarea>
+	</p>
+	
+	<textarea name="venue_description"rows="4" cols="50"></textarea>
           
 
 	<p>
