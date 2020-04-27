@@ -14,10 +14,13 @@
 	$numseats = $con->real_escape_string($_REQUEST['venue_noseats']);
 	$postcode = $con->real_escape_string($_REQUEST['venue_postcode']);
 
-	$query = "INSERT INTO venue(venueName, numOfSeats, venueDesc, postcode) VALUES ('$venuename', '$numseats', '$venuedesc', '$postcode')";
+	$query = "INSERT INTO venue(venueName, capacity, venueDesc, postcode) VALUES ('$venuename', '$numseats', '$venuedesc', '$postcode')";
 
 	if($con->query($query) === true){
-		echo "Records inserted";
+//		$command = escapeshellcmd('export GOOGLE_APPLICATION_CREDENTIALS="/home/tjd17/Documents/theatre-tickets-app-firebase-adminsdk-nm5iv-fb5e36781c.json" ; python firebase.py');
+//		$command = escapeshellcmd('python firebase.py');
+//		$output = shell_exec($command);
+		echo "success";
 	}else{
 		echo "ERROR " . $con->error;
 	}

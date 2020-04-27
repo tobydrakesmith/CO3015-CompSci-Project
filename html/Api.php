@@ -66,6 +66,7 @@
 					$response['error'] = false;
 					//in message we have a success message
 					$response['message'] = 'User added successfully';
+					$db->sendWelcomeEmail($_POST['email'], $_POST['firstName']);
 				}else{
 
 					//if record is not added that means there is an error
@@ -371,6 +372,28 @@
 					$db = new DbOperation();
 					$response = $db->getShowRunningTime($_GET['showName']);
 				}
+			break;
+
+			case 'sendresetpasswordemail':
+				if(isset($_GET['email'])){
+					$db = new DbOperation();
+					if ($db->checkEmail($_GET['email'])){
+						$name = $db->getFirstName($_GET['email']);
+						$db->sendResetPasswordEmail($_GET['email'], $name);
+						$response['error'] = false;
+						$response['message'] = "An email has been sent with a link to reset your password";
+					}else{
+						$response['error'] = true;
+						$response['message'] = "The provided email was not found on our system. Please try again.";
+					}
+				}
+
+			break;
+
+			case 'test':
+				$db = new DbOperation();
+				$response = $db->getFirstName($_GET['email']);
+
 			break;
 
 		}

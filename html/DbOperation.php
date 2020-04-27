@@ -14,6 +14,7 @@
 			//Initializing our connection link of this class
 			//by calling the method connect of DbConnect class
 			$this->con = $db->connect();
+
 		}
 
 		/*
@@ -29,11 +30,6 @@
 			return false;
 		}
 
-		/*
-		* The read operation
-		* When this method is called it is returning all the existing record of the database
-		*/
-
 		function getUserDetails($email){
 			$stmt = $this->con->prepare("SELECT userID, firstName, lastName FROM user WHERE email = ? ");
 			$stmt->bind_param("s", $email);
@@ -48,6 +44,15 @@
 
 			return $user;
 
+		}
+
+		function getFirstName($email){
+			$stmt = $this->con->prepare("SELECT firstName FROM user WHERE email = ? ");
+			$stmt->bind_param("s", $email);
+			$stmt->execute();
+			$stmt->bind_result($name);
+			while ($stmt->fetch()){}
+			return $name;
 		}
 
 
@@ -91,17 +96,6 @@
 			return $dbPass == $password;
 		}
 
-		/*
-		* The update operation
-		* When this method is called the record with the given id is updated with the new given values
-		*/
-		function updateUser($userID, $email, $firstName, $lastName, $password){
-			$stmt = $this->con->prepare("UPDATE user SET email = ?, firstName = ?, lastName = ?, password = ? WHERE userID = ?");
-			$stmt->bind_param("ssssi", $email, $firstName, $lastName, $password, $userID);
-			if($stmt->execute())
-				return true;
-			return false;
-		}
 		/*
 		* The delete operation
 		* When this method is called record is deleted for the given id
@@ -280,16 +274,13 @@
 			return $tickets;
 		}
 
-		function updatePassword($password, $email){
+		function checkEmail($email){
 			$stmt = $this->con->prepare("SELECT * FROM user WHERE email = ?");
 			$stmt->bind_param("s", $email);
 			$stmt->execute();
 			while($stmt->fetch()){}
 			if($stmt->num_rows == 0) return false;
-			$stmt = $this->con->prepare("UPDATE user SET password = ? WHERE email = ?");
-			$stmt->bind_param("ss", $password, $email);
-			if ($stmt->execute()) return true;
-			return false;
+			return true;
 		}
 
 		function updatePasswordLoggedOn($userID, $password){
@@ -476,6 +467,16 @@
 			$runtime = array();
 			$runtime['runningTime'] = $runningTime;
 			return $runtime;
+		}
+
+		function sendWelcomeEmail($email, $name){
+	                $command = escapeshellcmd('php  sendMail.php ' . $email .' ' . $name );
+	                shell_exec($command);
+		}
+
+		function sendResetPasswordEmail($email, $name){
+			$command = escapeshellcmd('php resetPassword.php ' . $email . ' ' . $name);
+			shell_exec($command);
 		}
 
 	}

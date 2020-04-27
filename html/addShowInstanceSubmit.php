@@ -1,5 +1,4 @@
 <?php
-
 	include_once dirname(__FILE__) . '/constants.php';
 
 	$con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
@@ -22,26 +21,6 @@
 	$startdate = str_replace('/','-',$_REQUEST['start_date']);
 	$enddate = str_replace('/','-',$_REQUEST['end_date']);
 
-	/*
-	$stmt = $con->prepare("SELECT * FROM showInstance WHERE venueName = ? AND endDate > ?");
-	$stmt->bind_param("ss", $venuename, $startdate);
-	$stmt->execute();
-	while($stmt->fetch()){}
-	//if ($stmt->num_rows > 0) die("show already at venue");
-	if($stmt->num_rows > 0){
-		$message = "wrong answer";
-		echo
-		"<script type='text/javascript'>
-			if(confirm('$message')){
-				var ok = true;
-			}else{
-				var ok = false;
-			}
-		</script>";
-	}
-
-	$ok = $_GET['ok'];
-	*/
 	if($_REQUEST['mondaymat'] === on)
 		$mondaymat = 1;
 	else
@@ -118,9 +97,11 @@
 
 	$query = "INSERT INTO showInstance(showName, venueName, startDate, endDate, bandAPrices, bandBPrices, bandCPrices, bandDPrices, bandANumTickets, bandBNumTickets, bandCNumTickets, bandDNumTickets, mondayMat, mondayEve, tuesdayMat, tuesdayEve, wednesdayMat, wednesdayEve, thursdayMat, thursdayEve, fridayMat, fridayEve, saturdayMat, saturdayEve, sundayMat, sundayEve, matineeTime, eveningTime) VALUES('$showname', '$venuename', '$startdate', '$enddate', '$bandaprices', '$bandbprices', '$bandcprices', '$banddprices', '$bandanumseats', '$bandbnumseats', '$bandcnumseats', '$banddnumseats', '$mondaymat', '$mondayeve', '$tuesdaymat', '$tuesdayeve', '$wednesdaymat', '$wednesdayeve', '$thursdaymat', '$thursdayeve', '$fridaymat', '$fridayeve', '$saturdaymat', '$saturdayeve', '$sundaymat', '$sundayeve', '$matineestart', '$eveningstart')";
 
-	if($con->query($query))
-		echo "Success";
-	else
+	if($con->query($query)){
+                $command = escapeshellcmd('python firebaseSendNotifNewShow.py --showName "' . $showname . '" --venueName "' . $venuename . '"');
+                $output = shell_exec($command);
+		echo 'Success';
+	}else
 		echo "Error:  " .$con->error;
 
 
