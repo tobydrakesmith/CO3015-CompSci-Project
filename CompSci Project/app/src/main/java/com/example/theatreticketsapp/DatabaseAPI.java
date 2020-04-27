@@ -77,4 +77,7 @@ public class DatabaseAPI {
     static final String URL_RESET_PASSWORD_LOGGED_ON =
             ROOT_URL + "updatepasswordloggedon&userID=";
 
+    static final String URL_SEND_RESET_PASSWORD_EMAIL =
+            ROOT_URL + "sendresetpasswordemail&email=";
+
 }

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -18,8 +19,13 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.theatreticketsapp.databinding.ActivityMainBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,9 +39,7 @@ import java.util.Random;
 public class Login extends AppCompatActivity {
 
     private Basket basket = new Basket();
-    private String randomPassword;
-    
-    public static ActivityMainBinding mainBinding;
+    public ActivityMainBinding mainBinding;
     RequestQueue requestQueue;
 
     @Override
@@ -43,19 +47,37 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         requestQueue = Volley.newRequestQueue(this);
+
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w("", "getInstanceId failed", task.getException());
+                            return;
+                        }
+
+                        // Get new Instance ID token
+                        String token = task.getResult().getToken();
+
+                        // Log and toast
+                        String msg = getString(R.string.msg_token_fmt, token);
+                        Log.d("TAG", msg);
+                    }
+                });
     }
 
 
-    public void checkDetails(View view){
+    public void checkDetails(View view) {
         login();
     }
 
-    public void register(View view){
+    public void register(View view) {
         Intent displayRegister = new Intent(this, Register.class);
         startActivity(displayRegister);
     }
 
-    public void resetPassword(View view){
+    public void resetPassword(View view) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Reset password");
@@ -83,68 +105,36 @@ public class Login extends AppCompatActivity {
 
     }
 
-    private void sendMail(final String email){
-        
-       randomPassword = getRandomPassword();
-       String hashPW = getSHA256SecurePassword(randomPassword);
+    private void sendMail(String email) {
 
-        JsonObjectRequest resetPasswordRequest = new JsonObjectRequest(Request.Method.POST,
-                DatabaseAPI.URL_UPDATE_PASSWORD + email +"&password="+hashPW, new JSONObject(),
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
+                DatabaseAPI.URL_SEND_RESET_PASSWORD_EMAIL + email, new JSONObject(), new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    if (response.getString("error").equals("false"))
+                        Toast.makeText(Login.this, response.getString("message"), Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(Login.this, response.getString("message"), Toast.LENGTH_SHORT).show();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
-                        try {
-                            if (response.getString("error").equals("false")) {
-
-                                final String body = "Your new password is: " +
-                                        randomPassword + "\n" +
-                                        "Please use this to log in to your account " +
-                                        "and change the password again to a memorable one";
-
-                                new Thread(new Runnable() {
-
-                                    @Override
-                                    public void run() {
-                                        try {
-                                            GMailSender sender = new GMailSender(EmailConfig.email,
-                                                    EmailConfig.password);
-                                            sender.sendMail("Password reset", body,
-                                                    EmailConfig.email, email);
-                                        } catch (Exception e) {
-                                            Log.e("SendMail", e.getMessage(), e);
-                                        }
-                                    }
-
-                                }).start();
-
-                                Toast.makeText(Login.this,
-                                        "An email with your new password has been sent",
-                                        Toast.LENGTH_LONG).show();
-                            }else
-                                Toast.makeText(Login.this,
-                                        "The provided email was not recognised",
-                                        Toast.LENGTH_SHORT).show();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
+            }
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
             }
         });
 
-        requestQueue.add(resetPasswordRequest);
+
+        requestQueue.add(jsonObjectRequest);
 
     }
 
 
-
-
-    public void guestLogin(View view){
+    public void guestLogin(View view) {
         displayHome(new User());
     }
 
@@ -156,9 +146,8 @@ public class Login extends AppCompatActivity {
         startActivity(displayHome);
     }
 
-    private boolean validate(String username, String password){
-        if (username.equals("") || password.equals("")) return false;
-        else return true;
+    private boolean validate(String username, String password) {
+        return !username.equals("") && !password.equals("");
     }
 
     private static String getSHA256SecurePassword(String passwordToHash) {
@@ -167,11 +156,10 @@ public class Login extends AppCompatActivity {
             MessageDigest md = MessageDigest.getInstance("SHA-1");
             byte[] bytes = md.digest(passwordToHash.getBytes());
             StringBuilder sb = new StringBuilder();
-            for(int i=0; i< bytes.length ;i++)
-                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            for (byte aByte : bytes)
+                sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
             generatedPassword = sb.toString();
-        }
-        catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
         return generatedPassword;
@@ -218,42 +206,9 @@ public class Login extends AppCompatActivity {
                     });
 
             requestQueue.add(jsObjectRequest);
-        } else{
+        } else {
             Toast.makeText(this, "You must enter your username and password", Toast.LENGTH_LONG).show();
         }
     }
 
-    private String getRandomPassword(){
-
-        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                                    + "0123456789"
-                                    + "abcdefghijklmnopqrstuvxyz";
-
-        // create StringBuffer size of AlphaNumericString
-        StringBuilder sb = new StringBuilder(8);
-        ArrayList<Integer> generatedIndex = new ArrayList();
-        int index = 0;
-
-
-        Random random = new Random();
-        for (int i = 0; i < 8; i++) {
-
-            // generate a random number between
-            // 0 to String variable length
-            //int index = (int) (AlphaNumericString.length() * Math.random());
-
-
-            if (i==0) index = random.nextInt(AlphaNumericString.length());
-            else {
-                do {
-                    index = random.nextInt(AlphaNumericString.length());
-                } while (generatedIndex.contains(index));
-            }
-            generatedIndex.add(index);
-            // add Character one by one in end of sb
-            sb.append(AlphaNumericString.charAt(index));
-        }
-
-        return sb.toString();
-    }
 }

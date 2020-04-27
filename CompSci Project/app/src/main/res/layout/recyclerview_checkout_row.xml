@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
+        android:backgroundTint="#673AB7"
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -51,14 +52,6 @@
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="@+id/venueName"
         app:layout_constraintTop_toBottomOf="@+id/venueName" />
-
-    <TextView
-        android:id="@+id/bookingCost"
-        android:layout_width="wrap_content"
-        android:layout_height="16dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/fabCalendar"
-        app:layout_constraintTop_toBottomOf="@+id/fabCalendar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

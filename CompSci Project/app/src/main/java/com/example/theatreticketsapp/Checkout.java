@@ -42,19 +42,19 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewAdapter.OnCalendarClick{
 
 
+    //TODO: CHANGE EMAIL CONFIRMATION SO IT IS SENT VIA PHP SERVER
+
     private Basket basket;
     private User user;
     private RequestQueue requestQueue;
     private String subject, content;
-    private RecyclerView recyclerView;
     private ArrayList<BasketBooking> bookings = new ArrayList<>();
-    private CheckoutRecyclerViewAdapter checkoutRecyclerViewAdapter;
-    private TextView totalCost;
 
     private static PayPalConfiguration payPalConfiguration = new PayPalConfiguration()
             .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
@@ -96,7 +96,7 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
         toolbar.setNavigationIcon(drawable);
         setSupportActionBar(toolbar);
 
-        totalCost = findViewById(R.id.totalBookingCost);
+        TextView totalCost = findViewById(R.id.totalBookingCost);
 
 
         Intent intent = getIntent();
@@ -105,7 +105,7 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
         
         bookings.addAll(basket.getBookings());
 
-        checkoutRecyclerViewAdapter = new CheckoutRecyclerViewAdapter(this, this, bookings);
+        CheckoutRecyclerViewAdapter checkoutRecyclerViewAdapter = new CheckoutRecyclerViewAdapter(this, this, bookings);
 
         if (basket.numberOfBookings() > 1)
             subject = "Your booking to see " + basket.numberOfBookings() + " shows";
@@ -119,7 +119,7 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
         payPalService.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
         startService(payPalService);
 
-        recyclerView = findViewById(R.id.checkoutRecylerView);
+        RecyclerView recyclerView = findViewById(R.id.checkoutRecylerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(checkoutRecyclerViewAdapter);
 
@@ -186,6 +186,7 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 7171){
             if (resultCode == RESULT_OK){
+                assert data != null;
                 PaymentConfirmation confirmation = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
                 if (confirmation != null){
                     try {
@@ -234,7 +235,8 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
             date = formatDate(booking);
             toDisplay.append(booking.getShowName()).append("\n").append(booking.getShow().getVenue().getVenueName())
                     .append("\n").append(date.toString()).append(" x")
-                    .append(booking.getNumberOfTickets()).append("\n£").append(booking.getCost()).append("\n\n");
+                    .append(booking.getNumberOfTickets()).append("\n£").append(booking.getTickets().get(0).getPrice()).append(" each")
+                    .append("\n\n");
         }
 
         toDisplay.append("Total cost: £").append(basket.getTotalCost());
@@ -250,11 +252,12 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
     private Date formatDate(BasketBooking booking){
         Date date = null;
         try {
-            date = new SimpleDateFormat("yyyy-MM-dd").parse(booking.getDate());
+            date = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(booking.getDate());
 
-            String strDate = new SimpleDateFormat("dd-MM-yyyy").format(date);
+            assert date != null;
+            String strDate = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).format(date);
 
-            date = new SimpleDateFormat("dd-MM-yyyy hh:mm").parse(strDate+ " " + booking.getStartTime());
+            date = new SimpleDateFormat("dd-MM-yyyy hh:mm", Locale.ENGLISH).parse(strDate+ " " + booking.getStartTime());
 
         } catch (ParseException e) {
             e.printStackTrace();

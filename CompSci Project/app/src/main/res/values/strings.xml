@@ -63,4 +63,7 @@
     <string name="string_not_enough_reviews">Not enough reviews for this to be displayed yet!</string>
 
 
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+
+
 </resources>

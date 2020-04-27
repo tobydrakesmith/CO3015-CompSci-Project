@@ -58,8 +58,8 @@ public class CheckoutRecyclerViewAdapter extends RecyclerView.Adapter<CheckoutRe
 
         holder.showName.setText(booking.getShowName());
         holder.venueName.setText(booking.getShow().getVenue().getVenueName());
-        holder.numberOfTickets.setText("Number of tickets: "+booking.getNumberOfTickets());
-        holder.bookingCost.setText("£"+booking.getCost());
+        holder.numberOfTickets.setText("Number of tickets: "+booking.getNumberOfTickets()
+                + ", £"+booking.getTickets().get(0).getPrice() + " each");
         holder.date.setText(date.toString());
     }
 
@@ -71,7 +71,7 @@ public class CheckoutRecyclerViewAdapter extends RecyclerView.Adapter<CheckoutRe
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView showName, venueName, bookingCost, numberOfTickets, date;
+        TextView showName, venueName, numberOfTickets, date;
         FloatingActionButton fabCalendar;
         OnCalendarClick calendarClick;
 
@@ -82,7 +82,6 @@ public class CheckoutRecyclerViewAdapter extends RecyclerView.Adapter<CheckoutRe
             showName = view.findViewById(R.id.showName);
             venueName = view.findViewById(R.id.venueName);
             date = view.findViewById(R.id.bookingDate);
-            bookingCost = view.findViewById(R.id.bookingCost);
             numberOfTickets = view.findViewById(R.id.numberTickets);
 
             fabCalendar = view.findViewById(R.id.fabCalendar);

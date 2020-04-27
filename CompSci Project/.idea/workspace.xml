@@ -71,9 +71,9 @@
   <component name="ProjectId" id="1YJWhA9YOEzw2z3wFnSe3HWjToX" />
   <component name="PropertiesComponent">
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="ce01182110b0082f0c" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-03-26T13:39:58.637Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-04-26T16:25:52.591Z" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -86,32 +86,32 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.example.theatreticketsapp.ui.settings" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/transition" />
+    <key name="android.template.parentActivityClass">
+      <recent name="" />
     </key>
     <key name="android.template.packageName">
       <recent name="com.example.theatreticketsapp" />
       <recent name="com.example.theatreticketsapp.ui.bookings" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/transition" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.theatreticketsapp" />
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/app/src/main/res/transition" />
       <recent name="$PROJECT_DIR$/app/src/main/res/xml" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.theatreticketsapp" />
     </key>
-    <key name="android.template.parentActivityClass">
-      <recent name="" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.theatreticketsapp.ui.settings" />
     </key>
   </component>
   <component name="RunDashboard">

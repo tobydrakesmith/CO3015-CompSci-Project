@@ -4,24 +4,7 @@
             "outputFile": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt/values-pt.xml",
             "map": [
                 {
-                    "source": "/home/tjd17/.gradle/caches/transforms-2/files-2.1/e9dab9c67c1ee3668e0bbf86c6d8cbd8/core-1.1.0/res/values-pt/values-pt.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "32",
-                        "startColumns": "4",
-                        "startOffsets": "3160",
-                        "endColumns": "100",
-                        "endOffsets": "3256"
-                    }
-                },
-                {
-                    "source": "/home/tjd17/.gradle/caches/transforms-2/files-2.1/67bba0fdd18fd18dd628e62ed31db309/navigation-ui-2.2.1/res/values-pt/values-pt.xml",
+                    "source": "/home/tjd17/.gradle/caches/transforms-2/files-2.1/d1d5ccbf562d0e2bf861f602b57b02a4/navigation-ui-2.2.1/res/values-pt/values-pt.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "/home/tjd17/.gradle/caches/transforms-2/files-2.1/6119d746697059b7e1b74aab4d181f56/appcompat-1.1.0/res/values-pt/values-pt.xml",
+                    "source": "/home/tjd17/.gradle/caches/transforms-2/files-2.1/bcfc0b80df78591183083cc148e1cf2c/core-1.1.0/res/values-pt/values-pt.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "32",
+                        "startColumns": "4",
+                        "startOffsets": "3160",
+                        "endColumns": "100",
+                        "endOffsets": "3256"
+                    }
+                },
+                {
+                    "source": "/home/tjd17/.gradle/caches/transforms-2/files-2.1/6c5a1a33c151bf1b1b969a4997bc8337/appcompat-1.1.0/res/values-pt/values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

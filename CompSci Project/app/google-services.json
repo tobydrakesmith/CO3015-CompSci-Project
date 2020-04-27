@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "288519348732",
+    "firebase_url": "https://theatre-tickets-app.firebaseio.com",
+    "project_id": "theatre-tickets-app",
+    "storage_bucket": "theatre-tickets-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288519348732:android:555fe51849cc5b6a239279",
+        "android_client_info": {
+          "package_name": "com.example.theatreticketsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "288519348732-h07vt0f5r7i4vhfg2iv133jrce6eu0vs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrVLOoIJJIxftcWI4MrdPUAgRTZLbIv40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "288519348732-h07vt0f5r7i4vhfg2iv133jrce6eu0vs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
