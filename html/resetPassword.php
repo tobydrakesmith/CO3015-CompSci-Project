@@ -7,8 +7,8 @@ require 'vendor/autoload.php';
 
 $emailAddress = $argv[1];
 $name = $argv[2];
-$link = 'http://192.168.0.33/passwordReset.php?id=' . $emailAddress;
-
+//$link = 'http://192.168.0.33/passwordReset.php?id=' . $emailAddress;
+$link = 'http://81.101.72.233:80/passwordReset.php?id=' . $emailAddress;
 $mail = new PHPMailer(TRUE);
 
 

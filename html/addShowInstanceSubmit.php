@@ -95,12 +95,16 @@
 	$matineestart = $_REQUEST['mat_start'];
 	$eveningstart = $_REQUEST['eve_start'];
 
+	$showtypecmd = $_REQUEST['show_type'];
+	$venueregioncmd = $_REQUEST['venue_region'];
+//	echo $venueregioncmd;
+
 	$query = "INSERT INTO showInstance(showName, venueName, startDate, endDate, bandAPrices, bandBPrices, bandCPrices, bandDPrices, bandANumTickets, bandBNumTickets, bandCNumTickets, bandDNumTickets, mondayMat, mondayEve, tuesdayMat, tuesdayEve, wednesdayMat, wednesdayEve, thursdayMat, thursdayEve, fridayMat, fridayEve, saturdayMat, saturdayEve, sundayMat, sundayEve, matineeTime, eveningTime) VALUES('$showname', '$venuename', '$startdate', '$enddate', '$bandaprices', '$bandbprices', '$bandcprices', '$banddprices', '$bandanumseats', '$bandbnumseats', '$bandcnumseats', '$banddnumseats', '$mondaymat', '$mondayeve', '$tuesdaymat', '$tuesdayeve', '$wednesdaymat', '$wednesdayeve', '$thursdaymat', '$thursdayeve', '$fridaymat', '$fridayeve', '$saturdaymat', '$saturdayeve', '$sundaymat', '$sundayeve', '$matineestart', '$eveningstart')";
 
 	if($con->query($query)){
-                $command = escapeshellcmd('python firebaseSendNotifNewShow.py --showName "' . $showname . '" --venueName "' . $venuename . '"');
+                $command = escapeshellcmd('python firebaseSendNotifNewShow.py --showName "' . $showname . '" --venueName "' . $venuename . '" --showType ' .$showtypecmd . ' --venueRegion ' . $venueregioncmd);
                 $output = shell_exec($command);
-		echo 'Success';
+		echo $command;
 	}else
 		echo "Error:  " .$con->error;
 

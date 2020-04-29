@@ -1,6 +1,5 @@
 <?php
 
-
 	function populateVenueList(){
 	        include_once dirname(__FILE__) . '/constants.php';
 	        $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME) or die ('Cannot connect to db');
@@ -49,6 +48,8 @@ function showVenueInfo(venue) {
 
 	xmlhttp.open("GET", "getVenueInfo.php?q="+venue, true);
 	xmlhttp.send();
+
+	getVenueRegion(venue);
 }
 
 function dateChange(name) {
@@ -108,6 +109,36 @@ function showNameChange(showName){
 
 	xmlhttp.open("GET", "getRunningTime.php?showName="+showName, true);
 	xmlhttp.send();
+
+	getShowType(showName);
+}
+
+function getShowType(showName){
+
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200){
+			document.forms["form"]["show_type"].value = this.responseText;
+                }
+        };
+
+        xmlhttp.open("GET", "getShowType.php?showName="+showName, true);
+        xmlhttp.send();
+
+}
+
+function getVenueRegion(venueName){
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200){
+			document.forms["form"]["venue_region"].value = this.responseText;
+			alert(this.responseText);
+                }
+        };
+
+        xmlhttp.open("GET", "getVenueRegion.php?venueName="+venueName, true);
+        xmlhttp.send();
+
 }
 </script>
 </head>
@@ -227,6 +258,12 @@ function showNameChange(showName){
 	<div id="running_time"></div>
 
 	<br>
+
+
+	<input type="text" name="venue_region" id="venue_region">
+	<input type="text" name="show_type" id="show_type">
+
+
 	<input type="submit" value="Submit">
 
 

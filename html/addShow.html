@@ -25,19 +25,33 @@ function showNameChange(name){
 		<label for="show_name">Show Name:</label>
 		<input type="text" name="show_name" onchange="showNameChange(this.value)" id="show_name">
 	</p>
-	<div id="show_name_exists">Show name exists</div>
+
+	<div id="show_name_exists"></div>
+
 	<p>
 		<label for="show_description">Show description:</label>
 	</p>
+
 	<textarea name="show_description" rows="4" cols="50"></textarea>
+
 	<p>
 		<label for="running_time">Running time (minutes, inc. interval):</label>
 		<input type="number" name="running_time" id="running_time">
 	</p>
-	<br>	 
+
 	<p>
-	<input type="submit">
+		<label for="classification">Play or musical:</label>
+		<select id="classification" name="classification">
+			<option value="Musical">Musical</option>
+			<option value="Play">Play</option>
+		</select>
 	</p>
+
+
+	<br>	 
+
+	<input type="submit">
+
 
 	<br>
 </form>
