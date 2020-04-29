@@ -1,14 +1,17 @@
 package com.example.theatreticketsapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -18,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.theatreticketsapp.databinding.ActivityRegisterBinding;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 
 import org.json.JSONException;
@@ -25,6 +29,7 @@ import org.json.JSONObject;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +39,11 @@ public class Register extends AppCompatActivity {
 
 
     private ActivityRegisterBinding registerBinding;
-    RequestQueue requestQueue;
+    private RequestQueue requestQueue;
+    private ArrayList<String> userLocationPreferences;
+    private HashMap<String, String> fireBaseTopicName;
+    private FirebaseMessaging firebaseMessaging;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +54,36 @@ public class Register extends AppCompatActivity {
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         requestQueue = Volley.newRequestQueue(this);
+
+        userLocationPreferences = new ArrayList<>();
+
+
+        firebaseMessaging = FirebaseMessaging.getInstance();
+
+        fireBaseTopicName = new HashMap<>();
+        fireBaseTopicName.put("Scotland", "newShowScotland");
+        fireBaseTopicName.put("Northern Ireland", "newShowNorthernIreland");
+        fireBaseTopicName.put("Wales", "newShowWales");
+        fireBaseTopicName.put("North East", "newShowNorthEast");
+        fireBaseTopicName.put("North West", "newShowNorthWest");
+        fireBaseTopicName.put("Yorkshire", "newShowYorkshire");
+        fireBaseTopicName.put("West Midlands", "newShowWestMidlands");
+        fireBaseTopicName.put("East Midlands", "newShowEastMidlands");
+        fireBaseTopicName.put("South West", "newShowSouthWest");
+        fireBaseTopicName.put("South East", "newShowSouthEast");
+        fireBaseTopicName.put("East of England", "newShowEastOfEngland");
+        fireBaseTopicName.put("Greater London", "newShowLondon");
+
+
     }
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Intent intent = new Intent(Register.this, Login.class);
-                startActivity(intent);
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            Intent intent = new Intent(Register.this, Login.class);
+            startActivity(intent);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -65,6 +94,7 @@ public class Register extends AppCompatActivity {
     }
 
     public void register(View view){
+
         String username = registerBinding.username.getText().toString().trim();
         String password = registerBinding.password.getText().toString().trim();
         String password2 = registerBinding.confirmPassword.getText().toString().trim();
@@ -130,9 +160,8 @@ public class Register extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getString("error").equals("false")){
                         Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
-                        sendMail();
-                        Intent intent = new Intent(Register.this, Login.class);
-                        startActivity(intent);
+
+                        openDialog();
                     }
                     else{
                         Toast.makeText(Register.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
@@ -176,29 +205,76 @@ public class Register extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    private void sendMail(){
+    private void openDialog() {
 
+        final String[] items = getResources().getStringArray(R.array.locations);
+        boolean[] checkedItems = new boolean[items.length];
 
-        final String body = "Hello " + registerBinding.firstname.getText().toString() + ",\n\nThis email is to " +
-                "confirm that your account has successfully been created. You can now log into the Theatre tickets app with the details you provided";
-
-
-        new Thread(new Runnable() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(Register.this);
+        dialog.setTitle("Select the region(s) you would like to hear about new shows in");
+        dialog.setMultiChoiceItems(items, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
-            public void run() {
-                try {
-                    GMailSender sender = new GMailSender(EmailConfig.email,
-                            EmailConfig.password);
-                    sender.sendMail("Account creation confirmation", body,
-                            EmailConfig.email, registerBinding.username.getText().toString());
-                } catch (Exception e) {
-                    Log.e("SendMail", e.getMessage(), e);
-                    e.printStackTrace();
-                }
-            }
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
-        }).start();
+                if (isChecked)
+                    userLocationPreferences.add(items[which]);
+                else
+                    userLocationPreferences.remove(items[which]);
+            }
+        });
+        dialog.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                processLocationChoices();
+            }
+        });
+        dialog.show();
     }
+
+    private void processLocationChoices() {
+
+        for (String s : userLocationPreferences)
+            firebaseMessaging.subscribeToTopic(fireBaseTopicName.get(s));
+
+
+        final View dialogView = View.inflate(Register.this, R.layout.dialog_musical_play, null);
+        final RadioGroup radioGroup = dialogView.findViewById(R.id.radioGroup);
+
+        AlertDialog.Builder dialog = new AlertDialog.Builder(Register.this);
+        dialog.setTitle("Notification options");
+        dialog.setView(dialogView);
+        dialog.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                int id = radioGroup.getCheckedRadioButtonId();
+                if (id !=1) {
+                    RadioButton checkedBtn = dialogView.findViewById(id);
+                    String text = checkedBtn.getText().toString();
+                    switch (text){
+                        case("Both"):
+                            Toast.makeText(Register.this, "Both", Toast.LENGTH_SHORT).show();
+                            firebaseMessaging.subscribeToTopic("plays");
+                            firebaseMessaging.subscribeToTopic("musicals");
+                            break;
+                        case("Plays only"):
+                            Toast.makeText(Register.this, "Plays only", Toast.LENGTH_SHORT).show();
+                            firebaseMessaging.subscribeToTopic("plays");
+                            break;
+                        case("Musicals only"):
+                            Toast.makeText(Register.this, "Musicals only", Toast.LENGTH_SHORT).show();
+                            firebaseMessaging.subscribeToTopic("musicals");
+                            break;
+                    }
+                }
+
+                Intent intent = new Intent(Register.this, Login.class);
+                startActivity(intent);
+            }
+        });
+        dialog.show();
+
+    }
+
 
     private static String getSHA256SecurePassword(String passwordToHash) {
         String generatedPassword = null;
@@ -207,8 +283,8 @@ public class Register extends AppCompatActivity {
             byte[] bytes = md.digest(passwordToHash.getBytes());
             StringBuilder sb = new StringBuilder();
 
-            for(int i=0; i< bytes.length ;i++)
-                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            for (byte aByte : bytes)
+                sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
 
             generatedPassword = sb.toString();
         }

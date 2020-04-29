@@ -62,16 +62,16 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile_vertical" />
-        <option value="layoutResourceFile" />
         <option value="Class" />
         <option value="resourceFile" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1YJWhA9YOEzw2z3wFnSe3HWjToX" />
   <component name="PropertiesComponent">
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="ce01182110b0082f0c" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-04-26T16:25:52.591Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-04-29T13:48:57.469Z" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
     <property name="project.structure.last.edited" value="Modules" />

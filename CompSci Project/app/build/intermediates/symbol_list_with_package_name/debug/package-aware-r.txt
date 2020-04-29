@@ -58,6 +58,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array locations
 array sms_country_list
 attr action
 attr actionBarDivider
@@ -2039,6 +2040,9 @@ id progress_horizontal
 id progress_spinner
 id qrCodeImageView
 id radio
+id radioButton
+id radioButton2
+id radioButton3
 id radioGroup
 id rating
 id ratingBar
@@ -2159,6 +2163,7 @@ id textView3
 id textView4
 id textView5
 id textView6
+id textView7
 id textWatcher
 id text_input_end_icon
 id text_input_start_icon
@@ -2317,6 +2322,7 @@ layout dialog_card_reader_scanner
 layout dialog_filter_location
 layout dialog_image_buttons
 layout dialog_image_dynamic_buttons
+layout dialog_musical_play
 layout dialog_review
 layout dialog_review_filter
 layout layout_buttons_primary_n_tertiary
@@ -2458,6 +2464,7 @@ string appbar_scrolling_view_behavior
 string back_button
 string bluetooth_disabled
 string booking_confirmed
+string both
 string bottom_sheet_behavior
 string btn_add_to_basket
 string btn_book
@@ -2653,6 +2660,8 @@ string mtrl_picker_toggle_to_calendar_input_mode
 string mtrl_picker_toggle_to_day_selection
 string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
+string musicals_only
+string musicals_or_plays
 string my_basket_title
 string my_friends
 string my_reviews
@@ -2666,6 +2675,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string plays_only
 string preference_file_key
 string price
 string project_id

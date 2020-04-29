@@ -65,5 +65,27 @@
 
     <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
 
+    <string name="musicals_or_plays">Would you like to hear about musicals or plays?</string>
+    <string name="both">Both</string>
+    <string name="plays_only">Plays only</string>
+    <string name="musicals_only">Musicals only</string>
+
+
+
+    <string-array name="locations">
+        <item>Greater London</item>
+        <item>Scotland</item>
+        <item>Northern Ireland</item>
+        <item>Wales</item>
+        <item>North East</item>
+        <item>North West</item>
+        <item>Yorkshire</item>
+        <item>West Midlands</item>
+        <item>East Midlands</item>
+        <item>South West</item>
+        <item>South East</item>
+        <item>East of England</item>
+    </string-array>
+
 
 </resources>

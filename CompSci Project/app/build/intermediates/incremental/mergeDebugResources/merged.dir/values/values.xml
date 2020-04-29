@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
+    <string-array name="locations">
+        <item>Greater London</item>
+        <item>Scotland</item>
+        <item>Northern Ireland</item>
+        <item>Wales</item>
+        <item>North East</item>
+        <item>North West</item>
+        <item>Yorkshire</item>
+        <item>West Midlands</item>
+        <item>East Midlands</item>
+        <item>South West</item>
+        <item>South East</item>
+        <item>East of England</item>
+    </string-array>
     <string-array name="sms_country_list">
         <item>@string/ct_other</item>
         <item>@string/ct_afghanistan</item>
@@ -1030,6 +1044,7 @@
     <string name="bluetooth_disabled">Please enable Bluetooth in your phone settings to find available readers</string>
     <string name="booking_confirmed">Your booking was successful. An email has been sent to confirm the booking;
         you can also view the booking under the "My Bookings" section of the app</string>
+    <string name="both">Both</string>
     <string name="bottom_sheet_behavior" translatable="false">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
     <string name="btn_add_to_basket">Add to basket</string>
     <string name="btn_book">Book</string>
@@ -1225,6 +1240,8 @@
     <string description="a11y string to indicate this button switches the user to choosing a day [CHAR_LIMIT=NONE]" name="mtrl_picker_toggle_to_day_selection">Tap to switch to selecting a day</string>
     <string description="a11y string to indicate this button changes the input mode to a text field [CHAR_LIMIT=NONE]" name="mtrl_picker_toggle_to_text_input_mode">Switch to text input mode</string>
     <string description="a11y string to indicate this button switches the user to choosing a year [CHAR_LIMIT=NONE]" name="mtrl_picker_toggle_to_year_selection">Tap to switch to selecting a year</string>
+    <string name="musicals_only">Musicals only</string>
+    <string name="musicals_or_plays">Would you like to hear about musicals or plays?</string>
     <string name="my_basket_title">Your basket:</string>
     <string name="my_friends">My friends</string>
     <string name="my_reviews">My reviews</string>
@@ -1238,6 +1255,7 @@
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
+    <string name="plays_only">Plays only</string>
     <string name="preference_file_key">paypalretailsdkdb</string>
     <string name="price">Price</string>
     <string name="project_id" translatable="false">theatre-tickets-app</string>

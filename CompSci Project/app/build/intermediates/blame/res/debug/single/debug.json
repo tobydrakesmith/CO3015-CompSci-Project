@@ -80,24 +80,24 @@
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/transition/slide_out_right.xml"
     },
     {
-        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_basket.png.flat",
-        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-hdpi/ic_basket.png"
-    },
-    {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/layout_recyclerview_reviews.xml.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/layout/recyclerview_reviews.xml"
+    },
+    {
+        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_basket.png.flat",
+        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-hdpi/ic_basket.png"
     },
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_foreground.png.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/layout_activity_view_tickets.xml.flat",
-        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/layout/activity_view_tickets.xml"
-    },
-    {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable_ic_theaters_black_24dp.xml.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable/ic_theaters_black_24dp.xml"
+    },
+    {
+        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/layout_activity_view_tickets.xml.flat",
+        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/layout/activity_view_tickets.xml"
     },
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/layout_activity_create_review.xml.flat",
@@ -306,6 +306,10 @@
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/menu_sort_menu_reviews.xml.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/menu/sort_menu_reviews.xml"
+    },
+    {
+        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/layout_dialog_musical_play.xml.flat",
+        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/layout/dialog_musical_play.xml"
     },
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-anydpi_ic_left.xml.flat",
