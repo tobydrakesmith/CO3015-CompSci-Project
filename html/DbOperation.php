@@ -110,9 +110,9 @@
 		}
 
 		function getLiveShows(){
-			$stmt = $this->con->prepare("SELECT * FROM showInstance WHERE startDate <= CURDATE() AND endDate > CURDATE()");
+			$stmt = $this->con->prepare("SELECT * FROM showInstance WHERE endDate >= CURDATE()");
 			$stmt->execute();
-			$stmt->bind_result($id, $showName, $venueName, $startDate, $endDate, $rating, $bandAPrices, $bandBPrices, $bandCPrices, $bandDPrices, $bandANum, $bandBNum, $bandCNum, $bandDNum, $monMat, $monEve, $tueMat, $tueEve, $wedMat, $wedEve, $thuMat, $thuEve, $friMat, $friEve, $satMat, $satEve, $sunMat, $sunEve, $matTime, $eveTime);
+			$stmt->bind_result($id, $showName, $venueName, $startDate, $endDate, $rating, $bandAPrices, $bandBPrices, $bandCPrices, $bandDPrices, $bandANum, $bandBNum, $bandCNum, $bandDNum, $monMat, $monEve, $tueMat, $tueEve, $wedMat, $wedEve, $thuMat, $thuEve, $friMat, $friEve, $satMat, $satEve, $sunMat, $sunEve, $matTime, $eveTime, $dateAdded);
 
                         $liveshows = array();
 
@@ -148,6 +148,7 @@
                                 $liveshow['sunEve'] = $sunEve;
 				$liveshow['matTime'] = $matTime;
 				$liveshow['eveTime'] = $eveTime;
+				$liveshow['dateAdded'] = $dateAdded;
 				array_push($liveshows, $liveshow);
                         }
 
@@ -301,15 +302,16 @@
 		}
 
 		function getVenueInfo($venueName){
-			$stmt = $this->con->prepare("SELECT venueDesc, postcode FROM venue WHERE venueName = ?");
+			$stmt = $this->con->prepare("SELECT venueDesc, postcode, city FROM venue WHERE venueName = ?");
 			$stmt->bind_param("s", $venueName);
 			$stmt->execute();
-			$stmt->bind_result($venueDescription, $postcode);
+			$stmt->bind_result($venueDescription, $postcode, $city);
 			$stmt->fetch();
 			$venue = array();
 			$venue['venueDescription'] = $venueDescription;
 			$venue['postcode'] = $postcode;
 			$venue['name'] = $venueName;
+			$venue['city'] = $city;
 
 			return $venue;
 		}
