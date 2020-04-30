@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/userName"
+        android:id="@+id/showName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -25,8 +25,8 @@
         android:layout_marginTop="7dp"
         android:ellipsize="end"
         android:singleLine="true"
-        app:layout_constraintStart_toStartOf="@+id/userName"
-        app:layout_constraintTop_toBottomOf="@+id/userName" />
+        app:layout_constraintStart_toStartOf="@+id/showName"
+        app:layout_constraintTop_toBottomOf="@+id/showName" />
 
     <TextView
         android:id="@+id/date"
@@ -43,7 +43,7 @@
         android:layout_marginEnd="10dp"
         android:clickable="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/userName" />
+        app:layout_constraintTop_toTopOf="@+id/showName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

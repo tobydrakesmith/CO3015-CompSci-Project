@@ -87,5 +87,12 @@
         <item>East of England</item>
     </string-array>
 
+    <string name="filter_by_date">Would you like to view future shows, or just current ones?</string>
+    <string name="all_shows">All shows</string>
+    <string name="current_shows_only">Current shows only</string>
+    <string name="filter_by_location">Filter by distance from your current location</string>
+    <string name="filter_by_price">Filter by price</string>
+
+    <string name="homepage_search_prompt">"Show, venue or city..."</string>
 
 </resources>

@@ -1619,11 +1619,14 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_my_account
+drawable ic_new
+drawable ic_new_two
 drawable ic_notifications_black_24dp
 drawable ic_refresh_scan_again
 drawable ic_right
 drawable ic_roam_g4x
 drawable ic_roam_g4x_sm
+drawable ic_search
 drawable ic_search_black_24dp
 drawable ic_sort_black_24dp
 drawable ic_spinner
@@ -1771,6 +1774,7 @@ id adjust_height
 id adjust_width
 id alertTitle
 id all
+id allShowsBtn
 id always
 id appBarLayout
 id async
@@ -1833,6 +1837,7 @@ id coordinatorLayout2
 id country_code_spinner
 id country_selector
 id currentPassword
+id currentShowsBtn
 id custom
 id customPanel
 id cut
@@ -1883,6 +1888,7 @@ id fill_vertical
 id filled
 id filter
 id filterDistance
+id filterPrice
 id filter_chip
 id firstname
 id fitToContents
@@ -1995,6 +2001,7 @@ id navigation_myaccount
 id navigation_mybookings
 id negativeBtn
 id never
+id newImage
 id newPassword1
 id newPassword2
 id noScroll
@@ -2099,6 +2106,7 @@ id search_plate
 id search_src_text
 id search_voice_btn
 id seekBarLocation
+id seekBarPrice
 id selectThePrice
 id select_dialog_listview
 id selected
@@ -2158,12 +2166,15 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textView10
+id textView11
 id textView2
 id textView3
 id textView4
 id textView5
 id textView6
 id textView7
+id textView9
 id textWatcher
 id text_input_end_icon
 id text_input_start_icon
@@ -2199,10 +2210,10 @@ id uniform
 id unlabeled
 id up
 id useLogo
-id userName
 id username
 id usernameEditText
 id venue
+id venueCity
 id venueDescription
 id venueName
 id viewReviewsBtn
@@ -2459,6 +2470,7 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string action_settings
+string all_shows
 string app_name
 string appbar_scrolling_view_behavior
 string back_button
@@ -2600,6 +2612,7 @@ string ct_vietnam
 string ct_yemen
 string ct_zambia
 string ct_zimbabwe
+string current_shows_only
 string date
 string default_total_title
 string default_web_client_id
@@ -2610,6 +2623,9 @@ string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string fcm_fallback_notification_channel_label
+string filter_by_date
+string filter_by_location
+string filter_by_price
 string firebase_database_url
 string gcm_defaultSenderId
 string google_api_key
@@ -2619,6 +2635,7 @@ string google_maps_key
 string google_storage_bucket
 string hello_world
 string hide_bottom_view_on_scroll_behavior
+string homepage_search_prompt
 string icon_content_description
 string lbl_no_account
 string lbl_numberTix

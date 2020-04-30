@@ -70,7 +70,7 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
             ratingBar = view.findViewById(R.id.ratingBar);
             reviewText = view.findViewById(R.id.reviewText);
             date = view.findViewById(R.id.date);
-            userName = view.findViewById(R.id.userName);
+            userName = view.findViewById(R.id.showName);
 
             view.setOnClickListener(this);
 

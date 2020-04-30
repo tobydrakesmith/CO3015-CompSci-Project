@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Locale;
 
 public class ViewReviews extends AppCompatActivity implements ReviewsRecyclerViewAdapter.OnReviewClickListener {
 
@@ -276,8 +277,8 @@ class SortByDateAsc implements Comparator<Review>{
         Date d2 = new Date();
 
         try{
-            d1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(r1.getDate());
-            d2 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(r2.getDate());
+            d1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH).parse(r1.getDate());
+            d2 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH).parse(r2.getDate());
         } catch (ParseException e){
             e.printStackTrace();
         }
@@ -296,8 +297,8 @@ class SortByDateDesc implements Comparator<Review>{
         Date d2 = new Date();
 
         try{
-            d1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(r1.getDate());
-            d2 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(r2.getDate());
+            d1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH).parse(r1.getDate());
+            d2 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH).parse(r2.getDate());
         } catch (ParseException e){
             e.printStackTrace();
         }

@@ -7,18 +7,19 @@ import android.os.Parcelable;
 
 public class Venue implements Parcelable {
 
-    private String name, postcode, strLocation, description;
+    private String name, postcode, strLocation, description, city;
     private Location location;
 
     public Venue(){
         location = null;
     }
 
-    public Venue(String name, String postcode, String description){
+    public Venue(String name, String postcode, String description, String city){
         this.name = name;
         this.postcode = postcode;
         this.strLocation = name + ", " + postcode;
         this.description = description;
+        this.city = city;
     }
 
     public String getStrLocation(){
@@ -39,6 +40,10 @@ public class Venue implements Parcelable {
         return this.location;
     }
 
+    public String getCity(){
+        return this.city;
+    }
+
 
     protected Venue(Parcel in) {
         name = in.readString();
@@ -46,6 +51,7 @@ public class Venue implements Parcelable {
         strLocation = in.readString();
         description = in.readString();
         location = in.readParcelable(Location.class.getClassLoader());
+        city = in.readString();
     }
 
     public static final Creator<Venue> CREATOR = new Creator<Venue>() {
@@ -72,5 +78,6 @@ public class Venue implements Parcelable {
         dest.writeString(strLocation);
         dest.writeString(description);
         dest.writeParcelable(location, flags);
+        dest.writeString(city);
     }
 }

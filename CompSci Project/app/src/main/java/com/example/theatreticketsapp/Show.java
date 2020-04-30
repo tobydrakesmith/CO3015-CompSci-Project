@@ -5,11 +5,15 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Comparator;
+import java.util.Date;
+import java.util.Locale;
 
 public class Show implements Parcelable {
 
-    private String showName, venueName, showDescription, startDate, endDate, matineeStart, eveningStart;
+    private String showName, venueName, showDescription, startDate, endDate, dateAdded, matineeStart, eveningStart;
     private int monMat, monEve, tueMat, tueEve, wedMat, wedEve, thuMat, thuEve, friMat, friEve, satMat, satEve, sunMat, sunEve;
     private int pricePbA, pricePbB, pricePbC, pricePbD, numTicketsPbA, numTicketsPbB, numTicketsPbC, numTicketsPbD;
     private int id;
@@ -18,13 +22,14 @@ public class Show implements Parcelable {
     private Venue venue;
     private float userDistanceFromVenue;
     private static DecimalFormat df = new DecimalFormat("0.00");
+    private Date sDate;
 
 
 
     public Show(int id, String showName, String venueName, String startDate, String endDate, String matineeStart, String eveningStart,
                 int monMat, int monEve, int tueMat, int tueEve, int wedMat, int wedEve, int thuMat,
                 int thuEve, int friMat, int friEve, int satMat, int satEve, int sunMat, int sunEve,
-                int pricePbA, int pricePbB, int pricePbC, int pricePbD, int numTicketsPbA, int numTicketsPbB, int numTicketsPbC, int numTicketsPbD, Venue venue) {
+                int pricePbA, int pricePbB, int pricePbC, int pricePbD, int numTicketsPbA, int numTicketsPbB, int numTicketsPbC, int numTicketsPbD, Venue venue, String dateAdded) {
         this.id = id;
         this.showName = showName;
         this.venueName = venueName;
@@ -59,28 +64,27 @@ public class Show implements Parcelable {
         userDistanceFromVenue=0;
         this.venue = venue;
         runningTime = 0;
+        this.dateAdded = dateAdded;
+
+        try {
+            sDate = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(startDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
-
-    public static Comparator<Show> compareNames = new Comparator<Show>() {
-        @Override
-        public int compare(Show s1, Show s2) {
-            return s1.getShowName().compareToIgnoreCase(s2.getShowName());
-        }
-    };
-
-    public static Comparator<Show> compareRating = new Comparator<Show>() {
-        @Override
-        public int compare(Show s1, Show s2) {
-            return (Double.compare(s2.getRating(), s1.getRating()));
-        }
-    };
 
 
 
 
 
     //GETTERS AND SETTERS:
+
+    public Date getSDate(){
+        return this.sDate;
+    }
 
 
     public void setShowName(String s){
@@ -249,6 +253,10 @@ public class Show implements Parcelable {
         return this.venue;
     }
 
+    public String getDateAdded(){
+        return this.dateAdded;
+    }
+
 
 
 
@@ -294,6 +302,8 @@ public class Show implements Parcelable {
         runningTime = in.readInt();
 
         venue = in.readParcelable(Venue.class.getClassLoader());
+
+        dateAdded = in.readString();
     }
 
     public static final Creator<Show> CREATOR = new Creator<Show>() {
@@ -356,6 +366,6 @@ public class Show implements Parcelable {
 
         dest.writeParcelable(venue, flags);
 
-
+        dest.writeString(dateAdded);
     }
 }

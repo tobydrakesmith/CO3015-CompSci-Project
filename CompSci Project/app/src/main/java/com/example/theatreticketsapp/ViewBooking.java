@@ -159,7 +159,8 @@ public class ViewBooking extends AppCompatActivity {
                     venueName.setText(name);
                     String description = venueInfo.getString("venueDescription");
                     String postcode = venueInfo.getString("postcode");
-                    venue = new Venue(name, postcode, description);
+                    String city = venueInfo.getString("city");
+                    venue = new Venue(name, postcode, description, city);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

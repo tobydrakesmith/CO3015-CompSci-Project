@@ -12,8 +12,13 @@
 
     import androidx.recyclerview.widget.RecyclerView;
 
+    import java.text.ParseException;
+    import java.text.SimpleDateFormat;
     import java.util.ArrayList;
+    import java.util.Calendar;
+    import java.util.Date;
     import java.util.List;
+    import java.util.Locale;
 
     public class ShowRecyclerViewAdapter extends RecyclerView.Adapter<ShowRecyclerViewAdapter.ViewHolder> implements Filterable {
 
@@ -33,6 +38,13 @@
             this.userLocation = userLocation;
         }
 
+        void setFullList(ArrayList<Show> filteredShows){
+            showListFull.clear();
+            showListFull.addAll(filteredShows);
+        }
+
+
+
         // inflates the row layout from xml when needed
          @Override
          public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -45,8 +57,24 @@
         public void onBindViewHolder (ViewHolder holder, int position) {
             Show show = mShows.get(position);
             holder.showNameTextView.setText(show.getShowName());
-            holder.venueNameTextView.setText(show.getVenueName());
+            holder.venueNameTextView.setText(show.getVenueName()+",");
+            holder.venueCity.setText(show.getVenue().getCity());
             holder.imageView.setImageResource(R.drawable.ic_theaters_black_24dp);
+
+            Date date = null;
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(new Date());
+            calendar.add(Calendar.DAY_OF_WEEK, -5);
+
+
+            try{
+                date = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH).parse(mShows.get(position).getDateAdded());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            holder.newImage.setVisibility(date.after(calendar.getTime()) ? View.VISIBLE : View.INVISIBLE);
+
             try {
                 holder.distance.setText(show.getUserDistanceFromVenue(userLocation) + " km");
             } catch (NullPointerException e){
@@ -64,18 +92,21 @@
         // stores and recycles views as they are scrolled off screen
         public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             TextView showNameTextView;
-            TextView venueNameTextView;
+            TextView venueNameTextView, venueCity;
             TextView distance;
-            ImageView imageView;
+            ImageView imageView, newImage;
             OnShowClickListener onShowClickListener;
 
             ViewHolder(View itemView, OnShowClickListener onShowClickListener) {
                 super(itemView);
                 this.onShowClickListener = onShowClickListener;
-                showNameTextView = itemView.findViewById(R.id.userName);
+                showNameTextView = itemView.findViewById(R.id.showName);
                 venueNameTextView = itemView.findViewById(R.id.venue);
+                venueCity = itemView.findViewById(R.id.venueCity);
                 imageView = itemView.findViewById(R.id.imageView);
                 distance = itemView.findViewById(R.id.distance);
+                newImage = itemView.findViewById(R.id.newImage);
+
                 itemView.setOnClickListener(this);
             }
 
@@ -92,12 +123,15 @@
 
         @Override
         public Filter getFilter() {
-            return exampleFilter;
+            return filter;
         }
 
-        private Filter exampleFilter = new Filter() {
+        private Filter filter = new Filter() {
+
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
+
+
 
                 List<Show> filteredList = new ArrayList<>();
 
@@ -108,7 +142,9 @@
 
                     for (Show show : showListFull){
                         if (show.getShowName().toLowerCase().contains(filterPattern)
-                                || show.getVenueName().toLowerCase().contains(filterPattern))
+                                || show.getVenueName().toLowerCase().contains(filterPattern)
+                                || show.getVenue().getCity().toLowerCase().contains(filterPattern))
+
                             filteredList.add(show);
 
                     }

@@ -55,6 +55,8 @@ public class ShowInformation extends AppCompatActivity {
         basket = i.getParcelableExtra("basket");
         user = i.getParcelableExtra("user");
 
+        venue = mShow.getVenue();
+
 
         showName = findViewById(R.id.showName);
         venueName = findViewById(R.id.venueName);
@@ -94,30 +96,9 @@ public class ShowInformation extends AppCompatActivity {
     }
 
     public void onVenueClick(View view){
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_GET_VENUE_INFO + mShow.getVenueName(), new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    String postcode = jsonObject.getString("postcode");
-                    String description = jsonObject.getString("venueDescription");
-                    venue = new Venue(mShow.getVenueName(), postcode, description);
-                    Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-                    intent.putExtra("venue", venue);
-                    startActivity(intent);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-
-        requestQueue.add(stringRequest);
+            Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+            intent.putExtra("venue", venue);
+            startActivity(intent);
     }
 
     public void viewReviews(View view){
@@ -136,7 +117,6 @@ public class ShowInformation extends AppCompatActivity {
                     JSONObject show = new JSONObject(response);
                     mShow.setShowDescription(show.getString("showDesc"));
                     mShow.setRunningTime(show.getInt("runningTime"));
-                    System.out.println("RUNNING TIME: " + show.getInt("runningTime"));
 
                     progressBar.setVisibility(View.INVISIBLE);
 
