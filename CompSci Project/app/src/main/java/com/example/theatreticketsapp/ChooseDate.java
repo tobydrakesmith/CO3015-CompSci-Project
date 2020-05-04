@@ -58,7 +58,17 @@ public class ChooseDate extends AppCompatActivity {
         eveningStart.setText(mShow.getEveningStart());
 
         calendarView = findViewById(R.id.calendarView);
-        calendarView.setMinDate(new Date().getTime());
+
+        try{
+            Date startDate = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(mShow.getStartDate());
+            assert startDate != null;
+            if (startDate.after(new Date()))
+                calendarView.setMinDate(startDate.getTime());
+            else
+                calendarView.setMinDate(new Date().getTime());
+        } catch (ParseException e){
+            e.printStackTrace();
+        }
 
         try {
             Date endDate = new SimpleDateFormat("yyyy-MM-dd", Locale.UK).parse(mShow.getEndDate());
@@ -190,7 +200,7 @@ public class ChooseDate extends AppCompatActivity {
 
         Date date = calendar.getTime();
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 
         String parcelDate = dateFormat.format(date);
 
@@ -208,7 +218,7 @@ public class ChooseDate extends AppCompatActivity {
 
         Date date = calendar.getTime();
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 
         String parcelDate = dateFormat.format(date);
 

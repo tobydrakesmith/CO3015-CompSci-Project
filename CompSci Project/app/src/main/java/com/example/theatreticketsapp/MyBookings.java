@@ -28,6 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerViewAdapter.OnBookingClickListener, MyPastBookingsRecyclerViewAdapter.OnReviewClickListener {
 
@@ -55,8 +56,12 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
         progressBar = findViewById(R.id.progressBar);
         requestQueue = Volley.newRequestQueue(this);
 
-        loadFutureBookings();
-        loadPastBookings();
+        bookingsRecyclerView = findViewById(R.id.bookingsView);
+
+        bookingsRecyclerView.setAdapter(myBookingsRecyclerViewAdapter);
+        bookingsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        loadBookings();
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -127,14 +132,6 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             switch (menuItem.getItemId()) {
 
-                        case R.id.navigation_explore:
-
-                            Intent intent = new Intent(MyBookings.this, Explore.class);
-                            intent.putExtra("basket", basket);
-                            intent.putExtra("user", user);
-                            startActivity(intent);
-                            overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
-                            break;
 
                         case R.id.navigation_myaccount:
 
@@ -159,7 +156,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
             };
 
 
-    private void loadFutureBookings(){
+    private void loadBookings(){
 
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_GET_BOOKINGS + user.getId(), new Response.Listener<String>() {
@@ -173,20 +170,23 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
                         JSONObject bookingsJSONObject = bookings.getJSONObject(i);
                         final Booking booking = createBookingObject(bookingsJSONObject);
 
-                        mFutureBookings.add(booking);
+                        Date date = booking.getParsedDate();
+
+                        if (date.before(new Date()))
+                            mPastBookings.add(booking);
+                        else
+                            mFutureBookings.add(booking);
+
                     }
                     myBookingsRecyclerViewAdapter = new MyBookingsRecyclerViewAdapter(MyBookings.this, MyBookings.this, mFutureBookings);
+                    myPastBookingsRecyclerViewAdapter = new MyPastBookingsRecyclerViewAdapter(MyBookings.this, MyBookings.this, mPastBookings);
 
-                    bookingsRecyclerView = findViewById(R.id.futureBookingsView);
-                    bookingsRecyclerView.setLayoutManager(new LinearLayoutManager(MyBookings.this));
                     bookingsRecyclerView.setAdapter(myBookingsRecyclerViewAdapter);
-
-
 
                 }catch (JSONException e){
                     try {
                         JSONObject message = new JSONObject(response);
-                        System.out.println(message.getString("message"));
+                        Toast.makeText(MyBookings.this, message.getString("message"), Toast.LENGTH_SHORT).show();
                     } catch (JSONException ex) {
                         ex.printStackTrace();
                     }
@@ -204,45 +204,6 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
         requestQueue.add(stringRequest);
 
     }
-
-    private void loadPastBookings(){
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_GET_PAST_BOOKINGS + user.getId(), new Response.Listener<String>() {
-
-            @Override
-            public void onResponse(String response) {
-
-                try{
-                    JSONArray bookings = new JSONArray(response);
-                    for (int i=0; i<bookings.length(); i++){
-                        JSONObject bookingsJSONObject = bookings.getJSONObject(i);
-                        final Booking booking = createBookingObject(bookingsJSONObject);
-
-                        mPastBookings.add(booking);
-                    }
-
-                    myPastBookingsRecyclerViewAdapter = new MyPastBookingsRecyclerViewAdapter(MyBookings.this, MyBookings.this, mPastBookings);
-
-                }catch (JSONException e){
-                    try {
-                        JSONObject message = new JSONObject(response);
-                        System.out.println(message.getString("message"));
-                    } catch (JSONException ex) {
-                        ex.printStackTrace();
-                    }
-
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println(error.toString());
-            }
-        });
-
-        requestQueue.add(stringRequest);
-    }
-
 
 
     private Booking createBookingObject(JSONObject jsonObject) throws JSONException{
@@ -270,11 +231,8 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
     }
 
 
-
-
     @Override
     public void onReviewClick(final int position) {
-
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_CHECK_REVIEW + mPastBookings.get(position).getBookingID(), new Response.Listener<String>() {
             @Override
@@ -299,7 +257,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                error.printStackTrace();
             }
         });
 

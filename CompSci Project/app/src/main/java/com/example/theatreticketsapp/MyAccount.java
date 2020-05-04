@@ -93,15 +93,6 @@ public class MyAccount extends AppCompatActivity {
 
                     switch (menuItem.getItemId()){
 
-                        case R.id.navigation_explore:
-
-                            Intent intent = new Intent(MyAccount.this, Explore.class);
-                            intent.putExtra("basket", basket);
-                            intent.putExtra("user", user);
-                            startActivity(intent);
-                            overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
-                            break;
-
                         case R.id.navigation_mybookings:
 
                             Intent intent1 = new Intent (MyAccount.this, MyBookings.class);

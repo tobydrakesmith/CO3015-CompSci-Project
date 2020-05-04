@@ -7,14 +7,12 @@
     <string name="btn_login">Log in</string>
     <string name="btn_register">Register</string>
     <string name="btn_confirm">Confirm</string>
-    <string name="lbl_no_account">No account yet? Create one:</string>
     <string name="prompt_firstname">First name</string>
     <string name="prompt_lastname">Surname</string>
     <string name="prompt_confirm_password">Confirm password</string>
     <string name="btn_return">Return home</string>
     <string name="title_activity_homepage">Homepage</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Explore</string>
     <string name="title_notifications">My bookings</string>
     <string name="successful_creation">Account successfully created</string>
     <string name="title_activity_selected_show">SelectedShow</string>
@@ -33,9 +31,9 @@
     <string name="upcoming_bookings">Your upcoming bookings</string>
     <string name="past_bookings">Your past bookings</string>
     <string name="leave_a_review">Leave a review</string>
-    <string name="title_activity_create_review">CreateReview</string>
+    <string name="title_activity_create_review">Leave a review</string>
     <string name="write_review">Write a review (optional)</string>
-    <string name="title_activity_view_tickets">ViewTickets</string>
+    <string name="title_activity_view_tickets">View tickets</string>
     <string name="title_activity_maps">Map</string>
     <string name="button_navigate_venue">Navigate to venue</string>
     <string name="button_view_reviews">View reviews</string>
@@ -93,6 +91,6 @@
     <string name="filter_by_location">Filter by distance from your current location</string>
     <string name="filter_by_price">Filter by price</string>
 
-    <string name="homepage_search_prompt">"Show, venue or city..."</string>
+    <string name="homepage_search_prompt">"Show, venue or city…"</string>
 
 </resources>

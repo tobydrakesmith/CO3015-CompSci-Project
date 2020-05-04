@@ -55,6 +55,8 @@ public class ShowInformation extends AppCompatActivity {
         basket = i.getParcelableExtra("basket");
         user = i.getParcelableExtra("user");
 
+        Toast.makeText(this, mShow.getStartDate(), Toast.LENGTH_SHORT).show();
+
         venue = mShow.getVenue();
 
 

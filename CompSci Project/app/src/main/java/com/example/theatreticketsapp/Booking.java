@@ -4,10 +4,16 @@ package com.example.theatreticketsapp;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class Booking implements Parcelable {
 
     private int showInstanceID, numberOfTickets, userID, bookingID;
     private String date, showName, showTime;
+    private Date parsedDate;
 
     Booking(int bookingID, int showID, int numberOfTickets, int userID, String date, String showName, String showTime){
         this.bookingID = bookingID;
@@ -17,6 +23,20 @@ public class Booking implements Parcelable {
         this.date = date;
         this.showName = showName;
         this.showTime = showTime;
+
+
+        try {
+            parsedDate = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(date);
+
+            assert parsedDate != null;
+            String strDate = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).format(parsedDate);
+
+            parsedDate = new SimpleDateFormat("dd-MM-yyyy hh:mm", Locale.ENGLISH).parse(strDate+ " " + showTime);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -35,10 +55,6 @@ public class Booking implements Parcelable {
         return this.numberOfTickets;
     }
 
-    public void setShowName(String showName){
-        this.showName = showName;
-    }
-
     public int getShowInstanceID(){
         return this.showInstanceID;
     }
@@ -47,6 +63,9 @@ public class Booking implements Parcelable {
         return this.bookingID;
     }
 
+    public Date getParsedDate(){
+        return this.parsedDate;
+    }
 
 
 

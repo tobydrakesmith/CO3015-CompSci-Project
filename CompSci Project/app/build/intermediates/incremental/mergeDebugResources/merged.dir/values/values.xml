@@ -1038,6 +1038,7 @@
     <string name="abc_shareactionprovider_share_with_application">Share with <ns1:g example="Mail" id="application_name">%s</ns1:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="action_settings">Settings</string>
+    <string name="all_shows">All shows</string>
     <string name="app_name">Theatre Tickets</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="back_button" note="accessibility hint">Back</string>
@@ -1180,6 +1181,7 @@
     <string name="ct_yemen">+967,Yemen</string>
     <string name="ct_zambia">+260,Zambia</string>
     <string name="ct_zimbabwe">+263,Zimbabwe</string>
+    <string name="current_shows_only">Current shows only</string>
     <string name="date">Date</string>
     <string name="default_total_title" note="Total text on Total Label">TOTAL</string>
     <string name="default_web_client_id" translatable="false">288519348732-h07vt0f5r7i4vhfg2iv133jrce6eu0vs.apps.googleusercontent.com</string>
@@ -1190,6 +1192,9 @@
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
     <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
+    <string name="filter_by_date">Would you like to view future shows, or just current ones?</string>
+    <string name="filter_by_location">Filter by distance from your current location</string>
+    <string name="filter_by_price">Filter by price</string>
     <string name="firebase_database_url" translatable="false">https://theatre-tickets-app.firebaseio.com</string>
     <string name="gcm_defaultSenderId" translatable="false">288519348732</string>
     <string name="google_api_key" translatable="false">AIzaSyDrVLOoIJJIxftcWI4MrdPUAgRTZLbIv40</string>
@@ -1199,8 +1204,8 @@
     <string name="google_storage_bucket" translatable="false">theatre-tickets-app.appspot.com</string>
     <string name="hello_world">Hello world!</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
+    <string name="homepage_search_prompt">"Show, venue or city…"</string>
     <string description="Content description for an icon that appears in the title area of a dialog" name="icon_content_description">Dialog Icon</string>
-    <string name="lbl_no_account">No account yet? Create one:</string>
     <string name="lbl_numberTix">How many tickets do you want?</string>
     <string name="leave_a_review">Leave a review</string>
     <string name="location">Location</string>
@@ -1342,14 +1347,13 @@
     <string name="string_not_enough_reviews">Not enough reviews for this to be displayed yet!</string>
     <string name="successful_creation">Account successfully created</string>
     <string name="title_activity_basket">Basket</string>
-    <string name="title_activity_create_review">CreateReview</string>
+    <string name="title_activity_create_review">Leave a review</string>
     <string name="title_activity_homepage">Homepage</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_receipt_options">ReceiptOptionsActivity</string>
     <string name="title_activity_selected_show">SelectedShow</string>
     <string name="title_activity_test">Test</string>
-    <string name="title_activity_view_tickets">ViewTickets</string>
-    <string name="title_dashboard">Explore</string>
+    <string name="title_activity_view_tickets">View tickets</string>
     <string name="title_home">Home</string>
     <string name="title_notifications">My bookings</string>
     <string name="title_settings">My account</string>

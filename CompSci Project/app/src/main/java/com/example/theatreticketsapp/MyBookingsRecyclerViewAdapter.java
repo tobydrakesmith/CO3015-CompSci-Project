@@ -42,22 +42,8 @@ public class MyBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyBookin
 
         Booking booking = mBookings.get(position);
 
-        Date date = null;
-        try {
-            date = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(booking.getDate());
-
-            assert date != null;
-            String strDate = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).format(date);
-
-            date = new SimpleDateFormat("dd-MM-yyyy hh:mm", Locale.ENGLISH).parse(strDate+ " " + booking.getShowTime());
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
         holder.showName.setText(booking.getShowName());
-        assert date != null;
-        holder.date.setText(date.toString());
+        holder.date.setText(booking.getParsedDate().toString());
         holder.numberOfTickets.setText("No. tickets: " + booking.getNumberOfTickets());
     }
 

@@ -74,7 +74,7 @@
 39-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:17:9-33
 40
 41    <application
-41-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:13:5-99:19
+41-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:13:5-95:19
 42        android:allowBackup="true"
 42-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:14:9-35
 43        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -212,310 +212,302 @@
 114-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:82:13-56
 115        <activity
 115-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:83:9-86:59
-116            android:name="com.example.theatreticketsapp.Explore"
-116-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:84:13-36
-117            android:label="Explore"
-117-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:85:13-36
+116            android:name="com.example.theatreticketsapp.ShowInformation"
+116-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:84:13-44
+117            android:label="@string/title_activity_selected_show"
+117-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:85:13-65
 118            android:theme="@style/AppTheme.NoActionBar" />
 118-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:86:13-56
-119        <activity
-119-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:87:9-90:59
-120            android:name="com.example.theatreticketsapp.ShowInformation"
-120-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:88:13-44
-121            android:label="@string/title_activity_selected_show"
-121-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:89:13-65
-122            android:theme="@style/AppTheme.NoActionBar" />
-122-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:90:13-56
-123        <activity android:name="com.example.theatreticketsapp.Register" />
-123-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:91:9-46
-123-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:91:19-43
-124        <activity android:name="com.example.theatreticketsapp.Login" >
-124-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:92:9-98:20
-124-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:92:19-40
-125            <intent-filter>
-125-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:93:13-97:29
-126                <action android:name="android.intent.action.MAIN" />
-126-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:94:17-69
-126-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:94:25-66
-127
-128                <category android:name="android.intent.category.LAUNCHER" />
-128-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:96:17-77
-128-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:96:27-74
-129            </intent-filter>
-130        </activity>
-131        <activity
-131-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:18:9-22:53
-132            android:name="com.paypal.paypalretailsdk.ui.receipt.ReceiptOptionsActivity"
-132-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:19:13-88
-133            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
-133-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:20:13-87
-134            android:label="@string/title_activity_receipt_options"
-134-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:21:13-67
-135            android:theme="@style/Theme.SDK.Base" />
-135-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:22:13-50
-136        <activity
-136-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:23:9-27:53
-137            android:name="com.paypal.paypalretailsdk.ui.receipt.ReceiptSendToActivity"
-137-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:24:13-87
-138            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
-138-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:25:13-87
-139            android:label="@string/title_activity_receipt_options"
-139-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:26:13-67
-140            android:theme="@style/Theme.SDK.Base" />
-140-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:27:13-50
-141        <activity
-141-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:28:9-33:53
-142            android:name="com.paypal.paypalretailsdk.ui.signature.SignatureActivity"
-142-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:29:13-85
-143            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
-143-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:30:13-87
-144            android:exported="true"
-144-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:31:13-36
-145            android:label="@string/app_name"
-145-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:32:13-45
-146            android:theme="@style/Theme.SDK.Base" />
-146-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:33:13-50
+119        <activity android:name="com.example.theatreticketsapp.Register" />
+119-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:87:9-46
+119-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:87:19-43
+120        <activity android:name="com.example.theatreticketsapp.Login" >
+120-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:88:9-94:20
+120-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:88:19-40
+121            <intent-filter>
+121-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:89:13-93:29
+122                <action android:name="android.intent.action.MAIN" />
+122-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:90:17-69
+122-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:90:25-66
+123
+124                <category android:name="android.intent.category.LAUNCHER" />
+124-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:92:17-77
+124-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:92:27-74
+125            </intent-filter>
+126        </activity>
+127        <activity
+127-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:18:9-22:53
+128            android:name="com.paypal.paypalretailsdk.ui.receipt.ReceiptOptionsActivity"
+128-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:19:13-88
+129            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
+129-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:20:13-87
+130            android:label="@string/title_activity_receipt_options"
+130-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:21:13-67
+131            android:theme="@style/Theme.SDK.Base" />
+131-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:22:13-50
+132        <activity
+132-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:23:9-27:53
+133            android:name="com.paypal.paypalretailsdk.ui.receipt.ReceiptSendToActivity"
+133-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:24:13-87
+134            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
+134-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:25:13-87
+135            android:label="@string/title_activity_receipt_options"
+135-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:26:13-67
+136            android:theme="@style/Theme.SDK.Base" />
+136-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:27:13-50
+137        <activity
+137-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:28:9-33:53
+138            android:name="com.paypal.paypalretailsdk.ui.signature.SignatureActivity"
+138-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:29:13-85
+139            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
+139-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:30:13-87
+140            android:exported="true"
+140-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:31:13-36
+141            android:label="@string/app_name"
+141-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:32:13-45
+142            android:theme="@style/Theme.SDK.Base" />
+142-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:33:13-50
+143        <activity
+143-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:34:9-37:67
+144            android:name="com.paypal.paypalretailsdk.ui.dialogs.SDKDialogActivity"
+144-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:35:13-83
+145            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
+145-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:36:13-87
+146            android:theme="@style/Theme.SDK.Dialog.Transparent" />
+146-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:37:13-64
 147        <activity
-147-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:34:9-37:67
-148            android:name="com.paypal.paypalretailsdk.ui.dialogs.SDKDialogActivity"
-148-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:35:13-83
+147-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:38:9-43:67
+148            android:name="com.paypal.paypalretailsdk.ui.DeviceConnectionActivity"
+148-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:39:13-82
 149            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
-149-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:36:13-87
-150            android:theme="@style/Theme.SDK.Dialog.Transparent" />
-150-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:37:13-64
-151        <activity
-151-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:38:9-43:67
-152            android:name="com.paypal.paypalretailsdk.ui.DeviceConnectionActivity"
-152-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:39:13-82
-153            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
-153-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:40:13-87
-154            android:label="@string/DeviceConnectionActivity"
-154-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:41:13-61
-155            android:launchMode="singleTop"
-155-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:42:13-43
-156            android:theme="@style/Theme.SDK.Dialog.Transparent" />
-156-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:43:13-64
-157        <!--
-158             FirebaseMessagingService performs security checks at runtime,
-159             but set to not exported to explicitly avoid allowing another app to call it.
-160        -->
-161        <service
-161-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:28:9-34:19
-162            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-162-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:29:13-82
-163            android:exported="false" >
-163-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:30:13-37
-164            <intent-filter android:priority="-500" >
-164-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:31:13-33:29
-164-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:31:28-51
-165                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-165-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:32:17-78
-165-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:32:25-75
-166            </intent-filter>
-167        </service>
-168        <service
-168-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:35:9-41:19
-169            android:name="com.google.firebase.components.ComponentDiscoveryService"
-169-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:36:13-84
-170            android:directBootAware="true"
-170-->[com.google.firebase:firebase-common:19.3.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/3deb10f8139ef5717b3d54ada2a19ca4/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
-171            android:exported="false" >
-171-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:37:13-37
-172            <meta-data
-172-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:38:13-40:85
-173                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-173-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:39:17-119
-174                android:value="com.google.firebase.components.ComponentRegistrar" />
-174-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:40:17-82
-175            <meta-data
-175-->[com.google.android.gms:play-services-measurement-api:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/80b4d51e4add75a11a62c14e8b9bd7af/jetified-play-services-measurement-api-17.4.0/AndroidManifest.xml:30:13-32:85
-176                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-176-->[com.google.android.gms:play-services-measurement-api:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/80b4d51e4add75a11a62c14e8b9bd7af/jetified-play-services-measurement-api-17.4.0/AndroidManifest.xml:31:17-139
-177                android:value="com.google.firebase.components.ComponentRegistrar" />
-177-->[com.google.android.gms:play-services-measurement-api:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/80b4d51e4add75a11a62c14e8b9bd7af/jetified-play-services-measurement-api-17.4.0/AndroidManifest.xml:32:17-82
-178            <meta-data
-178-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:32:13-34:85
-179                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-179-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:33:17-96
-180                android:value="com.google.firebase.components.ComponentRegistrar" />
-180-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:34:17-82
-181            <meta-data
-181-->[com.google.firebase:firebase-datatransport:17.0.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/d1f75898c761cea33a2c195c10b32583/jetified-firebase-datatransport-17.0.3/AndroidManifest.xml:28:13-30:85
-182                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-182-->[com.google.firebase:firebase-datatransport:17.0.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/d1f75898c761cea33a2c195c10b32583/jetified-firebase-datatransport-17.0.3/AndroidManifest.xml:29:17-115
-183                android:value="com.google.firebase.components.ComponentRegistrar" />
-183-->[com.google.firebase:firebase-datatransport:17.0.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/d1f75898c761cea33a2c195c10b32583/jetified-firebase-datatransport-17.0.3/AndroidManifest.xml:30:17-82
-184            <meta-data
-184-->[com.google.firebase:firebase-installations:16.2.2] /home/tjd17/.gradle/caches/transforms-2/files-2.1/401ac51d2402fc8e16fc5442ca969ecf/jetified-firebase-installations-16.2.2/AndroidManifest.xml:17:13-19:85
-185                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-185-->[com.google.firebase:firebase-installations:16.2.2] /home/tjd17/.gradle/caches/transforms-2/files-2.1/401ac51d2402fc8e16fc5442ca969ecf/jetified-firebase-installations-16.2.2/AndroidManifest.xml:18:17-127
-186                android:value="com.google.firebase.components.ComponentRegistrar" />
-186-->[com.google.firebase:firebase-installations:16.2.2] /home/tjd17/.gradle/caches/transforms-2/files-2.1/401ac51d2402fc8e16fc5442ca969ecf/jetified-firebase-installations-16.2.2/AndroidManifest.xml:19:17-82
-187        </service>
-188
-189        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
-189-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:13:9-84
-189-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:13:19-81
-190        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
-190-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:14:9-90
-190-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:14:19-87
-191        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
-191-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:15:9-91
-191-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:15:19-88
-192        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
-192-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:16:9-82
-192-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:16:19-79
-193        <activity android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity" />
-193-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:17:9-96
-193-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:17:19-93
-194        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity" />
-194-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:18:9-97
-194-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:18:19-94
-195        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity" />
-195-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:19:9-94
-195-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:19:19-91
-196        <activity android:name="com.paypal.android.sdk.payments.PayPalProfileSharingActivity" />
-196-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:20:9-97
-196-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:20:19-94
-197        <activity android:name="com.paypal.android.sdk.payments.ProfileSharingConsentActivity" />
-197-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:21:9-98
-197-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:21:19-95
-198
-199        <service
-199-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:23:9-25:40
-200            android:name="com.paypal.android.sdk.payments.PayPalService"
-200-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:24:13-73
-201            android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
-201-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:25:13-37
-202        <uses-library
-202-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/7568ba76e7ca3967850522f169ef779d/jetified-play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
-203            android:name="org.apache.http.legacy"
-203-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/7568ba76e7ca3967850522f169ef779d/jetified-play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
-204            android:required="false" />
-204-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/7568ba76e7ca3967850522f169ef779d/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
-205
-206        <receiver
-206-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:29:9-33:20
-207            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-207-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:30:13-85
-208            android:enabled="true"
-208-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:31:13-35
-209            android:exported="false" >
-209-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:32:13-37
-210        </receiver>
-211
+149-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:40:13-87
+150            android:label="@string/DeviceConnectionActivity"
+150-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:41:13-61
+151            android:launchMode="singleTop"
+151-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:42:13-43
+152            android:theme="@style/Theme.SDK.Dialog.Transparent" />
+152-->[com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:43:13-64
+153        <!--
+154             FirebaseMessagingService performs security checks at runtime,
+155             but set to not exported to explicitly avoid allowing another app to call it.
+156        -->
+157        <service
+157-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:28:9-34:19
+158            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+158-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:29:13-82
+159            android:exported="false" >
+159-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:30:13-37
+160            <intent-filter android:priority="-500" >
+160-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:31:13-33:29
+160-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:31:28-51
+161                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+161-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:32:17-78
+161-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:32:25-75
+162            </intent-filter>
+163        </service>
+164        <service
+164-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:35:9-41:19
+165            android:name="com.google.firebase.components.ComponentDiscoveryService"
+165-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:36:13-84
+166            android:directBootAware="true"
+166-->[com.google.firebase:firebase-common:19.3.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/3deb10f8139ef5717b3d54ada2a19ca4/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
+167            android:exported="false" >
+167-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:37:13-37
+168            <meta-data
+168-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:38:13-40:85
+169                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+169-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:39:17-119
+170                android:value="com.google.firebase.components.ComponentRegistrar" />
+170-->[com.google.firebase:firebase-messaging:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/07148aaf3d06d6c67ef1c3904c24bc8f/jetified-firebase-messaging-20.1.6/AndroidManifest.xml:40:17-82
+171            <meta-data
+171-->[com.google.android.gms:play-services-measurement-api:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/80b4d51e4add75a11a62c14e8b9bd7af/jetified-play-services-measurement-api-17.4.0/AndroidManifest.xml:30:13-32:85
+172                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+172-->[com.google.android.gms:play-services-measurement-api:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/80b4d51e4add75a11a62c14e8b9bd7af/jetified-play-services-measurement-api-17.4.0/AndroidManifest.xml:31:17-139
+173                android:value="com.google.firebase.components.ComponentRegistrar" />
+173-->[com.google.android.gms:play-services-measurement-api:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/80b4d51e4add75a11a62c14e8b9bd7af/jetified-play-services-measurement-api-17.4.0/AndroidManifest.xml:32:17-82
+174            <meta-data
+174-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:32:13-34:85
+175                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+175-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:33:17-96
+176                android:value="com.google.firebase.components.ComponentRegistrar" />
+176-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:34:17-82
+177            <meta-data
+177-->[com.google.firebase:firebase-datatransport:17.0.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/d1f75898c761cea33a2c195c10b32583/jetified-firebase-datatransport-17.0.3/AndroidManifest.xml:28:13-30:85
+178                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+178-->[com.google.firebase:firebase-datatransport:17.0.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/d1f75898c761cea33a2c195c10b32583/jetified-firebase-datatransport-17.0.3/AndroidManifest.xml:29:17-115
+179                android:value="com.google.firebase.components.ComponentRegistrar" />
+179-->[com.google.firebase:firebase-datatransport:17.0.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/d1f75898c761cea33a2c195c10b32583/jetified-firebase-datatransport-17.0.3/AndroidManifest.xml:30:17-82
+180            <meta-data
+180-->[com.google.firebase:firebase-installations:16.2.2] /home/tjd17/.gradle/caches/transforms-2/files-2.1/401ac51d2402fc8e16fc5442ca969ecf/jetified-firebase-installations-16.2.2/AndroidManifest.xml:17:13-19:85
+181                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+181-->[com.google.firebase:firebase-installations:16.2.2] /home/tjd17/.gradle/caches/transforms-2/files-2.1/401ac51d2402fc8e16fc5442ca969ecf/jetified-firebase-installations-16.2.2/AndroidManifest.xml:18:17-127
+182                android:value="com.google.firebase.components.ComponentRegistrar" />
+182-->[com.google.firebase:firebase-installations:16.2.2] /home/tjd17/.gradle/caches/transforms-2/files-2.1/401ac51d2402fc8e16fc5442ca969ecf/jetified-firebase-installations-16.2.2/AndroidManifest.xml:19:17-82
+183        </service>
+184
+185        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
+185-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:13:9-84
+185-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:13:19-81
+186        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
+186-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:14:9-90
+186-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:14:19-87
+187        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
+187-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:15:9-91
+187-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:15:19-88
+188        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
+188-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:16:9-82
+188-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:16:19-79
+189        <activity android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity" />
+189-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:17:9-96
+189-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:17:19-93
+190        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity" />
+190-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:18:9-97
+190-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:18:19-94
+191        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity" />
+191-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:19:9-94
+191-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:19:19-91
+192        <activity android:name="com.paypal.android.sdk.payments.PayPalProfileSharingActivity" />
+192-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:20:9-97
+192-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:20:19-94
+193        <activity android:name="com.paypal.android.sdk.payments.ProfileSharingConsentActivity" />
+193-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:21:9-98
+193-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:21:19-95
+194
+195        <service
+195-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:23:9-25:40
+196            android:name="com.paypal.android.sdk.payments.PayPalService"
+196-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:24:13-73
+197            android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
+197-->[com.paypal.sdk:paypal-android-sdk:2.15.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/199fe8affc69148f7d14df1f7b76327c/jetified-paypal-android-sdk-2.15.3/AndroidManifest.xml:25:13-37
+198        <uses-library
+198-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/7568ba76e7ca3967850522f169ef779d/jetified-play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+199            android:name="org.apache.http.legacy"
+199-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/7568ba76e7ca3967850522f169ef779d/jetified-play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
+200            android:required="false" />
+200-->[com.google.android.gms:play-services-maps:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/7568ba76e7ca3967850522f169ef779d/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+201
+202        <receiver
+202-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:29:9-33:20
+203            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+203-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:30:13-85
+204            android:enabled="true"
+204-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:31:13-35
+205            android:exported="false" >
+205-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:32:13-37
+206        </receiver>
+207
+208        <service
+208-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:35:9-38:40
+209            android:name="com.google.android.gms.measurement.AppMeasurementService"
+209-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:36:13-84
+210            android:enabled="true"
+210-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:37:13-35
+211            android:exported="false" />
+211-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:38:13-37
 212        <service
-212-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:35:9-38:40
-213            android:name="com.google.android.gms.measurement.AppMeasurementService"
-213-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:36:13-84
+212-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:39:9-43:72
+213            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+213-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:40:13-87
 214            android:enabled="true"
-214-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:37:13-35
-215            android:exported="false" />
-215-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:38:13-37
-216        <service
-216-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:39:9-43:72
-217            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-217-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:40:13-87
-218            android:enabled="true"
-218-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:41:13-35
-219            android:exported="false"
-219-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:42:13-37
-220            android:permission="android.permission.BIND_JOB_SERVICE" />
-220-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:43:13-69
-221
-222        <receiver
-222-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:37:9-44:20
-223            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-223-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:38:13-78
-224            android:exported="true"
-224-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:39:13-36
-225            android:permission="com.google.android.c2dm.permission.SEND" >
-225-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:40:13-73
-226            <intent-filter>
-226-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:41:13-43:29
-227                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-227-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:42:17-81
-227-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:42:25-78
-228            </intent-filter>
-229        </receiver>
-230
-231        <provider
-231-->[com.google.firebase:firebase-common:19.3.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/3deb10f8139ef5717b3d54ada2a19ca4/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
-232            android:name="com.google.firebase.provider.FirebaseInitProvider"
-232-->[com.google.firebase:firebase-common:19.3.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/3deb10f8139ef5717b3d54ada2a19ca4/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
-233            android:authorities="com.example.theatreticketsapp.firebaseinitprovider"
-233-->[com.google.firebase:firebase-common:19.3.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/3deb10f8139ef5717b3d54ada2a19ca4/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
-234            android:exported="false"
-234-->[com.google.firebase:firebase-common:19.3.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/3deb10f8139ef5717b3d54ada2a19ca4/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
-235            android:initOrder="100" />
-235-->[com.google.firebase:firebase-common:19.3.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/3deb10f8139ef5717b3d54ada2a19ca4/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
-236
-237        <activity
-237-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2be5ef2959ea5355d833f1cf7554bfda/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
-238            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-238-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2be5ef2959ea5355d833f1cf7554bfda/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
-239            android:exported="false"
-239-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2be5ef2959ea5355d833f1cf7554bfda/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
-240            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-240-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2be5ef2959ea5355d833f1cf7554bfda/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+214-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:41:13-35
+215            android:exported="false"
+215-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:42:13-37
+216            android:permission="android.permission.BIND_JOB_SERVICE" />
+216-->[com.google.android.gms:play-services-measurement:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/63f05e64d63bc5a58b622487a32516bd/jetified-play-services-measurement-17.4.0/AndroidManifest.xml:43:13-69
+217
+218        <receiver
+218-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:37:9-44:20
+219            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+219-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:38:13-78
+220            android:exported="true"
+220-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:39:13-36
+221            android:permission="com.google.android.c2dm.permission.SEND" >
+221-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:40:13-73
+222            <intent-filter>
+222-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:41:13-43:29
+223                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+223-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:42:17-81
+223-->[com.google.firebase:firebase-iid:20.1.6] /home/tjd17/.gradle/caches/transforms-2/files-2.1/384fc6015f6f205b9591ebcd61164f9f/jetified-firebase-iid-20.1.6/AndroidManifest.xml:42:25-78
+224            </intent-filter>
+225        </receiver>
+226
+227        <provider
+227-->[com.google.firebase:firebase-common:19.3.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/3deb10f8139ef5717b3d54ada2a19ca4/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
+228            android:name="com.google.firebase.provider.FirebaseInitProvider"
+228-->[com.google.firebase:firebase-common:19.3.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/3deb10f8139ef5717b3d54ada2a19ca4/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
+229            android:authorities="com.example.theatreticketsapp.firebaseinitprovider"
+229-->[com.google.firebase:firebase-common:19.3.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/3deb10f8139ef5717b3d54ada2a19ca4/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
+230            android:exported="false"
+230-->[com.google.firebase:firebase-common:19.3.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/3deb10f8139ef5717b3d54ada2a19ca4/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
+231            android:initOrder="100" />
+231-->[com.google.firebase:firebase-common:19.3.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/3deb10f8139ef5717b3d54ada2a19ca4/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
+232
+233        <activity
+233-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2be5ef2959ea5355d833f1cf7554bfda/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+234            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+234-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2be5ef2959ea5355d833f1cf7554bfda/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+235            android:exported="false"
+235-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2be5ef2959ea5355d833f1cf7554bfda/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+236            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+236-->[com.google.android.gms:play-services-base:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/2be5ef2959ea5355d833f1cf7554bfda/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+237
+238        <meta-data
+238-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/164bb505b81f338baa0db13edd04c1d1/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+239            android:name="com.google.android.gms.version"
+239-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/164bb505b81f338baa0db13edd04c1d1/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+240            android:value="@integer/google_play_services_version" />
+240-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/164bb505b81f338baa0db13edd04c1d1/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
 241
-242        <meta-data
-242-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/164bb505b81f338baa0db13edd04c1d1/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
-243            android:name="com.google.android.gms.version"
-243-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/164bb505b81f338baa0db13edd04c1d1/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
-244            android:value="@integer/google_play_services_version" />
-244-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/164bb505b81f338baa0db13edd04c1d1/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
-245
-246        <provider
-246-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
-247            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-247-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
-248            android:authorities="com.example.theatreticketsapp.lifecycle-process"
-248-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
-249            android:exported="false"
-249-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
-250            android:multiprocess="true" />
-250-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
-251
-252        <service
-252-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:29:9-35:19
-253            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-253-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:30:13-103
-254            android:exported="false" >
-254-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:31:13-37
-255            <meta-data
-255-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:32:13-34:39
-256                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-256-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:33:17-94
-257                android:value="cct" />
-257-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:34:17-36
-258        </service>
-259        <service
-259-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:26:9-30:19
-260            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-260-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:27:13-117
-261            android:exported="false"
-261-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:28:13-37
-262            android:permission="android.permission.BIND_JOB_SERVICE" >
-262-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:29:13-69
-263        </service>
+242        <provider
+242-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+243            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+243-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+244            android:authorities="com.example.theatreticketsapp.lifecycle-process"
+244-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+245            android:exported="false"
+245-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+246            android:multiprocess="true" />
+246-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+247
+248        <service
+248-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:29:9-35:19
+249            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+249-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:30:13-103
+250            android:exported="false" >
+250-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:31:13-37
+251            <meta-data
+251-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:32:13-34:39
+252                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+252-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:33:17-94
+253                android:value="cct" />
+253-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:34:17-36
+254        </service>
+255        <service
+255-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:26:9-30:19
+256            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+256-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:27:13-117
+257            android:exported="false"
+257-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:28:13-37
+258            android:permission="android.permission.BIND_JOB_SERVICE" >
+258-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:29:13-69
+259        </service>
+260
+261        <receiver
+261-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:32:9-34:40
+262            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+262-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:33:13-132
+263            android:exported="false" />
+263-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:34:13-37
 264
-265        <receiver
-265-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:32:9-34:40
-266            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-266-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:33:13-132
-267            android:exported="false" />
-267-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:34:13-37
-268
-269        <activity
-269-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:20:9-22:66
-270            android:name="io.card.payment.CardIOActivity"
-270-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:21:13-58
-271            android:configChanges="keyboardHidden|orientation" />
-271-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:22:13-63
-272        <activity android:name="io.card.payment.DataEntryActivity" />
-272-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:23:9-70
-272-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:23:19-67
-273    </application>
-274
-275</manifest>
+265        <activity
+265-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:20:9-22:66
+266            android:name="io.card.payment.CardIOActivity"
+266-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:21:13-58
+267            android:configChanges="keyboardHidden|orientation" />
+267-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:22:13-63
+268        <activity android:name="io.card.payment.DataEntryActivity" />
+268-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:23:9-70
+268-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:23:19-67
+269    </application>
+270
+271</manifest>

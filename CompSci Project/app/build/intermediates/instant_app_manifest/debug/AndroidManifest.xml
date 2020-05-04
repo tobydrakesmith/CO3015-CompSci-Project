@@ -114,10 +114,6 @@
             android:label="My Bookings"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.theatreticketsapp.Explore"
-            android:label="Explore"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name="com.example.theatreticketsapp.ShowInformation"
             android:label="@string/title_activity_selected_show"
             android:theme="@style/AppTheme.NoActionBar" />

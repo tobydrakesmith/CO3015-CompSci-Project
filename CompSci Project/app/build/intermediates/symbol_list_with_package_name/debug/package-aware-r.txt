@@ -1785,6 +1785,7 @@ id beginning
 id blocking
 id bookingCost
 id bookingDate
+id bookingsView
 id bottom
 id btnCancel
 id btnDecrease
@@ -1898,7 +1899,6 @@ id forever
 id four
 id fragment_container
 id fragment_container_view_tag
-id futureBookingsView
 id ghost_view
 id ghost_view_holder
 id gone
@@ -1951,7 +1951,6 @@ id list_item
 id list_item_linear_container
 id listview_card_readers
 id liveShowsView
-id location
 id loginBtn
 id map
 id masked
@@ -1994,7 +1993,6 @@ id nav_controller_view_tag
 id nav_host_fragment_container
 id nav_view
 id navigateButton
-id navigation_explore
 id navigation_header_container
 id navigation_home
 id navigation_myaccount
@@ -2035,7 +2033,6 @@ id peekHeight
 id percent
 id pin
 id positiveBtn
-id price
 id priceBandA
 id priceBandB
 id priceBandC
@@ -2170,7 +2167,6 @@ id textView10
 id textView11
 id textView2
 id textView3
-id textView4
 id textView5
 id textView6
 id textView7
@@ -2295,7 +2291,6 @@ layout activity_change_password
 layout activity_checkout
 layout activity_choose_tickets
 layout activity_create_review
-layout activity_explore
 layout activity_homepage
 layout activity_main
 layout activity_maps
@@ -2430,7 +2425,6 @@ layout text_view_without_line_height
 layout toast_swipe_failed
 menu bottom_nav_menu
 menu checkout_top_nav
-menu filter_menu
 menu homepage_top_nav
 menu menu_scrolling
 menu my_account_pop_up_menu
@@ -2637,7 +2631,6 @@ string hello_world
 string hide_bottom_view_on_scroll_behavior
 string homepage_search_prompt
 string icon_content_description
-string lbl_no_account
 string lbl_numberTix
 string leave_a_review
 string location
@@ -2786,7 +2779,6 @@ string title_activity_receipt_options
 string title_activity_selected_show
 string title_activity_test
 string title_activity_view_tickets
-string title_dashboard
 string title_home
 string title_notifications
 string title_settings

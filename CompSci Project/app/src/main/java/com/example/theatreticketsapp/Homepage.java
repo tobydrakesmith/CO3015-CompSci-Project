@@ -359,16 +359,6 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
 
                     switch (menuItem.getItemId()){
 
-                        case R.id.navigation_explore:
-
-                            Intent intent = new Intent(Homepage.this, Explore.class);
-                            intent.putExtra("basket", basket);
-                            intent.putExtra("user", user);
-                            startActivity(intent);
-                            overridePendingTransition(R.transition.slide_in_right, R.transition.slide_out_left);
-
-                            break;
-
                         case R.id.navigation_mybookings:
 
                             Intent intent1 = new Intent (Homepage.this, MyBookings.class);

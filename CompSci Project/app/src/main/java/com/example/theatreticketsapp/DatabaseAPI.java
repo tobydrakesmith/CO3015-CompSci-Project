@@ -30,10 +30,7 @@ public class DatabaseAPI {
             ROOT_URL + "createticket";
 
     public static final String URL_GET_BOOKINGS =
-            ROOT_URL + "getfuturebookings&userID=";
-
-    public static final String URL_GET_PAST_BOOKINGS =
-            ROOT_URL + "getpastbookings&userID=";
+            ROOT_URL + "getbookings&userID=";
 
     public static final String URL_CREATE_REVIEW =
             ROOT_URL + "createreview";
