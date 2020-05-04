@@ -201,8 +201,8 @@
 			else return false;
 		}
 
-		function getFutureBookings($userID){
-			$stmt = $this->con->prepare("SELECT bookingID, showInstanceID, numberOfTickets, bookingDate, showTime, showName FROM booking WHERE userID= ? AND bookingDate >= CURDATE() ");
+		function getBookings($userID){
+			$stmt = $this->con->prepare("SELECT bookingID, showInstanceID, numberOfTickets, bookingDate, showTime, showName FROM booking WHERE userID = ?");
 			$stmt->bind_param("i", $userID);
 			$stmt->execute();
 			$stmt->bind_result($bookingID, $showInstanceID, $numberOfTickets, $bookingDate, $showTime, $showName);
@@ -221,28 +221,6 @@
 			}
 
 			return $bookings;
-		}
-
-		function getPastBookings($userID){
-	  		$stmt = $this->con->prepare("SELECT bookingID, showInstanceID, numberOfTickets, bookingDate, showTime, showName FROM booking WHERE userID= ? AND bookingDate < CURDATE() ");
-	                $stmt->bind_param("i", $userID);
-        	        $stmt->execute();
-                        $stmt->bind_result($bookingID ,$showInstanceID, $numberOfTickets, $bookingDate, $showTime, $showName);
-
-                        $bookings = array();
-                        while($stmt->fetch()){
-                                $booking = array();
-				$booking['bookingID'] = $bookingID;
-                                $booking['showInstanceID'] = $showInstanceID;
-                                $booking['numberOfTickets'] = $numberOfTickets;
-                                $booking['bookingDate'] = $bookingDate;
-				$booking['showTime'] = $showTime;
-                                $booking['showName'] = $showName;
-
-                                array_push($bookings, $booking);
-                        }
-
-                        return $bookings;
 		}
 
 		function createReview($bookingID, $userID, $showName, $showInstanceID, $rating, $review){

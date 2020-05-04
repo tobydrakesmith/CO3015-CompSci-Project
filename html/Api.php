@@ -202,25 +202,11 @@
 				}
 			break;
 
-			case 'getfuturebookings':
+			case 'getbookings':
 				if(isset($_GET['userID'])){
 					$db = new DbOperation();
-					if ($response = $db->getFutureBookings($_GET['userID']))
-						$response = $db->getFutureBookings($_GET['userID']);
-					else
-						$response['message'] = "Empty";
-				}else{
-					$response['error'] = true;
-					$response['message'] = "UserID missing";
-				}
-			break;
-
-
-			case 'getpastbookings':
-				if(isset($_GET['userID'])){
-					$db = new DbOperation();
-					if($response = $db->getPastBookings($_GET['userID']))
-						$response = $db->getPastBookings($_GET['userID']);
+					if ($response = $db->getBookings($_GET['userID']))
+						$response = $db->getBookings($_GET['userID']);
 					else
 						$response['message'] = "Empty";
 				}else{
