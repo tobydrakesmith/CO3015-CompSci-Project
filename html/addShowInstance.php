@@ -40,7 +40,7 @@ function showVenueInfo(venue) {
 	xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200){
-			document.getElementById("venue_capacity").innerHTML = "<b> Venue capacity:</b> "  + this.responseText;
+			document.getElementById("venue_capacity").innerHTML = "<b>Venue capacity:</b> "  + this.responseText;
 			venueCapacity = this.responseText;
 			numberTicketsChange();
 		}
@@ -92,6 +92,9 @@ function numberTicketsChange(){
 
 	if (count > venueCapacity){
 		document.getElementById("number_tickets").innerHTML = '<p style="color:red"><b> ERROR: You have selected more tickets than the capacity of the venue. Current count: </b>' + count +'</p>';
+		document.forms["form"]["submit"].disabled = true;
+	}else {
+		document.forms["form"]["submit"].disabled = false;
 	}
 }
 
@@ -119,6 +122,7 @@ function getShowType(showName){
         xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200){
 			document.forms["form"]["show_type"].value = this.responseText;
+			alert(this.responseText);
                 }
         };
 
@@ -140,6 +144,7 @@ function getVenueRegion(venueName){
         xmlhttp.send();
 
 }
+
 </script>
 </head>
 
@@ -250,7 +255,7 @@ function getVenueRegion(venueName){
 
 	<label for="mat_start">Matinee start time:</label>
 
-	<input type="time" id="mat_start" name="mat_start" min="11:00" max="17:00" required>
+	<input type="time" id="mat_start" name="mat_start" min="11:00" max="16:00" required>
 
 	<label for="eve_start">Evening start time:</label>
 	<input type="time" id="eve_start" name="eve_start" min="18:00" max="22:00" required>
@@ -260,16 +265,16 @@ function getVenueRegion(venueName){
 	<br>
 
 
-	<input type="text" name="venue_region" id="venue_region">
-	<input type="text" name="show_type" id="show_type">
+	<input type="text" name="venue_region" id="venue_region" readonly>
+	<input type="text" name="show_type" id="show_type" readonly>
+	<br>
+	<br>
 
-
-	<input type="submit" value="Submit">
+	<input type="submit" id="submit">
 
 
 
 </form>
-<br>
 <br>
 <a href="homepage.html"><button>Home</button></a>
 </body>

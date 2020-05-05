@@ -375,13 +375,6 @@
 				}
 
 			break;
-
-			case 'test':
-				$db = new DbOperation();
-				$response = $db->getFirstName($_GET['email']);
-
-			break;
-
 		}
 	}else{
 		//if it is not api call
