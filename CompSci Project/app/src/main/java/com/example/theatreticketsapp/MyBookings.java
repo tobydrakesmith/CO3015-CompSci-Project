@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -32,17 +33,18 @@ import java.util.Date;
 
 public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerViewAdapter.OnBookingClickListener, MyPastBookingsRecyclerViewAdapter.OnReviewClickListener {
 
-    Basket basket;
-    User user;
+    private Basket basket;
+    private User user;
 
-    ArrayList<Booking> mFutureBookings = new ArrayList<>();
-    ArrayList<Booking> mPastBookings = new ArrayList<>();
+    private ArrayList<Booking> mFutureBookings = new ArrayList<>();
+    private ArrayList<Booking> mPastBookings = new ArrayList<>();
 
-    RecyclerView bookingsRecyclerView;
-    MyBookingsRecyclerViewAdapter myBookingsRecyclerViewAdapter;
-    MyPastBookingsRecyclerViewAdapter myPastBookingsRecyclerViewAdapter;
-    ProgressBar progressBar;
-    RequestQueue requestQueue;
+    private RecyclerView bookingsRecyclerView;
+    private MyBookingsRecyclerViewAdapter myBookingsRecyclerViewAdapter;
+    private MyPastBookingsRecyclerViewAdapter myPastBookingsRecyclerViewAdapter;
+    private ProgressBar progressBar;
+    private RequestQueue requestQueue;
+    private BottomNavigationView navView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +69,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
 
         navView.setSelectedItemId(R.id.navigation_mybookings);
@@ -135,11 +137,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
 
                         case R.id.navigation_myaccount:
 
-                            Intent intent1 = new Intent(MyBookings.this, MyAccount.class);
-                            intent1.putExtra("basket", basket);
-                            intent1.putExtra("user", user);
-                            startActivity(intent1);
-                            overridePendingTransition(R.transition.slide_in_right, R.transition.slide_out_left);
+                            showPopup(findViewById(R.id.navigation_myaccount));
                             break;
 
                         case R.id.navigation_home:
@@ -155,6 +153,44 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
                 }
             };
 
+
+    public void showPopup(View view){
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+
+                switch (item.getItemId()){
+
+                    case R.id.change_password:
+                        Intent i = new Intent(getApplicationContext(), ChangePassword.class);
+                        i.putExtra("user", user);
+                        startActivity(i);
+                        break;
+
+                    case R.id.view_reviews:
+                        Toast.makeText(MyBookings.this, "View reviews", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.update_preferences:
+                        Toast.makeText(MyBookings.this, "Preferences", Toast.LENGTH_SHORT).show();
+                        break;
+
+                }
+
+                return false;
+            }
+        });
+        popupMenu.setOnDismissListener(new PopupMenu.OnDismissListener() {
+            @Override
+            public void onDismiss(PopupMenu menu) {
+                navView.setSelectedItemId(R.id.navigation_mybookings);
+            }
+        });
+        popupMenu.inflate(R.menu.my_account_pop_up);
+
+        popupMenu.show();
+    }
 
     private void loadBookings(){
 

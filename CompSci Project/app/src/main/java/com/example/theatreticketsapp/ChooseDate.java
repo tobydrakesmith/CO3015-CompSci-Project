@@ -19,6 +19,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+
+
 public class ChooseDate extends AppCompatActivity {
 
     Show mShow;
@@ -33,12 +35,11 @@ public class ChooseDate extends AppCompatActivity {
     User user;
 
 
-    //TODO: if user is looking at today's date they should not be able to select a performance that has passed
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_show);
+
 
 
 

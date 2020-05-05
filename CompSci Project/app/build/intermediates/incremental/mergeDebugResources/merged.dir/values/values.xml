@@ -1055,7 +1055,7 @@
     <string name="btn_register">Register</string>
     <string name="btn_return">Return home</string>
     <string name="button_navigate_venue">Navigate to venue</string>
-    <string name="button_view_reviews">View reviews</string>
+    <string name="button_view_reviews">View your past reviews</string>
     <string name="calendar_sync">Sync booking</string>
     <string name="change_password">Change your password</string>
     <string name="character_counter_content_description">Characters entered %1$d of %2$d</string>
@@ -1351,7 +1351,7 @@
     <string name="title_activity_homepage">Homepage</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_receipt_options">ReceiptOptionsActivity</string>
-    <string name="title_activity_selected_show">SelectedShow</string>
+    <string name="title_activity_selected_show">Selected Show</string>
     <string name="title_activity_test">Test</string>
     <string name="title_activity_view_tickets">View tickets</string>
     <string name="title_home">Home</string>
@@ -1359,6 +1359,7 @@
     <string name="title_settings">My account</string>
     <string name="tix_counter">0</string>
     <string name="upcoming_bookings">Your upcoming bookings</string>
+    <string name="update_preferences">Update notification preferences</string>
     <string name="view_booking_lbl">View your tickets</string>
     <string name="view_your_booking">View booking</string>
     <string name="write_review">Write a review (optional)</string>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/change_password"
+        android:id="@+id/change_password"/>
+    <item android:title="@string/view_your_reviews"
+        android:id="@+id/view_reviews"/>
+    <item android:title="@string/update_preferences"
+        android:id="@+id/update_preferences"/>
+</menu>

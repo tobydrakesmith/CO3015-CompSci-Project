@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -64,6 +65,8 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
     private RequestQueue requestQueue;
     private Location userLoc;
     private Geocoder geocoder;
+    private Button filterBtn;
+    private BottomNavigationView navView;
     User user;
     RadioGroup radioGroup;
 
@@ -135,7 +138,25 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
             }
         });
 
-        final Button filterBtn = findViewById(R.id.filter);
+        filterBtn = findViewById(R.id.filter);
+        setUpFilterMenu();
+
+
+        progressBar = findViewById(R.id.progressBar);
+
+        navView = findViewById(R.id.nav_view);
+        navView.setOnNavigationItemSelectedListener(navListener);
+        navView.setSelectedItemId(R.id.navigation_home);
+
+        recyclerView = findViewById((R.id.liveShowsView));
+        recyclerView.setLayoutManager(new LinearLayoutManager((this)));
+        recyclerView.setAdapter(adapter);
+
+        loadShows();
+
+    }
+
+    private void setUpFilterMenu() {
         filterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,10 +168,12 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
                 seekBarLocation = view.findViewById(R.id.seekBarLocation);
 
                 seekBarLocation.setProgress(distanceFilter);
+
                 if (distanceFilter == 100)
                     seekBarLblLocation.setText(String.format("%skm+", Integer.toString(distanceFilter)));
                 else
                     seekBarLblLocation.setText(String.format("%skm", Integer.toString(distanceFilter)));
+
                 seekBarLocation.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -246,19 +269,6 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
 
             }
         });
-
-        progressBar = findViewById(R.id.progressBar);
-
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        navView.setOnNavigationItemSelectedListener(navListener);
-        navView.setSelectedItemId(R.id.navigation_home);
-
-        recyclerView = findViewById((R.id.liveShowsView));
-        recyclerView.setLayoutManager(new LinearLayoutManager((this)));
-        recyclerView.setAdapter(adapter);
-
-        loadShows();
-
     }
 
 
@@ -372,12 +382,7 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
 
                         case R.id.navigation_myaccount:
 
-                            Intent intent2 = new Intent(Homepage.this, MyAccount.class);
-                            intent2.putExtra("basket", basket);
-                            intent2.putExtra("user", user);
-                            startActivity(intent2);
-                            overridePendingTransition(R.transition.slide_in_right, R.transition.slide_out_left);
-
+                            showPopup(findViewById(R.id.navigation_myaccount));
                             break;
                     }
 
@@ -385,6 +390,44 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
                 }
             };
 
+
+    public void showPopup(View view){
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+
+                switch (item.getItemId()){
+
+                    case R.id.change_password:
+                        Intent i = new Intent(getApplicationContext(), ChangePassword.class);
+                        i.putExtra("user", user);
+                        startActivity(i);
+                        break;
+                        
+                    case R.id.view_reviews:
+                        Toast.makeText(Homepage.this, "View reviews", Toast.LENGTH_SHORT).show();
+                        break;
+                        
+                    case R.id.update_preferences:
+                        Toast.makeText(Homepage.this, "Preferences", Toast.LENGTH_SHORT).show();
+                        break;
+
+                }
+
+                return false;
+            }
+        });
+        popupMenu.setOnDismissListener(new PopupMenu.OnDismissListener() {
+            @Override
+            public void onDismiss(PopupMenu menu) {
+                navView.setSelectedItemId(R.id.navigation_home);
+            }
+        });
+        popupMenu.inflate(R.menu.my_account_pop_up);
+
+        popupMenu.show();
+    }
 
 
 

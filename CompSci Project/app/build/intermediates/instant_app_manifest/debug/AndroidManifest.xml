@@ -106,10 +106,6 @@
             android:resource="@transition/slide_in_down" />
 
         <activity
-            android:name="com.example.theatreticketsapp.MyAccount"
-            android:label="My Account"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name="com.example.theatreticketsapp.MyBookings"
             android:label="My Bookings"
             android:theme="@style/AppTheme.NoActionBar" />

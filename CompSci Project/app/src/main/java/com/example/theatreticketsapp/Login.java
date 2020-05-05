@@ -91,6 +91,7 @@ public class Login extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 String email = input.getText().toString().trim();
                 sendMail(email);
+                dialog.dismiss();
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -112,10 +113,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    if (response.getString("error").equals("false"))
-                        Toast.makeText(Login.this, response.getString("message"), Toast.LENGTH_SHORT).show();
-                    else
-                        Toast.makeText(Login.this, response.getString("message"), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, response.getString("message"), Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -150,28 +148,13 @@ public class Login extends AppCompatActivity {
         return !username.equals("") && !password.equals("");
     }
 
-    private static String getSHA256SecurePassword(String passwordToHash) {
-        String generatedPassword = null;
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA-1");
-            byte[] bytes = md.digest(passwordToHash.getBytes());
-            StringBuilder sb = new StringBuilder();
-            for (byte aByte : bytes)
-                sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
-            generatedPassword = sb.toString();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return generatedPassword;
-    }
-
 
     private void login() {
         final String email = mainBinding.usernameEditText.getText().toString().toLowerCase().trim();
         String password = mainBinding.passwordEditText.getText().toString().trim();
         if (validate(email, password)) {
             mainBinding.progressBar.setVisibility(View.VISIBLE);
-            String hashedPassword = getSHA256SecurePassword(password);
+            String hashedPassword = HashPassword.getSHA256SecurePassword(password);
             JsonObjectRequest jsObjectRequest = new JsonObjectRequest
                     (Request.Method.GET, DatabaseAPI.URL_GET_USER + email + "&password=" + hashedPassword, new JSONObject(), new Response.Listener<JSONObject>() {
                         @Override

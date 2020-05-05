@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-97:12
-INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-97:12
-INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-97:12
-INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-97:12
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-94:12
+INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-94:12
+INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-94:12
+INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-94:12
 MERGED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:2:1-46:12
 MERGED from [androidx.databinding:databinding-adapters:3.6.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/8c82e308849a9dd9b543062702201129/databinding-adapters-3.6.3/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-runtime:3.6.3] /home/tjd17/.gradle/caches/transforms-2/files-2.1/1e09ebd828d4524bf4cb08f14835fb1e/databinding-runtime-3.6.3/AndroidManifest.xml:17:1-24:12
@@ -90,20 +90,20 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] /home/tjd17/.gradle/cache
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/b3eceaf6e5cc2df4bb865a5445be6293/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/b6f43387dd7e9eafec00725aa0944ecc/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/9f8a366e57dff09c00193bb4b84f0896/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
-INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-97:12
-INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-97:12
-INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-97:12
+INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-94:12
+INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-94:12
+INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-94:12
 	package
 		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:3:5-44
 		INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
 		INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-97:12
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-94:12
 		INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-97:12
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:1-94:12
 		INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:2:11-69
@@ -136,7 +136,7 @@ MERGED from [com.google.android.datatransport:transport-backend-cct:2.2.0] /home
 	android:name
 		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:11:22-64
 application
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:13:5-95:19
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:13:5-92:19
 MERGED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:17:5-44:19
 MERGED from [com.paypal.retail:here-sdk-release:2.0.0.201801] /home/tjd17/.gradle/caches/transforms-2/files-2.1/27a08cd7d3de6dff40fbd70e1ddc2b53/jetified-here-sdk-release-2.0.0.201801/AndroidManifest.xml:17:5-44:19
 MERGED from [com.google.firebase:firebase-core:17.4.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/48e0468aa346c79d8658b883a732dd2d/jetified-firebase-core-17.4.0/AndroidManifest.xml:7:5-20
@@ -323,48 +323,40 @@ ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/An
 		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:73:13-57
 	android:name
 		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:72:13-54
-activity#com.example.theatreticketsapp.MyAccount
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:75:9-78:59
-	android:label
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:77:13-39
-	android:theme
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:78:13-56
-	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:76:13-38
 activity#com.example.theatreticketsapp.MyBookings
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:79:9-82:59
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:76:9-79:59
 	android:label
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:81:13-40
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:78:13-40
 	android:theme
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:82:13-56
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:79:13-56
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:80:13-39
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:77:13-39
 activity#com.example.theatreticketsapp.ShowInformation
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:83:9-86:59
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:80:9-83:59
 	android:label
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:85:13-65
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:82:13-65
 	android:theme
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:86:13-56
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:83:13-56
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:84:13-44
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:81:13-44
 activity#com.example.theatreticketsapp.Register
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:87:9-46
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:84:9-46
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:87:19-43
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:84:19-43
 activity#com.example.theatreticketsapp.Login
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:88:9-94:20
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:85:9-91:20
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:88:19-40
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:85:19-40
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:89:13-93:29
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:86:13-90:29
 action#android.intent.action.MAIN
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:90:17-69
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:87:17-69
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:90:25-66
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:87:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:92:17-77
+ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:89:17-77
 	android:name
-		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:92:27-74
+		ADDED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:89:27-74
 uses-sdk
 INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml

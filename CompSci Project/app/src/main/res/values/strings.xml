@@ -15,7 +15,7 @@
     <string name="title_home">Home</string>
     <string name="title_notifications">My bookings</string>
     <string name="successful_creation">Account successfully created</string>
-    <string name="title_activity_selected_show">SelectedShow</string>
+    <string name="title_activity_selected_show">Selected Show</string>
     <string name="btn_guest">Continue as a guest</string>
     <string name="title_settings">My account</string>
     <string name="btn_book">Book</string>
@@ -92,5 +92,8 @@
     <string name="filter_by_price">Filter by price</string>
 
     <string name="homepage_search_prompt">"Show, venue or city…"</string>
+
+    <string name="update_preferences">Update notification preferences</string>
+    <string name="view_your_reviews">View your past reviews</string>
 
 </resources>

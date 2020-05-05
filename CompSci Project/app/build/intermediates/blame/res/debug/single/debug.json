@@ -76,12 +76,12 @@
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-anydpi/ic_cancel.xml"
     },
     {
-        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_cancel.png.flat",
-        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-mdpi/ic_cancel.png"
-    },
-    {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_cancel.png.flat",
+        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-mdpi/ic_cancel.png"
     },
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/transition_slide_out_right.xml.flat",
@@ -118,10 +118,6 @@
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_cancel.png.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-xxhdpi/ic_cancel.png"
-    },
-    {
-        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/menu_my_account_pop_up_menu.xml.flat",
-        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/menu/my_account_pop_up_menu.xml"
     },
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable_ic_dashboard_black_24dp.xml.flat",
@@ -288,12 +284,12 @@
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-anydpi/ic_filter.xml"
     },
     {
-        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/layout_activity_my_account.xml.flat",
-        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/layout/activity_my_account.xml"
-    },
-    {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/menu_my_account_pop_up.xml.flat",
+        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/menu/my_account_pop_up.xml"
     },
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/layout_content_create_review.xml.flat",
@@ -400,12 +396,12 @@
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-xxhdpi/ic_left.png"
     },
     {
-        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-anydpi_ic_add_to_basket.xml.flat",
-        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-anydpi/ic_add_to_basket.xml"
-    },
-    {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_search.png.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-xhdpi/ic_search.png"
+    },
+    {
+        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-anydpi_ic_add_to_basket.xml.flat",
+        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-anydpi/ic_add_to_basket.xml"
     },
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_filter.png.flat",
@@ -442,10 +438,6 @@
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_new.png.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-xxhdpi/ic_new.png"
-    },
-    {
-        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/menu_menu_scrolling.xml.flat",
-        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/menu/menu_scrolling.xml"
     },
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable_ic_tick.xml.flat",

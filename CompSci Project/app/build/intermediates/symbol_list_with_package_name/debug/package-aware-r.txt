@@ -1763,7 +1763,6 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_settings
 id action_text
 id actions
 id activity_basket
@@ -1791,12 +1790,9 @@ id btnCancel
 id btnDecrease
 id btnIncrease
 id btnViewBooking
-id button3
-id button4
 id buttonConfirm
 id buttonLeft
 id buttonPanel
-id buttonPassword
 id buttonRight
 id button_primary
 id button_secondary
@@ -1812,6 +1808,7 @@ id center
 id center_horizontal
 id center_vertical
 id chains
+id change_password
 id checkbox
 id checked
 id checkoutRecylerView
@@ -1846,9 +1843,9 @@ id dark
 id dataBinding
 id date
 id dateLbl
-id date_asc
 id date_desc
 id date_picker_actions
+id date_zzasc
 id decor_content_parent
 id default_activity_button
 id design_bottom_sheet
@@ -2168,7 +2165,6 @@ id textView11
 id textView2
 id textView3
 id textView5
-id textView6
 id textView7
 id textView9
 id textWatcher
@@ -2205,6 +2201,7 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id update_preferences
 id useLogo
 id username
 id usernameEditText
@@ -2214,6 +2211,7 @@ id venueDescription
 id venueName
 id viewReviewsBtn
 id view_offset_helper
+id view_reviews
 id visible
 id visible_removing_fragment_view_tag
 id wide
@@ -2294,7 +2292,6 @@ layout activity_create_review
 layout activity_homepage
 layout activity_main
 layout activity_maps
-layout activity_my_account
 layout activity_my_bookings
 layout activity_register
 layout activity_selected_show
@@ -2426,8 +2423,7 @@ layout toast_swipe_failed
 menu bottom_nav_menu
 menu checkout_top_nav
 menu homepage_top_nav
-menu menu_scrolling
-menu my_account_pop_up_menu
+menu my_account_pop_up
 menu sort_menu_reviews
 mipmap ic_launcher
 mipmap ic_launcher_foreground
@@ -2784,6 +2780,7 @@ string title_notifications
 string title_settings
 string tix_counter
 string upcoming_bookings
+string update_preferences
 string view_booking_lbl
 string view_your_booking
 string write_review
