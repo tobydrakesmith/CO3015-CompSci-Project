@@ -173,7 +173,8 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
                         break;
 
                     case R.id.update_preferences:
-                        Toast.makeText(MyBookings.this, "Preferences", Toast.LENGTH_SHORT).show();
+                        Intent preferences = new Intent(getApplicationContext(), NotificationPreferences.class);
+                        startActivity(preferences);
                         break;
 
                 }

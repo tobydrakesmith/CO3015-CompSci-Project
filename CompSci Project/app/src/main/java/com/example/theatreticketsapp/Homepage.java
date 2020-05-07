@@ -67,8 +67,8 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
     private Geocoder geocoder;
     private Button filterBtn;
     private BottomNavigationView navView;
-    User user;
-    RadioGroup radioGroup;
+    private User user;
+    private RadioGroup radioGroup;
 
     private int distanceFilter = 100, maxPrice = 0, filterPrice, selectedRadioBtn, radioBtnAllShows;
 
@@ -410,7 +410,8 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
                         break;
                         
                     case R.id.update_preferences:
-                        Toast.makeText(Homepage.this, "Preferences", Toast.LENGTH_SHORT).show();
+                        Intent preferences = new Intent(getApplicationContext(), NotificationPreferences.class);
+                        startActivity(preferences);
                         break;
 
                 }

@@ -69,7 +69,6 @@
     <string name="musicals_only">Musicals only</string>
 
 
-
     <string-array name="locations">
         <item>Greater London</item>
         <item>Scotland</item>
@@ -95,5 +94,22 @@
 
     <string name="update_preferences">Update notification preferences</string>
     <string name="view_your_reviews">View your past reviews</string>
+
+    <string name="london">Greater London</string>
+    <string name="scotland">Scotland</string>
+    <string name="northern_ireland">Northern Ireland</string>
+    <string name="wales">Wales</string>
+    <string name="north_east">North East</string>
+    <string name="north_west">North West</string>
+    <string name="yorkshire">Yorkshire</string>
+    <string name="wmidlands">West Midlands</string>
+    <string name="emidlands">East Midlands</string>
+    <string name="swest">South West</string>
+    <string name="seast">South East</string>
+    <string name="east_england">East of England</string>
+
+    <string name="no_notifs">I don\'t want any notifications</string>
+    <string name="submit_pref">Submit preferences</string>
+    <string name="current_preferences">Select where you would like to subscribe to notifications for new shows (un-select current choices to unsubscribe)</string>
 
 </resources>

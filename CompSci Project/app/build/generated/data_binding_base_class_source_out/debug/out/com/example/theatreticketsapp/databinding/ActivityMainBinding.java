@@ -19,6 +19,9 @@ import java.lang.Object;
 
 public abstract class ActivityMainBinding extends ViewDataBinding {
   @NonNull
+  public final Button button;
+
+  @NonNull
   public final Button loginBtn;
 
   @NonNull
@@ -46,9 +49,10 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   protected String mLgnPassword;
 
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button loginBtn, EditText passwordEditText, TextView passwordLbl, ProgressBar progressBar,
-      Button registerBtn, TextView textView5, EditText usernameEditText) {
+      Button button, Button loginBtn, EditText passwordEditText, TextView passwordLbl,
+      ProgressBar progressBar, Button registerBtn, TextView textView5, EditText usernameEditText) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.button = button;
     this.loginBtn = loginBtn;
     this.passwordEditText = passwordEditText;
     this.passwordLbl = passwordLbl;

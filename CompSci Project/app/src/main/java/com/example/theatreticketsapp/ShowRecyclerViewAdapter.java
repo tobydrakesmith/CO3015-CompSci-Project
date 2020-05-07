@@ -64,7 +64,7 @@
             Date date = null;
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(new Date());
-            calendar.add(Calendar.DAY_OF_WEEK, -5);
+            calendar.add(Calendar.DAY_OF_WEEK, -3);
 
 
             try{

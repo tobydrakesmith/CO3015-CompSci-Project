@@ -160,7 +160,6 @@ public class Register extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getString("error").equals("false")){
                         Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
-
                         openDialog();
                     }
                     else{
@@ -186,9 +185,9 @@ public class Register extends AppCompatActivity {
 
                 String username = registerBinding.username.getText().toString().trim();
                 String password = registerBinding.password.getText().toString().trim();
+                String encryptedPassword = HashPassword.getSHA256SecurePassword(password);
                 String firstName = registerBinding.firstname.getText().toString().trim();
                 String lastName = registerBinding.lastname.getText().toString().trim();
-                String encryptedPassword = HashPassword.getSHA256SecurePassword(password);
 
 
 
@@ -209,6 +208,8 @@ public class Register extends AppCompatActivity {
 
         final String[] items = getResources().getStringArray(R.array.locations);
         boolean[] checkedItems = new boolean[items.length];
+
+
 
         AlertDialog.Builder dialog = new AlertDialog.Builder(Register.this);
         dialog.setTitle("Select the region(s) you would like to hear about new shows in");
@@ -252,16 +253,13 @@ public class Register extends AppCompatActivity {
                     String text = checkedBtn.getText().toString();
                     switch (text){
                         case("Both"):
-                            Toast.makeText(Register.this, "Both", Toast.LENGTH_SHORT).show();
                             firebaseMessaging.subscribeToTopic("plays");
                             firebaseMessaging.subscribeToTopic("musicals");
                             break;
                         case("Plays only"):
-                            Toast.makeText(Register.this, "Plays only", Toast.LENGTH_SHORT).show();
                             firebaseMessaging.subscribeToTopic("plays");
                             break;
                         case("Musicals only"):
-                            Toast.makeText(Register.this, "Musicals only", Toast.LENGTH_SHORT).show();
                             firebaseMessaging.subscribeToTopic("musicals");
                             break;
                     }

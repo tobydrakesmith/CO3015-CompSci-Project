@@ -7,7 +7,6 @@
     <uses-sdk
         android:minSdkVersion="28"
         android:targetSdkVersion="29" />
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -50,6 +49,8 @@
         android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
+        <activity android:name="com.example.theatreticketsapp.NotificationPreferences" />
+
         <service android:name="com.example.theatreticketsapp.FirebaseService" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGINB_EVENT" />

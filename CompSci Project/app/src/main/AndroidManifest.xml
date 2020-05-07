@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.theatreticketsapp">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -18,9 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <service android:name=".FirebaseService" >
+        <activity android:name=".NotificationPreferences"></activity>
+
+        <service android:name=".FirebaseService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGINB_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGINB_EVENT" />
             </intent-filter>
         </service>
 
@@ -71,7 +72,6 @@
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@transition/slide_in_down" />
-
 
         <activity
             android:name=".MyBookings"

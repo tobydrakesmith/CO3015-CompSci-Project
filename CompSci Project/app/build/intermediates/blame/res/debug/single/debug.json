@@ -8,12 +8,12 @@
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-xxhdpi/ic_decrease_number_of_tickets.png"
     },
     {
-        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-anydpi_ic_decrease_number_of_tickets.xml.flat",
-        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-anydpi/ic_decrease_number_of_tickets.xml"
-    },
-    {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/layout_activity_view_reviews.xml.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/layout/activity_view_reviews.xml"
+    },
+    {
+        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-anydpi_ic_decrease_number_of_tickets.xml.flat",
+        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-anydpi/ic_decrease_number_of_tickets.xml"
     },
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable_ic_home_black_24dp.xml.flat",
@@ -76,40 +76,40 @@
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-anydpi/ic_cancel.xml"
     },
     {
-        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
-    },
-    {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_cancel.png.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-mdpi/ic_cancel.png"
+    },
+    {
+        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
     },
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/transition_slide_out_right.xml.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/transition/slide_out_right.xml"
     },
     {
-        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_basket.png.flat",
-        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-hdpi/ic_basket.png"
+        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_new.png.flat",
+        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-xhdpi/ic_new.png"
     },
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/layout_recyclerview_reviews.xml.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/layout/recyclerview_reviews.xml"
     },
     {
-        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_new.png.flat",
-        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-xhdpi/ic_new.png"
+        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_basket.png.flat",
+        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-hdpi/ic_basket.png"
     },
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_foreground.png.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/layout_activity_view_tickets.xml.flat",
-        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/layout/activity_view_tickets.xml"
-    },
-    {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable_ic_theaters_black_24dp.xml.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable/ic_theaters_black_24dp.xml"
+    },
+    {
+        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/layout_activity_view_tickets.xml.flat",
+        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/layout/activity_view_tickets.xml"
     },
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/layout_activity_create_review.xml.flat",
@@ -186,6 +186,10 @@
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_add_to_basket.png.flat",
         "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/drawable-xxhdpi/ic_add_to_basket.png"
+    },
+    {
+        "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/layout_activity_notification_preferences.xml.flat",
+        "source": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/res/layout/activity_notification_preferences.xml"
     },
     {
         "merged": "/home/tjd17/Documents/CompSci Project/CompSci Project/app/build/intermediates/res/merged/debug/layout_dialog_filter_location.xml.flat",

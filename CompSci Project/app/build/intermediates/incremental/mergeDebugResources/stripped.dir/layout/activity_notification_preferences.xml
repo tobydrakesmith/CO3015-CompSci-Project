@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NotificationPreferences">
+
+    <CheckBox
+        android:id="@+id/londonBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/london"
+        app:layout_constraintEnd_toStartOf="@+id/eeBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <CheckBox
+        android:id="@+id/scotlandBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/scotland"
+        app:layout_constraintStart_toStartOf="@+id/londonBox"
+        app:layout_constraintTop_toBottomOf="@+id/londonBox" />
+
+    <CheckBox
+        android:id="@+id/walesBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/wales"
+        app:layout_constraintStart_toStartOf="@+id/londonBox"
+        app:layout_constraintTop_toBottomOf="@+id/scotlandBox" />
+
+    <CheckBox
+        android:id="@+id/niBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/northern_ireland"
+        app:layout_constraintStart_toStartOf="@+id/londonBox"
+        app:layout_constraintTop_toBottomOf="@+id/walesBox" />
+
+    <CheckBox
+        android:id="@+id/eeBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/east_england"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/londonBox"
+        app:layout_constraintTop_toTopOf="@+id/londonBox" />
+
+    <CheckBox
+        android:id="@+id/seBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/seast"
+        app:layout_constraintStart_toStartOf="@+id/eeBox"
+        app:layout_constraintTop_toBottomOf="@+id/eeBox" />
+
+    <CheckBox
+        android:id="@+id/nwBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/north_west"
+        app:layout_constraintStart_toStartOf="@+id/eeBox"
+        app:layout_constraintTop_toBottomOf="@+id/seBox" />
+
+    <CheckBox
+        android:id="@+id/swBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/swest"
+        app:layout_constraintStart_toStartOf="@+id/eeBox"
+        app:layout_constraintTop_toBottomOf="@+id/nwBox" />
+
+    <CheckBox
+        android:id="@+id/neBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/north_east"
+        app:layout_constraintStart_toStartOf="@+id/londonBox"
+        app:layout_constraintTop_toBottomOf="@+id/niBox" />
+
+    <CheckBox
+        android:id="@+id/wmBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/wmidlands"
+        app:layout_constraintStart_toStartOf="@+id/eeBox"
+        app:layout_constraintTop_toBottomOf="@+id/emBox" />
+
+    <CheckBox
+        android:id="@+id/yorkshireBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/yorkshire"
+        app:layout_constraintStart_toStartOf="@+id/londonBox"
+        app:layout_constraintTop_toBottomOf="@+id/neBox" />
+
+    <CheckBox
+        android:id="@+id/emBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/emidlands"
+        app:layout_constraintStart_toStartOf="@+id/eeBox"
+        app:layout_constraintTop_toBottomOf="@+id/swBox" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="331dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/current_preferences"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yorkshireBox">
+
+        <RadioButton
+            android:id="@+id/radioButtonPlays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/plays_only" />
+
+        <RadioButton
+            android:id="@+id/radioButtonMusicals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/musicals_only" />
+
+        <RadioButton
+            android:id="@+id/radioButtonBoth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/both" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="153dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="#673AB7"
+        android:text="@string/submit_pref"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
