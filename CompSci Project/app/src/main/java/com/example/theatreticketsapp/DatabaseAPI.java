@@ -77,4 +77,7 @@ public class DatabaseAPI {
     static final String URL_SEND_RESET_PASSWORD_EMAIL =
             ROOT_URL + "sendresetpasswordemail&email=";
 
+    static final String URL_SEND_BOOKING_EMAIL =
+            ROOT_URL + "sendbookingconfirmation";
+
 }

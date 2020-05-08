@@ -20,6 +20,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -160,7 +161,7 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
 
 
     private void sendMail(){
-
+/*
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -174,7 +175,32 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
                 }
             }
 
-        }).start();
+        }).start();*/
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, DatabaseAPI.URL_SEND_BOOKING_EMAIL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                System.out.println(response);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<>();
+                params.put("email", user.getEmail());
+                params.put("subject", subject);
+                params.put("content", content);
+                return params;
+            }
+        };
+
+        requestQueue.add(stringRequest);
     }
 
 
@@ -222,28 +248,30 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
         });
         dialog.show();
 
+        final String NEWLINE = "newline";
+        final String POUNDSYMBOL = "poundsymbol";
+
 
         StringBuilder toDisplay = new StringBuilder();
         ArrayList<BasketBooking> bookings;
         bookings = basket.getBookings();
-        BasketBooking booking;
 
         Date date;
 
-        for (int i = 0; i < basket.numberOfBookings(); i++) {
-            booking = bookings.get(i);
+        for (BasketBooking booking : bookings) {
             date = formatDate(booking);
-            toDisplay.append(booking.getShowName()).append("\n").append(booking.getShow().getVenue().getVenueName())
-                    .append("\n").append(date.toString()).append(" x")
-                    .append(booking.getNumberOfTickets()).append("\n£").append(booking.getTickets().get(0).getPrice()).append(" each")
-                    .append("\n\n");
+            toDisplay.append(booking.getShowName()).append(NEWLINE).append(booking.getShow().getVenue().getVenueName())
+                    .append(NEWLINE).append(date.toString()).append(" x")
+                    .append(booking.getNumberOfTickets()).append(NEWLINE + POUNDSYMBOL).append(booking.getTickets().get(0).getPrice()).append(" each")
+                    .append(NEWLINE + NEWLINE);
         }
 
-        toDisplay.append("Total cost: £").append(basket.getTotalCost());
+        toDisplay.append("Total cost: "+POUNDSYMBOL).append(basket.getTotalCost()).append(NEWLINE);
 
-        content = "Dear " + user.getFirstName() + ",\n \n" +
-                "Thank you for your booking. Please see the details below:\n \n" +
-                toDisplay.toString() + "\n \nYou can access your tickets in the My Bookings section of the app.\nMany thanks";
+        content = "Dear " + user.getFirstName() + ", " + NEWLINE + NEWLINE +
+                "Thank you for your booking. Please see the details below: " + NEWLINE + NEWLINE +
+                toDisplay.toString() + NEWLINE + "You can access your tickets in the My Bookings section of the app." +
+                NEWLINE + NEWLINE + "Many thanks, " + NEWLINE + "Theatre Tickets App";
 
         basketToDb();
 
