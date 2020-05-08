@@ -459,6 +459,11 @@
 			shell_exec($command);
 		}
 
+		function sendBookingConfirmation($email, $subject, $content){
+			$command = escapeshellcmd('php sendBookingMail.php ' . $email . ' "' . $subject . '" "' . $content . '"');
+			shell_exec($command);
+		}
+
 	}
 
 ?>

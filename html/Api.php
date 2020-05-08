@@ -75,7 +75,7 @@
 					$response['message'] = 'Some error occurred please try again';
 				}
 
-			break;
+				break;
 
 			//the READ operation
 			//if the call is getusers
@@ -84,7 +84,7 @@
 				$response['error'] = false;
 				$response['message'] = 'Request successfully completed';
 				$response['users'] = $db->getUsers();
-			break;
+				break;
 
 			case 'getuser':
 
@@ -102,7 +102,7 @@
 					$response['error'] = true;
 					$response['message'] = 'Nothing to fetch, provide an email please';
 				}
-			break;
+				break;
 
 
 			case 'checkpassword':
@@ -116,7 +116,7 @@
 				}
 
 
-			break;
+				break;
 
 			case 'updatepasswordloggedon':
 
@@ -130,7 +130,7 @@
 
 				}
 
-			break;
+				break;
 
 			//the delete operation
 			case 'deleteuser':
@@ -150,14 +150,14 @@
 					$response['error'] = true;
 					$response['message'] = 'Nothing to delete, provide an id please';
 				}
-			break;
+				break;
 
 			case 'getliveshows':
 
 				$db = new DbOperation();
 				$response = $db->getLiveShows();
 
-			break;
+				break;
 
 
 			case 'getshowinfo':
@@ -168,7 +168,7 @@
 					 else
 						$response['error'] = true;
 				}
-			break;
+				break;
 
 			case 'createbooking':
 				areTheseParametersAvailable(array('instanceID', 'userID', 'numberOfTickets', 'date', 'showTime', 'showName', 'tempID'));
@@ -185,7 +185,7 @@
 					$response['message'] = $result;
 				}
 
-			break;
+				break;
 
 			case 'createticket':
 				areTheseParametersAvailable(array('bookingID', 'price', 'priceBand'));
@@ -200,7 +200,7 @@
 					$response['error'] = true;
 					$response['message'] = "Some error occurred - check input data and try again";
 				}
-			break;
+				break;
 
 			case 'getbookings':
 				if(isset($_GET['userID'])){
@@ -213,7 +213,7 @@
 					$response['error'] = true;
 					$response['message'] = "UserID missing";
 				}
-			break;
+				break;
 
 			case 'createreview':
 				areTheseParametersAvailable(array('bookingID', 'userID', 'showName', 'showInstanceID', 'rating'));
@@ -226,7 +226,7 @@
 					$response['error'] = true;
 					$response['message'] = $db->createReview($_POST['bookingID'], $_POST['userID'], $_POST['showName'], $_POST['showInstanceID'], $_POST['rating'], $_POST['review']);
 				}
-			break;
+				break;
 
 			case 'gettickets':
 				if(isset($_GET['bookingID'])){
@@ -236,7 +236,7 @@
 					$response['error'] = true;
 					$response['message'] = "BookingID missing";
 				}
-			break;
+				break;
 
 			case 'updatepassword':
 				if(isset($_GET['password'], $_GET['email'])){
@@ -249,7 +249,7 @@
 						$response['message'] = "Email not found";
 					}
 				}
-			break;
+				break;
 
 			case 'checkreview':
 
@@ -261,7 +261,7 @@
 						$response['reviewLeft'] = false;
 				}
 
-			break;
+				break;
 
 			case 'getvenueinfo':
 
@@ -270,7 +270,7 @@
 					$response = $db->getVenueInfo($_GET['venueName']);
 				}
 
-			break;
+				break;
 
 			case 'getreviews':
 
@@ -283,7 +283,7 @@
 					$response['message'] = "Missing parameters";
 				}
 
-			break;
+				break;
 
 			case 'getsales':
 				if(isset($_GET['showInstanceID'], $_GET['date'], $_GET['time'])){
@@ -294,7 +294,7 @@
 					$response['message'] = "Missing parameters";
 				}
 
-			break;
+				break;
 
 
 			case 'getreviewsdetailed':
@@ -303,14 +303,14 @@
 					$response = $db->getReviewsDetailed($_GET['showName']);
 				}
 
-			break;
+				break;
 
 			case 'addbasketbooking':
 				if(isset($_GET['showInstanceID'], $_GET['priceBand'], $_GET['date'], $_GET['time'], $_GET['userID'], $_GET['numberOfTickets'])){
 					$db = new DbOperation();
 					$response['id'] = $db->addBasketSales($_GET['showInstanceID'], $_GET['priceBand'], $_GET['date'], $_GET['time'], $_GET['userID'], $_GET['numberOfTickets']);
 				}
-			break;
+				break;
 
 
 			case 'deletebasketbooking':
@@ -321,7 +321,7 @@
 				}
 
 
-			break;
+				break;
 
 			case 'checkscanned':
 
@@ -341,7 +341,7 @@
 					}
 				}
 
-			break;
+				break;
 
 			case 'venueinfobooking':
 
@@ -351,14 +351,14 @@
 
 				}
 
-			break;
+				break;
 
 			case 'getrunningtime':
 				if(isset($_GET['showName'])){
 					$db = new DbOperation();
 					$response = $db->getShowRunningTime($_GET['showName']);
 				}
-			break;
+				break;
 
 			case 'sendresetpasswordemail':
 				if(isset($_GET['email'])){
@@ -374,7 +374,18 @@
 					}
 				}
 
-			break;
+				break;
+
+			case 'sendbookingconfirmation':
+				areTheseParametersAvailable(array('email', 'subject', 'content'));
+				$db = new DbOperation();
+
+				$db->sendBookingConfirmation(
+					$_POST['email'],
+					$_POST['subject'],
+					$_POST['content']);
+
+				break;
 		}
 	}else{
 		//if it is not api call

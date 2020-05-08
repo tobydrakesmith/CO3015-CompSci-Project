@@ -30,7 +30,7 @@ try {
 
         $mail->isHTML(true);
         $mail->Body = '<h2>Password reset</h2>'.
-	'<p>Dear '. $name .',</p><p>You are receiving this email as we recieved a request to reset your password. Please click on the below link to reset your password:'.
+	'<p>Dear '. $name .',</p><p>We received a request to reset your password for Theatre Tickets App, if this was request was made by you, please click on the below link.'.
         '<p><a href="'.$link.'">Click here to reset your password</a></p>'.
 	'<p>If you did not request a change of password, please ignore this email.</p>'.
 	'<p>Many thanks,<br>Theatre Tickets App team</p>';
