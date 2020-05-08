@@ -26,6 +26,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Locale;
+
 
 //TODO: I think that this code can be re-written better
 
@@ -46,7 +48,7 @@ public class ChooseTickets extends AppCompatActivity {
     RadioGroup radioGroup;
     RadioButton pba, pbb, pbc, pbd;
 
-    //TODO: see if using a radio group can reduce code
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,10 +81,10 @@ public class ChooseTickets extends AppCompatActivity {
         pbd = findViewById(R.id.priceBandD);
 
 
-        pba.setText("£" + mShow.getPricePbA());
-        pbb.setText("£" + mShow.getPricePbB());
-        pbc.setText("£" + mShow.getPricePbC());
-        pbd.setText("£" + mShow.getPricePbD());
+        pba.setText(String.format(Locale.ENGLISH,"%s%d", getString(R.string.pound_sign), mShow.getPricePbA()));
+        pbb.setText(String.format(Locale.ENGLISH,"%s%d", getString(R.string.pound_sign), mShow.getPricePbB()));
+        pbc.setText(String.format(Locale.ENGLISH,"%s%d", getString(R.string.pound_sign), mShow.getPricePbC()));
+        pbd.setText(String.format(Locale.ENGLISH,"%s%d", getString(R.string.pound_sign), mShow.getPricePbD()));
 
         tixLeftPBA = findViewById(R.id.tixLeftPBA);
         tixLeftPBB = findViewById(R.id.tixLeftPBB);
@@ -113,7 +115,6 @@ public class ChooseTickets extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override //TODO: Add animation
     public void onBackPressed() {
         Intent intent = new Intent(this, ChooseDate.class);
         intent.putExtra("basket", basket);
@@ -126,43 +127,39 @@ public class ChooseTickets extends AppCompatActivity {
     public void onClickIncrease(View view) {
 
 
-        if (pba.isChecked()) {
-            if (numberTix<9 && numberTix < pbaLeft ) {
-                numberTix++;
-                updateLabel();
-                changeNumberTickets();
-            }
-        }
-        else if (pbb.isChecked()){
-            if (numberTix<9 && numberTix < pbbLeft ) {
-                numberTix++;
-                updateLabel();
-                changeNumberTickets();
-            }
+        int id = radioGroup.getCheckedRadioButtonId();
 
-        }
-        else if (pbc.isChecked()){
-            if (numberTix<9 && numberTix < pbcLeft) {
-                numberTix++;
-                updateLabel();
-                changeNumberTickets();
-            }
-        }
-        else if (pbd.isChecked()) {
-            if (numberTix<9 && numberTix < pbdLeft ) {
-                numberTix++;
-                updateLabel();
-                changeNumberTickets();
-            }
+        switch (id){
 
-        }
-        else{
-            numberTix++;
-            updateLabel();
-            changeNumberTickets();
+            case R.id.priceBandA:
+                if (numberTix<9 && numberTix < pbaLeft) increase();
+                break;
+
+            case R.id.priceBandB:
+                if (numberTix<9 && numberTix < pbbLeft) increase();
+                break;
+
+            case R.id.priceBandC:
+                if (numberTix<9 && numberTix < pbcLeft) increase();
+                break;
+
+            case R.id.priceBandD:
+                if (numberTix<9 && numberTix < pbdLeft) increase();
+                break;
+
+            case -1:
+                if (numberTix<9) increase();
+
         }
 
 
+
+    }
+
+    private void increase() {
+        numberTix++;
+        updateLabel();
+        changeNumberTickets();
     }
 
 
@@ -183,20 +180,39 @@ public class ChooseTickets extends AppCompatActivity {
 
     private int getSelectedPrice() {
 
-        if (pba.isChecked()) return mShow.getPricePbA();
-        if (pbb.isChecked()) return mShow.getPricePbB();
-        if (pbc.isChecked()) return mShow.getPricePbC();
-        if (pbd.isChecked()) return mShow.getPricePbD();
+        int id = radioGroup.getCheckedRadioButtonId();
+
+        switch (id) {
+
+            case R.id.priceBandA:
+                return mShow.getPricePbA();
+            case R.id.priceBandB:
+                return mShow.getPricePbB();
+            case R.id.priceBandC:
+                return mShow.getPricePbC();
+            case R.id.priceBandD:
+                return mShow.getPricePbD();
+
+        }
 
         return -1;
     }
 
     private String getPriceBand() {
 
-        if (pba.isChecked()) return "A";
-        if (pbb.isChecked()) return "B";
-        if (pbc.isChecked()) return "C";
-        if (pbd.isChecked()) return "D";
+        int id = radioGroup.getCheckedRadioButtonId();
+
+        switch (id) {
+            case R.id.priceBandA:
+                return "A";
+            case R.id.priceBandB:
+                return "B";
+            case R.id.priceBandC:
+                return "C";
+            case R.id.priceBandD:
+                return "D";
+        }
+
 
         return "";
 
@@ -204,14 +220,14 @@ public class ChooseTickets extends AppCompatActivity {
 
     private void updateLabel() {
         TextView numberTixLbl = findViewById(R.id.numberOfTix);
-        numberTixLbl.setText(Integer.toString(numberTix));
+        numberTixLbl.setText(String.format(Locale.ENGLISH, Integer.toString(numberTix)));
     }
 
     private void updateAvail(){
-        tixLeftPBA.setText("Tickets left: " + pbaLeft);
-        tixLeftPBB.setText("Tickets left: " + pbbLeft);
-        tixLeftPBC.setText("Tickets left: " + pbcLeft);
-        tixLeftPBD.setText("Tickets left: " + pbdLeft);
+        tixLeftPBA.setText(String.format(Locale.ENGLISH, "%s%d", getString(R.string.tickets_left), pbaLeft));
+        tixLeftPBB.setText(String.format(Locale.ENGLISH, "%s%d", getString(R.string.tickets_left), pbbLeft));
+        tixLeftPBC.setText(String.format(Locale.ENGLISH, "%s%d", getString(R.string.tickets_left), pbcLeft));
+        tixLeftPBD.setText(String.format(Locale.ENGLISH, "%s%d", getString(R.string.tickets_left), pbdLeft));
     }
 
     public void onClickAddToBasket(View view) {

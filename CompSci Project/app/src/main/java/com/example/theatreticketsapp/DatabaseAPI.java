@@ -38,11 +38,6 @@ public class DatabaseAPI {
     static final String URL_GET_TICKETS =
             ROOT_URL + "gettickets&bookingID=";
 
-    public static final String URL_UPDATE_PASSWORD =
-            ROOT_URL + "updatepassword&email=";
-
-    static final String URL_CHECK_REVIEW =
-            ROOT_URL + "checkreview&bookingID=";
 
     static final String URL_GET_VENUE_INFO =
             ROOT_URL + "getvenueinfo&venueName=";
@@ -79,5 +74,8 @@ public class DatabaseAPI {
 
     static final String URL_SEND_BOOKING_EMAIL =
             ROOT_URL + "sendbookingconfirmation";
+
+    static final String URL_GET_USER_REVIEWS =
+            ROOT_URL + "getuserreviews&userID=";
 
 }

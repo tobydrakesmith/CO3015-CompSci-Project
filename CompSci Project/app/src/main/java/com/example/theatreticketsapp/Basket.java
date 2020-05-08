@@ -78,9 +78,6 @@ public class Basket implements Parcelable{
         return timeOut;
     }
 
-    public void pauseTimer(){
-        countDownTimer.cancel();
-    }
 
     public void releaseTickets(BasketBooking booking){
 
@@ -141,7 +138,6 @@ public class Basket implements Parcelable{
      // related to parcelling
 
     protected Basket(Parcel in){
-        //TODO: Fix warning
         bookings = in.readArrayList(Ticket.class.getClassLoader());
         timeOut = in.readLong();
     }

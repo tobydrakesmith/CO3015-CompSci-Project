@@ -111,5 +111,8 @@
     <string name="no_notifs">I don\'t want any notifications</string>
     <string name="submit_pref">Submit preferences</string>
     <string name="current_preferences">Select where you would like to subscribe to notifications for new shows (un-select current choices to unsubscribe)</string>
+    <string name="tickets_left">Tickets left: \</string>
+    <string name="pound_sign">£</string>
+    <string name="reviews_for">Reviews for \</string>
 
 </resources>

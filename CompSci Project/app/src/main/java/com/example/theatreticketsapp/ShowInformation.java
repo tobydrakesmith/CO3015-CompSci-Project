@@ -27,15 +27,14 @@ import org.json.JSONObject;
 
 public class ShowInformation extends AppCompatActivity {
 
-    Show mShow;
-    Venue venue;
-    Basket basket;
-    ProgressBar progressBar;
-    TextView showDescription, showName, venueName, endDate, rating;
-    User user;
-
-
-    RequestQueue requestQueue;
+    private Show mShow;
+    private Venue venue;
+    private Basket basket;
+    private ProgressBar progressBar;
+    private TextView showDescription, showName, venueName, endDate, rating;
+    private User user;
+    private String previousActivity;
+    private RequestQueue requestQueue;
 
 
     @Override
@@ -54,8 +53,8 @@ public class ShowInformation extends AppCompatActivity {
         mShow = i.getParcelableExtra("live_show");
         basket = i.getParcelableExtra("basket");
         user = i.getParcelableExtra("user");
+        previousActivity = i.getStringExtra("previous_activity");
 
-        Toast.makeText(this, mShow.getStartDate(), Toast.LENGTH_SHORT).show();
 
         venue = mShow.getVenue();
 
@@ -88,15 +87,17 @@ public class ShowInformation extends AppCompatActivity {
 
     }
 
-    @Override //TODO: Add animation
     public void onBackPressed() {
-        Intent intent = new Intent (this, Homepage.class);
-        intent.putExtra("basket", basket);
-        intent.putExtra("live_show", mShow);
-        intent.putExtra("user", user);
-        startActivity(intent);
-    }
 
+        if (previousActivity != null)
+            finish();
+        else {
+            Intent intent = new Intent(this, Homepage.class);
+            intent.putExtra("basket", basket);
+            intent.putExtra("user", user);
+            startActivity(intent);
+        }
+    }
     public void onVenueClick(View view){
             Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
             intent.putExtra("venue", venue);

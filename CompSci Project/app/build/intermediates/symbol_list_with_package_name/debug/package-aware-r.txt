@@ -1858,7 +1858,6 @@ id btnCancel
 id btnDecrease
 id btnIncrease
 id btnViewBooking
-id button
 id buttonConfirm
 id buttonLeft
 id buttonPanel
@@ -2136,6 +2135,7 @@ id receipt_ab_right_button
 id receipt_type_icon
 id receipts_disclaimer
 id receipts_disclaimer_retail
+id recyclerView
 id recycler_view
 id registerBtn
 id retail_dialog_message
@@ -2385,6 +2385,7 @@ layout activity_homepage
 layout activity_main
 layout activity_maps
 layout activity_my_bookings
+layout activity_my_reviews
 layout activity_notification_preferences
 layout activity_register
 layout activity_selected_show
@@ -2804,6 +2805,7 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string plays_only
+string pound_sign
 string preference_copied
 string preference_file_key
 string price
@@ -2822,6 +2824,7 @@ string reset_password
 string review_sort_date_asc
 string review_sort_date_desc
 string review_sort_rating
+string reviews_for
 string reviews_title
 string scotland
 string sdk_OK
@@ -2895,6 +2898,7 @@ string submit_pref
 string successful_creation
 string summary_collapsed_preference_list
 string swest
+string tickets_left
 string title_activity_basket
 string title_activity_create_review
 string title_activity_homepage

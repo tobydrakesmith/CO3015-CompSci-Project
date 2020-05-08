@@ -1,6 +1,7 @@
 package com.example.theatreticketsapp;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
 
 public class MyPastBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyPastBookingsRecyclerViewAdapter.ViewHolder> {
 
@@ -44,6 +41,8 @@ public class MyPastBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyPa
         holder.showName.setText(booking.getShowName());
         holder.date.setText(booking.getParsedDate().toString());
         holder.numberOfTickets.setText("No. tickets: " + booking.getNumberOfTickets());
+        holder.reviewBtn.setVisibility(booking.reviewLeft() ? View.INVISIBLE : View.VISIBLE);
+
     }
 
     @Override
@@ -55,7 +54,7 @@ public class MyPastBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyPa
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView showName, date, numberOfTickets;
-        Button leaveAReview;
+        Button reviewBtn;
 
 
         MyPastBookingsRecyclerViewAdapter.OnReviewClickListener onReviewClickListener;
@@ -67,9 +66,9 @@ public class MyPastBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyPa
             showName = view.findViewById(R.id.showName);
             date = view.findViewById(R.id.date);
             numberOfTickets = view.findViewById(R.id.numberOfTickets);
-            leaveAReview = view.findViewById(R.id.btnViewBooking);
+            reviewBtn = view.findViewById(R.id.btnViewBooking);
 
-            leaveAReview.setOnClickListener(this);
+            reviewBtn.setOnClickListener(this);
 
         }
 

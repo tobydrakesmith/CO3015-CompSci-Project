@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NotificationPreferences"></activity>
+        <activity android:name=".MyReviews"></activity>
+        <activity android:name=".NotificationPreferences" />
 
         <service android:name=".FirebaseService">
             <intent-filter>

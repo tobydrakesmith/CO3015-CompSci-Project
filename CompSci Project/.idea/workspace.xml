@@ -62,9 +62,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile_vertical" />
-        <option value="layoutResourceFile" />
         <option value="resourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -86,16 +86,16 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="android.template.parentActivityClass">
-      <recent name="" />
-    </key>
-    <key name="android.template.packageName">
-      <recent name="com.example.theatreticketsapp" />
-      <recent name="com.example.theatreticketsapp.ui.bookings" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.theatreticketsapp.ui.settings" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/src/main/res/transition" />
+    </key>
+    <key name="android.template.packageName">
+      <recent name="com.example.theatreticketsapp" />
+      <recent name="com.example.theatreticketsapp.ui.bookings" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.theatreticketsapp" />
@@ -110,8 +110,8 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.theatreticketsapp" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.example.theatreticketsapp.ui.settings" />
+    <key name="android.template.parentActivityClass">
+      <recent name="" />
     </key>
   </component>
   <component name="RunDashboard">

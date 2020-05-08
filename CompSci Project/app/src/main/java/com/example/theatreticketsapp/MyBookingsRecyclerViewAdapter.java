@@ -2,11 +2,13 @@ package com.example.theatreticketsapp;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.ParseException;
@@ -29,6 +31,7 @@ public class MyBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyBookin
         this.mOnBookingClickListener = onClickListener;
         this.mBookings = bookings;
     }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
@@ -73,6 +76,7 @@ public class MyBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyBookin
             viewTickets.setOnClickListener(this);
         }
 
+
         @Override
         public void onClick(View view){
             if (view.getId() == R.id.btnViewBooking)
@@ -84,4 +88,5 @@ public class MyBookingsRecyclerViewAdapter extends RecyclerView.Adapter<MyBookin
     public interface OnBookingClickListener{
         void onBookingClick(int position);
     }
+
 }

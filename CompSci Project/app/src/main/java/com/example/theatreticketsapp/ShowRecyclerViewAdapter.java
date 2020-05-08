@@ -43,6 +43,13 @@
             showListFull.addAll(filteredShows);
         }
 
+        ArrayList<Show> getShowList(){
+            System.out.println("Show size: " + mShows.size());
+            ArrayList<Show> shows = new ArrayList<>();
+            shows.addAll(mShows);
+            return shows;
+        }
+
 
 
         // inflates the row layout from xml when needed

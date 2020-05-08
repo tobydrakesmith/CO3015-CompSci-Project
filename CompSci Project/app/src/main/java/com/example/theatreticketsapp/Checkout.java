@@ -49,7 +49,6 @@ import java.util.Map;
 public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewAdapter.OnCalendarClick{
 
 
-    //TODO: CHANGE EMAIL CONFIRMATION SO IT IS SENT VIA PHP SERVER
 
     private Basket basket;
     private User user;

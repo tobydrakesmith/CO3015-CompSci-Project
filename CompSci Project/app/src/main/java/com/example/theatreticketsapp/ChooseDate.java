@@ -5,12 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -63,10 +61,14 @@ public class ChooseDate extends AppCompatActivity {
         try{
             Date startDate = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(mShow.getStartDate());
             assert startDate != null;
-            if (startDate.after(new Date()))
+            if (startDate.after(new Date())) {
                 calendarView.setMinDate(startDate.getTime());
-            else
+            }else {
                 calendarView.setMinDate(new Date().getTime());
+                int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+                getDayOfWeek(dayOfWeek);
+                getShowTimes(calendar.getTime(), new Date());
+            }
         } catch (ParseException e){
             e.printStackTrace();
         }
@@ -79,9 +81,7 @@ public class ChooseDate extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-        getDayOfWeek(dayOfWeek);
-        getShowTimes(calendar.getTime(), new Date());
+
 
 
 
@@ -89,7 +89,6 @@ public class ChooseDate extends AppCompatActivity {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-
                 calendar.set(year, month, dayOfMonth);
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 getDayOfWeek(dayOfWeek);
@@ -101,9 +100,9 @@ public class ChooseDate extends AppCompatActivity {
     private void getShowTimes(Date date, Date date2) {
         if (date.compareTo(date2) <= 0){
             try {
-                String strDate = new SimpleDateFormat("dd-MM-yyyy", Locale.UK).format(date);
+                String strDate = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).format(date);
 
-                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss", Locale.UK);
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss", Locale.ENGLISH);
 
                 date = sdf.parse(strDate + " " + mShow.getMatineeStart());
                 assert date != null;
@@ -123,7 +122,6 @@ public class ChooseDate extends AppCompatActivity {
         }
     }
 
-    @Override //TODO: Add animation
     public void onBackPressed() {
         Intent intent = new Intent (this, ShowInformation.class);
         intent.putExtra("basket", basket);

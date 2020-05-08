@@ -14,8 +14,9 @@ public class Booking implements Parcelable {
     private int showInstanceID, numberOfTickets, userID, bookingID;
     private String date, showName, showTime;
     private Date parsedDate;
+    private boolean reviewLeft;
 
-    Booking(int bookingID, int showID, int numberOfTickets, int userID, String date, String showName, String showTime){
+    Booking(int bookingID, int showID, int numberOfTickets, int userID, String date, String showName, String showTime, int reviewLeft){
         this.bookingID = bookingID;
         this.showInstanceID = showID;
         this.numberOfTickets = numberOfTickets;
@@ -23,6 +24,7 @@ public class Booking implements Parcelable {
         this.date = date;
         this.showName = showName;
         this.showTime = showTime;
+        this.reviewLeft = (reviewLeft == 1);
 
 
         try {
@@ -67,8 +69,9 @@ public class Booking implements Parcelable {
         return this.parsedDate;
     }
 
-
-
+    public boolean reviewLeft() {
+        return this.reviewLeft;
+    }
 
     protected Booking(Parcel in){
         showInstanceID = in.readInt();

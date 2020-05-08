@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-//TODO: Improve design
+
 public class Register extends AppCompatActivity {
 
 

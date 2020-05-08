@@ -50,6 +50,7 @@
         android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
+        <activity android:name="com.example.theatreticketsapp.MyReviews" />
         <activity android:name="com.example.theatreticketsapp.NotificationPreferences" />
 
         <service android:name="com.example.theatreticketsapp.FirebaseService" >

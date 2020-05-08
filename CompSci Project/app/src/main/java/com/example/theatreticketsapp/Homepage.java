@@ -10,8 +10,10 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupMenu;
@@ -40,6 +42,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GestureDetectorCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,6 +54,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdapter.OnShowClickListener{
 
@@ -80,8 +84,8 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
-
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
+
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED) {
             //permission denied
@@ -113,6 +117,7 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
         basket = intent.getParcelableExtra("basket");
         user = intent.getParcelableExtra("user");
 
+
         mShows = new ArrayList<>();
         fullList = new ArrayList<>();
         mVenues = new ArrayList<>();
@@ -133,7 +138,7 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
+                //TODO: Filter breaks when searching and then trying to filter
                 return false;
             }
         });
@@ -152,8 +157,41 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
         recyclerView.setLayoutManager(new LinearLayoutManager((this)));
         recyclerView.setAdapter(adapter);
 
+        recyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(this, recyclerView, new RecyclerViewTouchListener.OnTouchActionListener() {
+            @Override
+            public void onLeftSwipe(View view) {
+
+            }
+
+            @Override
+            public void onRightSwipe(View view) {
+                navView.setSelectedItemId(R.id.navigation_mybookings);
+            }
+
+            @Override
+            public void onClick(View view) {
+
+            }
+
+            @Override
+            public void onScroll(View view) {
+
+            }
+        }));
+
         loadShows();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        navView.setSelectedItemId(R.id.navigation_home);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     private void setUpFilterMenu() {
@@ -197,13 +235,13 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
                 seekBarPrice = view.findViewById(R.id.seekBarPrice);
                 seekBarPrice.setMax(maxPrice);
                 seekBarPrice.setProgress(filterPrice);
-                seekBarLblPrice.setText("£"+filterPrice);
+                seekBarLblPrice.setText(String.format(Locale.ENGLISH,"%s%d", getString(R.string.pound_sign), filterPrice));
 
                 seekBarPrice.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                         filterPrice = progress;
-                        seekBarLblPrice.setText("£"+filterPrice);
+                        seekBarLblPrice.setText(String.format(Locale.ENGLISH,"%s%d", getString(R.string.pound_sign), filterPrice));
                     }
 
                     @Override
@@ -406,7 +444,9 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
                         break;
                         
                     case R.id.view_reviews:
-                        Toast.makeText(Homepage.this, "View reviews", Toast.LENGTH_SHORT).show();
+                        Intent reviews = new Intent(getApplicationContext(), MyReviews.class);
+                        reviews.putExtra("user", user);
+                        startActivity(reviews);
                         break;
                         
                     case R.id.update_preferences:
@@ -527,6 +567,7 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
         intent.putExtra("live_show", show);
         intent.putExtra("basket", basket);
         intent.putExtra("user", user);
+        intent.putExtra("previous_activity", "home");
         startActivity(intent);
 
     }
@@ -582,5 +623,7 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
                 satMat, satEve, sunMat, sunEve, priceBandAPrices, priceBandBPrices, priceBandCPrices, priceBandDPrices, numberTixPBA, numberTixPBB, numberTixPBC, numberTixPBD, venue, dateAdded);
 
     }
+
+
 
 }

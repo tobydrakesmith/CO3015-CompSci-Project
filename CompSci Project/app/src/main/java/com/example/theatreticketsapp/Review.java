@@ -18,6 +18,16 @@ public class Review {
         this.showinstanceid = showinstanceid;
     }
 
+    public Review(int rating, String ratingText, String date, String showName, int userid, int bookingid){
+
+        this.rating = rating;
+        this.ratingTxt = ratingText;
+        this.date = date;
+        this.showName = showName;
+        this.userid = userid;
+        this.bookingid = bookingid;
+    }
+
     public int getRating(){
         return this.rating;
     }

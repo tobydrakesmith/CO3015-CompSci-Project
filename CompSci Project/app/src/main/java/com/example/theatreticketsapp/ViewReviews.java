@@ -67,7 +67,7 @@ public class ViewReviews extends AppCompatActivity implements ReviewsRecyclerVie
         recyclerViewReviews.setLayoutManager(new LinearLayoutManager(this));
 
         TextView reviewTitle = findViewById(R.id.reviewTitle);
-        reviewTitle.setText("Reviews for " + mShow.getShowName());
+        reviewTitle.setText(String.format("%s%s", getString(R.string.reviews_for), mShow.getShowName()));
 
         RatingBar ratingBar = findViewById(R.id.ratingBar);
         ratingBar.setRating((float) mShow.getRating());
@@ -114,7 +114,6 @@ public class ViewReviews extends AppCompatActivity implements ReviewsRecyclerVie
                 dialog.setNeutralButton("Clear", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //clear filter
                         selectedRadioButton = -1;
                         mReviews.clear();
                         mReviews.addAll(fullList);

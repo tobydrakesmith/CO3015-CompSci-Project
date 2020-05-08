@@ -3,13 +3,19 @@ package com.example.theatreticketsapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GestureDetectorCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
@@ -45,11 +51,16 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
     private ProgressBar progressBar;
     private RequestQueue requestQueue;
     private BottomNavigationView navView;
+    private TabLayout tabLayout;
 
+
+
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_bookings);
+
 
         Intent intent = getIntent();
         basket = intent.getParcelableExtra("basket");
@@ -59,11 +70,45 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
         requestQueue = Volley.newRequestQueue(this);
 
         bookingsRecyclerView = findViewById(R.id.bookingsView);
-
         bookingsRecyclerView.setAdapter(myBookingsRecyclerViewAdapter);
         bookingsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
+        bookingsRecyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(this, bookingsRecyclerView, new RecyclerViewTouchListener.OnTouchActionListener() {
+                    @Override
+                    public void onLeftSwipe(View view) {
+                        if (tabLayout.getSelectedTabPosition() == 1){
+                            tabLayout.selectTab(tabLayout.getTabAt(0), true);
+                        }
+                        else{
+                            navView.setSelectedItemId(R.id.navigation_home);
+                        }
+                    }
+
+                    @Override
+                    public void onRightSwipe(View view) {
+                        if (tabLayout.getSelectedTabPosition() == 0){
+                            tabLayout.selectTab(tabLayout.getTabAt(1), true);
+                        }
+                        else{
+                            navView.setSelectedItemId(R.id.navigation_myaccount);
+                        }
+                    }
+
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+
+                    @Override
+                    public void onScroll(View view) {
+
+                    }
+                }));
+
+
         loadBookings();
+
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -74,7 +119,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
 
         navView.setSelectedItemId(R.id.navigation_mybookings);
 
-        TabLayout tabLayout = findViewById(R.id.tabLayout);
+        tabLayout = findViewById(R.id.tabLayout);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -95,7 +140,9 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
             }
         });
 
+
     }
+
 
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -104,7 +151,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == R.id.activity_basket) {
             Intent intent = new Intent(this, MyBasket.class);
@@ -121,18 +168,14 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent (this, Homepage.class);
-        intent.putExtra("basket", basket);
-        intent.putExtra("user", user);
-        startActivity(intent);
-        overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
+        navView.setSelectedItemId(R.id.navigation_home);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            switch (menuItem.getItemId()) {
+                    switch (menuItem.getItemId()) {
 
 
                         case R.id.navigation_myaccount:
@@ -141,11 +184,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
                             break;
 
                         case R.id.navigation_home:
-
-                            Intent intent2 = new Intent(MyBookings.this, Homepage.class);
-                            intent2.putExtra("basket", basket);
-                            intent2.putExtra("user", user);
-                            startActivity(intent2);
+                            finish();
                             overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
                             break;
                     }
@@ -154,13 +193,14 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
             };
 
 
-    public void showPopup(View view){
+
+    public void showPopup(View view) {
         PopupMenu popupMenu = new PopupMenu(this, view);
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
 
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
 
                     case R.id.change_password:
                         Intent i = new Intent(getApplicationContext(), ChangePassword.class);
@@ -193,7 +233,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
         popupMenu.show();
     }
 
-    private void loadBookings(){
+    private void loadBookings() {
 
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_GET_BOOKINGS + user.getId(), new Response.Listener<String>() {
@@ -201,9 +241,9 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
             @Override
             public void onResponse(String response) {
 
-                try{
+                try {
                     JSONArray bookings = new JSONArray(response);
-                    for (int i=0; i<bookings.length(); i++){
+                    for (int i = 0; i < bookings.length(); i++) {
                         JSONObject bookingsJSONObject = bookings.getJSONObject(i);
                         final Booking booking = createBookingObject(bookingsJSONObject);
 
@@ -220,7 +260,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
 
                     bookingsRecyclerView.setAdapter(myBookingsRecyclerViewAdapter);
 
-                }catch (JSONException e){
+                } catch (JSONException e) {
                     try {
                         JSONObject message = new JSONObject(response);
                         Toast.makeText(MyBookings.this, message.getString("message"), Toast.LENGTH_SHORT).show();
@@ -243,7 +283,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
     }
 
 
-    private Booking createBookingObject(JSONObject jsonObject) throws JSONException{
+    private Booking createBookingObject(JSONObject jsonObject) throws JSONException {
 
         int bookingID = jsonObject.getInt("bookingID");
         int showInstanceID = jsonObject.getInt("showInstanceID");
@@ -251,16 +291,15 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
         String date = jsonObject.getString("bookingDate");
         String showTime = jsonObject.getString("showTime");
         String showName = jsonObject.getString("showName");
+        int reviewLeft = jsonObject.getInt("reviewLeft");
 
 
-        return new Booking(bookingID, showInstanceID, numberOfTickets, user.getId(), date, showName, showTime);
+        return new Booking(bookingID, showInstanceID, numberOfTickets, user.getId(), date, showName, showTime, reviewLeft);
     }
 
 
-
-
     @Override
-    public void onBookingClick(int position){
+    public void onBookingClick(int position) {
         Intent intent = new Intent(this, ViewBooking.class);
         intent.putExtra("booking", mFutureBookings.get(position));
         startActivity(intent);
@@ -270,36 +309,10 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
 
     @Override
     public void onReviewClick(final int position) {
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_CHECK_REVIEW + mPastBookings.get(position).getBookingID(), new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    String reviewResponse = jsonObject.getString("reviewLeft");
-                    if (reviewResponse.equals("true")){
-                        Toast.makeText(MyBookings.this, "You have already left a review for this booking", Toast.LENGTH_SHORT).show();
-
-                    }else{
-                        Intent intent = new Intent(MyBookings.this, CreateReview.class);
-                        intent.putExtra("booking", mPastBookings.get(position));
-                        intent.putExtra("user", user);
-                        startActivity(intent);
-
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-
-        Volley.newRequestQueue(this).add(stringRequest);
-
+            Intent intent = new Intent(MyBookings.this, CreateReview.class);
+            intent.putExtra("booking", mPastBookings.get(position));
+            intent.putExtra("user", user);
+            startActivity(intent);
     }
 
 }
