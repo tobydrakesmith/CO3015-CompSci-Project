@@ -251,17 +251,6 @@
 				}
 				break;
 
-			case 'checkreview':
-
-				if(isset($_GET['bookingID'])){
-					$db = new DbOperation();
-					if ($db->checkReview($_GET['bookingID']))
-						$response['reviewLeft'] = true;
-					else
-						$response['reviewLeft'] = false;
-				}
-
-				break;
 
 			case 'getvenueinfo':
 
@@ -358,6 +347,15 @@
 					$db = new DbOperation();
 					$response = $db->getShowRunningTime($_GET['showName']);
 				}
+				break;
+
+			case 'getuserreviews':
+
+				if(isset($_GET['userID'])){
+					$db = new DbOperation();
+					$response = $db->getUserReviews($_GET['userID']);
+				}
+
 				break;
 
 			case 'sendresetpasswordemail':

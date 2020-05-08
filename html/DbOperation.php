@@ -202,10 +202,10 @@
 		}
 
 		function getBookings($userID){
-			$stmt = $this->con->prepare("SELECT bookingID, showInstanceID, numberOfTickets, bookingDate, showTime, showName FROM booking WHERE userID = ?");
+			$stmt = $this->con->prepare("SELECT bookingID, showInstanceID, numberOfTickets, bookingDate, showTime, showName, reviewLeft FROM booking WHERE userID = ?");
 			$stmt->bind_param("i", $userID);
 			$stmt->execute();
-			$stmt->bind_result($bookingID, $showInstanceID, $numberOfTickets, $bookingDate, $showTime, $showName);
+			$stmt->bind_result($bookingID, $showInstanceID, $numberOfTickets, $bookingDate, $showTime, $showName, $reviewLeft);
 
 			$bookings = array();
 			while($stmt->fetch()){
@@ -216,6 +216,7 @@
 				$booking['bookingDate'] = $bookingDate;
 				$booking['showTime'] = $showTime;
 				$booking['showName'] = $showName;
+				$booking['reviewLeft'] = $reviewLeft;
 
 				array_push($bookings, $booking);
 			}
@@ -268,16 +269,6 @@
 			return $stmt->execute();
 		}
 
-		function checkReview($bookingID){
-			$stmt = $this->con->prepare("SELECT reviewLeft FROM booking WHERE bookingID = ?");
-			$stmt->bind_param("i", $bookingID);
-			$stmt->execute();
-			$stmt->bind_result($reviewLeft);
-			$stmt->fetch();
-
-			if($reviewLeft==0) return false;
-			else return true;
-		}
 
 		function getVenueInfo($venueName){
 			$stmt = $this->con->prepare("SELECT venueDesc, postcode, city FROM venue WHERE venueName = ?");
@@ -448,6 +439,30 @@
 			$runtime['runningTime'] = $runningTime;
 			return $runtime;
 		}
+
+		function getUserReviews($userID){
+
+                        $stmt = $this->con->prepare("SELECT showName, bookingID, rating, review, date FROM review WHERE userID = ?");
+                        $stmt->bind_param("i", $userID);
+                        $stmt->execute();
+                        $stmt->bind_result($showName, $bookingID, $rating, $reviewText, $date);
+                        $reviews = array();
+                        while($stmt->fetch()){
+                                $review = array();
+                                $review['showName'] = $showName;
+                                $review['bookingID'] = $bookingID;
+                                $review['rating'] = $rating;
+                                $review['reviewText'] = $reviewText;
+                                $review['date'] = $date;
+                                array_push($reviews, $review);
+                        }
+
+			if ($stmt->num_rows == 0) return "No reviews for this user";
+
+                        return $reviews;
+
+		}
+
 
 		function sendWelcomeEmail($email, $name){
 	                $command = escapeshellcmd('php  sendMail.php ' . $email .' ' . $name );
