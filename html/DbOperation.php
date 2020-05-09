@@ -442,10 +442,10 @@
 
 		function getUserReviews($userID){
 
-                        $stmt = $this->con->prepare("SELECT showName, bookingID, rating, review, date FROM review WHERE userID = ?");
+                        $stmt = $this->con->prepare("SELECT showName, bookingID, rating, review, date, reviewID FROM review WHERE userID = ?");
                         $stmt->bind_param("i", $userID);
                         $stmt->execute();
-                        $stmt->bind_result($showName, $bookingID, $rating, $reviewText, $date);
+                        $stmt->bind_result($showName, $bookingID, $rating, $reviewText, $date, $reviewid);
                         $reviews = array();
                         while($stmt->fetch()){
                                 $review = array();
@@ -454,6 +454,7 @@
                                 $review['rating'] = $rating;
                                 $review['reviewText'] = $reviewText;
                                 $review['date'] = $date;
+				$review['reviewid'] = $reviewid;
                                 array_push($reviews, $review);
                         }
 
@@ -463,6 +464,17 @@
 
 		}
 
+
+		function editUserReview($id, $rating, $review){
+			$stmt = $this->con->prepare("UPDATE review SET rating = ?, review = ? WHERE reviewID = ?");
+			$stmt->bind_param("isi", $rating, $review, $id);
+			if ($stmt->execute()) return true;
+			return false;
+
+		}
+
+
+		//email
 
 		function sendWelcomeEmail($email, $name){
 	                $command = escapeshellcmd('php  sendMail.php ' . $email .' ' . $name );
@@ -478,6 +490,7 @@
 			$command = escapeshellcmd('php sendBookingMail.php ' . $email . ' "' . $subject . '" "' . $content . '"');
 			shell_exec($command);
 		}
+
 
 	}
 

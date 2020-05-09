@@ -381,7 +381,17 @@
 				$db->sendBookingConfirmation(
 					$_POST['email'],
 					$_POST['subject'],
-					$_POST['content']);
+					$_POST['content']
+				);
+
+				break;
+
+			case 'editusereview':
+				areTheseParametersAvailable(array('reviewid', 'rating'));
+				$db = new DbOperation();
+
+				if ($db->editUserReview($_POST['reviewid'],$_POST['rating'],$_POST['review'])) $response = "edited";
+				else $response = "error";
 
 				break;
 		}
