@@ -187,7 +187,7 @@ public class ViewReviews extends AppCompatActivity implements ReviewsRecyclerVie
 
                     numberOfReviewsLbl.setText(numberOfReviews);
 
-                    reviewsRecyclerViewAdapter = new ReviewsRecyclerViewAdapter(ViewReviews.this, ViewReviews.this, mReviews);
+                    reviewsRecyclerViewAdapter = new ReviewsRecyclerViewAdapter(ViewReviews.this, ViewReviews.this, mReviews, false);
                     recyclerViewReviews.setAdapter(reviewsRecyclerViewAdapter);
 
                 } catch (JSONException e) {
@@ -220,7 +220,7 @@ public class ViewReviews extends AppCompatActivity implements ReviewsRecyclerVie
 
         rating.setRating(review.getRating());
         username.setText("Username"+review.getUserid());
-        reviewText.setText(review.getRatingTxt());
+        reviewText.setText(review.getReviewTxt());
         date.setText(review.getDate());
 
         AlertDialog.Builder dialog = new AlertDialog.Builder(ViewReviews.this);

@@ -54,9 +54,6 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
     private TabLayout tabLayout;
 
 
-
-    @SuppressLint("ClickableViewAccessibility")
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_bookings);
@@ -177,10 +174,10 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                     switch (menuItem.getItemId()) {
 
-
                         case R.id.navigation_myaccount:
 
                             showPopup(findViewById(R.id.navigation_myaccount));
+
                             break;
 
                         case R.id.navigation_home:
@@ -209,7 +206,9 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
                         break;
 
                     case R.id.view_reviews:
-                        Toast.makeText(MyBookings.this, "View reviews", Toast.LENGTH_SHORT).show();
+                        Intent reviews = new Intent(getApplicationContext(), MyReviews.class);
+                        reviews.putExtra("user", user);
+                        startActivity(reviews);
                         break;
 
                     case R.id.update_preferences:

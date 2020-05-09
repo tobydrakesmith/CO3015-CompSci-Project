@@ -1646,6 +1646,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable edit_text_outline
 drawable empty
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
@@ -1663,7 +1664,10 @@ drawable ic_close_dialog
 drawable ic_critical
 drawable ic_dashboard_black_24dp
 drawable ic_decrease_number_of_tickets
+drawable ic_edit
 drawable ic_edit_black_24dp
+drawable ic_edit_new
+drawable ic_edit_selected
 drawable ic_email
 drawable ic_filter
 drawable ic_filter_list_
@@ -1877,9 +1881,10 @@ id center_horizontal
 id center_vertical
 id chains
 id change_password
+id characterLimit
 id checkbox
 id checked
-id checkoutRecylerView
+id checkoutRecyclerView
 id chip
 id chip_group
 id chronometer
@@ -1931,6 +1936,7 @@ id direct
 id disableHome
 id distance
 id dropdown_menu
+id editReviewBtn
 id edit_query
 id eeBox
 id emBox
@@ -2153,6 +2159,7 @@ id right_icon
 id right_side
 id right_up_image_button
 id rounded
+id runningTime
 id satellite
 id save_non_transition_alpha
 id save_overlay_view
@@ -2195,7 +2202,6 @@ id showDescription
 id showHome
 id showName
 id showNameLbl
-id showRating
 id showTime
 id showTitle
 id sign_here_retail
@@ -2219,6 +2225,7 @@ id src_in
 id src_over
 id standard
 id start
+id startDate
 id status_bar_latest_event_content
 id stretch
 id submenuarrow
@@ -2376,9 +2383,9 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_basket
-layout activity_book_show
 layout activity_change_password
 layout activity_checkout
+layout activity_choose_date
 layout activity_choose_tickets
 layout activity_create_review
 layout activity_homepage
@@ -2416,6 +2423,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout dialog_booking_complete
 layout dialog_card_reader_scanner
+layout dialog_edit_review
 layout dialog_filter_location
 layout dialog_image_buttons
 layout dialog_image_dynamic_buttons
@@ -2724,6 +2732,7 @@ string east_england
 string email_confirmation
 string email_receipt_privacy_message
 string emidlands
+string end_date
 string error_icon_content_description
 string expand_button_title
 string exposed_dropdown_menu_content_description
@@ -2892,6 +2901,7 @@ string send_receipt_phone_change_description
 string send_receipt_privacy_message
 string sms_international_code_msg
 string sms_receipt_privacy_message
+string start_date
 string status_bar_notification_info_overflow
 string string_not_enough_reviews
 string submit_pref
@@ -2923,6 +2933,7 @@ string wmidlands
 string write_review
 string yorkshire
 string your_booking
+string your_review
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

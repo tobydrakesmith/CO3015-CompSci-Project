@@ -114,5 +114,8 @@
     <string name="tickets_left">Tickets left: \</string>
     <string name="pound_sign">£</string>
     <string name="reviews_for">Reviews for \</string>
+    <string name="your_review">Your review</string>
+    <string name="start_date">"Start date:  "</string>
+    <string name="end_date">"End date: "</string>
 
 </resources>

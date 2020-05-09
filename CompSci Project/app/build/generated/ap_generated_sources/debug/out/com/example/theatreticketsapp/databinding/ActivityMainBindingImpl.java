@@ -22,7 +22,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     }
     // views
     @NonNull
-    private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
+    private final android.widget.ScrollView mboundView0;
     // variables
     // values
     // listeners
@@ -41,7 +41,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
             , (android.widget.TextView) bindings[6]
             , (android.widget.EditText) bindings[1]
             );
-        this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
+        this.mboundView0 = (android.widget.ScrollView) bindings[0];
         this.mboundView0.setTag(null);
         this.passwordEditText.setTag(null);
         this.usernameEditText.setTag(null);

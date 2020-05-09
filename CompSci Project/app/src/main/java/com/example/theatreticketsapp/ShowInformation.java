@@ -11,13 +11,17 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.CountDownTimer;
 import android.text.method.ScrollingMovementMethod;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,27 +29,36 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class ShowInformation extends AppCompatActivity {
 
     private Show mShow;
     private Venue venue;
     private Basket basket;
     private ProgressBar progressBar;
-    private TextView showDescription, showName, venueName, endDate, rating;
+    private TextView showDescription, showName, venueName, startDate, endDate, runningTime;
     private User user;
-    private String previousActivity;
     private RequestQueue requestQueue;
+    private RatingBar rating;
+    private Button viewReviews;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_show);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+
+
         progressBar = findViewById(R.id.progressBar);
         showDescription = findViewById(R.id.showDescription);
-        showDescription.setMovementMethod(new ScrollingMovementMethod());
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -53,16 +66,24 @@ public class ShowInformation extends AppCompatActivity {
         mShow = i.getParcelableExtra("live_show");
         basket = i.getParcelableExtra("basket");
         user = i.getParcelableExtra("user");
-        previousActivity = i.getStringExtra("previous_activity");
 
+        setTitle(mShow.getShowName());
 
         venue = mShow.getVenue();
-
-
         showName = findViewById(R.id.showName);
         venueName = findViewById(R.id.venueName);
+        startDate = findViewById(R.id.startDate);
         endDate = findViewById(R.id.endDate);
-        rating = findViewById(R.id.showRating);
+        runningTime = findViewById(R.id.runningTime);
+        rating = findViewById(R.id.ratingBar);
+
+        viewReviews = findViewById(R.id.viewReviewsBtn);
+        viewReviews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewReviews();
+            }
+        });
 
         loadShow();
         loadRating();
@@ -87,24 +108,27 @@ public class ShowInformation extends AppCompatActivity {
 
     }
 
-    public void onBackPressed() {
-
-        if (previousActivity != null)
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
             finish();
-        else {
-            Intent intent = new Intent(this, Homepage.class);
-            intent.putExtra("basket", basket);
-            intent.putExtra("user", user);
-            startActivity(intent);
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
     public void onVenueClick(View view){
             Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
             intent.putExtra("venue", venue);
             startActivity(intent);
     }
 
-    public void viewReviews(View view){
+    public void viewReviews(){
         Intent intent = new Intent(this, ViewReviews.class);
         intent.putExtra("live_show", mShow);
         startActivity(intent);
@@ -127,13 +151,29 @@ public class ShowInformation extends AppCompatActivity {
                     showName.setVisibility(View.VISIBLE);
                     venueName.setText(mShow.getVenueName());
                     venueName.setVisibility(View.VISIBLE);
+                    showDescription.setText(show.getString("showDesc"));
                     showDescription.setVisibility(View.VISIBLE);
-                    endDate.setText("Booking until: " + mShow.getEndDate());
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+
+                    Date startDateParsed = sdf.parse(mShow.getStartDate());
+                    Date endDateParsed = sdf.parse(mShow.getEndDate());
+
+                    String sd = startDateParsed.toString().replace(" 00:00:00 GMT+01:00", "");
+
+                    String ed = endDateParsed.toString().replace(" 00:00:00 GMT+01:00", "");
+
+                    startDate.setText(getString(R.string.start_date) + sd);
+                    startDate.setVisibility(View.VISIBLE);
+                    endDate.setText(getString(R.string.end_date) + ed);
                     endDate.setVisibility(View.VISIBLE);
 
+                    runningTime.setText("Running time: " + mShow.getRunningTime() + " minutes");
+                    runningTime.setVisibility(View.VISIBLE);
 
 
-                } catch (JSONException e) {
+
+                } catch (JSONException | ParseException e) {
                     Toast.makeText(ShowInformation.this, e.getMessage(), Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
@@ -155,25 +195,26 @@ public class ShowInformation extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, DatabaseAPI.URL_GET_REVIEWS + mShow.getShowName(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
-                try {
-                    JSONArray reviews = new JSONArray(response);
-                    double total=0.0;
-                    for(int i=0; i<reviews.length(); i++){
-                        JSONObject review = reviews.getJSONObject(i);
-                        total += review.getInt("rating");
-                    }
+                if (!response.equals("false")) {
                     try {
-                        mShow.setRating(total / reviews.length());
-                        rating.setText(Double.toString(mShow.getRating()));
-                    }catch(ArithmeticException e){
-                        rating.setText(R.string.string_not_enough_reviews);
+                        JSONArray reviews = new JSONArray(response);
+                        double total = 0.0;
+                        for (int i = 0; i < reviews.length(); i++) {
+                            JSONObject review = reviews.getJSONObject(i);
+                            total += review.getInt("rating");
+                        }
+                        try {
+                            mShow.setRating(total / reviews.length());
+                            rating.setRating((float) mShow.getRating());
+                            rating.setVisibility(View.VISIBLE);
+                            viewReviews.setVisibility(View.VISIBLE);
+                        } catch (ArithmeticException ignored) {
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
-
             }
         }, new Response.ErrorListener() {
             @Override

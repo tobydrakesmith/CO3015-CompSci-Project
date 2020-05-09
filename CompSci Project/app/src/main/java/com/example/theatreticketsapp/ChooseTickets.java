@@ -43,10 +43,10 @@ public class ChooseTickets extends AppCompatActivity {
     private boolean matinee;
     private int pbaLeft, pbbLeft, pbcLeft, pbdLeft;
 
-    RequestQueue requestQueue;
+    private RequestQueue requestQueue;
 
-    RadioGroup radioGroup;
-    RadioButton pba, pbb, pbc, pbd;
+    private RadioGroup radioGroup;
+    private RadioButton pba, pbb, pbc, pbd;
 
 
 
@@ -59,6 +59,10 @@ public class ChooseTickets extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -108,19 +112,20 @@ public class ChooseTickets extends AppCompatActivity {
             intent.putExtra("date", strDate);
             intent.putExtra("user", user);
             startActivity(intent);
+            finish();
 
+            return true;
+        } else if (item.getItemId() == android.R.id.home) {
+            finish();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, ChooseDate.class);
-        intent.putExtra("basket", basket);
-        intent.putExtra("live_show", mShow);
-        intent.putExtra("user", user);
-        startActivity(intent);
+        finish();
     }
 
 
@@ -278,37 +283,22 @@ public class ChooseTickets extends AppCompatActivity {
                     AlertDialog alertDialog = new AlertDialog.Builder(ChooseTickets.this).create();
                     alertDialog.setTitle("Success");
                     alertDialog.setMessage("Your tickets have been added to your basket, the tickets will release after 10 minutes.");
-                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Take me to my basket",
+                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Intent intent = new Intent(ChooseTickets.this, MyBasket.class);
-                                    intent.putExtra("basket", basket);
-                                    intent.putExtra("live_show", mShow);
-                                    intent.putExtra("user", user);
-                                    intent.putExtra("date", strDate);
-                                    startActivity(intent);
                                 }
                             });
-                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Back to home",
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    Intent intent = new Intent(ChooseTickets.this, Homepage.class);
-                                    intent.putExtra("basket", basket);
-                                    intent.putExtra("live_show", mShow);
-                                    intent.putExtra("user", user);
-                                    intent.putExtra("date", strDate);
-                                    startActivity(intent);
-
-                                }
-                            });
-                    alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel",
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            });
+                    alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+                            Intent intent = new Intent(ChooseTickets.this, MyBasket.class);
+                            intent.putExtra("basket", basket);
+                            intent.putExtra("live_show", mShow);
+                            intent.putExtra("user", user);
+                            intent.putExtra("date", strDate);
+                            startActivity(intent);
+                        }
+                    });
                     alertDialog.show();
 
                 } catch (JSONException e) {

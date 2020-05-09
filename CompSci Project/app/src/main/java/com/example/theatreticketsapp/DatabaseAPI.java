@@ -78,4 +78,7 @@ public class DatabaseAPI {
     static final String URL_GET_USER_REVIEWS =
             ROOT_URL + "getuserreviews&userID=";
 
+    static final String URL_EDIT_USER_REVIEW =
+            ROOT_URL + "editusereview";
+
 }

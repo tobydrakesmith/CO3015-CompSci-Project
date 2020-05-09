@@ -567,7 +567,6 @@ public class  Homepage extends AppCompatActivity implements ShowRecyclerViewAdap
         intent.putExtra("live_show", show);
         intent.putExtra("basket", basket);
         intent.putExtra("user", user);
-        intent.putExtra("previous_activity", "home");
         startActivity(intent);
 
     }

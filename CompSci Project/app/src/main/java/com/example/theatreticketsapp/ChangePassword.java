@@ -3,11 +3,13 @@ package com.example.theatreticketsapp;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,17 +29,20 @@ import java.security.NoSuchAlgorithmException;
 
 public class ChangePassword extends AppCompatActivity {
 
-    TextView currentPassword, newPassword1, newPassword2;
-    Button btnConfirm;
-    RequestQueue requestQueue;
-    User user;
-    boolean valid;
+    private TextView currentPassword, newPassword1, newPassword2;
+    private Button btnConfirm;
+    private RequestQueue requestQueue;
+    private User user;
+    private boolean valid;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         Intent intent = getIntent();
         user = intent.getParcelableExtra("user");
@@ -61,6 +66,20 @@ public class ChangePassword extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 
     //TODO: add more validation
     private boolean validate(){

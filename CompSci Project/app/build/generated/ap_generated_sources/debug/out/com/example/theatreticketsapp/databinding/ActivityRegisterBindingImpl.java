@@ -19,7 +19,7 @@ public class ActivityRegisterBindingImpl extends ActivityRegisterBinding  {
     }
     // views
     @NonNull
-    private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
+    private final android.widget.ScrollView mboundView0;
     // variables
     // values
     // listeners
@@ -31,9 +31,9 @@ public class ActivityRegisterBindingImpl extends ActivityRegisterBinding  {
     private ActivityRegisterBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (android.widget.EditText) bindings[5]
+            , (android.widget.EditText) bindings[2]
             , (android.widget.EditText) bindings[3]
             , (android.widget.EditText) bindings[4]
-            , (android.widget.EditText) bindings[2]
             , (android.widget.ProgressBar) bindings[7]
             , (android.widget.Button) bindings[6]
             , (android.widget.EditText) bindings[1]
@@ -41,7 +41,7 @@ public class ActivityRegisterBindingImpl extends ActivityRegisterBinding  {
         this.confirmPassword.setTag(null);
         this.firstname.setTag(null);
         this.lastname.setTag(null);
-        this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
+        this.mboundView0 = (android.widget.ScrollView) bindings[0];
         this.mboundView0.setTag(null);
         this.password.setTag(null);
         this.username.setTag(null);

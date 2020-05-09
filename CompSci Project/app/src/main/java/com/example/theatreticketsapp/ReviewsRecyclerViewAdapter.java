@@ -19,12 +19,14 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
     private ArrayList<Review> mReviews;
     private LayoutInflater mInflater;
     private ReviewsRecyclerViewAdapter.OnReviewClickListener mOnReviewClickListener;
+    private boolean userReviews;
 
     ReviewsRecyclerViewAdapter(Context context, ReviewsRecyclerViewAdapter.OnReviewClickListener onReviewClickListener,
-                               ArrayList<Review> reviews){
+                               ArrayList<Review> reviews, boolean userReviews){
         this.mInflater = LayoutInflater.from(context);
         this.mOnReviewClickListener = onReviewClickListener;
         this.mReviews = reviews;
+        this.userReviews = userReviews;
     }
 
     @NotNull
@@ -43,8 +45,9 @@ public class ReviewsRecyclerViewAdapter extends RecyclerView.Adapter<ReviewsRecy
 
         holder.ratingBar.setRating(review.getRating());
         holder.date.setText(review.getDate());
-        holder.reviewText.setText(review.getRatingTxt());
-        holder.userName.setText("Username" + review.getUserid());
+        holder.reviewText.setText(review.getReviewTxt());
+        if (userReviews) holder.userName.setText(review.getShowName());
+        else holder.userName.setText("Username" + review.getUserid());
 
 
     }

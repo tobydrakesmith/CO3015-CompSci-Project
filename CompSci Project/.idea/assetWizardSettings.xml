@@ -25,6 +25,7 @@
                                               <map>
                                                 <entry key="color" value="000000" />
                                                 <entry key="opacityPercent" value="80" />
+                                                <entry key="paddingPercent" value="25" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -36,7 +37,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/snap/android-studio/88/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_search_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/snap/android-studio/88/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_edit_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -84,10 +85,11 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/home-run.svg" />
-                                      <entry key="outputName" value="ic_search" />
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/edit-tools.svg" />
+                                      <entry key="outputName" value="ic_edit_selected" />
                                       <entry key="theme" value="CUSTOM" />
-                                      <entry key="themeColor" value="fff2f6" />
+                                      <entry key="themeColor" value="6300ff" />
                                     </map>
                                   </option>
                                 </PersistentState>

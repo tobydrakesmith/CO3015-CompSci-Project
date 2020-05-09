@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -21,22 +22,25 @@ import java.util.Locale;
 
 public class ChooseDate extends AppCompatActivity {
 
-    Show mShow;
-    Basket basket;
+    private Show mShow;
+    private Basket basket;
 
-    TextView matineeStart, eveningStart;
-    Button matineeBtn, eveningBtn;
+    private TextView matineeStart, eveningStart;
+    private Button matineeBtn, eveningBtn;
 
-    CalendarView calendarView;
-    Calendar calendar;
+    private Calendar calendar;
 
-    User user;
+    private User user;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_show);
+        setContentView(R.layout.activity_choose_date);
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 
 
@@ -56,7 +60,7 @@ public class ChooseDate extends AppCompatActivity {
         matineeStart.setText(mShow.getMatineeStart());
         eveningStart.setText(mShow.getEveningStart());
 
-        calendarView = findViewById(R.id.calendarView);
+        CalendarView calendarView = findViewById(R.id.calendarView);
 
         try{
             Date startDate = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(mShow.getStartDate());
@@ -80,11 +84,6 @@ public class ChooseDate extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-
-
-
-
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -122,12 +121,19 @@ public class ChooseDate extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void onBackPressed() {
-        Intent intent = new Intent (this, ShowInformation.class);
-        intent.putExtra("basket", basket);
-        intent.putExtra("live_show", mShow);
-        intent.putExtra("user", user);
-        startActivity(intent);
+        finish();
     }
 
     private void getDayOfWeek(int day){

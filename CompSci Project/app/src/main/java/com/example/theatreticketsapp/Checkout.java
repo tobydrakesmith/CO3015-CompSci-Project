@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.CalendarContract;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -20,14 +19,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalPayment;
 import com.paypal.android.sdk.payments.PayPalService;
@@ -49,6 +46,7 @@ import java.util.Map;
 public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewAdapter.OnCalendarClick{
 
 
+    //TODO forced error for paypal
 
     private Basket basket;
     private User user;
@@ -64,6 +62,11 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
     protected void onDestroy() {
         super.onDestroy();
         stopService(new Intent(this, PayPalService.class));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -119,7 +122,7 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
         payPalService.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
         startService(payPalService);
 
-        RecyclerView recyclerView = findViewById(R.id.checkoutRecylerView);
+        RecyclerView recyclerView = findViewById(R.id.checkoutRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(checkoutRecyclerViewAdapter);
 
@@ -160,21 +163,6 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
 
 
     private void sendMail(){
-/*
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    GMailSender sender = new GMailSender(EmailConfig.email,
-                            EmailConfig.password);
-                    sender.sendMail(subject, content,
-                            EmailConfig.email, user.getEmail());
-                } catch (Exception e) {
-                    Log.e("SendMail", e.getMessage(), e);
-                }
-            }
-
-        }).start();*/
 
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, DatabaseAPI.URL_SEND_BOOKING_EMAIL, new Response.Listener<String>() {

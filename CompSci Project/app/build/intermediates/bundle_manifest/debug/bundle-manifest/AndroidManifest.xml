@@ -82,12 +82,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.example.theatreticketsapp.ViewTickets"
-            android:label="@string/title_activity_view_tickets"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/title_activity_view_tickets" />
         <activity
             android:name="com.example.theatreticketsapp.CreateReview"
-            android:label="@string/title_activity_create_review"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/title_activity_create_review" />
         <activity
             android:name="com.example.theatreticketsapp.MyBasket"
             android:label="@string/title_activity_basket"
@@ -98,9 +96,7 @@
         <activity
             android:name="com.example.theatreticketsapp.ChooseTickets"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.example.theatreticketsapp.ChooseDate"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.example.theatreticketsapp.ChooseDate" />
 
         <meta-data
             android:name="com.google.android.actions"
@@ -110,10 +106,7 @@
             android:name="com.example.theatreticketsapp.MyBookings"
             android:label="My Bookings"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.example.theatreticketsapp.ShowInformation"
-            android:label="@string/title_activity_selected_show"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.example.theatreticketsapp.ShowInformation" />
         <activity android:name="com.example.theatreticketsapp.Register" />
         <activity android:name="com.example.theatreticketsapp.Login" >
             <intent-filter>

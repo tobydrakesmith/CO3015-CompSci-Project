@@ -2,6 +2,7 @@ package com.example.theatreticketsapp;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.android.volley.Request;
@@ -11,13 +12,18 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -34,21 +40,62 @@ public class CreateReview extends AppCompatActivity {
     private RatingBar ratingBar;
     private EditText review;
     private RequestQueue requestQueue;
+    private TextView characterLimit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_review);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+
         requestQueue = Volley.newRequestQueue(this);
 
+        characterLimit = findViewById(R.id.characterLimit);
         ratingBar = findViewById(R.id.ratingBar);
         review = findViewById(R.id.reviewText);
+        review.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                characterLimit.setText(Integer.toString(200-s.length()));
+                
+                if (200 - s.length() < 20)
+                    characterLimit.setTextColor(Color.RED);
+                else
+                    characterLimit.setTextColor(Color.BLACK);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
         Intent intent = getIntent();
         booking = intent.getParcelableExtra("booking");
         user = intent.getParcelableExtra("user");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 
     public void onClick(View view){

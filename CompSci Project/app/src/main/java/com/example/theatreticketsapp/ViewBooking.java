@@ -1,10 +1,12 @@
 package com.example.theatreticketsapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -41,6 +43,9 @@ public class ViewBooking extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_booking);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         mTickets = new ArrayList<>();
         jsonTickets = "";
@@ -102,6 +107,21 @@ public class ViewBooking extends AppCompatActivity {
 
         getVenueInfo();
         loadTickets();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 
 

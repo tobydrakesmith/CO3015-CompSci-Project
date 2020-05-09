@@ -2,15 +2,13 @@ package com.example.theatreticketsapp;
 
 public class Review {
 
-    private int rating;
-    private String ratingTxt, date, showName;
-    private String userName, userLastName;
-    private int userid, bookingid, showinstanceid;
+    private String reviewTxt, date, showName;
+    private int userid, bookingid, showinstanceid, rating, reviewid;
 
     public Review(int rating, String ratingText, String date, String showName, int userid, int bookingid, int showinstanceid){
 
         this.rating = rating;
-        this.ratingTxt = ratingText;
+        this.reviewTxt = ratingText;
         this.date = date;
         this.showName = showName;
         this.userid = userid;
@@ -18,14 +16,15 @@ public class Review {
         this.showinstanceid = showinstanceid;
     }
 
-    public Review(int rating, String ratingText, String date, String showName, int userid, int bookingid){
+    public Review(String ratingText, int rating, String date, String showName, int userid, int bookingid, int reviewid){
 
         this.rating = rating;
-        this.ratingTxt = ratingText;
+        this.reviewTxt = ratingText;
         this.date = date;
         this.showName = showName;
         this.userid = userid;
         this.bookingid = bookingid;
+        this.reviewid = reviewid;
     }
 
     public int getRating(){
@@ -52,7 +51,19 @@ public class Review {
         return showinstanceid;
     }
 
-    public String getRatingTxt() {
-        return ratingTxt;
+    public String getReviewTxt() {
+        return reviewTxt;
+    }
+
+    public int getReviewid(){
+        return this.reviewid;
+    }
+
+    public void setRating(int rating){
+        this.rating = rating;
+    }
+
+    public void setReviewTxt(String review){
+        this.reviewTxt = review;
     }
 }
