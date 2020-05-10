@@ -101,7 +101,6 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:core:1.2.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:monitor:1.2.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-idling-resource:3.2.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.databinding:databinding-common:3.6.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp:okhttp:2.7.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.6.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.11.0@jar" level="project" />
@@ -119,8 +118,6 @@
     <orderEntry type="library" name="Gradle: com.google.zxing:core:3.3.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains:annotations-java5:15.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.paypal.retail:here-sdk-release:2.0.0.201801@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.databinding:databinding-adapters:3.6.3@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.databinding:databinding-runtime:3.6.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.eclipsesource.j2v8:j2v8:4.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.stetho:stetho-okhttp:1.5.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.paypal.sdk:paypal-android-sdk:2.15.3@aar" level="project" />
@@ -181,15 +178,14 @@
     <orderEntry type="library" name="Gradle: androidx.core:core:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.versionedparcelable:versionedparcelable:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.cardview:cardview:1.0.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.databinding:viewbinding:3.6.3@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-process:2.2.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-service:2.2.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-runtime:2.2.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.datatransport:transport-backend-cct:2.2.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.datatransport:transport-runtime:2.2.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-components:16.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-encoders-json:16.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.cursoradapter:cursoradapter:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-process:2.2.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-service:2.2.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-runtime:2.2.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata:2.2.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata-core:2.2.0@aar" level="project" />

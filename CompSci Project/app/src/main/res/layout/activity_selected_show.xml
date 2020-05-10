@@ -8,13 +8,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ShowInformation">
+        tools:context="com.activities.theatreticketsapp.ShowInformation">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBarLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:theme="@style/AppTheme.AppBarOverlay"
@@ -41,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="25dp"
             android:textSize="36sp"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,6 +52,7 @@
             android:layout_marginTop="24dp"
             android:onClick="onVenueClick"
             android:textColor="#203EE3"
+            android:textSize="18sp"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/showName"
             app:layout_constraintTop_toBottomOf="@+id/showName" />
@@ -67,7 +66,7 @@
             android:scrollbarStyle="outsideInset"
             android:scrollbars="vertical"
             android:scrollHorizontally="false"
-            android:textSize="12sp"
+            android:textSize="18sp"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/venueName"
             app:layout_constraintTop_toBottomOf="@+id/venueName" />

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#8D1A9AD3"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ViewTickets"
+    tools:context="com.activities.theatreticketsapp.ViewTickets"
     tools:showIn="@layout/activity_view_tickets">
 
 

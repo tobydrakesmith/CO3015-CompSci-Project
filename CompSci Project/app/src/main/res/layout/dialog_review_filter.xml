@@ -15,35 +15,30 @@
         app:layout_constraintTop_toTopOf="@+id/ratingBarFiveStars">
 
         <RadioButton
-            android:id="@+id/five"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="5"
             android:textSize="0sp" />
 
         <RadioButton
-            android:id="@+id/four"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:text="4"
             android:textSize="0sp" />
 
         <RadioButton
-            android:id="@+id/three"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="3"
             android:textSize="0sp" />
 
         <RadioButton
-            android:id="@+id/two"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:text="2"
             android:textSize="0sp" />
 
         <RadioButton
-            android:id="@+id/one"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="1"
@@ -87,7 +82,6 @@
         app:layout_constraintTop_toBottomOf="@+id/ratingBarThreeStars" />
 
     <RatingBar
-        android:id="@+id/ratingBarOneStar"
         style="@style/Widget.AppCompat.RatingBar.Indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

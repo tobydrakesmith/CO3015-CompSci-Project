@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyBookings">
+    tools:context="com.activities.theatreticketsapp.MyBookings">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
@@ -74,6 +74,19 @@
             android:text="@string/past_bookings" />
 
     </com.google.android.material.tabs.TabLayout>
+
+    <TextView
+        android:id="@+id/noBookings"
+        android:layout_width="292dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/no_bookings"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/bookingsView"
+        app:layout_constraintTop_toTopOf="@+id/bookingsView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

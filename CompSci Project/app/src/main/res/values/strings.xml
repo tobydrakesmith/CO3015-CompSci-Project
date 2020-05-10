@@ -10,24 +10,16 @@
     <string name="prompt_firstname">First name</string>
     <string name="prompt_lastname">Surname</string>
     <string name="prompt_confirm_password">Confirm password</string>
-    <string name="btn_return">Return home</string>
-    <string name="title_activity_homepage">Homepage</string>
     <string name="title_home">Home</string>
     <string name="title_notifications">My bookings</string>
-    <string name="successful_creation">Account successfully created</string>
-    <string name="title_activity_selected_show">Selected Show</string>
-    <string name="btn_guest">Continue as a guest</string>
     <string name="title_settings">My account</string>
     <string name="btn_book">Book</string>
     <string name="lbl_numberTix">How many tickets do you want?</string>
     <string name="tix_counter">0</string>
     <string name="select_price_lbl">Select the price you would like:</string>
     <string name="btn_add_to_basket">Add to basket</string>
-    <string name="title_activity_test">Test</string>
     <string name="title_activity_basket">Basket</string>
-    <string name="number_of_tickets">Number of tickets: </string>
     <string name="my_basket_title">Your basket:</string>
-    <string name="view_booking_lbl">View your tickets</string>
     <string name="upcoming_bookings">Your upcoming bookings</string>
     <string name="past_bookings">Your past bookings</string>
     <string name="leave_a_review">Leave a review</string>
@@ -39,29 +31,17 @@
     <string name="button_view_reviews">View reviews</string>
     <string name="your_booking">Your booking:</string>
     <string name="view_your_booking">View booking</string>
-    <string name="calendar_sync">Sync booking</string>
     <string name="email_confirmation">Email a booking confirmation</string>
     <string name="reset_password">Forgotten your password? Click here</string>
-    <string name="manage_account">Manage your account</string>
     <string name="change_password">Change your password</string>
-    <string name="my_friends">My friends</string>
-    <string name="my_reviews">My reviews</string>
     <string name="prompt_current_password">Enter current password</string>
     <string name="prompt_new_password">Enter new password</string>
-    <string name="price">Price</string>
-    <string name="date">Date</string>
-    <string name="rating">Rating</string>
-    <string name="location">Location</string>
-    <string name="reviews_title">Reviews for</string>
     <string name="review_sort_date_asc">Sort by date (oldest first)</string>
     <string name="review_sort_date_desc">Sort by date (newest first)</string>
     <string name="review_sort_rating">Sort by rating</string>
     <string name="booking_confirmed">Your booking was successful. An email has been sent to confirm the booking;
         you can also view the booking under the "My Bookings" section of the app</string>
-    <string name="string_not_enough_reviews">Not enough reviews for this to be displayed yet!</string>
 
-
-    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
 
     <string name="musicals_or_plays">Would you like to hear about musicals or plays?</string>
     <string name="both">Both</string>
@@ -108,7 +88,6 @@
     <string name="seast">South East</string>
     <string name="east_england">East of England</string>
 
-    <string name="no_notifs">I don\'t want any notifications</string>
     <string name="submit_pref">Submit preferences</string>
     <string name="current_preferences">Select where you would like to subscribe to notifications for new shows (un-select current choices to unsubscribe)</string>
     <string name="tickets_left">Tickets left: \</string>
@@ -117,5 +96,13 @@
     <string name="your_review">Your review</string>
     <string name="start_date">"Start date:  "</string>
     <string name="end_date">"End date: "</string>
+    <string name="no_shows">There is no show on this day. Please check a different date</string>
+    <string name="choose_your_tickets">Seats are unallocated and are sold for areas of the theatre; more expensive seats provide a better view of the stage</string>
+    <string name="no_bookings">You do not have any future bookings to display</string>
+    <string name="no_past_bookings">You do not have any past bookings to display</string>
+    <string name="your_reviews">Your reviews</string>
+    <string name="no_reviews_left">You have not left any reviews yet</string>
+
+    <string name="choose_tickets_header">Choose your tickets</string>
 
 </resources>

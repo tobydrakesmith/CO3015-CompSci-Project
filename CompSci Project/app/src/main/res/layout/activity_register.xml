@@ -1,27 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-        <variable
-            name="registerUsername"
-            type="String" />
-        <variable
-            name="registerPassword"
-            type="String" />
-        <variable
-            name="registerConfirmPassword"
-            type="String" />
-        <variable
-            name="registerFirstName"
-            type="String" />
-        <variable
-            name="registerLastName"
-            type="String" />
-
-
-    </data>
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.activities.theatreticketsapp.Register">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -44,7 +27,7 @@
             android:hint="@string/prompt_email"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
-            android:text="@{registerUsername}" />
+            />
 
         <EditText
             android:id="@+id/firstname"
@@ -57,7 +40,7 @@
             android:hint="@string/prompt_firstname"
             android:importantForAutofill="no"
             android:inputType="textPersonName|textCapSentences"
-            android:text="@{registerFirstName}" />
+        />
 
         <EditText
             android:id="@+id/lastname"
@@ -70,7 +53,7 @@
             android:hint="@string/prompt_lastname"
             android:importantForAutofill="no"
             android:inputType="textPersonName|text|textCapSentences"
-            android:text="@{registerLastName}" />
+         />
 
         <EditText
             android:id="@+id/password"
@@ -83,8 +66,7 @@
             android:hint="@string/prompt_password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
-
-            android:text="@{registerPassword}" />
+            />
 
         <EditText
             android:id="@+id/confirmPassword"
@@ -97,7 +79,7 @@
             android:hint="@string/prompt_confirm_password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
-            android:text="@{registerConfirmPassword}" />
+            />
 
         <Button
             android:id="@+id/registerBtn"
@@ -121,4 +103,4 @@
 
     </LinearLayout>
     </ScrollView>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,19 +50,19 @@
         android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
-        <activity android:name="com.example.theatreticketsapp.MyReviews" />
-        <activity android:name="com.example.theatreticketsapp.NotificationPreferences" />
+        <activity android:name="com.activities.theatreticketsapp.MyReviews" />
+        <activity android:name="com.activities.theatreticketsapp.NotificationPreferences" />
 
-        <service android:name="com.example.theatreticketsapp.FirebaseService" >
+        <service android:name="com.configfiles.theatreticketsapp.FirebaseService" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGINB_EVENT" />
             </intent-filter>
         </service>
 
-        <activity android:name="com.example.theatreticketsapp.ChangePassword" />
-        <activity android:name="com.example.theatreticketsapp.ViewBooking" />
-        <activity android:name="com.example.theatreticketsapp.ViewReviews" />
-        <activity android:name="com.example.theatreticketsapp.ViewVenue" />
+        <activity android:name="com.activities.theatreticketsapp.ChangePassword" />
+        <activity android:name="com.activities.theatreticketsapp.ViewBooking" />
+        <activity android:name="com.activities.theatreticketsapp.ViewReviews" />
+        <activity android:name="com.activities.theatreticketsapp.ViewVenue" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -76,40 +76,40 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.example.theatreticketsapp.MapsActivity"
+            android:name="com.activities.theatreticketsapp.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name="com.example.theatreticketsapp.Checkout"
+            android:name="com.activities.theatreticketsapp.Checkout"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.theatreticketsapp.ViewTickets"
+            android:name="com.activities.theatreticketsapp.ViewTickets"
             android:label="@string/title_activity_view_tickets" />
         <activity
-            android:name="com.example.theatreticketsapp.CreateReview"
+            android:name="com.activities.theatreticketsapp.CreateReview"
             android:label="@string/title_activity_create_review" />
         <activity
-            android:name="com.example.theatreticketsapp.MyBasket"
+            android:name="com.activities.theatreticketsapp.MyBasket"
             android:label="@string/title_activity_basket"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.theatreticketsapp.Homepage"
+            android:name="com.activities.theatreticketsapp.Homepage"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.theatreticketsapp.ChooseTickets"
+            android:name="com.activities.theatreticketsapp.ChooseTickets"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.example.theatreticketsapp.ChooseDate" />
+        <activity android:name="com.activities.theatreticketsapp.ChooseDate" />
 
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@transition/slide_in_down" />
 
         <activity
-            android:name="com.example.theatreticketsapp.MyBookings"
+            android:name="com.activities.theatreticketsapp.MyBookings"
             android:label="My Bookings"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.example.theatreticketsapp.ShowInformation" />
-        <activity android:name="com.example.theatreticketsapp.Register" />
-        <activity android:name="com.example.theatreticketsapp.Login" >
+        <activity android:name="com.activities.theatreticketsapp.ShowInformation" />
+        <activity android:name="com.activities.theatreticketsapp.Register" />
+        <activity android:name="com.activities.theatreticketsapp.Login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -231,12 +231,6 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <provider
-            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-            android:authorities="com.example.theatreticketsapp.lifecycle-process"
-            android:exported="false"
-            android:multiprocess="true" />
-
         <service
             android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
             android:exported="false" >
@@ -258,6 +252,12 @@
             android:name="io.card.payment.CardIOActivity"
             android:configChanges="keyboardHidden|orientation" />
         <activity android:name="io.card.payment.DataEntryActivity" />
+
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="com.example.theatreticketsapp.lifecycle-process"
+            android:exported="false"
+            android:multiprocess="true" />
     </application>
 
 </manifest>

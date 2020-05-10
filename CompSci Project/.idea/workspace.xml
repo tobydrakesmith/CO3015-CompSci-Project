@@ -63,8 +63,8 @@
       <list>
         <option value="layoutResourceFile_vertical" />
         <option value="layoutResourceFile" />
-        <option value="resourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -73,7 +73,7 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="ce01182110b0082f0c" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-04-29T13:48:57.469Z" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ScannerApp" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -86,16 +86,17 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="android.template.parentActivityClass">
-      <recent name="" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.theatreticketsapp.ui.settings" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout/activities" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/transition" />
     </key>
     <key name="android.template.packageName">
       <recent name="com.example.theatreticketsapp" />
       <recent name="com.example.theatreticketsapp.ui.bookings" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/transition" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.theatreticketsapp" />
@@ -110,8 +111,8 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.theatreticketsapp" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.example.theatreticketsapp.ui.settings" />
+    <key name="android.template.parentActivityClass">
+      <recent name="" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -127,6 +128,39 @@
     </option>
   </component>
   <component name="RunManager" selected="Android App.app">
+    <configuration name="ExampleUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.activities.theatreticketsapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.theatreticketsapp" />
+      <option name="MAIN_CLASS_NAME" value="com.example.theatreticketsapp.ExampleUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExampleUnitTest.addition_isCorrect" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.activities.theatreticketsapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.theatreticketsapp" />
+      <option name="MAIN_CLASS_NAME" value="com.example.theatreticketsapp.ExampleUnitTest" />
+      <option name="METHOD_NAME" value="addition_isCorrect" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -180,7 +214,7 @@
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="com.example.theatreticketsapp.ChooseDate" />
+      <option name="ACTIVITY_CLASS" value="com.activities.theatreticketsapp.ChooseDate" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
@@ -238,6 +272,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Android JUnit.ExampleUnitTest" />
+        <item itemvalue="Android JUnit.ExampleUnitTest.addition_isCorrect" />
         <item itemvalue="Android App.BookShow" />
       </list>
     </recent_temporary>

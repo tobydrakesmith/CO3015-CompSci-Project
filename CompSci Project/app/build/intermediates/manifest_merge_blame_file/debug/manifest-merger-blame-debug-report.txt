@@ -93,16 +93,16 @@
 50-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:18:9-40
 51        android:usesCleartextTraffic="true" >
 51-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:19:9-44
-52        <activity android:name="com.example.theatreticketsapp.MyReviews" />
-52-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:20:9-56
-52-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:20:19-44
-53        <activity android:name="com.example.theatreticketsapp.NotificationPreferences" />
-53-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:21:9-61
-53-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:21:19-58
+52        <activity android:name="com.activities.theatreticketsapp.MyReviews" />
+52-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:20:9-88
+52-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:20:19-76
+53        <activity android:name="com.activities.theatreticketsapp.NotificationPreferences" />
+53-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:21:9-93
+53-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:21:19-90
 54
-55        <service android:name="com.example.theatreticketsapp.FirebaseService" >
+55        <service android:name="com.configfiles.theatreticketsapp.FirebaseService" >
 55-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:23:9-27:19
-55-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:23:18-49
+55-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:23:18-82
 56            <intent-filter>
 56-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:24:13-26:29
 57                <action android:name="com.google.firebase.MESSAGINB_EVENT" />
@@ -111,18 +111,18 @@
 58            </intent-filter>
 59        </service>
 60
-61        <activity android:name="com.example.theatreticketsapp.ChangePassword" />
-61-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:29:9-52
-61-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:29:19-49
-62        <activity android:name="com.example.theatreticketsapp.ViewBooking" />
-62-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:30:9-49
-62-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:30:19-46
-63        <activity android:name="com.example.theatreticketsapp.ViewReviews" />
-63-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:31:9-49
-63-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:31:19-46
-64        <activity android:name="com.example.theatreticketsapp.ViewVenue" />
-64-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:32:9-47
-64-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:32:19-44
+61        <activity android:name="com.activities.theatreticketsapp.ChangePassword" />
+61-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:29:9-84
+61-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:29:19-81
+62        <activity android:name="com.activities.theatreticketsapp.ViewBooking" />
+62-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:30:9-81
+62-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:30:19-78
+63        <activity android:name="com.activities.theatreticketsapp.ViewReviews" />
+63-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:31:9-81
+63-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:31:19-78
+64        <activity android:name="com.activities.theatreticketsapp.ViewVenue" />
+64-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:32:9-79
+64-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:32:19-76
 65        <!--
 66             The API key for Google Maps-based APIs is defined as a string resource.
 67             (See the file "res/values/google_maps_api.xml").
@@ -140,51 +140,51 @@
 76
 77        <activity
 77-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:45:9-47:59
-78            android:name="com.example.theatreticketsapp.MapsActivity"
-78-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:46:13-41
+78            android:name="com.activities.theatreticketsapp.MapsActivity"
+78-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:46:13-73
 79            android:label="@string/title_activity_maps" />
 79-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:47:13-56
 80        <activity
 80-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:48:9-50:59
-81            android:name="com.example.theatreticketsapp.Checkout"
-81-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:49:13-37
+81            android:name="com.activities.theatreticketsapp.Checkout"
+81-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:49:13-69
 82            android:theme="@style/AppTheme.NoActionBar" />
 82-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:50:13-56
 83        <activity
 83-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:51:9-53:67
-84            android:name="com.example.theatreticketsapp.ViewTickets"
-84-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:52:13-40
+84            android:name="com.activities.theatreticketsapp.ViewTickets"
+84-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:52:13-72
 85            android:label="@string/title_activity_view_tickets" />
 85-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:53:13-64
 86        <activity
 86-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:54:9-56:68
-87            android:name="com.example.theatreticketsapp.CreateReview"
-87-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:55:13-41
+87            android:name="com.activities.theatreticketsapp.CreateReview"
+87-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:55:13-73
 88            android:label="@string/title_activity_create_review" />
 88-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:56:13-65
 89        <activity
 89-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:57:9-60:59
-90            android:name="com.example.theatreticketsapp.MyBasket"
-90-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:58:13-37
+90            android:name="com.activities.theatreticketsapp.MyBasket"
+90-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:58:13-69
 91            android:label="@string/title_activity_basket"
 91-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:59:13-58
 92            android:theme="@style/AppTheme.NoActionBar" />
 92-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:60:13-56
 93        <activity
 93-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:61:9-63:59
-94            android:name="com.example.theatreticketsapp.Homepage"
-94-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:62:13-37
+94            android:name="com.activities.theatreticketsapp.Homepage"
+94-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:62:13-69
 95            android:theme="@style/AppTheme.NoActionBar" />
 95-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:63:13-56
 96        <activity
 96-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:64:9-66:59
-97            android:name="com.example.theatreticketsapp.ChooseTickets"
-97-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:65:13-42
+97            android:name="com.activities.theatreticketsapp.ChooseTickets"
+97-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:65:13-74
 98            android:theme="@style/AppTheme.NoActionBar" />
 98-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:66:13-56
-99        <activity android:name="com.example.theatreticketsapp.ChooseDate" />
-99-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:67:9-68:42
-99-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:68:13-39
+99        <activity android:name="com.activities.theatreticketsapp.ChooseDate" />
+99-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:67:9-68:74
+99-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:68:13-71
 100
 101        <meta-data
 101-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:70:9-72:60
@@ -195,21 +195,21 @@
 104
 105        <activity
 105-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:74:9-77:59
-106            android:name="com.example.theatreticketsapp.MyBookings"
-106-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:75:13-39
+106            android:name="com.activities.theatreticketsapp.MyBookings"
+106-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:75:13-71
 107            android:label="My Bookings"
 107-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:76:13-40
 108            android:theme="@style/AppTheme.NoActionBar" />
 108-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:77:13-56
-109        <activity android:name="com.example.theatreticketsapp.ShowInformation" />
-109-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:78:9-53
-109-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:78:19-50
-110        <activity android:name="com.example.theatreticketsapp.Register" />
-110-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:79:9-46
-110-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:79:19-43
-111        <activity android:name="com.example.theatreticketsapp.Login" >
+109        <activity android:name="com.activities.theatreticketsapp.ShowInformation" />
+109-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:78:9-85
+109-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:78:19-82
+110        <activity android:name="com.activities.theatreticketsapp.Register" />
+110-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:79:9-78
+110-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:79:19-75
+111        <activity android:name="com.activities.theatreticketsapp.Login" >
 111-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:80:9-86:20
-111-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:80:19-40
+111-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:80:19-72
 112            <intent-filter>
 112-->/home/tjd17/Documents/CompSci Project/CompSci Project/app/src/main/AndroidManifest.xml:81:13-85:29
 113                <action android:name="android.intent.action.MAIN" />
@@ -444,56 +444,56 @@
 231            android:value="@integer/google_play_services_version" />
 231-->[com.google.android.gms:play-services-basement:17.0.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/164bb505b81f338baa0db13edd04c1d1/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
 232
-233        <provider
-233-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
-234            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-234-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
-235            android:authorities="com.example.theatreticketsapp.lifecycle-process"
-235-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
-236            android:exported="false"
-236-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
-237            android:multiprocess="true" />
-237-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
-238
-239        <service
-239-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:29:9-35:19
-240            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-240-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:30:13-103
-241            android:exported="false" >
-241-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:31:13-37
-242            <meta-data
-242-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:32:13-34:39
-243                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-243-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:33:17-94
-244                android:value="cct" />
-244-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:34:17-36
-245        </service>
-246        <service
-246-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:26:9-30:19
-247            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-247-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:27:13-117
-248            android:exported="false"
-248-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:28:13-37
-249            android:permission="android.permission.BIND_JOB_SERVICE" >
-249-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:29:13-69
-250        </service>
-251
-252        <receiver
-252-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:32:9-34:40
-253            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-253-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:33:13-132
-254            android:exported="false" />
-254-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:34:13-37
-255
-256        <activity
-256-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:20:9-22:66
-257            android:name="io.card.payment.CardIOActivity"
-257-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:21:13-58
-258            android:configChanges="keyboardHidden|orientation" />
-258-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:22:13-63
-259        <activity android:name="io.card.payment.DataEntryActivity" />
-259-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:23:9-70
-259-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:23:19-67
+233        <service
+233-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:29:9-35:19
+234            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+234-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:30:13-103
+235            android:exported="false" >
+235-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:31:13-37
+236            <meta-data
+236-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:32:13-34:39
+237                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+237-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:33:17-94
+238                android:value="cct" />
+238-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/af8b852dc9492850dfd58fa4b08b6b31/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:34:17-36
+239        </service>
+240        <service
+240-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:26:9-30:19
+241            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+241-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:27:13-117
+242            android:exported="false"
+242-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:28:13-37
+243            android:permission="android.permission.BIND_JOB_SERVICE" >
+243-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:29:13-69
+244        </service>
+245
+246        <receiver
+246-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:32:9-34:40
+247            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+247-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:33:13-132
+248            android:exported="false" />
+248-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/6ef9d023f91cb51a7dcd488e27c3d1cb/jetified-transport-runtime-2.2.0/AndroidManifest.xml:34:13-37
+249
+250        <activity
+250-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:20:9-22:66
+251            android:name="io.card.payment.CardIOActivity"
+251-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:21:13-58
+252            android:configChanges="keyboardHidden|orientation" />
+252-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:22:13-63
+253        <activity android:name="io.card.payment.DataEntryActivity" />
+253-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:23:9-70
+253-->[io.card:android-sdk:5.5.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/0bab22b6b40fa081ecac1bdf09b43ec7/jetified-android-sdk-5.5.0/AndroidManifest.xml:23:19-67
+254
+255        <provider
+255-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+256            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+256-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+257            android:authorities="com.example.theatreticketsapp.lifecycle-process"
+257-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+258            android:exported="false"
+258-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+259            android:multiprocess="true" />
+259-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/tjd17/.gradle/caches/transforms-2/files-2.1/f8e2b213c9c6535c422622afbf842b10/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
 260    </application>
 261
 262</manifest>
