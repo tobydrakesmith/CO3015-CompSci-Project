@@ -1,4 +1,4 @@
-\<?php
+<?php
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -32,7 +32,9 @@ try {
         $mail->isHTML(true);
         $mail->Body = '<h2>Booking confirmation</h2><br>' . $content;
 
-	        $mail->send();
+        $mail->send();
+
+	echo "E-mail sent";
 }
 catch (Exception $e){
         echo $e->errorMessage();
@@ -41,3 +43,4 @@ catch (\Exception $e){
         echo $e->getMessage();
 }
 
+?>

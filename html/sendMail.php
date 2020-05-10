@@ -31,6 +31,7 @@ try {
 	'<p>Hello ' . $firstName .',<br><br>This is an email to confirm your new account.<br><br>You can now sign into the app with the details you booked<br><br>Best wishes</p>';
 
 	$mail->send();
+	echo "E-mail sent";
 }
 catch (Exception $e){
 	echo $e->errorMessage();

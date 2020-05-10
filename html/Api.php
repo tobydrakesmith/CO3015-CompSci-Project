@@ -363,9 +363,9 @@
 					$db = new DbOperation();
 					if ($db->checkEmail($_GET['email'])){
 						$name = $db->getFirstName($_GET['email']);
-						$db->sendResetPasswordEmail($_GET['email'], $name);
+						$response['message'] = $db->sendResetPasswordEmail($_GET['email'], $name);
 						$response['error'] = false;
-						$response['message'] = "An email has been sent with a link to reset your password";
+//						$response['message'] = "An email has been sent with a link to reset your password";
 					}else{
 						$response['error'] = true;
 						$response['message'] = "The provided email was not found on our system. Please try again.";
@@ -378,11 +378,12 @@
 				areTheseParametersAvailable(array('email', 'subject', 'content'));
 				$db = new DbOperation();
 
-				$db->sendBookingConfirmation(
+				$response = $db->sendBookingConfirmation(
 					$_POST['email'],
 					$_POST['subject'],
 					$_POST['content']
 				);
+
 
 				break;
 
@@ -393,6 +394,18 @@
 				if ($db->editUserReview($_POST['reviewid'],$_POST['rating'],$_POST['review'])) $response = "edited";
 				else $response = "error";
 
+				break;
+
+			case 'getvenues':
+				$db = new DbOperation();
+				$response = $db->getVenues();
+				break;
+
+			case 'getshowinstance':
+				if(isset($_GET['venueName'])){
+					$db = new DbOperation();
+					$response = $db->getShowInstance($_GET['venueName']);
+				}
 				break;
 		}
 	}else{

@@ -13,12 +13,12 @@
 
         <p>
                 <label for="new_password">New password</label>
-                <input type="text" name="new_password">
+                <input type="password" name="new_password">
         </p>
 
         <p>
                 <label for="new_password_confirm">Confirm new password</label>
-                <input type="text" name="new_password_confirm">
+                <input type="password" name="new_password_confirm">
         </p>
 
         <input type="submit">

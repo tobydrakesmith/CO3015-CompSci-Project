@@ -36,6 +36,8 @@ try {
 	'<p>Many thanks,<br>Theatre Tickets App team</p>';
 
         $mail->send();
+
+	echo "E-mail sent";
 }
 catch (Exception $e){
         echo $e->errorMessage();

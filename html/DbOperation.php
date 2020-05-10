@@ -473,22 +473,70 @@
 
 		}
 
+		function getVenues(){
+			$stmt = $this->con->prepare("SELECT venueID, venueName, postcode, city FROM venue");
+			$stmt->execute();
+			$stmt->bind_result($id, $venueName, $postcode, $city);
+			$venues = array();
+			while ($stmt->fetch()){
+				$venue = array();
+				$venue['id'] = $id;
+				$venue['name'] = $venueName;
+				$venue['postcode'] = $postcode;
+				$venue['city'] = $city;
+				array_push($venues, $venue);
+			}
+
+			return $venues;
+		}
+
+		function getShowInstance($venueName){
+			$stmt = $this->con->prepare("SELECT showName, mondayMat, mondayEve, tuesdayMat, tuesdayEve, wednesdayMat, wednesdayEve, thursdayMat, thursdayEve, fridayMat, fridayEve, saturdayMat, saturdayEve, sundayMat, sundayEve, matineeTime, eveningTime FROM showInstance WHERE venueName = ? AND (startDate <= NOW() AND endDate >= NOW())");
+			$stmt->bind_param("s", $venueName);
+			$stmt->execute();
+			$stmt->bind_result($showName, $mondayMat, $mondayEve, $tuesdayMat, $tuesdayEve, $wednesdayMat, $wednesdayEve, $thursdayMat, $thursdayEve, $fridayMat, $fridayEve, $saturdayMat, $saturdayEve, $sundayMat, $sundayEve, $matStart, $eveStart);
+			$showInstances = array();
+			while($stmt->fetch()){
+				$showInstance = array();
+				$showInstance['name'] = $showName;
+				$showInstance['mondayMat'] = $mondayMat;
+				$showInstance['mondayEve'] = $mondayEve;
+                                $showInstance['tuesdayMat'] = $tuesdayMat;
+                                $showInstance['tuesdayEve'] = $tuesdayEve;
+                                $showInstance['wednesdayMat'] = $wednesdayMat;
+                                $showInstance['wednesdayEve'] = $wednesdayEve;
+                                $showInstance['thursdayMat'] = $thursdayMat;
+                                $showInstance['thursdayEve'] = $thursdayEve;
+                                $showInstance['fridayMat'] = $fridayMat;
+                                $showInstance['fridayEve'] = $fridayEve;
+                                $showInstance['saturdayMat'] = $saturdayMat;
+                                $showInstance['saturdayEve'] = $saturdayEve;
+                                $showInstance['sundayMat'] = $sundayMat;
+                                $showInstance['sundayEve'] = $sundayEve;
+				$showInstance['matStart'] = $matStart;
+				$showInstance['eveStart'] = $eveStart;
+				array_push($showInstances, $showInstance);
+			}
+
+			return $showInstances;
+		}
+
 
 		//email
 
 		function sendWelcomeEmail($email, $name){
 	                $command = escapeshellcmd('php  sendMail.php ' . $email .' ' . $name );
-	                shell_exec($command);
+	                return shell_exec($command);
 		}
 
 		function sendResetPasswordEmail($email, $name){
 			$command = escapeshellcmd('php resetPassword.php ' . $email . ' ' . $name);
-			shell_exec($command);
+			return shell_exec($command);
 		}
 
 		function sendBookingConfirmation($email, $subject, $content){
 			$command = escapeshellcmd('php sendBookingMail.php ' . $email . ' "' . $subject . '" "' . $content . '"');
-			shell_exec($command);
+			return shell_exec($command);
 		}
 
 
