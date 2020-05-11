@@ -26,7 +26,7 @@
 			$stmt->bind_param("ssss", $email, $firstName, $lastName, $password);
 
 			if($stmt->execute())
-				return true;
+				return mysqli_insert_id($this->con);
 			return false;
 		}
 

@@ -66,6 +66,7 @@
 					$response['error'] = false;
 					//in message we have a success message
 					$response['message'] = 'User added successfully';
+					$response['id'] = $result;
 					$db->sendWelcomeEmail($_POST['email'], $_POST['firstName']);
 				}else{
 
