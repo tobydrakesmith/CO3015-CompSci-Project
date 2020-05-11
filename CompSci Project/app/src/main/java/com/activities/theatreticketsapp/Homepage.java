@@ -27,7 +27,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -63,7 +62,7 @@ import java.util.Locale;
 public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapter.OnShowClickListener {
 
     private Basket basket;
-    private ArrayList<Show> mShows, fullList;
+    private ArrayList<Show> mShows, fullList, filterActiveList;
     private ArrayList<Venue> mVenues;
     private ShowRecyclerViewAdapter adapter;
     private RecyclerView recyclerView;
@@ -78,8 +77,8 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
     private User user;
     private RadioGroup radioGroup;
     private Toolbar toolbar;
-
-    private int distanceFilter = 100, maxPrice = 0, filterPrice, selectedRadioBtn, radioBtnAllShows;
+    private int distanceFilter = 100, maxPrice = 0, filterPrice, selectedRadioBtn=-1;
+    private RadioButton selectedRB;
 
     //TODO: TIDY CODE
 
@@ -89,17 +88,10 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
+        //Request device's location
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
 
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED) {
-            //permission denied
-            Toast.makeText(this, "Please grant location permission to view distance to venues", Toast.LENGTH_SHORT).show();
-        }
-
-        //TODO wait for user response to permission
-
-
+        //Get user's current location
         FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
             @Override
@@ -129,6 +121,7 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
 
         mShows = new ArrayList<>();
         fullList = new ArrayList<>();
+        filterActiveList = new ArrayList<>();
         mVenues = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(this);
 
@@ -147,7 +140,7 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                //TODO: Filter breaks when searching and then trying to filter
+                adapter.getFilter().filter(newText);
                 return false;
             }
         });
@@ -190,6 +183,32 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
 
         loadShows();
 
+
+
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.activity_basket) {
+            Intent intent = new Intent(this, MyBasket.class);
+            intent.putExtra("basket", basket);
+            intent.putExtra("user", user);
+            startActivity(intent);
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+        overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
     }
 
     @Override
@@ -199,7 +218,43 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.homepage_top_nav, menu);
+        return true;
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+            FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+            fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+                    if (location != null) {
+                        userLoc = new Location(location);
+                        if (adapter != null) {
+                            adapter.setUserLocation(userLoc);
+                            adapter.notifyDataSetChanged();
+                        }
+                    } else {
+                        Toast.makeText(Homepage.this, "Please turn location on", Toast.LENGTH_SHORT).show();
+                        userLoc = null;
+                    }
+                }
+            }).addOnFailureListener(this, new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    e.printStackTrace();
+                }
+            });
+
+
+        }else{
+            //permission not granted
+            Toast.makeText(this, "Without location permissions we can not let you know how far the venues are from you", Toast.LENGTH_SHORT).show();
+        }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
@@ -213,6 +268,8 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
 
                 seekBarLblLocation = view.findViewById(R.id.filterDistance);
                 seekBarLocation = view.findViewById(R.id.seekBarLocation);
+                if (userLoc == null)
+                    seekBarLocation.setEnabled(false);
 
                 seekBarLocation.setProgress(distanceFilter);
 
@@ -266,10 +323,9 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
 
                 radioGroup = view.findViewById(R.id.radioGroup);
 
-                if (selectedRadioBtn != 0)
-                    radioGroup.check(selectedRadioBtn);
-                else
-                    radioBtnAllShows = radioGroup.getCheckedRadioButtonId();
+                if (selectedRadioBtn == -1) radioGroup.check(R.id.allShowsRB);
+                else radioGroup.check(selectedRadioBtn);
+
 
                 radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
@@ -288,6 +344,7 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
                     public void onClick(DialogInterface dialog, int which) {
 
                         RadioButton radioButton = view.findViewById(radioGroup.getCheckedRadioButtonId());
+                        selectedRB = radioButton;
 
                         if (userLoc != null)
                             filterLocation();
@@ -295,7 +352,6 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
                         filterPrice();
                         filterDate(radioButton);
 
-                        adapter.setFullList(mShows);
 
                     }
                 });
@@ -307,7 +363,8 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
                         adapter.setFullList(mShows);
                         adapter.notifyDataSetChanged();
 
-                        radioGroup.check(radioBtnAllShows);
+
+                        radioGroup.check(R.id.allShowsRB);
                         filterPrice = maxPrice;
                         distanceFilter = 100;
                     }
@@ -318,44 +375,8 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
         });
     }
 
-/*    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        MenuItem basketIcon = menu.findItem(R.id.activity_basket);
-        if (basket.isEmpty()){
-            basketIcon.setIcon(R.drawable.ic_basket);
-        } else{
-            basketIcon.setIcon(R.drawable.basket_with_icon);
-        }
-        return super.onPrepareOptionsMenu(menu);
-    }*/
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.homepage_top_nav, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (item.getItemId() == R.id.activity_basket) {
-            Intent intent = new Intent(this, MyBasket.class);
-            intent.putExtra("basket", basket);
-            intent.putExtra("user", user);
-            startActivity(intent);
-
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
-        overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
-    }
 
     private void filterLocation() {
 
@@ -381,10 +402,16 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
         if (filterPrice < seekBarPrice.getMax()) {
 
             ArrayList<Show> filterList = new ArrayList<>();
-
-            for (Show show : fullList) {
-                if (show.getPricePbD() <= filterPrice && mShows.contains(show))
-                    filterList.add(show);
+            if (userLoc != null) {
+                for (Show show : fullList) {
+                    if (show.getPricePbD() <= filterPrice && mShows.contains(show))
+                        filterList.add(show);
+                }
+            }else{
+                for (Show show : fullList) {
+                    if (show.getPricePbD() <= filterPrice)
+                        filterList.add(show);
+                }
             }
             mShows.clear();
             mShows.addAll(filterList);
@@ -410,6 +437,9 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
         }
         mShows.clear();
         mShows.addAll(filterList);
+
+
+        adapter.setFullList(mShows);
 
         adapter.notifyDataSetChanged();
 
@@ -637,6 +667,7 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
                 satMat, satEve, sunMat, sunEve, priceBandAPrices, priceBandBPrices, priceBandCPrices, priceBandDPrices, numberTixPBA, numberTixPBB, numberTixPBC, numberTixPBD, venue, dateAdded);
 
     }
+
 
 
 }

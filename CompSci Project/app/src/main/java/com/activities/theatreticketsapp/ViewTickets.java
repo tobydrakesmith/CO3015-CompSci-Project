@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.classfiles.theatreticketsapp.Booking;
+import com.classfiles.theatreticketsapp.Venue;
 import com.configfiles.theatreticketsapp.QRCodeHelper;
 
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
@@ -56,9 +57,18 @@ public class ViewTickets extends AppCompatActivity {
         Booking booking = intent.getParcelableExtra("booking");
         tickets = new ArrayList<>();
 
+        Venue venue = intent.getParcelableExtra("venue");
+
+        TextView venueName = findViewById(R.id.venueName);
+        venueName.setText(venue.getVenueName());
+
+        TextView priceBand = findViewById(R.id.priceBand);
+
+
         String jsonTickets = intent.getStringExtra("tickets");
         try {
             JSONArray jsonArray = new JSONArray(jsonTickets);
+            priceBand.setText("Price band: " +jsonArray.getJSONObject(0).getString("priceBand"));
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonTicket = jsonArray.getJSONObject(i);
                 tickets.add(jsonTicket);
@@ -72,6 +82,8 @@ public class ViewTickets extends AppCompatActivity {
 
         qrCodeImageView = findViewById(R.id.qrCodeImageView);
         ticketLbl = findViewById(R.id.ticketNumberLbl);
+
+
         TextView dateLbl = findViewById(R.id.dateLbl);
         TextView showNameLbl = findViewById(R.id.showNameLbl);
 

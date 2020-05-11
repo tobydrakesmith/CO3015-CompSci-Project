@@ -1,112 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.activities.theatreticketsapp.ViewBooking">
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/showName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="80dp"
-        android:text="ShowName"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.activities.theatreticketsapp.ViewBooking">
 
-    <TextView
-        android:id="@+id/venueName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="VenueName"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/ticketDetails"
-        app:layout_constraintTop_toBottomOf="@+id/ticketDetails" />
+        <TextView
+            android:id="@+id/showName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="80dp"
+            android:textSize="24sp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/showTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="ShowTime"
-        app:layout_constraintStart_toStartOf="@+id/showName"
-        app:layout_constraintTop_toBottomOf="@+id/showName" />
+        <TextView
+            android:id="@+id/showTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/showName"
+            app:layout_constraintTop_toBottomOf="@+id/showName" />
 
-    <TextView
-        android:id="@+id/ticketDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="TicketDetails"
-        app:layout_constraintStart_toStartOf="@+id/showTime"
-        app:layout_constraintTop_toBottomOf="@+id/showTime" />
+        <TextView
+            android:id="@+id/ticketDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/showTime"
+            app:layout_constraintTop_toBottomOf="@+id/showTime" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabCalendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="75dp"
-        android:backgroundTint="#673AB7"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/fabMap"
-        app:srcCompat="@drawable/ic_calendar" />
+        <TextView
+            android:id="@+id/bookingCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/ticketDetails"
+            app:layout_constraintTop_toBottomOf="@+id/ticketDetails" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabMap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#673AB7"
-        android:clickable="true"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="@+id/fabCalendar"
-        app:layout_constraintEnd_toStartOf="@+id/fabCalendar"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/fabTix"
-        app:srcCompat="@drawable/ic_map" />
+        <TextView
+            android:id="@+id/numberTix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/ticketDetails"
+            app:layout_constraintTop_toBottomOf="@+id/bookingCost" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabTix"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#673AB7"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="@+id/fabMap"
-        app:layout_constraintEnd_toStartOf="@+id/fabMap"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_tickets2" />
+        <TextView
+            android:id="@+id/venueName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/ticketDetails"
+            app:layout_constraintTop_toBottomOf="@+id/ticketDetails" />
 
-    <TextView
-        android:id="@+id/bookingCost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="BookingCost"
-        app:layout_constraintEnd_toEndOf="@+id/ticketDetails"
-        app:layout_constraintTop_toBottomOf="@+id/ticketDetails" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabCalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:backgroundTint="#673AB7"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/fabMap"
+            app:layout_constraintTop_toBottomOf="@+id/venueName"
+            app:srcCompat="@drawable/ic_calendar" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:clickable="true"
-        android:text="@string/email_confirmation"
-        android:textAllCaps="true"
-        android:textColor="@color/colorAccent"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="@+id/ticketDetails"
-        app:layout_constraintTop_toBottomOf="@+id/bookingCost" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#673AB7"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="invisible"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/fabCalendar"
+            app:layout_constraintEnd_toStartOf="@+id/fabCalendar"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/fabTix"
+            app:srcCompat="@drawable/ic_map" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabTix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#673AB7"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/fabMap"
+            app:layout_constraintEnd_toStartOf="@+id/fabMap"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_tickets2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

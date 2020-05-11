@@ -36,12 +36,13 @@ import java.util.Locale;
 public class ViewBooking extends AppCompatActivity {
 
     private Booking booking;
-    private TextView venueName, ticketDetails, bookingCost;
+    private TextView venueName, ticketDetails, bookingCost, numberTickets, showDateTime, showName;
     private Venue venue;
     private RequestQueue requestQueue;
     private Date date;
     private ArrayList<Ticket> mTickets;
     private String jsonTickets;
+    private FloatingActionButton navigate,tickets, calendar;
 
 
     @Override
@@ -53,7 +54,6 @@ public class ViewBooking extends AppCompatActivity {
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         mTickets = new ArrayList<>();
-        jsonTickets = "";
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -72,7 +72,7 @@ public class ViewBooking extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        FloatingActionButton calendar = findViewById(R.id.fabCalendar);
+        calendar = findViewById(R.id.fabCalendar);
         calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,18 +80,19 @@ public class ViewBooking extends AppCompatActivity {
             }
         });
 
-        final FloatingActionButton tickets = findViewById(R.id.fabTix);
+        tickets = findViewById(R.id.fabTix);
         tickets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ViewBooking.this, ViewTickets.class);
+                i.putExtra("venue", venue);
                 i.putExtra("booking", booking);
                 i.putExtra("tickets", jsonTickets);
                 startActivity(i);
             }
         });
 
-        FloatingActionButton navigate = findViewById(R.id.fabMap);
+        navigate = findViewById(R.id.fabMap);
         navigate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,11 +102,12 @@ public class ViewBooking extends AppCompatActivity {
             }
         });
 
-        TextView showName = findViewById(R.id.showName);
-        TextView showDateTime = findViewById(R.id.showTime);
+        showName = findViewById(R.id.showName);
+        showDateTime = findViewById(R.id.showTime);
         venueName = findViewById(R.id.venueName);
         ticketDetails = findViewById(R.id.ticketDetails);
         bookingCost = findViewById(R.id.bookingCost);
+        numberTickets = findViewById(R.id.numberTix);
 
         showName.setText(booking.getShowName());
         showDateTime.setText(date.toString());
@@ -137,12 +139,17 @@ public class ViewBooking extends AppCompatActivity {
             public void onResponse(String response) {
                 try {
                     JSONArray jsonArray = new JSONArray(response);
-                    jsonTickets = jsonArray.toString();
+                    JSONArray toReturn = new JSONArray();
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonTicket = (JSONObject) jsonArray.get(i);
+                        jsonTicket.put("date", booking.getDate());
+                        jsonTicket.put("showName", booking.getShowName());
+                        jsonTicket.put("time", booking.getShowTime());
+                        toReturn.put(jsonTicket);
                         Ticket ticket = new Ticket(jsonTicket.getInt("price"), jsonTicket.getString("priceBand"));
                         mTickets.add(ticket);
                     }
+                    jsonTickets = toReturn.toString();
 
                     setTicketLabel();
 
@@ -163,7 +170,7 @@ public class ViewBooking extends AppCompatActivity {
     }
 
     private void setTicketLabel() {
-        StringBuilder toDisplay = new StringBuilder("Your tickets: \n");
+        StringBuilder toDisplay = new StringBuilder("Your tickets \n");
         int totalCost = 0;
         for (Ticket ticket : mTickets) {
             toDisplay.append("Price Band: ").append(ticket.getPriceBand()).append(", Price: £").append(ticket.getPrice()).append("\n");
@@ -171,6 +178,7 @@ public class ViewBooking extends AppCompatActivity {
         }
         ticketDetails.setText(toDisplay.toString());
         bookingCost.setText("Total cost £" + (totalCost));
+        numberTickets.setText("Number of tickets: " + mTickets.size());
     }
 
     private void getVenueInfo() {
@@ -189,6 +197,17 @@ public class ViewBooking extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
+                showDateTime.setVisibility(View.VISIBLE);
+                showName.setVisibility(View.VISIBLE);
+                numberTickets.setVisibility(View.VISIBLE);
+                venueName.setVisibility(View.VISIBLE);
+                ticketDetails.setVisibility(View.VISIBLE);
+                bookingCost.setVisibility(View.VISIBLE);
+                calendar.setVisibility(View.VISIBLE);
+                tickets.setVisibility(View.VISIBLE);
+                navigate.setVisibility(View.VISIBLE);
+
 
 
             }

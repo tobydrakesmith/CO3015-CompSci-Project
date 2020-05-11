@@ -5,9 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -15,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GestureDetectorCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -36,7 +32,6 @@ public class Login extends AppCompatActivity {
 
     private Basket basket = new Basket();
     private RequestQueue requestQueue;
-    private GestureDetectorCompat mDetector;
     private TextView emailTxt, passwordTxt;
     private ProgressBar progressBar;
 
@@ -45,8 +40,6 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         requestQueue = Volley.newRequestQueue(this);
-
-        mDetector = new GestureDetectorCompat(this, new MyGestureListener());
 
         emailTxt = findViewById(R.id.username);
         passwordTxt = findViewById(R.id.password);
@@ -78,7 +71,6 @@ public class Login extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 String email = input.getText().toString().trim();
                 sendMail(email);
-                dialog.dismiss();
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -89,7 +81,6 @@ public class Login extends AppCompatActivity {
         });
 
         builder.show();
-
 
     }
 
@@ -176,28 +167,4 @@ public class Login extends AppCompatActivity {
         }
     }
 
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        this.mDetector.onTouchEvent(event);
-        return super.onTouchEvent(event);
-    }
-
-
-    class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
-        private static final String DEBUG_TAG = "Gestures";
-
-        @Override
-        public boolean onDown(MotionEvent event) {
-            Log.d(DEBUG_TAG, "onDown: " + event.toString());
-            return true;
-        }
-
-        @Override
-        public boolean onFling(MotionEvent event1, MotionEvent event2,
-                               float velocityX, float velocityY) {
-            Toast.makeText(Login.this, "fling", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-    }
 }

@@ -13,6 +13,8 @@ import com.activities.theatreticketsapp.R;
 import com.classfiles.theatreticketsapp.BasketBooking;
 import com.classfiles.theatreticketsapp.Ticket;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 public class MyBasketRecyclerViewAdapter extends RecyclerView.Adapter<MyBasketRecyclerViewAdapter.ViewHolder> {
@@ -29,8 +31,9 @@ public class MyBasketRecyclerViewAdapter extends RecyclerView.Adapter<MyBasketRe
         this.mBookings = bookings;
     }
 
+    @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.recyclerview_basket_row, parent, false);
         return new ViewHolder(view, mOnTicketListener);
     }
@@ -44,6 +47,7 @@ public class MyBasketRecyclerViewAdapter extends RecyclerView.Adapter<MyBasketRe
         holder.showNameText.setText(showName);
         holder.date.setText(mBookings.get(position).getDate() + " " + mBookings.get(position).getStartTime());
         holder.numberOfTickets.setText("x" + (tickets.size()));
+        holder.cost.setText("£"+mBookings.get(position).getCost());
 
     }
 
@@ -53,11 +57,9 @@ public class MyBasketRecyclerViewAdapter extends RecyclerView.Adapter<MyBasketRe
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView showNameText;
-        TextView numberOfTickets;
-        TextView date;
+        TextView showNameText, numberOfTickets, date, cost;
         Button btnDelete;
         OnTicketClickListener onTicketClickListener;
 
@@ -68,6 +70,7 @@ public class MyBasketRecyclerViewAdapter extends RecyclerView.Adapter<MyBasketRe
             numberOfTickets = view.findViewById(R.id.numberOfTickets);
             date = view.findViewById(R.id.date);
             btnDelete = view.findViewById(R.id.btnCancel);
+            cost = view.findViewById(R.id.cost);
 
             btnDelete.setOnClickListener(this);
         }

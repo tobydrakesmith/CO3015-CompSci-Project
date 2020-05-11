@@ -18,13 +18,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 
 public class CheckoutRecyclerViewAdapter extends RecyclerView.Adapter<CheckoutRecyclerViewAdapter.ViewHolder> {
 
     private LayoutInflater mInflater;
     private CheckoutRecyclerViewAdapter.OnCalendarClick onCalendarClick;
-    ArrayList<BasketBooking> mBookings;
+    private ArrayList<BasketBooking> mBookings;
 
     public CheckoutRecyclerViewAdapter(Context context,
                                 OnCalendarClick onClickListener, ArrayList<BasketBooking> bookings) {
@@ -47,11 +48,12 @@ public class CheckoutRecyclerViewAdapter extends RecyclerView.Adapter<CheckoutRe
 
         Date date = null;
         try {
-            date = new SimpleDateFormat("yyyy-MM-dd").parse(booking.getDate());
+            date = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(booking.getDate());
 
-            String strDate = new SimpleDateFormat("dd-MM-yyyy").format(date);
+            assert date != null;
+            String strDate = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).format(date);
 
-            date = new SimpleDateFormat("dd-MM-yyyy hh:mm").parse(strDate + " " + booking.getStartTime());
+            date = new SimpleDateFormat("dd-MM-yyyy hh:mm", Locale.ENGLISH).parse(strDate + " " + booking.getStartTime());
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -61,6 +63,7 @@ public class CheckoutRecyclerViewAdapter extends RecyclerView.Adapter<CheckoutRe
         holder.venueName.setText(booking.getShow().getVenue().getVenueName());
         holder.numberOfTickets.setText("Number of tickets: " + booking.getNumberOfTickets()
                 + ", £" + booking.getTickets().get(0).getPrice() + " each");
+        assert date != null;
         holder.date.setText(date.toString());
     }
 

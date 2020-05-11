@@ -45,11 +45,9 @@ public class ShowRecyclerViewAdapter extends RecyclerView.Adapter<ShowRecyclerVi
         showListFull.addAll(filteredShows);
     }
 
-    ArrayList<Show> getShowList() {
-        System.out.println("Show size: " + mShows.size());
-        ArrayList<Show> shows = new ArrayList<>();
-        shows.addAll(mShows);
-        return shows;
+
+    public void setUserLocation(Location userLoc){
+        this.userLocation = userLoc;
     }
 
 

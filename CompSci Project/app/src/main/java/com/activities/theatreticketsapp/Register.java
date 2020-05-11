@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -20,6 +22,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.classfiles.theatreticketsapp.Basket;
+import com.classfiles.theatreticketsapp.User;
 import com.configfiles.theatreticketsapp.DatabaseAPI;
 import com.configfiles.theatreticketsapp.HashPassword;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -40,6 +44,9 @@ public class Register extends AppCompatActivity {
     private HashMap<String, String> fireBaseTopicName;
     private FirebaseMessaging firebaseMessaging;
     private TextView emailTxt, firstNameTxt, lastNameTxt, password1txt, password2txt;
+    private Button registerBtn;
+    private User user;
+    private ProgressBar progressBar;
 
 
     @Override
@@ -59,6 +66,8 @@ public class Register extends AppCompatActivity {
         password2txt = findViewById(R.id.confirmPassword);
         firstNameTxt = findViewById(R.id.firstname);
         lastNameTxt = findViewById(R.id.lastname);
+        registerBtn = findViewById(R.id.registerBtn);
+        progressBar = findViewById(R.id.progressBar);
 
 
         firebaseMessaging = FirebaseMessaging.getInstance();
@@ -98,6 +107,8 @@ public class Register extends AppCompatActivity {
 
     public void register(View view) {
 
+        registerBtn.setEnabled(false);
+
         String username = emailTxt.getText().toString().trim();
         String password = password1txt.getText().toString().trim();
         String password2 = password2txt.getText().toString().trim();
@@ -106,15 +117,19 @@ public class Register extends AppCompatActivity {
 
         if (validate(username, firstName, lastName, password, password2))
             createAccount();
+        else
+            registerBtn.setEnabled(true);
 
     }
 
 
     //TODO: add more validation
-    private Boolean validate(String email, String firstName, String lastName,
+    private boolean validate(String email, String firstName, String lastName,
                              String password, String password2) {
 
-        Boolean valid = true;
+        progressBar.setVisibility(View.VISIBLE);
+
+        boolean valid = true;
 
         //check email is formatted correctly
 
@@ -145,6 +160,9 @@ public class Register extends AppCompatActivity {
             valid = false;
         }
 
+        if (!valid)
+            progressBar.setVisibility(View.VISIBLE);
+
 
         return valid;
     }
@@ -155,13 +173,16 @@ public class Register extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, DatabaseAPI.URL_CREATE_USER, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                registerBtn.setEnabled(true);
+                progressBar.setVisibility(View.INVISIBLE);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getString("error").equals("false")) {
-                        Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+                        int id = jsonObject.getInt("id");
+                        user = new User(id, emailTxt.getText().toString(), firstNameTxt.getText().toString(), lastNameTxt.getText().toString());
                         openDialog();
                     } else {
-                        Toast.makeText(Register.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Register.this, "An account already exists with this email", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -259,7 +280,9 @@ public class Register extends AppCompatActivity {
                     }
                 }
 
-                Intent intent = new Intent(Register.this, Login.class);
+                Intent intent = new Intent(Register.this, Homepage.class);
+                intent.putExtra("user", user);
+                intent.putExtra("basket", new Basket());
                 startActivity(intent);
             }
         });
