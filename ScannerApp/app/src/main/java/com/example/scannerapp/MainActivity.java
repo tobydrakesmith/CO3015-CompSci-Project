@@ -1,8 +1,12 @@
 package com.example.scannerapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import android.Manifest;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -24,12 +28,18 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
     private static final int ZXING_CAMERA_PERMISSION = 1;
     private ZXingScannerView mScannerView;
+    private String showName, date, startTime;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        Intent intent = getIntent();
+        showName = intent.getStringExtra("name");
+        date = intent.getStringExtra("date");
+        startTime = intent.getStringExtra("time");
 
         ViewGroup contentFrame = findViewById(R.id.content_frame);
         mScannerView = new ZXingScannerView(this);
@@ -56,10 +66,30 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
     @Override
     public void handleResult(Result rawResult) {
+        mScannerView.stopCameraPreview();
 
         try {
             JSONObject ticket = new JSONObject(rawResult.getText());
-            scanTicket(ticket);
+            if (ticket.getString("date").equals(date) && ticket.getString("time").equals(startTime)
+            && ticket.getString("showName").equals(showName))
+                scanTicket(ticket);
+            else {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                dialog.setTitle("Incorrect details");
+                dialog.setMessage("The show, date or time of the ticket(s) do not match the provided settings");
+                dialog.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        mScannerView.resumeCameraPreview(MainActivity.this);
+                    }
+                }).show();
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -71,16 +101,31 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_SCAN_TICKET +ticket.getString("ticketID"), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                System.out.println(response);
+                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
                 try {
                     System.out.println("On response");
                     JSONObject jsonResponse = new JSONObject(response);
-                    if (jsonResponse.getString("error").equals("true"))
-                        Toast.makeText(MainActivity.this, "ERROR: Ticket has already been scanned ID:" + ticket.getString("ticketID"), Toast.LENGTH_LONG).show();
-                    else
-                        Toast.makeText(MainActivity.this, "Ticket successfully scanned. ID: " + ticket.getString("ticketID"), Toast.LENGTH_LONG).show();
+                    if (jsonResponse.getString("error").equals("true")) {
+                        dialog.setTitle("ERROR");
+                        dialog.setMessage("Ticket has already been scanned");
+                    }else {
+                        dialog.setTitle("Success");
+                        dialog.setMessage("Ticket successfully scanned");
+                    }
+                    dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
 
-                    mScannerView.resumeCameraPreview( MainActivity.this);
+                            mScannerView.resumeCameraPreview( MainActivity.this);
+                        }
+                    });
+                    dialog.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    dialog.show();
                 } catch (JSONException e) {
                     e.printStackTrace();
                     System.out.println("JSON ERROR");

@@ -18,29 +18,35 @@ import java.util.ArrayList;
 public class VenueRecyclerViewAdapter extends RecyclerView.Adapter<VenueRecyclerViewAdapter.ViewHolder> {
     private LayoutInflater mInflater;
     private ArrayList<Venue> mVenues;
+    private VenueRecyclerViewAdapter.OnVenueClick onVenueClick;
     private int selected = RecyclerView.NO_POSITION;
 
 
 
-    public VenueRecyclerViewAdapter(Context context, ArrayList<Venue> venues) {
+
+
+    public VenueRecyclerViewAdapter(Context context, ArrayList<Venue> venues,
+                                    VenueRecyclerViewAdapter.OnVenueClick onVenueClick) {
         this.mInflater = LayoutInflater.from(context);
         this.mVenues = venues;
+        this.onVenueClick = onVenueClick;
     }
 
     @NotNull
     @Override
     public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.recyclerview_row_venue, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, onVenueClick);
     }
 
-    public int getSelected() {
-        return selected;
+    public void setSelected(int s){
+        this.selected = s;
     }
+
+
 
     @Override
-    public void onBindViewHolder(VenueRecyclerViewAdapter.ViewHolder holder, final int position) {
-
+    public void onBindViewHolder(VenueRecyclerViewAdapter.ViewHolder holder, int position) {
 
         Venue venue = mVenues.get(position);
 
@@ -49,17 +55,7 @@ public class VenueRecyclerViewAdapter extends RecyclerView.Adapter<VenueRecycler
         holder.postcode.setText(venue.getPostcode());
 
         holder.itemView.setSelected(selected == position);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (selected == position){
-                    selected = RecyclerView.NO_POSITION;
-                    notifyDataSetChanged();
-                }
-                selected = position;
-                notifyDataSetChanged();
-            }
-        });
+
 
     }
 
@@ -70,21 +66,34 @@ public class VenueRecyclerViewAdapter extends RecyclerView.Adapter<VenueRecycler
     }
 
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView name, postcode, city;
+        OnVenueClick venueClick;
+        int selected = RecyclerView.NO_POSITION;
 
-        ViewHolder(View view) {
+        ViewHolder(View view, OnVenueClick onVenueClick) {
             super(view);
-
+            venueClick = onVenueClick;
             name = view.findViewById(R.id.venueName);
             postcode = view.findViewById(R.id.postcode);
             city = view.findViewById(R.id.city);
+            view.setOnClickListener(this);
+
 
 
         }
 
+        @Override
+        public void onClick(View v) {
+            v.setSelected(true);
+            selected = getAdapterPosition();
+            venueClick.onVenueClick(getAdapterPosition(), v);
+        }
+    }
 
+    public interface OnVenueClick{
+        void onVenueClick(int position, View view);
     }
 
 

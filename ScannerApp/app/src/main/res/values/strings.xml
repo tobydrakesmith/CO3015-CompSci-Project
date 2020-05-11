@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">ScannerApp</string>
     <string name="confirm">Confirm</string>
+
+    <string name="select_venue">Select venue</string>
+    <string name="select_show">Select the show you are scanning for</string>
+    <string name="todays_performances">Today\'s performances</string>
+    <string name="no_performances">No performances for this show/venue today</string>
 </resources>
