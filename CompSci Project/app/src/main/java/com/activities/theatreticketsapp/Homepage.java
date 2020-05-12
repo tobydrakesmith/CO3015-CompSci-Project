@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -62,23 +63,21 @@ import java.util.Locale;
 public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapter.OnShowClickListener {
 
     private Basket basket;
-    private ArrayList<Show> mShows, fullList, filterActiveList;
+    private ArrayList<Show> mShows, fullList;
     private ArrayList<Venue> mVenues;
     private ShowRecyclerViewAdapter adapter;
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private SeekBar seekBarLocation, seekBarPrice;
-    private TextView seekBarLblLocation, seekBarLblPrice;
     private RequestQueue requestQueue;
     private Location userLoc;
-    private Geocoder geocoder;
     private Button filterBtn;
     private BottomNavigationView navView;
     private User user;
     private RadioGroup radioGroup;
-    private Toolbar toolbar;
     private int distanceFilter = 100, maxPrice = 0, filterPrice, selectedRadioBtn=-1;
-    private RadioButton selectedRB;
+    private SharedPreferences sharedPreferences;
+    SearchView searchView;
 
     //TODO: TIDY CODE
 
@@ -87,6 +86,8 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
+
+        sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
 
         //Request device's location
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
@@ -110,28 +111,21 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
             }
         });
 
+
         Intent intent = getIntent();
         basket = intent.getParcelableExtra("basket");
         user = intent.getParcelableExtra("user");
 
-        toolbar = findViewById(R.id.toolbar);
-
-//        invalidateOptionsMenu();
-
-
         mShows = new ArrayList<>();
         fullList = new ArrayList<>();
-        filterActiveList = new ArrayList<>();
         mVenues = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(this);
 
 
-        geocoder = new Geocoder(Homepage.this);
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        SearchView searchView = findViewById(R.id.searchView);
+        searchView = findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -140,6 +134,7 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                //filter list via adapter
                 adapter.getFilter().filter(newText);
                 return false;
             }
@@ -206,9 +201,7 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
-        overridePendingTransition(R.transition.slide_in_left, R.transition.slide_out_right);
+        finish();
     }
 
     @Override
@@ -228,15 +221,19 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
 
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
 
+            //User has granted permission to device's location
+
+            //Get device location
             FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
             fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
                 @Override
                 public void onSuccess(Location location) {
                     if (location != null) {
+
                         userLoc = new Location(location);
                         if (adapter != null) {
                             adapter.setUserLocation(userLoc);
-                            adapter.notifyDataSetChanged();
+                            adapter.notifyDataSetChanged(); //add location to the adapter to display distance
                         }
                     } else {
                         Toast.makeText(Homepage.this, "Please turn location on", Toast.LENGTH_SHORT).show();
@@ -252,199 +249,10 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
 
 
         }else{
-            //permission not granted
             Toast.makeText(this, "Without location permissions we can not let you know how far the venues are from you", Toast.LENGTH_SHORT).show();
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
-
-    private void setUpFilterMenu() {
-        filterBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                final View view = View.inflate(Homepage.this, R.layout.dialog_filter_location, null);
-
-                seekBarLblLocation = view.findViewById(R.id.filterDistance);
-                seekBarLocation = view.findViewById(R.id.seekBarLocation);
-                if (userLoc == null)
-                    seekBarLocation.setEnabled(false);
-
-                seekBarLocation.setProgress(distanceFilter);
-
-                if (distanceFilter == 100)
-                    seekBarLblLocation.setText(String.format("%skm+", Integer.toString(distanceFilter)));
-                else
-                    seekBarLblLocation.setText(String.format("%skm", Integer.toString(distanceFilter)));
-
-                seekBarLocation.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        distanceFilter = progress;
-                        if (distanceFilter < seekBar.getMax())
-                            seekBarLblLocation.setText(String.format("%skm", Integer.toString(distanceFilter)));
-                        else
-                            seekBarLblLocation.setText(String.format("%skm+", Integer.toString(distanceFilter)));
-                    }
-
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-                    }
-
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-                    }
-                });
-
-                seekBarLblPrice = view.findViewById(R.id.filterPrice);
-                seekBarPrice = view.findViewById(R.id.seekBarPrice);
-                seekBarPrice.setMax(maxPrice);
-                seekBarPrice.setProgress(filterPrice);
-                seekBarLblPrice.setText(String.format(Locale.ENGLISH, "%s%d", getString(R.string.pound_sign), filterPrice));
-
-                seekBarPrice.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        filterPrice = progress;
-                        seekBarLblPrice.setText(String.format(Locale.ENGLISH, "%s%d", getString(R.string.pound_sign), filterPrice));
-                    }
-
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-
-                    }
-
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-
-                    }
-                });
-
-                radioGroup = view.findViewById(R.id.radioGroup);
-
-                if (selectedRadioBtn == -1) radioGroup.check(R.id.allShowsRB);
-                else radioGroup.check(selectedRadioBtn);
-
-
-                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(RadioGroup group, int checkedId) {
-                        selectedRadioBtn = checkedId;
-                    }
-                });
-
-                AlertDialog.Builder dialog = new AlertDialog.Builder(Homepage.this);
-                dialog.setTitle("Filter");
-                dialog.setView(view);
-
-
-                dialog.setPositiveButton("Apply", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        RadioButton radioButton = view.findViewById(radioGroup.getCheckedRadioButtonId());
-                        selectedRB = radioButton;
-
-                        if (userLoc != null)
-                            filterLocation();
-
-                        filterPrice();
-                        filterDate(radioButton);
-
-
-                    }
-                });
-                dialog.setNeutralButton("Clear filter", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        mShows.clear();
-                        mShows.addAll(fullList);
-                        adapter.setFullList(mShows);
-                        adapter.notifyDataSetChanged();
-
-
-                        radioGroup.check(R.id.allShowsRB);
-                        filterPrice = maxPrice;
-                        distanceFilter = 100;
-                    }
-                });
-                dialog.show();
-
-            }
-        });
-    }
-
-
-
-
-    private void filterLocation() {
-
-        if (distanceFilter == seekBarLocation.getMax()) {
-            mShows.clear();
-            mShows.addAll(fullList);
-        } else {
-            ArrayList<Show> filterList = new ArrayList<>();
-
-            for (Show show : fullList) {
-                if (Float.parseFloat(show.getUserDistanceFromVenue(userLoc)) < distanceFilter)
-                    filterList.add(show);
-            }
-
-            mShows.clear();
-            mShows.addAll(filterList);
-        }
-        adapter.notifyDataSetChanged();
-
-    }
-
-    private void filterPrice() {
-        if (filterPrice < seekBarPrice.getMax()) {
-
-            ArrayList<Show> filterList = new ArrayList<>();
-            if (userLoc != null) {
-                for (Show show : fullList) {
-                    if (show.getPricePbD() <= filterPrice && mShows.contains(show))
-                        filterList.add(show);
-                }
-            }else{
-                for (Show show : fullList) {
-                    if (show.getPricePbD() <= filterPrice)
-                        filterList.add(show);
-                }
-            }
-            mShows.clear();
-            mShows.addAll(filterList);
-
-            adapter.notifyDataSetChanged();
-        }
-
-    }
-
-    private void filterDate(RadioButton radioButton) {
-
-        ArrayList<Show> filterList = new ArrayList<>();
-
-        if (radioButton.getText().toString().equals("All shows")) {
-            for (Show show : fullList)
-                if (mShows.contains(show))
-                    filterList.add(show);
-        } else {
-            for (Show s : fullList) {
-                if (mShows.contains(s) && (s.getSDate().before(new Date())))
-                    filterList.add(s);
-            }
-        }
-        mShows.clear();
-        mShows.addAll(filterList);
-
-
-        adapter.setFullList(mShows);
-
-        adapter.notifyDataSetChanged();
-
-    }
-
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -474,7 +282,6 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
                 }
             };
 
-
     public void showPopup(View view) {
         PopupMenu popupMenu = new PopupMenu(this, view);
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -500,6 +307,11 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
                         startActivity(preferences);
                         break;
 
+                    case R.id.log_out:
+                        Intent logOut = new Intent(getApplicationContext(), Login.class);
+                        sharedPreferences.edit().remove("loggedon").apply();
+                        startActivity(logOut);
+                        break;
                 }
 
                 return false;
@@ -517,6 +329,7 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
     }
 
 
+    //Load all shows from the database
     private void loadShows() {
         progressBar.setVisibility(View.VISIBLE);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, DatabaseAPI.URL_GET_LIVE_SHOWS,
@@ -584,6 +397,7 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
         requestQueue.add(stringRequest);
     }
 
+    //Set venues to relevant shows
     private Venue getVenue(String venueName, String description, String postcode, String city) throws IOException {
 
         for (Venue venue : mVenues)
@@ -591,6 +405,8 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
 
         Venue venue = new Venue(venueName, postcode, description, city);
         mVenues.add(venue);
+
+        Geocoder geocoder = new Geocoder(Homepage.this);
         List<Address> address =
                 geocoder.getFromLocationName(venue.getStrLocation(), 1);
         double latitude = address.get(0).getLatitude();
@@ -605,6 +421,8 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
     }
 
 
+
+    //Show selected from recycler view
     @Override
     public void onShowClick(int position) {
         Show show = mShows.get(position);
@@ -665,6 +483,200 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
 
         return new Show(id, showName, venueName, startDate, endDate, matineeStart, eveningStart, monMat, monEve, tueMat, tueEve, wedMat, wedEve, thuMat, thuEve, friMat, friEve,
                 satMat, satEve, sunMat, sunEve, priceBandAPrices, priceBandBPrices, priceBandCPrices, priceBandDPrices, numberTixPBA, numberTixPBB, numberTixPBC, numberTixPBD, venue, dateAdded);
+
+    }
+
+
+    //FILTER MENUS AND FUNCTIONS
+
+    private void setUpFilterMenu() {
+        filterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                final View view = View.inflate(Homepage.this, R.layout.dialog_filter_location, null);
+
+                final TextView seekBarLblLocation = view.findViewById(R.id.filterDistance);
+                seekBarLocation = view.findViewById(R.id.seekBarLocation);
+                if (userLoc == null)
+                    seekBarLocation.setEnabled(false);
+
+                seekBarLocation.setProgress(distanceFilter);
+
+                if (distanceFilter == 100)
+                    seekBarLblLocation.setText(String.format("%skm+", Integer.toString(distanceFilter)));
+                else
+                    seekBarLblLocation.setText(String.format("%skm", Integer.toString(distanceFilter)));
+
+                seekBarLocation.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                        distanceFilter = progress;
+                        if (distanceFilter < seekBar.getMax())
+                            seekBarLblLocation.setText(String.format("%skm", Integer.toString(distanceFilter)));
+                        else
+                            seekBarLblLocation.setText(String.format("%skm+", Integer.toString(distanceFilter)));
+                    }
+
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+                    }
+
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+                    }
+                });
+
+                final TextView seekBarLblPrice = view.findViewById(R.id.filterPrice);
+                seekBarPrice = view.findViewById(R.id.seekBarPrice);
+                seekBarPrice.setMax(maxPrice);
+                seekBarPrice.setProgress(filterPrice);
+                seekBarLblPrice.setText(String.format(Locale.ENGLISH, "%s%d", getString(R.string.pound_sign), filterPrice));
+
+                seekBarPrice.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                        filterPrice = progress;
+                        seekBarLblPrice.setText(String.format(Locale.ENGLISH, "%s%d", getString(R.string.pound_sign), filterPrice));
+                    }
+
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+
+                    }
+
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+
+                    }
+                });
+
+                radioGroup = view.findViewById(R.id.radioGroup);
+
+                if (selectedRadioBtn == -1) radioGroup.check(R.id.allShowsRB);
+                else radioGroup.check(selectedRadioBtn);
+
+
+                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        selectedRadioBtn = checkedId;
+                    }
+                });
+
+                AlertDialog.Builder dialog = new AlertDialog.Builder(Homepage.this);
+                dialog.setTitle("Filter");
+                dialog.setView(view);
+
+
+                dialog.setPositiveButton("Apply", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        RadioButton radioButton = view.findViewById(radioGroup.getCheckedRadioButtonId());
+
+                        /*
+                        Search view works for searching a filtered list of shows, however
+                        filtering does not work when filtering a list that has already been
+                        filtered by a text view, hence when a filter is applied the search view
+                        query is reset.
+                        */
+                        searchView.setQuery("", false);
+
+                        if (userLoc != null)
+                            filterLocation();
+
+                        filterPrice();
+                        filterDate(radioButton);
+
+
+                    }
+                });
+                dialog.setNeutralButton("Clear filter", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mShows.clear();
+                        mShows.addAll(fullList);
+                        adapter.setFullList(mShows);
+                        adapter.notifyDataSetChanged();
+
+
+                        radioGroup.check(R.id.allShowsRB);
+                        filterPrice = maxPrice;
+                        distanceFilter = 100;
+                    }
+                });
+                dialog.show();
+
+            }
+        });
+    }
+
+    private void filterLocation() {
+
+        if (distanceFilter == seekBarLocation.getMax()) {
+            mShows.clear();
+            mShows.addAll(fullList);
+        } else {
+            ArrayList<Show> filterList = new ArrayList<>();
+
+            for (Show show : fullList) {
+                if (Float.parseFloat(show.getUserDistanceFromVenue(userLoc)) < distanceFilter)
+                    filterList.add(show);
+            }
+
+            mShows.clear();
+            mShows.addAll(filterList);
+        }
+        adapter.notifyDataSetChanged();
+
+    }
+
+    private void filterPrice() {
+        if (filterPrice < seekBarPrice.getMax()) {
+
+            ArrayList<Show> filterList = new ArrayList<>();
+            if (userLoc != null) {
+                for (Show show : fullList) {
+                    if (show.getPricePbD() <= filterPrice && mShows.contains(show))
+                        filterList.add(show);
+                }
+            }else{
+                for (Show show : fullList) {
+                    if (show.getPricePbD() <= filterPrice)
+                        filterList.add(show);
+                }
+            }
+            mShows.clear();
+            mShows.addAll(filterList);
+
+            adapter.notifyDataSetChanged();
+        }
+
+    }
+
+    private void filterDate(RadioButton radioButton) {
+
+        ArrayList<Show> filterList = new ArrayList<>();
+
+        if (radioButton.getText().toString().equals("All shows")) {
+            for (Show show : fullList)
+                if (mShows.contains(show))
+                    filterList.add(show);
+        } else {
+            for (Show s : fullList) {
+                if (mShows.contains(s) && (s.getSDate().before(new Date())))
+                    filterList.add(s);
+            }
+        }
+        mShows.clear();
+        mShows.addAll(filterList);
+
+
+        adapter.setFullList(mShows);
+
+        adapter.notifyDataSetChanged();
 
     }
 

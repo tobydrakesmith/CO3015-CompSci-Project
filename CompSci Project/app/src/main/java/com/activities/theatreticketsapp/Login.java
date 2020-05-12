@@ -3,9 +3,12 @@ package com.activities.theatreticketsapp;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -34,9 +37,21 @@ public class Login extends AppCompatActivity {
     private RequestQueue requestQueue;
     private TextView emailTxt, passwordTxt;
     private ProgressBar progressBar;
+    private SharedPreferences sharedPreferences;
+    private boolean stayLoggedOn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("loggedon", false)){
+            String firstName = sharedPreferences.getString("firstName", "");
+            String lastName = sharedPreferences.getString("lastName", "");
+            String email = sharedPreferences.getString("email", "");
+            int id = sharedPreferences.getInt("id", -1);
+            displayHome(new User(id, email, firstName, lastName));
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         requestQueue = Volley.newRequestQueue(this);
@@ -44,6 +59,14 @@ public class Login extends AppCompatActivity {
         emailTxt = findViewById(R.id.username);
         passwordTxt = findViewById(R.id.password);
         progressBar = findViewById(R.id.progressBar);
+
+        CheckBox checkBox = findViewById(R.id.checkBox);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                stayLoggedOn = isChecked;
+            }
+        });
 
     }
 
@@ -115,6 +138,7 @@ public class Login extends AppCompatActivity {
         displayHome.putExtra("basket", basket);
         displayHome.putExtra("user", user);
         startActivity(displayHome);
+        finish();
     }
 
     private boolean validate(String username, String password) {
@@ -140,7 +164,15 @@ public class Login extends AppCompatActivity {
                                     String firstName = jsonUser.getString("firstName");
                                     String lastName = jsonUser.getString("lastName");
                                     User user = new User(id, email, firstName, lastName);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("firstName", firstName);
+                                    editor.putString("lastName", lastName);
+                                    editor.putString("email", email);
+                                    editor.putInt("id", id);
+                                    editor.putBoolean("loggedon", stayLoggedOn);
+                                    editor.apply();
                                     displayHome(user);
+
 
                                 } else
                                     Toast.makeText(getApplicationContext(),

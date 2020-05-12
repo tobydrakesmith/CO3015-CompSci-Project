@@ -104,5 +104,7 @@
     <string name="no_reviews_left">You have not left any reviews yet</string>
 
     <string name="choose_tickets_header">Choose your tickets</string>
+    <string name="log_out">Log out</string>
+    <string name="stay_log_on">Keep me logged on</string>
 
 </resources>

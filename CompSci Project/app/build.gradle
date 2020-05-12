@@ -61,5 +61,6 @@ dependencies {
     api('com.paypal.retail:here-sdk-release:2.0.0.201801@aar') { transitive = true }
     //api('com.paypal.retail:here-sdk-debug:2.1.03.19315002@aar') { transitive = true } // this broke the paypal api
     implementation 'org.jetbrains:annotations-java5:15.0'
+    implementation 'androidx.work:work-runtime:2.1.0'
 
 }

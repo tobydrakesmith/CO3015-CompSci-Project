@@ -46,33 +46,6 @@
             app:layout_constraintStart_toStartOf="@+id/username"
             app:layout_constraintTop_toBottomOf="@+id/username" />
 
-        <Button
-            android:id="@+id/loginBtn"
-            android:layout_width="127.5dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="80dp"
-            android:background="#673AB7"
-            android:onClick="checkDetails"
-            android:text="@string/btn_login"
-            android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
-
-        <Button
-            android:id="@+id/registerBtn"
-            android:layout_width="85dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="30dp"
-            android:background="#673AB7"
-            android:onClick="register"
-            android:text="@string/btn_register"
-            android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
-
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
@@ -85,6 +58,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
 
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/stay_log_on"
+            app:layout_constraintStart_toStartOf="@+id/password"
+            app:layout_constraintTop_toBottomOf="@+id/password" />
+
         <TextView
             android:id="@+id/passwordLbl"
             android:layout_width="wrap_content"
@@ -95,7 +77,34 @@
             android:onClick="resetPassword"
             android:text="@string/reset_password"
             app:layout_constraintStart_toStartOf="@+id/password"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+            app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="127.5dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            android:background="#673AB7"
+            android:onClick="checkDetails"
+            android:text="@string/btn_login"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordLbl" />
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="85dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:background="#673AB7"
+            android:onClick="register"
+            android:text="@string/btn_register"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -14,14 +14,6 @@
         <item>South East</item>
         <item>East of England</item>
     </string-array>
-    <string-array name="reply_entries">
-        <item>Reply</item>
-        <item>Reply to all</item>
-    </string-array>
-    <string-array name="reply_values">
-        <item>reply</item>
-        <item>reply_all</item>
-    </string-array>
     <string-array name="sms_country_list">
         <item>@string/ct_other</item>
         <item>@string/ct_afghanistan</item>
@@ -335,7 +327,10 @@
     <bool name="abc_allow_stacked_button_bar">false</bool>
     <bool name="abc_config_actionMenuItemAllCaps">true</bool>
     <bool name="config_materialPreferenceIconSpaceReserved">false</bool>
+    <bool name="enable_system_alarm_service_default">true</bool>
+    <bool name="enable_system_job_service_default">false</bool>
     <bool name="mtrl_btn_textappearance_all_caps">true</bool>
+    <bool name="workmanager_test_configuration">false</bool>
     <color name="abc_input_method_navigation_guard">@android:color/black</color>
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
@@ -359,8 +354,6 @@
     <color name="cardview_shadow_end_color">#03000000</color>
     <color name="cardview_shadow_start_color">#37000000</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
     <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
     <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
     <color name="common_google_signin_btn_text_dark_focused">@android:color/black</color>
@@ -564,8 +557,6 @@
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
     <dimen name="action_bar_size">16dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="app_bar_height">180dp</dimen>
     <dimen name="appcompat_dialog_background_inset">16dp</dimen>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
     <dimen name="cardview_default_elevation">2dp</dimen>
@@ -626,7 +617,6 @@
     <dimen name="design_textinput_caption_translate_y">5dp</dimen>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
-    <dimen name="fab_margin">16dp</dimen>
     <dimen name="fastscroll_default_thickness">8dp</dimen>
     <dimen name="fastscroll_margin">0dp</dimen>
     <dimen name="fastscroll_minimum_range">50dp</dimen>
@@ -890,7 +880,6 @@
     <dimen name="text_body">18sp</dimen>
     <dimen name="text_header">35sp</dimen>
     <dimen name="text_large">57sp</dimen>
-    <dimen name="text_margin">16dp</dimen>
     <dimen name="text_small">14sp</dimen>
     <dimen name="text_special">16sp</dimen>
     <dimen name="text_special2">21sp</dimen>
@@ -949,7 +938,6 @@
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
-    <item name="dataBinding" type="id"/>
     <item name="fragment_container_view_tag" type="id"/>
     <item name="ghost_view" type="id"/>
     <item name="ghost_view_holder" type="id"/>
@@ -962,8 +950,6 @@
     <item name="mtrl_internal_children_alpha_tag" type="id"/>
     <item name="nav_controller_view_tag" type="id"/>
     <item name="nav_host_fragment_container" type="id"/>
-    <item name="onAttachStateChangeListener" type="id"/>
-    <item name="onDateChanged" type="id"/>
     <item name="parent_matrix" type="id"/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
@@ -982,7 +968,6 @@
     <item name="tag_unhandled_key_listeners" type="id"/>
     <item name="text" type="id"/>
     <item name="text2" type="id"/>
-    <item name="textWatcher" type="id"/>
     <item name="textinput_counter" type="id"/>
     <item name="textinput_error" type="id"/>
     <item name="textinput_helper_text" type="id"/>
@@ -1065,19 +1050,18 @@
     <string name="btn_add_to_basket">Add to basket</string>
     <string name="btn_book">Book</string>
     <string name="btn_confirm">Confirm</string>
-    <string name="btn_guest">Continue as a guest</string>
     <string name="btn_login">Log in</string>
     <string name="btn_register">Register</string>
-    <string name="btn_return">Return home</string>
     <string name="button_navigate_venue">Navigate to venue</string>
     <string name="button_view_reviews">View reviews</string>
-    <string name="calendar_sync">Sync booking</string>
     <string name="change_password">Change your password</string>
     <string name="character_counter_content_description">Characters entered %1$d of %2$d</string>
     <string name="character_counter_overflowed_content_description">Character limit exceeded %1$d of %2$d</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="checkmark" note="accessibility hint">Checkmark</string>
     <string name="chip_text">Chip text</string>
+    <string name="choose_tickets_header">Choose your tickets</string>
+    <string name="choose_your_tickets">Seats are unallocated and are sold for areas of the theatre; more expensive seats provide a better view of the stage</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
@@ -1199,13 +1183,13 @@
     <string name="ct_zimbabwe">+263,Zimbabwe</string>
     <string name="current_preferences">Select where you would like to subscribe to notifications for new shows (un-select current choices to unsubscribe)</string>
     <string name="current_shows_only">Current shows only</string>
-    <string name="date">Date</string>
     <string name="default_total_title" note="Total text on Total Label">TOTAL</string>
     <string name="default_web_client_id" translatable="false">288519348732-h07vt0f5r7i4vhfg2iv133jrce6eu0vs.apps.googleusercontent.com</string>
     <string name="east_england">East of England</string>
     <string name="email_confirmation">Email a booking confirmation</string>
     <string name="email_receipt_privacy_message" note="PayPal privacy policy message for email receipt">By entering my email, I agree to receive emails for all future PayPal Here transactions.</string>
     <string name="emidlands">East Midlands</string>
+    <string name="end_date">"End date: "</string>
     <string name="error_icon_content_description">Error</string>
     <string name="expand_button_title">Advanced</string>
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
@@ -1228,10 +1212,8 @@
     <string description="Content description for an icon that appears in the title area of a dialog" name="icon_content_description">Dialog Icon</string>
     <string name="lbl_numberTix">How many tickets do you want?</string>
     <string name="leave_a_review">Leave a review</string>
-    <string name="location">Location</string>
+    <string name="log_out">Log out</string>
     <string name="london">Greater London</string>
-    <string name="manage_account">Manage your account</string>
-    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
     <string description="Content description for new notification (no number count) [CHAR_LIMIT=NONE]" name="mtrl_badge_numberless_content_description">New notification</string>
     <string description="Content description for a close icon that lets the user remove content from the screen" name="mtrl_chip_close_icon_content_description">Remove %1$s</string>
     <string name="mtrl_exceed_max_badge_number_suffix" translatable="false"><ns1:g example="999" id="maximum number">%1$d</ns1:g><ns1:g example="+" id="suffix">%2$s</ns1:g></string>
@@ -1269,17 +1251,17 @@
     <string name="musicals_only">Musicals only</string>
     <string name="musicals_or_plays">Would you like to hear about musicals or plays?</string>
     <string name="my_basket_title">Your basket:</string>
-    <string name="my_friends">My friends</string>
-    <string name="my_reviews">My reviews</string>
     <string name="nav_app_bar_navigate_up_description">Navigate up</string>
     <string name="nav_app_bar_open_drawer_description">Open navigation drawer</string>
     <string name="next_button" note="accessibility hint">Next</string>
-    <string name="no_notifs">I don\'t want any notifications</string>
+    <string name="no_bookings">You do not have any future bookings to display</string>
+    <string name="no_past_bookings">You do not have any past bookings to display</string>
+    <string name="no_reviews_left">You have not left any reviews yet</string>
+    <string name="no_shows">There is no show on this day. Please check a different date</string>
     <string name="north_east">North East</string>
     <string name="north_west">North West</string>
     <string name="northern_ireland">Northern Ireland</string>
     <string name="not_set">Not set</string>
-    <string name="number_of_tickets">Number of tickets: </string>
     <string name="password_toggle_content_description">Show password</string>
     <string name="past_bookings">Your past bookings</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
@@ -1287,11 +1269,11 @@
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
     <string name="plays_only">Plays only</string>
+    <string name="pound_sign">£</string>
     <string name="preference_copied">
         \"<ns1:g example="Version 1.1" id="summary">%1$s</ns1:g>\" copied to clipboard.
     </string>
     <string name="preference_file_key">paypalretailsdkdb</string>
-    <string name="price">Price</string>
     <string name="project_id" translatable="false">theatre-tickets-app</string>
     <string name="prompt_confirm_password">Confirm password</string>
     <string name="prompt_current_password">Enter current password</string>
@@ -1300,14 +1282,13 @@
     <string name="prompt_lastname">Surname</string>
     <string name="prompt_new_password">Enter new password</string>
     <string name="prompt_password">Password</string>
-    <string name="rating">Rating</string>
     <string name="reader_connected">%1$s connected!</string>
     <string name="receipt_icon_description" note="accessibility hint">Receipt Icon</string>
     <string name="reset_password">Forgotten your password? Click here</string>
     <string name="review_sort_date_asc">Sort by date (oldest first)</string>
     <string name="review_sort_date_desc">Sort by date (newest first)</string>
     <string name="review_sort_rating">Sort by rating</string>
-    <string name="reviews_title">Reviews for</string>
+    <string name="reviews_for">Reviews for \</string>
     <string name="scotland">Scotland</string>
     <string name="sdk_OK">OK</string>
     <string name="sdk_actvy_receipt_email_hint">Email Address</string>
@@ -1374,19 +1355,17 @@
     <string name="send_receipt_privacy_message" note="PayPal privacy policy message for receipt options">Receipts will be delivered by PayPal. See your receipt for PayPal\'s Privacy Policy.</string>
     <string name="sms_international_code_msg" note="">The number must include the country code.</string>
     <string name="sms_receipt_privacy_message" note="PayPal privacy policy message for sms receipt">You agree that you\'re authorized to add this phone number and consent to receiving automated texts.  Message and data rates may apply.  Receipts will be delivered by PayPal.  See your receipt for PayPal\'s Privacy Policy.</string>
+    <string name="start_date">"Start date:  "</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="string_not_enough_reviews">Not enough reviews for this to be displayed yet!</string>
+    <string name="stay_log_on">Keep me logged on</string>
     <string name="submit_pref">Submit preferences</string>
-    <string name="successful_creation">Account successfully created</string>
     <string name="summary_collapsed_preference_list"><ns1:g id="current_items">%1$s</ns1:g>, <ns1:g id="added_items">%2$s</ns1:g></string>
     <string name="swest">South West</string>
+    <string name="tickets_left">Tickets left: \</string>
     <string name="title_activity_basket">Basket</string>
     <string name="title_activity_create_review">Leave a review</string>
-    <string name="title_activity_homepage">Homepage</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_receipt_options">ReceiptOptionsActivity</string>
-    <string name="title_activity_selected_show">Selected Show</string>
-    <string name="title_activity_test">Test</string>
     <string name="title_activity_view_tickets">View tickets</string>
     <string name="title_home">Home</string>
     <string name="title_notifications">My bookings</string>
@@ -1396,7 +1375,6 @@
     <string name="update_preferences">Update notification preferences</string>
     <string name="v7_preference_off">OFF</string>
     <string name="v7_preference_on">ON</string>
-    <string name="view_booking_lbl">View your tickets</string>
     <string name="view_your_booking">View booking</string>
     <string name="view_your_reviews">View your past reviews</string>
     <string name="wales">Wales</string>
@@ -1404,6 +1382,8 @@
     <string name="write_review">Write a review (optional)</string>
     <string name="yorkshire">Yorkshire</string>
     <string name="your_booking">Your booking:</string>
+    <string name="your_review">Your review</string>
+    <string name="your_reviews">Your reviews</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
@@ -1428,7 +1408,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
         <item name="listLayout">@layout/abc_select_dialog_material</item>

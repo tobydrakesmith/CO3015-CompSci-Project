@@ -1,6 +1,7 @@
 package com.activities.theatreticketsapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -56,11 +57,14 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
     private BottomNavigationView navView;
     private TabLayout tabLayout;
     private TextView noBookings;
+    private SharedPreferences sharedPreferences;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_bookings);
+
+        sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
 
 
         Intent intent = getIntent();
@@ -227,6 +231,12 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
                     case R.id.update_preferences:
                         Intent preferences = new Intent(getApplicationContext(), NotificationPreferences.class);
                         startActivity(preferences);
+                        break;
+
+                    case R.id.log_out:
+                        Intent logOut = new Intent(getApplicationContext(), Login.class);
+                        sharedPreferences.edit().remove("loggedon").apply();
+                        startActivity(logOut);
                         break;
 
                 }

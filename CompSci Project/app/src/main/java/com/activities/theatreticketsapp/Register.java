@@ -284,6 +284,7 @@ public class Register extends AppCompatActivity {
                 intent.putExtra("user", user);
                 intent.putExtra("basket", new Basket());
                 startActivity(intent);
+                finish();
             }
         });
         dialog.show();

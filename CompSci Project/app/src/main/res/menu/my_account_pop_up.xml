@@ -6,4 +6,6 @@
         android:id="@+id/view_reviews"/>
     <item android:title="@string/update_preferences"
         android:id="@+id/update_preferences"/>
+    <item android:title="@string/log_out"
+        android:id="@+id/log_out"/>
 </menu>
