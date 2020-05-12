@@ -366,7 +366,6 @@
 						$name = $db->getFirstName($_GET['email']);
 						$response['message'] = $db->sendResetPasswordEmail($_GET['email'], $name);
 						$response['error'] = false;
-//						$response['message'] = "An email has been sent with a link to reset your password";
 					}else{
 						$response['error'] = true;
 						$response['message'] = "The provided email was not found on our system. Please try again.";

@@ -1,4 +1,7 @@
 <?php
+	session_start();
+	if($_SESSION['valid']);
+	else die('nah m8');
 
 	function populateVenueList(){
 	        include_once dirname(__FILE__) . '/constants.php';
@@ -276,6 +279,6 @@ function getVenueRegion(venueName){
 
 </form>
 <br>
-<a href="homepage.html"><button>Home</button></a>
+<a href="homepage.php"><button>Home</button></a>
 </body>
 </html>
