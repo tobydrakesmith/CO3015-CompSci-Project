@@ -9,18 +9,43 @@
                 die("ERROR: Could not connect. " .$this->connect_error);
         }
 
-        $venuename = $con->real_escape_string($_REQUEST['venue_name']);
-        $venuedesc = $con->real_escape_string($_REQUEST['venue_description']);
-        $numseats = $con->real_escape_string($_REQUEST['venue_noseats']);
-        $postcode = $con->real_escape_string($_REQUEST['venue_postcode']);
-        $city = $con->real_escape_string($_REQUEST['venue_city']);
-        $region = $_REQUEST['venue_region'];
+	$venuename = $con->real_escape_string($_REQUEST['venue_name']);
 
-        $stmt = $con->prepare("UPDATE venue SET venueDesc = ?, capacity = ?, postcode = ?, city = ?, region = ?	WHERE venueName = ?");
-	$stmt->bind_param("sissss", $venuedesc, $numseats, $postcode, $city, $region, $venuename);
+        if ($_POST['edit']){
+		$newname = $con->real_escape_string($_REQUEST['venueName']);
+	        $venuedesc = $con->real_escape_string($_REQUEST['venue_description']);
+	        $numseats = $con->real_escape_string($_REQUEST['venue_noseats']);
+	        $postcode = $con->real_escape_string($_REQUEST['venue_postcode']);
+	        $city = $con->real_escape_string($_REQUEST['venue_city']);
+	        $region = $_REQUEST['venue_region'];
 
-        if ($stmt->execute()) echo "Success";
-        else echo $con->error;
+	        $stmt = $con->prepare("UPDATE venue SET venueName = ?, venueDesc = ?, capacity = ?, postcode = ?, city = ?, region = ?	WHERE venueName = ?");
+		$stmt->bind_param("ssissss", $newname, $venuedesc, $numseats, $postcode, $city, $region, $venuename);
+
+	        if ($stmt->execute()){
+	                echo "Venue successfully updated";
+	                header('Refresh: 2; URL = homepage.php');
+	        }else{
+	                echo "Error:  " .$stmt->error;
+	                echo "<br><br><a href='/homepage.php'>Home</a>";
+	        }
+
+
+	} else if ($_POST['delete']){
+
+		$stmt = $con->prepare("DELETE FROM venue WHERE venueName = ?");
+		$stmt->bind_param("s", $venuename);
+                if ($stmt->execute()){
+                        echo "Venue successfully deleted";
+                        header('Refresh: 2; URL = homepage.php');
+                }else{
+                        echo "Error:  " .$stmt->error;
+                        echo "<br><br><a href='/homepage.php'>Home</a>";
+                }
+
+
+
+	}
 
         $con->close();
 

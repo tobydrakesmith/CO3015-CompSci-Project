@@ -1,7 +1,6 @@
 <?php
 session_start();
-if($_SESSION['valid']);
-else die('nah m8');
+if(!$_SESSION['valid']) die('Access denied. Please log on');
 ?>
 
 <!DOCTYPE html>

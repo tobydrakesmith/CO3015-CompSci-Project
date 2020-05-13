@@ -18,12 +18,14 @@
 
 	$query = "INSERT INTO shows(showName, showDescription, runningTime, classification) VALUES ('$showname', '$showdesc', $runningtime, '$playmusical')";
 
-	if($con->query($query) === true){
+	if($con->query($query)){
 		echo "Records inserted";
+                header('Refresh: 2; URL = homepage.php');
 	}else{
 		echo "ERROR: " . $con->error;
-	}
+                echo "<br><br><a href='/homepage.php'>Home</a>";
 
+	}
 
 	$con->close();
 ?>

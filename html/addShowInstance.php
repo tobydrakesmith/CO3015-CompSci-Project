@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	if($_SESSION['valid']);
-	else die('nah m8');
+	if(!$_SESSION['valid']) die('Access denied. Please log on');
+
 
 	function populateVenueList(){
 	        include_once dirname(__FILE__) . '/constants.php';

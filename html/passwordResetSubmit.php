@@ -1,6 +1,7 @@
 <?php
 
-	$email = $_GET['email'];
+	$id = $_GET['id'];
+	$newPassword = $_GET['p'];
 
         include_once dirname(__FILE__) . '/constants.php';
 
@@ -9,13 +10,10 @@
         if(!$con)
                 die("ERROR: Could not connect. " .$this->connect_error);
 
-
-
-	$newPassword = $_REQUEST['new_password'];
 	$password = sha1($newPassword);
 
-	$stmt = $con->prepare("UPDATE user SET password = ? WHERE email = ?");
-        $stmt->bind_param("ss", $password, $email);
+	$stmt = $con->prepare("UPDATE user SET password = ? WHERE userID = ?");
+        $stmt->bind_param("si", $password, $id);
 	if ($stmt->execute()) echo "Password succesfully updated";
 	else echo $con->error;
 

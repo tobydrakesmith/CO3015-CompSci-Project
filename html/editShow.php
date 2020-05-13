@@ -1,9 +1,7 @@
 <?php
 
         session_start();
-
-        if(!$_SESSION['valid'])
-		die('nah m8');
+	if(!$_SESSION['valid']) die('Access denied. Please log on');
 
         function populateShowList(){
 
@@ -31,6 +29,7 @@
 	        xmlhttp.onreadystatechange = function() {
 	                if (this.readyState == 4 && this.status == 200){
 				var show = JSON.parse(this.responseText);
+				document.getElementById("showName").value = name;
 				document.getElementById("description").value = show.description;
 				document.getElementById("running_time").value = show.runningTime;
 				document.getElementById("classification").value = show.classification;
@@ -47,7 +46,6 @@
 <body>
 <form name="form" action="editShowSubmit.php" class="alt" method="POST">
         <p>
-                <label for="show_name">Show name:</label>
                 <select name="show_name" onchange="showNameChange(this.value)">
                 <option value="">Select a show</option>
                 <?php
@@ -55,6 +53,12 @@
                 ?>
                 </select>
         </p>
+
+	<p>
+		<label for="showName">Show name:</label>
+		<input type="text" name="showName" id="showName">
+
+	</p>
 
         <p>
                 <label for="show_description">Show description:</label>
@@ -75,7 +79,9 @@
                 </select>
         </p>
 
-	<button>Submit</submit>
+	<input type="submit" value="Submit" name="edit">
+	<br>
+        <input type="submit" value="Delete Show" name="delete">
 	<br>
 </form>
 	<a href="homepage.php"><button>Home</button></a>

@@ -5,7 +5,6 @@
 		private $con;
 
 		function __construct(){
-			//Getting the DbConnect.php file
 			require_once dirname(__FILE__) . '/DbConnect.php';
 
 			//Creating a DbConnect object to connect to the database
@@ -17,10 +16,6 @@
 
 		}
 
-		/*
-		* The create operation
-		* When this method is called a new record is created in the database
-		*/
 		function createUser($email, $firstName, $lastName, $password){
 			$stmt = $this->con->prepare("INSERT INTO user (email, firstName, lastName, password) VALUES (?, ?, ?, ?)");
 			$stmt->bind_param("ssss", $email, $firstName, $lastName, $password);
@@ -43,6 +38,16 @@
 			$user['lastName'] = $lastName;
 
 			return $user;
+
+		}
+
+		function getId($email){
+			$stmt = $this->con->prepare("SELECT userID FROM user WHERE email = ? ");
+			$stmt->bind_param("s", $email);
+			$stmt->bind_result($id);
+			$stmt->execute();
+			$stmt->fetch();
+			return $id;
 
 		}
 
@@ -202,7 +207,7 @@
 		}
 
 		function getBookings($userID){
-			$stmt = $this->con->prepare("SELECT bookingID, showInstanceID, numberOfTickets, bookingDate, showTime, showName, reviewLeft FROM booking WHERE userID = ?");
+			$stmt = $this->con->prepare("SELECT bookingID, showInstanceID, numberOfTickets, bookingDate, showTime, showName, reviewLeft FROM booking WHERE userID = ? ORDER BY bookingDate ASC");
 			$stmt->bind_param("i", $userID);
 			$stmt->execute();
 			$stmt->bind_result($bookingID, $showInstanceID, $numberOfTickets, $bookingDate, $showTime, $showName, $reviewLeft);
@@ -529,8 +534,8 @@
 	                return shell_exec($command);
 		}
 
-		function sendResetPasswordEmail($email, $name){
-			$command = escapeshellcmd('php resetPassword.php ' . $email . ' ' . $name);
+		function sendResetPasswordEmail($email, $name, $id){
+			$command = escapeshellcmd('php resetPassword.php ' . $email . ' ' . $name . ' ' . $id);
 			return shell_exec($command);
 		}
 

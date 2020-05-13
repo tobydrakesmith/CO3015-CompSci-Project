@@ -1,7 +1,6 @@
 <?php
         session_start();
-        if($_SESSION['valid']);
-        else die('nah m8');
+	if(!$_SESSION['valid']) die('Access denied. Please log on');
 
         function populateVenueList(){
                 include_once dirname(__FILE__) . '/constants.php';
@@ -26,6 +25,7 @@
                 xmlhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200){
 				var venue = JSON.parse(this.responseText);
+				document.getElementById("venueName").value = name;
 				document.getElementById("description").value = venue.description;
 				document.getElementById("venue_noseats").value = venue.capacity;
 				document.getElementById("venue_postcode").value = venue.postcode;
@@ -43,14 +43,21 @@
 <body>
 <form name="form" action="editVenueSubmit.php" class="alt" method="POST">
         <p>
-                <label for="venue_name">Venue name:</label>
                 <select name="venue_name" onchange="showVenueInfo(this.value)">
                 <option value="">Select a venue</option>
                 <?php
                         populateVenueList();
                 ?>
                 </select>
+
         </p>
+
+	<p>
+		<label for="venueName">Venue name:</label>
+		<input type="text" name="venueName" id="venueName">
+
+	</p>
+
 
         <label for="venue_description">Venue description:</label>
         </p>
@@ -90,7 +97,12 @@
                         <option value="Greater London">Greater London</option>
                 </select>
         </p>
-	<button>Submit</button>
+
+        <input type="submit" value="Submit" name="edit">
+        <br>
+        <input type="submit" value="Delete venue" name="delete">
+        <br>
+
 	<br>
 </form>
 	<a href="homepage.php"><button>Home</button></a>

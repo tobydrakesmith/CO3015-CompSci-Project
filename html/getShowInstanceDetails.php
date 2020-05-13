@@ -8,15 +8,15 @@
                 die("ERROR: could not connect. " . $this->connect_error);
 
 
-        $venueName = $_GET['v'];
-	$showName = $_GET['s'];
+        $id = $_GET['i'];
 
-	$stmt = $con->prepare("SELECT startDate, endDate, bandAPrices, bandBPrices, bandCPrices, bandDPrices, bandANumTickets, bandBNumTickets, bandCNumTickets, bandDNumTickets, mondayMat, mondayEve, tuesdayMat, tuesdayEve, wednesdayMat, wednesdayEve, thursdayMat, thursdayEve, fridayMat, fridayEve, saturdayMat, saturdayEve, sundayMat, sundayEve, matineeTime, eveningTime FROM showInstance WHERE venueName = ? AND showName = ? AND endDate >= NOW()");
-	$stmt->bind_param("ss", $venueName, $showName);
+	$stmt = $con->prepare("SELECT showName, startDate, endDate, bandAPrices, bandBPrices, bandCPrices, bandDPrices, bandANumTickets, bandBNumTickets, bandCNumTickets, bandDNumTickets, mondayMat, mondayEve, tuesdayMat, tuesdayEve, wednesdayMat, wednesdayEve, thursdayMat, thursdayEve, fridayMat, fridayEve, saturdayMat, saturdayEve, sundayMat, sundayEve, matineeTime, eveningTime FROM showInstance WHERE showInstanceID = ? AND endDate >= NOW()");
+	$stmt->bind_param("i", $id);
 	$stmt->execute();
-	$stmt->bind_result($startDate, $endDate, $bandAPrices, $bandBPrices, $bandCPrices, $bandDPrices, $bandANumTickets, $bandBNumTickets, $bandCNumTickets, $bandDNumTickets, $mondayMat, $mondayEve, $tuesdayMat, $tuesdayEve, $wednesdayMat, $wednesdayEve, $thursdayMat, $thursdayEve, $fridayMat, $fridayEve, $saturdayMat, $saturdayEve, $sundayMat, $sundayEve, $matineeTime, $eveningTime);
+	$stmt->bind_result($showName, $startDate, $endDate, $bandAPrices, $bandBPrices, $bandCPrices, $bandDPrices, $bandANumTickets, $bandBNumTickets, $bandCNumTickets, $bandDNumTickets, $mondayMat, $mondayEve, $tuesdayMat, $tuesdayEve, $wednesdayMat, $wednesdayEve, $thursdayMat, $thursdayEve, $fridayMat, $fridayEve, $saturdayMat, $saturdayEve, $sundayMat, $sundayEve, $matineeTime, $eveningTime);
 	$stmt->fetch();
 	$show = array();
+	$show['showName'] = $showName;
 	$show['startDate'] = $startDate;
 	$show['endDate'] = $endDate;
 	$show['bandAPrices'] = $bandAPrices;

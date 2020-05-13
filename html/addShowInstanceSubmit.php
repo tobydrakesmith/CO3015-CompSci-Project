@@ -103,9 +103,11 @@
 	if($con->query($query)){
                 $command = escapeshellcmd('python firebaseSendNotifNewShow.py --showName "' . $showname . '" --venueName "' . $venuename . '" --showType ' .$showtypecmd . ' --venueRegion ' . $venueregioncmd);
 		$output = shell_exec($command);
-		echo "Instance added and notifications sent <br> <a href='/homepage.html'>Home</a>";
+		echo "Instance added and notifications sent";
+	        header('Refresh: 2; URL = homepage.php');
 	}else{
 		echo "Error:  " .$con->error;
+		echo "<br><br><a href='/homepage.php'>Home</a>";
 	}
 
 $con->close();

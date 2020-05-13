@@ -1,8 +1,6 @@
 <?php
         session_start();
-        if($_SESSION['valid']);
-        else die('nah m8');
-
+	if(!$_SESSION['valid']) die('Access denied. Please log on');
         function populateVenueList(){
                 include_once dirname(__FILE__) . '/constants.php';
                 $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME) or die ('Cannot connect to db');
@@ -36,13 +34,40 @@
 <head>
 <title>Edit show instance</title>
 <script>
-        function showInstances(){
-		var showName = document.getElementById("show_name").value;
-		var venueName = document.getElementById("venue_name").value;
+
+        function getShowInstances(venueName){
+
+                var select = document.getElementById("show_instances");
+                var L = select.options.length - 1;
+                for(var i = L; i>0; i--) {
+                        select.remove(i);
+                }
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200){
+                                var shows = JSON.parse(this.responseText);
+                                for (x in shows){
+                                        var show = shows[x];
+                                        var el = document.createElement("option");
+                                        el.textContent = show.name + " " + show.startDate + " - " + show.endDate;
+                                        el.value = show.id;
+                                        select.appendChild(el);
+                                }
+                        }
+                };
+
+                xmlhttp.open("GET", "getShowInstances.php?q="+venueName, true);
+                xmlhttp.send();
+
+
+        }
+
+        function showInstances(id){
                 xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200){
 				var show = JSON.parse(this.responseText);
+
 
 				var startDate = show.startDate;
 				document.getElementById("start_date").value = startDate;
@@ -120,7 +145,7 @@
 	             }
                 };
 
-                xmlhttp.open("GET", "getShowInstanceDetails.php?s="+showName+"&v="+venueName, true);
+                xmlhttp.open("GET", "getShowInstanceDetails.php?i="+id, true);
                 xmlhttp.send();
 
         }
@@ -129,19 +154,10 @@
 <body>
 <form name="form" action="editShowInstanceSubmit.php" class="alt" method="POST">
 
-        <p>
-                <label for="show_name">Show name:</label>
-                <select name="show_name" id="show_name" onchange="showInstances()">
-                <option value="">Select a show</option>
-                <?php
-                        populateShowList();
-                ?>
-                </select>
-        </p>
 
         <p>
                 <label for="venue_name">Venue name:</label>
-                <select name="venue_name" id="venue_name" onchange="showInstances()">
+                <select name="venue_name" id="venue_name" onchange="getShowInstances(this.value)">
                 <option value="">Select a venue</option>
                 <?php
                         populateVenueList();
@@ -149,6 +165,12 @@
                 </select>
         </p>
 
+
+        <p>
+	        <select name="show_instances" id="show_instances" onchange="showInstances(this.value)">
+                        <option>Select a show instance</option>
+                </select>
+        </p>
 
         <p>
                 <label for="start_date">Start date:</label>
@@ -236,7 +258,12 @@
 
 	<br> <br>
 
-	<button>Submit</button>
+
+        <input type="submit" value="Submit" name="edit">
+        <br>
+        <input type="submit" value="Delete Show" name="delete">
+        <br>
+
 	<br>
 </form>
 <a href="homepage.php"><button>Home</button></a>

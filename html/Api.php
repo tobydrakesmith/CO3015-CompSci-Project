@@ -364,7 +364,8 @@
 					$db = new DbOperation();
 					if ($db->checkEmail($_GET['email'])){
 						$name = $db->getFirstName($_GET['email']);
-						$response['message'] = $db->sendResetPasswordEmail($_GET['email'], $name);
+						$id = $db->getId($_GET['email']);
+						$response['message'] = $db->sendResetPasswordEmail($_GET['email'], $name, $id);
 						$response['error'] = false;
 					}else{
 						$response['error'] = true;

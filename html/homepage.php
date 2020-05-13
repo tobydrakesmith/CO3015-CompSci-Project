@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SESSION['valid']);
-else die('nah m8');
+else die('Access denied. Please log on');
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,12 @@ else die('nah m8');
 	</p>
 	<br>
 	<br>
+	<p>
+		<a href="viewSales.php"><button>View sales for a show instance</button></a>
+	</p>
 
+	<br>
+	<br>
 	<p>
 		<a href="logout.php"><button onclick>Log out</button></a>
 	</p>

@@ -19,10 +19,15 @@
 	$query = "INSERT INTO venue(venueName, capacity, venueDesc, postcode, city, region) VALUES ('$venuename', '$numseats', '$venuedesc', '$postcode', '$city', '$region')";
 
 
-	if($con->query($query))
-		echo "Success";
-	else
-		echo "ERROR " . $con->error;
+
+        if($con->query($query)){
+                echo "Records inserted";
+                header('Refresh: 2; URL = homepage.php');
+        }else{
+                echo "ERROR: " . $con->error;
+                echo "<br><br><a href='/homepage.php'>Home</a>";
+
+        }
 
 
 
