@@ -2,11 +2,14 @@ package com.activities.theatreticketsapp;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -142,10 +145,33 @@ public class MyReviews extends AppCompatActivity implements ReviewsRecyclerViewA
         final RatingBar rating = view.findViewById(R.id.ratingBar);
         final EditText reviewText = view.findViewById(R.id.reviewText);
         final TextView date = view.findViewById(R.id.reviewDate);
-        final ImageButton edit = view.findViewById(R.id.editReviewBtn);
+        final TextView characterLimit = view.findViewById(R.id.characterLimit);
+        final Button edit = view.findViewById(R.id.editReviewBtn);
 
         rating.setRating(review.getRating());
         rating.setIsIndicator(true);
+        reviewText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //display the remaining character limit
+                characterLimit.setText(Integer.toString(200 - s.length()));
+
+                if (200 - s.length() < 20)
+                    characterLimit.setTextColor(Color.RED);
+                else
+                    characterLimit.setTextColor(Color.BLACK);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         reviewText.setText(review.getReviewTxt());
         date.setText(review.getDate());
 
@@ -161,9 +187,9 @@ public class MyReviews extends AppCompatActivity implements ReviewsRecyclerViewA
                 editActive = !editActive;
 
                 if (editActive)
-                    edit.setImageResource(R.drawable.ic_edit_selected);
+                    edit.setTextColor(Color.BLUE);
                 else
-                    edit.setImageResource(R.drawable.ic_edit);
+                    edit.setTextColor(Color.BLACK);
 
                 rating.setIsIndicator(!editActive);
 

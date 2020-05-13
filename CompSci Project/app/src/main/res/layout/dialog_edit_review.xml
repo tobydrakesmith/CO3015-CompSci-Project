@@ -36,14 +36,23 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:capitalize="sentences"
-        android:inputType="textMultiLine"
+        android:inputType="textMultiLine|textCapSentences"
         android:maxLines="6"
         android:textSize="18sp"
+        android:maxLength="200"
         app:layout_constraintEnd_toEndOf="@+id/ratingBar"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/ratingBar"
         app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+    <TextView
+        android:id="@+id/characterLimit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/reviewText"
+        app:layout_constraintStart_toEndOf="@+id/reviewText" />
 
     <TextView
         android:id="@+id/reviewDate"
@@ -53,15 +62,15 @@
         app:layout_constraintEnd_toEndOf="@+id/ratingBar"
         app:layout_constraintTop_toBottomOf="@+id/reviewText" />
 
-    <ImageButton
+    <Button
         android:id="@+id/editReviewBtn"
-        android:layout_width="34dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_marginTop="10dp"
         android:background="@color/sdk_transparent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_edit" />
+        android:text="@string/edit"
+        android:textAlignment="viewStart"
+        app:layout_constraintStart_toStartOf="@+id/reviewText"
+        app:layout_constraintTop_toBottomOf="@+id/reviewText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

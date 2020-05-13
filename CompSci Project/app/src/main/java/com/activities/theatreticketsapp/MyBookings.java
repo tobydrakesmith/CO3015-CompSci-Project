@@ -235,7 +235,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
 
                     case R.id.log_out:
                         Intent logOut = new Intent(getApplicationContext(), Login.class);
-                        sharedPreferences.edit().remove("loggedon").apply();
+                        sharedPreferences.edit().remove("loggedon").apply(); //removed logged on state
                         startActivity(logOut);
                         break;
 
@@ -271,6 +271,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingsRecyclerV
 
                         Date date = booking.getParsedDate();
 
+                        //if the date is before current time, add to past booking
                         if (date.before(new Date()))
                             mPastBookings.add(booking);
                         else

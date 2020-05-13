@@ -65,6 +65,7 @@ public class CreateReview extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //display the remaining character limit
                 characterLimit.setText(Integer.toString(200 - s.length()));
 
                 if (200 - s.length() < 20)
@@ -106,7 +107,7 @@ public class CreateReview extends AppCompatActivity {
     public void onSuccess() {
         AlertDialog alertDialog = new AlertDialog.Builder(CreateReview.this).create();
         alertDialog.setTitle("Success");
-        alertDialog.setMessage("Your review has been edited");
+        alertDialog.setMessage("Your review has been added");
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -125,7 +126,6 @@ public class CreateReview extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getString("error").equals("false")) {
-                        Toast.makeText(CreateReview.this, "Success", Toast.LENGTH_SHORT).show();
                         onSuccess();
                     } else {
                         Toast.makeText(CreateReview.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();

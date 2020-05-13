@@ -42,6 +42,7 @@ public class ChangePassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
 
+        //set back option
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
@@ -61,7 +62,6 @@ public class ChangePassword extends AppCompatActivity {
 
                 if (validate())
                     checkCurrentPassword();
-
             }
         });
     }
@@ -115,7 +115,7 @@ public class ChangePassword extends AppCompatActivity {
                                 Toast.makeText(ChangePassword.this,
                                         "Provided current password is incorrect", Toast.LENGTH_SHORT).show();
                             else
-                                updatePassword();
+                                updatePassword(); //if password is correct, update
 
                         } catch (JSONException e) {
                             e.printStackTrace();

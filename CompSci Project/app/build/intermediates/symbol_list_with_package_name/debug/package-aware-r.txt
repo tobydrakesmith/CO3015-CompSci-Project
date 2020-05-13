@@ -2099,6 +2099,7 @@ id progress_bar
 id progress_circular
 id progress_horizontal
 id progress_spinner
+id promptTextView
 id qrCodeImageView
 id radio
 id radioButtonBoth
@@ -2233,7 +2234,6 @@ id textView11
 id textView2
 id textView3
 id textView4
-id textView6
 id textView7
 id textView9
 id text_input_end_icon
@@ -2695,6 +2695,7 @@ string current_shows_only
 string default_total_title
 string default_web_client_id
 string east_england
+string edit
 string email_confirmation
 string email_receipt_privacy_message
 string emidlands
@@ -2771,6 +2772,7 @@ string north_east
 string north_west
 string northern_ireland
 string not_set
+string number_tickets
 string password_toggle_content_description
 string past_bookings
 string path_password_eye
@@ -2796,6 +2798,7 @@ string review_sort_date_asc
 string review_sort_date_desc
 string review_sort_rating
 string reviews_for
+string running_time
 string scotland
 string sdk_OK
 string sdk_actvy_receipt_email_hint
@@ -2869,6 +2872,7 @@ string submit_pref
 string summary_collapsed_preference_list
 string swest
 string tickets_left
+string time_left
 string title_activity_basket
 string title_activity_create_review
 string title_activity_maps
@@ -2878,6 +2882,7 @@ string title_home
 string title_notifications
 string title_settings
 string tix_counter
+string total_cost
 string upcoming_bookings
 string update_preferences
 string v7_preference_off

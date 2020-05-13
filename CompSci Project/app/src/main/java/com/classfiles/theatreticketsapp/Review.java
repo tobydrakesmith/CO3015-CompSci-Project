@@ -43,14 +43,6 @@ public class Review {
         return userid;
     }
 
-    public int getBookingid() {
-        return bookingid;
-    }
-
-    public int getShowinstanceid() {
-        return showinstanceid;
-    }
-
     public String getReviewTxt() {
         return reviewTxt;
     }

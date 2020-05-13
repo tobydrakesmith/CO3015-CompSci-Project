@@ -41,21 +41,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.math.BigDecimal;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 
 public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewAdapter.OnTicketClickListener {
 
-    Basket basket;
-    Show show;
-    TextView numberTix, timeLeft, totalCost;
-
+    private Basket basket;
+    private TextView numberTix, timeLeft, totalCost;
     private CountDownTimer countDownTimer;
-    User user;
-
-    MyBasketRecyclerViewAdapter adapter;
-    RecyclerView recyclerView;
-
-    RequestQueue requestQueue;
+    private User user;
+    private MyBasketRecyclerViewAdapter adapter;
+    private RequestQueue requestQueue;
 
     private static PayPalConfiguration payPalConfiguration = new PayPalConfiguration()
             .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
@@ -77,23 +74,29 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
 
         Intent i = getIntent();
         basket = i.getParcelableExtra("basket");
-        show = i.getParcelableExtra("live_show");
         user = i.getParcelableExtra("user");
 
 
         adapter = new MyBasketRecyclerViewAdapter(MyBasket.this, MyBasket.this, basket.getBookings());
 
+        //get the remaining time on the timer
         countDownTimer = new CountDownTimer(basket.getTimeOut() - System.currentTimeMillis(), 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                timeLeft.setText("Seconds left: " + ((basket.getTimeOut() - System.currentTimeMillis()) / 1000));
+                long milliLeft = basket.getTimeOut()-System.currentTimeMillis();
+                String formattedTime = String.format(Locale.ENGLISH,"%02d min, %02d sec",
+                        TimeUnit.MILLISECONDS.toMinutes(milliLeft),
+                        TimeUnit.MILLISECONDS.toSeconds(milliLeft) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milliLeft))
+                );
+                timeLeft.setText(String.format(Locale.ENGLISH,"%s%s", getString(R.string.time_left), formattedTime));
             }
 
             @Override
             public void onFinish() {
                 basket.releaseTickets();
-                numberTix.setText("Number of tickets in basket: " + basket.size());
-                totalCost.setText("Total cost £" + (basket.getTotalCost()));
+                numberTix.setText(String.format(Locale.ENGLISH,"%s%d", getString(R.string.number_tickets), basket.size()));
+                totalCost.setText(String.format(Locale.ENGLISH, "%s%d", getString(R.string.total_cost), basket.getTotalCost()));
                 adapter.notifyDataSetChanged();
             }
         };
@@ -102,16 +105,16 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
         timeLeft = findViewById(R.id.timeLeftLbl);
         totalCost = findViewById(R.id.totalCostLbl);
 
-        if (!basket.isEmpty()) {
+        if (!basket.isEmpty())
             countDownTimer.start();
-        }
+        
 
-        recyclerView = findViewById(R.id.basketView);
+        RecyclerView recyclerView = findViewById(R.id.basketView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        totalCost.setText("Total cost £" + (basket.getTotalCost()));
-        numberTix.setText("Number of tickets in basket: " + basket.size());
+        numberTix.setText(String.format(Locale.ENGLISH,"%s%d", getString(R.string.number_tickets), basket.size()));
+        totalCost.setText(String.format(Locale.ENGLISH, "%s%d", getString(R.string.total_cost), basket.getTotalCost()));
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -153,12 +156,13 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
                 if (confirmation != null) {
                     try {
                         JSONObject paymentDetails = confirmation.toJSONObject().getJSONObject("response");
-
+                        //If the payment was successful, start new activity and display booking
                         if (paymentDetails.getString("state").equals("approved")) {
                             Intent intent = new Intent(MyBasket.this, Checkout.class);
                             intent.putExtra("basket", basket);
                             intent.putExtra("user", user);
                             startActivity(intent);
+                            finish();
                         } else
                             Toast.makeText(this, "Not approved", Toast.LENGTH_SHORT).show();
 
@@ -178,6 +182,7 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
         intent.putExtra("basket", basket);
         intent.putExtra("user", user);
         startActivity(intent);
+        finish();
     }
 
 
@@ -188,6 +193,7 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
             intent.putExtra("basket", basket);
             intent.putExtra("user", user);
             startActivity(intent);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -200,6 +206,7 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
     @Override
     public void onTicketClick(int position) {
 
+        //remove tickets from the basket and from the database
         StringRequest stringRequest = new StringRequest(Request.Method.DELETE,
                 DatabaseAPI.URL_DELETE_BASKET_BOOKING + basket.getBookings().get(position).getTempID(), new Response.Listener<String>() {
             @Override
@@ -216,12 +223,12 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
         requestQueue.add(stringRequest);
 
         basket.releaseTickets(basket.getBookings().get(position));
-        numberTix.setText("Number of tickets in basket: " + basket.size());
-        totalCost.setText("Total cost £" + (basket.getTotalCost()));
+        numberTix.setText(String.format(Locale.ENGLISH,"%s%d", getString(R.string.number_tickets), basket.size()));
+        totalCost.setText(String.format(Locale.ENGLISH, "%s%d", getString(R.string.total_cost), basket.getTotalCost()));
         adapter.notifyDataSetChanged();
 
         if (basket.isEmpty()) {
-            timeLeft.setText("Seconds left: 0");
+            timeLeft.setVisibility(View.INVISIBLE);
             countDownTimer.cancel();
         }
     }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 @SuppressWarnings("unchecked")
 public class Basket implements Parcelable {
 
-    private final long COUNTDOWN_START = 120000;
+    private final long COUNTDOWN_START = 600000;
     private final long COUNTDOWN_INTERVAL = 1000;
 
     private long timeOut;
@@ -25,7 +25,6 @@ public class Basket implements Parcelable {
     private CountDownTimer countDownTimer = new CountDownTimer(System.currentTimeMillis() + COUNTDOWN_START, COUNTDOWN_INTERVAL) {
         @Override
         public void onTick(long millisUntilFinished) {
-
         }
 
         @Override
@@ -65,10 +64,10 @@ public class Basket implements Parcelable {
 
     public ArrayList<Ticket> getTickets(int bookingID) {
 
-        for (BasketBooking basketBooking : bookings)
+        for (BasketBooking basketBooking : bookings) {
             if (basketBooking.getBookingID() == bookingID)
                 return basketBooking.getTickets();
-
+        }
         return null;
     }
 
@@ -93,7 +92,8 @@ public class Basket implements Parcelable {
     }
 
 
-    public BasketBooking sameShow(BasketBooking booking) {
+    //check if there is a matching booking in basket, if so add the tickets on to existing one
+    private BasketBooking sameShow(BasketBooking booking) {
         for (BasketBooking basketBooking : bookings) {
 
             if (basketBooking.getShowName().equals(booking.getShowName()) &&
@@ -118,10 +118,10 @@ public class Basket implements Parcelable {
         if (check.getNumberOfTickets() == 0)
             bookings.add(booking);
 
-        else
+        else {
             for (int i = 0; i < booking.getNumberOfTickets(); i++)
                 check.addTicket(booking.getTicket(i));
-
+        }
 
     }
 

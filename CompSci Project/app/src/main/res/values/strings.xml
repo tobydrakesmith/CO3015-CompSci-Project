@@ -106,5 +106,10 @@
     <string name="choose_tickets_header">Choose your tickets</string>
     <string name="log_out">Log out</string>
     <string name="stay_log_on">Keep me logged on</string>
+    <string name="edit">Edit</string>
+    <string name="number_tickets">"Number of tickets in basket: "</string>
+    <string name="total_cost">Total cost £</string>
+    <string name="time_left">Time left: \</string>
+    <string name="running_time">Running time: \</string>
 
 </resources>

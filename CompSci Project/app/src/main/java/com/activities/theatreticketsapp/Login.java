@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -60,11 +61,11 @@ public class Login extends AppCompatActivity {
         passwordTxt = findViewById(R.id.password);
         progressBar = findViewById(R.id.progressBar);
 
-        CheckBox checkBox = findViewById(R.id.checkBox);
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        CheckBox stayLoggedOn = findViewById(R.id.checkBox);
+        stayLoggedOn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                stayLoggedOn = isChecked;
+                Login.this.stayLoggedOn = isChecked;
             }
         });
 
@@ -126,6 +127,7 @@ public class Login extends AppCompatActivity {
                 error.printStackTrace();
             }
         });
+        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
 
         requestQueue.add(jsonObjectRequest);
@@ -164,6 +166,7 @@ public class Login extends AppCompatActivity {
                                     String firstName = jsonUser.getString("firstName");
                                     String lastName = jsonUser.getString("lastName");
                                     User user = new User(id, email, firstName, lastName);
+                                    //store preference if user wants to stay logged on to app
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putString("firstName", firstName);
                                     editor.putString("lastName", lastName);

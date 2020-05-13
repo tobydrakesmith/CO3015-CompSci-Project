@@ -8,8 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -45,6 +47,9 @@ public class NotificationPreferences extends AppCompatActivity {
     private HashMap<String, String> topicNames;
     private ArrayList<String> originalPreferences, newPreferences;
     private RadioGroup radioGroup;
+    private ProgressBar progressBar;
+    private Button submit;
+    private TextView prompt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +91,9 @@ public class NotificationPreferences extends AppCompatActivity {
 
             }
         };
+
+        progressBar = findViewById(R.id.progressBar);
+        prompt = findViewById(R.id.promptTextView);
 
         london = findViewById(R.id.londonBox);
         london.setOnCheckedChangeListener(listener);
@@ -129,7 +137,6 @@ public class NotificationPreferences extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton rb = findViewById(checkedId);
                 String text = rb.getText().toString();
-                Toast.makeText(NotificationPreferences.this, text, Toast.LENGTH_SHORT).show();
                 switch (text) {
                     case "Plays only":
                         if (!newPreferences.contains("plays")) newPreferences.add("plays");
@@ -166,7 +173,7 @@ public class NotificationPreferences extends AppCompatActivity {
                     }
                 });
 
-        Button submit = findViewById(R.id.submitBtn);
+        submit = findViewById(R.id.submitBtn);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -239,6 +246,8 @@ public class NotificationPreferences extends AppCompatActivity {
                         checkBox(names.get(i).toString());
                     }
 
+                    setViewsVisible();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -263,6 +272,26 @@ public class NotificationPreferences extends AppCompatActivity {
 
         requestQueue.add(topics);
 
+    }
+
+    private void setViewsVisible(){
+        progressBar.setVisibility(View.INVISIBLE);
+
+        submit.setVisibility(View.VISIBLE);
+        radioGroup.setVisibility(View.VISIBLE);
+        london.setVisibility(View.VISIBLE);
+        scotland.setVisibility(View.VISIBLE);
+        ni.setVisibility(View.VISIBLE);
+        wales.setVisibility(View.VISIBLE);
+        northEast.setVisibility(View.VISIBLE);
+        northWest.setVisibility(View.VISIBLE);
+        wMidlands.setVisibility(View.VISIBLE);
+        eMidlands.setVisibility(View.VISIBLE);
+        southEast.setVisibility(View.VISIBLE);
+        southWest.setVisibility(View.VISIBLE);
+        eastEngland.setVisibility(View.VISIBLE);
+        yorkshire.setVisibility(View.VISIBLE);
+        prompt.setVisibility(View.VISIBLE);
     }
 
 
@@ -308,11 +337,11 @@ public class NotificationPreferences extends AppCompatActivity {
                 break;
 
             case "plays":
-                if (originalPreferences.contains("musicals")) {
+                if (originalPreferences.contains("musicals"))
                     radioGroup.check(R.id.radioButtonBoth);
-                } else {
+                 else
                     radioGroup.check(R.id.radioButtonPlays);
-                }
+
                 break;
 
             case "musicals":

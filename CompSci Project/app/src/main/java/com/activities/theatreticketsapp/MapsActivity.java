@@ -65,11 +65,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             e.printStackTrace();
         }
 
-        // Add a marker in Sydney and move the camera
+        //add marker at venue location and zoom in
+
         LatLng venueLocation = new LatLng(latitude, longitude);
         mMap.addMarker(new MarkerOptions().position(venueLocation).title(venue.getVenueName()));
-
-
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(venueLocation)
                 .zoom(15)

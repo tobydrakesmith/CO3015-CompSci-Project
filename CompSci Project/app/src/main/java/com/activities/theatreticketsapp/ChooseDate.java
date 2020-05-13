@@ -27,12 +27,9 @@ public class ChooseDate extends AppCompatActivity {
 
     private Show mShow;
     private Basket basket;
-
     private TextView matineeStart, eveningStart, noShows;
     private Button matineeBtn, eveningBtn;
-
     private Calendar calendar;
-
     private User user;
 
 
@@ -42,6 +39,7 @@ public class ChooseDate extends AppCompatActivity {
         setContentView(R.layout.activity_choose_date);
 
 
+        //set back button on toolbar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
@@ -69,6 +67,8 @@ public class ChooseDate extends AppCompatActivity {
         try {
             Date startDate = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(mShow.getStartDate());
             assert startDate != null;
+            // if the show starts after today, set first day on calendar as the start date
+            // else set the calendar's first day as today
             if (startDate.after(new Date())) {
                 calendarView.setMinDate(startDate.getTime());
             } else {
@@ -101,6 +101,8 @@ public class ChooseDate extends AppCompatActivity {
     }
 
     private void getShowTimes(Date date, Date date2) {
+        //check if the user has selected today on the calendar, and if so disable the button for performances
+        //that have passed
         if (date.compareTo(date2) <= 0) {
             try {
                 String strDate = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).format(date);
@@ -141,6 +143,8 @@ public class ChooseDate extends AppCompatActivity {
     }
 
     private void getDayOfWeek(int day) {
+
+        //set button visibility according to show
 
         switch (day) {
 

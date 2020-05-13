@@ -562,6 +562,7 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
                     @Override
                     public void onCheckedChanged(RadioGroup group, int checkedId) {
                         selectedRadioBtn = checkedId;
+
                     }
                 });
 
@@ -574,15 +575,15 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        RadioButton radioButton = view.findViewById(radioGroup.getCheckedRadioButtonId());
+                        RadioButton radioButton = view.findViewById(selectedRadioBtn);
+
+                        Toast.makeText(Homepage.this, radioButton.getText().toString(), Toast.LENGTH_SHORT).show();
 
                         /*
-                        Search view works for searching a filtered list of shows, however
-                        filtering does not work when filtering a list that has already been
-                        filtered by a text view, hence when a filter is applied the search view
-                        query is reset.
+                        Search view works for searching a filtered list of shows, however there are
+                        issues related to the combination of the two.
                         */
-                        searchView.setQuery("", false);
+
 
                         if (userLoc != null)
                             filterLocation();
@@ -601,10 +602,10 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
                         adapter.setFullList(mShows);
                         adapter.notifyDataSetChanged();
 
-
                         radioGroup.check(R.id.allShowsRB);
                         filterPrice = maxPrice;
                         distanceFilter = 100;
+                        searchView.setQuery("", false);
                     }
                 });
                 dialog.show();
@@ -629,7 +630,6 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
             mShows.clear();
             mShows.addAll(filterList);
         }
-        adapter.notifyDataSetChanged();
 
     }
 
@@ -650,8 +650,6 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
             }
             mShows.clear();
             mShows.addAll(filterList);
-
-            adapter.notifyDataSetChanged();
         }
 
     }
@@ -661,9 +659,10 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
         ArrayList<Show> filterList = new ArrayList<>();
 
         if (radioButton.getText().toString().equals("All shows")) {
-            for (Show show : fullList)
+            for (Show show : fullList) {
                 if (mShows.contains(show))
                     filterList.add(show);
+            }
         } else {
             for (Show s : fullList) {
                 if (mShows.contains(s) && (s.getSDate().before(new Date())))
@@ -673,10 +672,9 @@ public class Homepage extends AppCompatActivity implements ShowRecyclerViewAdapt
         mShows.clear();
         mShows.addAll(filterList);
 
+        adapter.notifyDataSetChanged();
 
         adapter.setFullList(mShows);
-
-        adapter.notifyDataSetChanged();
 
     }
 

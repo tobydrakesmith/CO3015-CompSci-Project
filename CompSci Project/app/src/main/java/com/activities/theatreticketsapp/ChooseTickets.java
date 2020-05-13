@@ -143,6 +143,8 @@ public class ChooseTickets extends AppCompatActivity {
 
         int id = radioGroup.getCheckedRadioButtonId();
 
+        //when the user tries to increase ticket, check which price band is selected and react accordingly
+
         switch (id) {
 
             case R.id.priceBandA:
@@ -236,7 +238,7 @@ public class ChooseTickets extends AppCompatActivity {
         numberTixLbl.setText(String.format(Locale.ENGLISH, Integer.toString(numberTix)));
     }
 
-    private void updateAvail() {
+    private void updateAvailabilityDisplay() {
         tixLeftPBA.setText(String.format(Locale.ENGLISH, "%s%d", getString(R.string.tickets_left), pbaLeft));
         tixLeftPBB.setText(String.format(Locale.ENGLISH, "%s%d", getString(R.string.tickets_left), pbbLeft));
         tixLeftPBC.setText(String.format(Locale.ENGLISH, "%s%d", getString(R.string.tickets_left), pbcLeft));
@@ -267,7 +269,7 @@ public class ChooseTickets extends AppCompatActivity {
         String uid = "&userID=" + user.getId();
         String numTix = "&numberOfTickets=" + numberTix;
 
-
+        //add the tickets to the database to check on availability
         StringRequest stringRequest = new StringRequest(Request.Method.POST, DatabaseAPI.URL_CREATE_BASKET_BOOKING + mShow.getId() + date + time + pb + uid + numTix, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -328,6 +330,8 @@ public class ChooseTickets extends AppCompatActivity {
 
     private void getSales() {
 
+        //As this loops through all sales and basket tickets, each time it is called the
+        //availability is set to the original values
         pbaLeft = mShow.getNumTicketsPbA();
         pbbLeft = mShow.getNumTicketsPbB();
         pbcLeft = mShow.getNumTicketsPbC();
@@ -361,9 +365,10 @@ public class ChooseTickets extends AppCompatActivity {
                                 break;
                         }
                     }
-                    updateAvail();
+                    updateAvailabilityDisplay();
                     String pb = getPriceBand();
 
+                    //check if the selected price band/number of tickets is still available
                     switch (pb) {
                         case "A":
 
@@ -392,7 +397,7 @@ public class ChooseTickets extends AppCompatActivity {
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    updateAvail();
+                    updateAvailabilityDisplay();
                 }
 
             }
@@ -400,7 +405,7 @@ public class ChooseTickets extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
-                updateAvail();
+                updateAvailabilityDisplay();
             }
         });
         requestQueue.add(stringRequest);

@@ -160,7 +160,9 @@ public class ShowInformation extends AppCompatActivity {
 
                     SimpleDateFormat sdf2 = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
 
+                    assert startDateParsed != null;
                     String sd = sdf2.format(startDateParsed);
+                    assert endDateParsed != null;
                     String ed = sdf2.format(endDateParsed);
 
                     startDate.setText(getString(R.string.start_date) + sd);
@@ -168,7 +170,7 @@ public class ShowInformation extends AppCompatActivity {
                     endDate.setText(getString(R.string.end_date) + ed);
                     endDate.setVisibility(View.VISIBLE);
 
-                    runningTime.setText("Running time: " + mShow.getRunningTime() + " minutes");
+                    runningTime.setText(String.format("%s%d minutes", getString(R.string.running_time), mShow.getRunningTime()));
                     runningTime.setVisibility(View.VISIBLE);
 
 

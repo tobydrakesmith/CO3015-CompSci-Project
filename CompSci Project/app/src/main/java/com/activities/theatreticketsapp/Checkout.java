@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -56,6 +57,7 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
         intent.putExtra("basket", basket);
         intent.putExtra("user", user);
         startActivity(intent);
+        finish();
     }
 
     @Override
@@ -65,6 +67,7 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
             intent.putExtra("basket", basket);
             intent.putExtra("user", user);
             startActivity(intent);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -148,10 +151,14 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
             }
         };
 
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
         requestQueue.add(stringRequest);
     }
 
     private void displayBooking() {
+
+        //if this page is loaded, the booking was successful
 
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle("Payment successful");
@@ -165,6 +172,12 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
             }
         });
         dialog.show();
+
+
+        /*
+        \n, <br>, and £ were not being sent over the network; once the script receives the
+        the transmitted text these final strings are replaced with the appropriate symbols
+         */
 
         final String NEWLINE = "newline";
         final String POUNDSYMBOL = "poundsymbol";
@@ -191,6 +204,7 @@ public class Checkout extends AppCompatActivity implements CheckoutRecyclerViewA
                 toDisplay.toString() + NEWLINE + "You can access your tickets in the My Bookings section of the app." +
                 NEWLINE + NEWLINE + "Many thanks, " + NEWLINE + "Theatre Tickets App";
 
+        //save booking and tickets to db
         basketToDb();
 
     }
