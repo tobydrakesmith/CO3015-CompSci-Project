@@ -2,6 +2,7 @@ package com.activities.theatreticketsapp;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,6 +55,8 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -162,7 +165,7 @@ public class Register extends AppCompatActivity {
         }
 
         if (!valid)
-            progressBar.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.INVISIBLE);
 
 
         return valid;
@@ -266,7 +269,8 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 int id = radioGroup.getCheckedRadioButtonId();
-                if (id != 1) {
+                System.out.println("ID: " + id);
+                if (id != -1) {
                     RadioButton checkedBtn = dialogView.findViewById(id);
                     String text = checkedBtn.getText().toString();
                     switch (text) {
@@ -281,6 +285,7 @@ public class Register extends AppCompatActivity {
                             firebaseMessaging.subscribeToTopic("musicals");
                             break;
                     }
+
                 }
 
                 Intent intent = new Intent(Register.this, Homepage.class);

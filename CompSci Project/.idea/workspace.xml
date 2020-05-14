@@ -73,7 +73,7 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="ce01182110b0082f0c" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-04-29T13:48:57.469Z" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ScannerApp" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />

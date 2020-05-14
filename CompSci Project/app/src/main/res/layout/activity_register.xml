@@ -34,52 +34,76 @@
             android:layout_width="310dp"
             android:layout_height="48dp"
             android:layout_gravity="center"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="10dp"
             android:background="@android:drawable/editbox_background"
             android:ems="10"
             android:hint="@string/prompt_firstname"
             android:importantForAutofill="no"
-            android:inputType="textPersonName|textCapSentences"
-        />
+            android:inputType="textPersonName|textCapSentences" />
 
         <EditText
             android:id="@+id/lastname"
             android:layout_width="310dp"
             android:layout_height="48dp"
             android:layout_gravity="center"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="10dp"
             android:background="@android:drawable/editbox_background"
             android:ems="10"
             android:hint="@string/prompt_lastname"
             android:importantForAutofill="no"
-            android:inputType="textPersonName|text|textCapSentences"
-         />
+            android:inputType="textPersonName|text|textCapSentences" />
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="310dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="28dp"
-            android:background="@android:drawable/editbox_background"
-            android:ems="10"
-            android:hint="@string/prompt_password"
-            android:importantForAutofill="no"
-            android:inputType="textPassword"
-            />
+<!--        <EditText-->
+<!--            android:id="@+id/password"-->
+<!--            android:layout_width="310dp"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="28dp"-->
+<!--            android:background="@android:drawable/editbox_background"-->
+<!--            android:ems="10"-->
+<!--            android:hint="@string/prompt_password"-->
+<!--            android:importantForAutofill="no"-->
+<!--            android:inputType="textPassword" />-->
 
-        <EditText
-            android:id="@+id/confirmPassword"
-            android:layout_width="310dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="28dp"
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@android:drawable/editbox_background"
-            android:ems="10"
-            android:hint="@string/prompt_confirm_password"
-            android:importantForAutofill="no"
-            android:inputType="textPassword"
-            />
+            app:passwordToggleEnabled="true">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="310dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:background="@android:drawable/editbox_background"
+                android:hint="@string/prompt_password"
+                android:inputType="textPassword" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirmPassword"
+                android:layout_width="310dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:background="@android:drawable/editbox_background"
+                android:ems="10"
+                android:hint="@string/prompt_confirm_password"
+                android:importantForAutofill="no"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/registerBtn"

@@ -107,7 +107,7 @@ public class MyBasket extends AppCompatActivity implements MyBasketRecyclerViewA
 
         if (!basket.isEmpty())
             countDownTimer.start();
-        
+
 
         RecyclerView recyclerView = findViewById(R.id.basketView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
